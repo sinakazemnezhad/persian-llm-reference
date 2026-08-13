@@ -1,6 +1,22 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.11.0 — 2026-08-13
+
+- **PROGRESS** Editorial Persian home: single-column hero, warm light default, human copy, no SaaS eyebrow/stat cards/principle grid; site-intro prose + text links.
+
+## 0.10.6 — 2026-08-13
+
+- **PROGRESS** Persian voice pass: warmer copy, RTL typography, visible section headings, localized brand and API line.
+
+## 0.10.5 — 2026-08-13
+
+- **FIX** Persian UI copy: natural tone, no em-dash marketing separators in hero and site sections.
+
+## 0.10.4 — 2026-08-13
+
+- **FIX** Light theme: load `tokens.css` directly (not `@import`), sync toggle aria-label on change, reconcile theme on bfcache restore, brighter light palette.
+
 ## 0.10.3 — 2026-08-13
 
 - **Light theme fix:** separate `html[data-theme]` tokens (no `:root` dark bleed); SVG sun/moon toggle via `theme-init.js`.

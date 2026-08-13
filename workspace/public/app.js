@@ -1,12 +1,14 @@
 const I18N = {
   en: {
     "nav.contribute": "GitHub",
+    "nav.skip": "Skip to registry",
     "nav.atlas": "Registry",
     "nav.timeline": "Timeline",
     "nav.radar": "Sources",
     "nav.gap": "Gaps",
     "nav.tree": "Tree",
     "nav.references": "References",
+    "brand.name": "Persian LLM Reference",
     "hero.ctaAtlas": "Browse registry",
     "hero.ctaRefs": "Ecosystem sources",
     "hero.ctaJson": "JSON manifest",
@@ -34,10 +36,10 @@ const I18N = {
     "axis.curriculumFit": "Curriculum",
     "axis.literaryDepth": "Literary",
     "axis.nativePreference": "Native",
-    "hero.kicker": "Open reference · every claim sourced",
     "hero.title": "Persian LLM Reference",
-    "hero.lede":
-      "A structured open registry for Persian models — models, datasets, benchmarks, leaderboards. JSON for researchers, developers, and agents. Community-maintained alongside Awesome lists and public leaderboards.",
+    "hero.lede": "A registry of Persian models, datasets, and benchmarks. Every entry has a source and a clear status.",
+    "intro.body":
+      "This page is for anyone who needs to know what exists for Persian. You should not have to chase scattered links. Every row points to a primary source. If you see a score, you can verify it yourself.",
     "compare.heading": "Why use this reference?",
     "compare.panel": "Compare (up to 3)",
     "compare.add": "Compare",
@@ -52,6 +54,8 @@ const I18N = {
     "stats.entries": "entries",
     "stats.models": "models",
     "stats.datasets": "datasets",
+    "stats.manifest": "manifest",
+    "stats.summary": "{measured} measured, {verified} verified, v{version}",
     "filter.search": "Search…",
     "filter.all": "All classes",
     "filter.kindAll": "All kinds",
@@ -125,17 +129,19 @@ const I18N = {
   },
   fa: {
     "nav.contribute": "گیت‌هاب",
+    "nav.skip": "رفتن به فهرست",
     "nav.atlas": "فهرست",
     "nav.timeline": "گاه‌شمار",
-    "nav.radar": "منابع",
-    "nav.gap": "شکاف‌ها",
-    "nav.tree": "درخت",
+    "nav.radar": "وضعیت میدان",
+    "nav.gap": "جاهای خالی",
+    "nav.tree": "دسته‌بندی",
     "nav.references": "منابع",
-    "hero.ctaAtlas": "مرور فهرست",
-    "hero.ctaRefs": "منابع اکوسیستم",
-    "hero.ctaJson": "JSON manifest",
-    "tree.heading": "درخت اکوسیستم",
-    "tree.sub": "طبقه‌بندی و تبار پایهٔ مدل‌ها — فقط از فیلدهای manifest، بدون ساخت نسبت ساختگی.",
+    "brand.name": "مرجع مدل‌های فارسی",
+    "hero.ctaAtlas": "دیدن فهرست",
+    "hero.ctaRefs": "منابع اصلی",
+    "hero.ctaJson": "دریافت JSON",
+    "tree.heading": "دسته‌بندی و تبار",
+    "tree.sub": "مدل‌ها را بر اساس نوع و مدل پایه می‌چینیم. فقط از دادهٔ همین فهرست.",
     "tree.taxonomy": "طبقه‌بندی",
     "tree.lineage": "تبار پایه",
     "tree.clear": "پاک کردن فیلتر درخت",
@@ -150,7 +156,7 @@ const I18N = {
     "inspector.benchmarks": "معیارهای سنجش",
     "inspector.axes": "محورهای فارسی",
     "inspector.links": "منابع",
-    "inspector.open": "مشاهدهٔ جزئیات",
+    "inspector.open": "جزئیات بیشتر",
     "inspector.share": "اشتراک لینک",
     "inspector.copied": "کپی شد",
     "axis.scriptFidelity": "خط",
@@ -158,52 +164,54 @@ const I18N = {
     "axis.curriculumFit": "برنامهٔ درسی",
     "axis.literaryDepth": "ادبیات",
     "axis.nativePreference": "ترجیح بومی",
-    "hero.kicker": "مرجع باز · هر ادعا با منبع معتبر",
     "hero.title": "مرجع مدل‌های زبانی فارسی",
-    "hero.lede":
-      "جایی برای پیدا کردن مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع، وضعیت تأیید و خروجی JSON برای تیم‌های فنی، استارتاپ‌ها و پژوهشگران. مثل فهرست‌های پراکنده نیست؛ جمع‌آوری شده و با هم به‌روز می‌شود.",
-    "compare.heading": "چرا از این مرجع استفاده کنیم؟",
-    "compare.panel": "مقایسه (حداکثر ۳ مورد)",
+    "hero.lede": "فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. هر مورد منبع دارد و وضعیتش مشخص است.",
+    "intro.body":
+      "این صفحه برای کسی است که می‌خواهد بداند در فارسی چه مدل و داده و معیاری وجود دارد. لازم نیست بین لینک‌های پراکنده بگردید. هر ردیف به منبع اصلی وصل است. اگر عددی می‌بینید می‌توانید خودتان بروید بررسی کنید.",
+    "compare.heading": "چرا اینجا؟",
+    "compare.panel": "مقایسه، حداکثر ۳ مورد",
     "compare.add": "افزودن به مقایسه",
     "compare.clear": "پاک کردن",
-    "compare.empty": "حداکثر ۳ مورد را برای مقایسهٔ کنارهم انتخاب کنید.",
-    "gap.filter": "فیلتر بر اساس موضوع",
+    "compare.empty": "حداکثر ۳ مورد را کنار هم انتخاب کنید.",
+    "gap.filter": "فیلتر موضوع",
     "gap.clear": "نمایش همه",
-    "compare.c1": "اطلاعات منظم و قابل‌استفاده — نه فقط لیست لینک",
-    "compare.c2": "سه سطح اعتماد: ثبت اولیه → تأیید منبع → نمرهٔ مستند",
-    "compare.c3": "معیارهای ویژهٔ فارسی (خط، حقوق داده، ادبیات)",
-    "compare.c4": "فارسی و انگلیسی · API ثابت برای اتوماسیون",
+    "compare.c1": "هر مورد یک ردیف منظم است، نه فقط یک لینک پراکنده",
+    "compare.c2": "اول ثبت، بعد تأیید منبع، بعد نمره اگر بود",
+    "compare.c3": "برای فارسی معیارهای جدا داریم. خط، حقوق داده، ادبیات.",
+    "compare.c4": "هم فارسی هم انگلیسی. همان آدرس داده برای تیم و اسکریپت.",
     "stats.entries": "مورد",
     "stats.models": "مدل",
     "stats.datasets": "داده",
-    "filter.search": "جستجو در نام، سازمان، توضیح…",
+    "stats.manifest": "فهرست داده",
+    "stats.summary": "{measured} با نمره، {verified} تأیید شده، نسخه {version}",
+    "filter.search": "جستجو…",
     "filter.all": "همهٔ دسته‌ها",
     "filter.kindAll": "همهٔ انواع",
     "filter.statusAll": "همهٔ وضعیت‌ها",
     "atlas.heading": "فهرست مدل‌ها و داده‌ها",
-    "atlas.empty": "موردی با این فیلتر پیدا نشد.",
-    "gap.heading": "چه چیزهایی هنوز کم است؟",
-    "timeline.heading": "گاه‌شمار اکوسیستم",
-    "timeline.sub": "نسخه‌های مهم مرجع و آخرین موارد تأییدشده — بر پایهٔ منبع واقعی، نه شعار تبلیغاتی.",
+    "atlas.empty": "چیزی با این فیلتر پیدا نشد.",
+    "gap.heading": "چه چیزهایی هنوز نیامده؟",
+    "timeline.heading": "گاه‌شمار",
+    "timeline.sub": "نسخه‌های مهم و تازه‌ترین موارد تأییدشده.",
     "timeline.more": "مورد دیگر",
     "timeline.release": "نسخه",
     "timeline.firstSeen": "اولین ثبت",
-    "radar.heading": "نقشهٔ منابع فارسی",
-    "radar.sub": "چه چیزی در میدان هست، چه چیزی اینجا ثبت شده و چه چیزی هنوز در دست توسعه است.",
-    "radar.cataloged": "در این مرجع",
-    "radar.gap": "شکاف بازار",
+    "radar.heading": "وضعیت میدان",
+    "radar.sub": "چه چیز هست، چه چیز اینجا ثبت شده، چه چیز هنوز نیامده.",
+    "radar.cataloged": "ثبت شده اینجا",
+    "radar.gap": "هنوز نیامده",
     "radar.planned": "در راه",
     "radar.forecast": "برنامهٔ توسعه",
     "radar.sourceLink": "مشاهدهٔ منبع",
-    "trust.heading": "اعتبار و روش کار",
+    "trust.heading": "اعتبار از کجا می‌آید؟",
     "trust.body":
-      "هر مورد باید به منبع اصلی (مقاله، گیت‌هاب، هابینگ فیس) وصل باشد. وضعیت فقط با مدرک عوض می‌شود: از ثبت اولیه به تأییدشده و بعد با نمرهٔ مستند. امتیازهای محور فارسی برآورد تیم تحریریه است؛ اگر چیزی نامشخص است خالی می‌ماند — عدد ساختگی نمی‌زنیم.",
+      "هر ردیف به منبع اصلی وصل است. وضعیت بدون مدرک عوض نمی‌شود. جایی که مطمئن نیستیم خالی می‌ماند.",
     "trust.methodology": "روش کار",
     "trust.roadmap": "نقشهٔ راه",
     "trust.awesome": "فهرست Awesome-Persian-LLM",
     "trust.references": "منابع و ارجاعات",
-    "refs.heading": "منابع و ارجاعات",
-    "refs.sub": "PLR در کنار فهرست‌های کشف، جدول‌های امتیاز و مقالات — نه جایگزین آن‌ها. هر ردیف به منبع اصلی خودش لینک دارد.",
+    "refs.heading": "ارجاع به منابع",
+    "refs.sub": "کنار فهرست‌های دیگر می‌ایستیم. جای آن‌ها را نمی‌گیریم. برای هر منبع لینک خودش را داریم.",
     "refs.type.upstream-discovery": "کشف",
     "refs.type.leaderboard": "جدول امتیاز",
     "refs.type.benchmark": "معیار سنجش",
@@ -212,10 +220,10 @@ const I18N = {
     "refs.extra": "صفحهٔ پروژه",
     "cite.copy": "کپی BibTeX",
     "cite.copied": "کپی شد",
-    "footer.tagline": "مرجع باز و قابل‌استناد برای اکوسیستم مدل‌های زبانی فارسی.",
-    "theme.toLight": "تغییر به حالت روشن",
-    "theme.toDark": "تغییر به حالت تیره",
-    "footer.law": "نمرهٔ ساختگی ممنوع · مرجع جامعه‌محور — سازندگان و منابعشان را ذکر می‌کنیم",
+    "footer.tagline": "راهنمای باز مدل‌های زبانی فارسی",
+    "theme.toLight": "حالت روشن",
+    "theme.toDark": "حالت تیره",
+    "footer.law": "عدد نمی‌سازیم. اسم سازنده و منبع را می‌نویسیم.",
     "view.grid": "نمای کارت",
     "view.table": "نمای جدول",
     "export.csv": "دانلود CSV",
@@ -243,9 +251,9 @@ const I18N = {
     "kind.dataset": "داده",
     "kind.leaderboard": "جدول",
     "kind.community-index": "فهرست",
-    "status.indexed": "ثبت اولیه",
-    "status.verified": "تأییدشده",
-    "status.measured": "با نمرهٔ مستند",
+    "status.indexed": "تازه ثبت شده",
+    "status.verified": "تأیید شده",
+    "status.measured": "با نمره",
   },
 };
 
@@ -280,22 +288,22 @@ const RELEASE_MILESTONES = [
   {
     date: "2026-08-12",
     en: "v0.3 — structured atlas, 41+ entries, bilingual UI",
-    fa: "نسخه ۰.۳ — راه‌اندازی اطلس با بیش از ۴۱ مورد و رابط دوزبانه",
+    fa: "نسخه ۰.۳. راه‌اندازی اطلس با بیش از ۴۱ مورد و رابط دوزبانه",
   },
   {
     date: "2026-08-13",
     en: "v0.4 — 55 entries, link CI, PersianMedQA measured wave",
-    fa: "نسخه ۰.۴ — ۵۵ مورد، بررسی خودکار لینک‌ها، نمره‌های PersianMedQA",
+    fa: "نسخه ۰.۴. ۵۵ مورد، بررسی خودکار لینک‌ها، نمره‌های PersianMedQA",
   },
   {
     date: "2026-08-13",
     en: "v0.9 — ecosystem tree: taxonomy + base lineage + related entries",
-    fa: "نسخه ۰.۹ — درخت اکوسیستم: طبقه‌بندی، تبار پایه، موارد مرتبط",
+    fa: "نسخه ۰.۹. درخت اکوسیستم، طبقه‌بندی، تبار پایه، موارد مرتبط",
   },
   {
     date: "2026-08-13",
     en: "v0.8 — atlas UI v2: workspace, inspector, command palette",
-    fa: "نسخه ۰.۸ — رابط اطلس نسل دوم: فضای کاری، جزئیات، جستجوی سریع",
+    fa: "نسخه ۰.۸. رابط اطلس نسل دوم، فضای کاری، جزئیات، جستجوی سریع",
   },
 ];
 
@@ -333,7 +341,9 @@ function updateThemeToggle() {
 }
 
 function initThemeToggle() {
+  window.plrSyncThemeToggle = updateThemeToggle;
   updateThemeToggle();
+  document.addEventListener("plr-theme-change", updateThemeToggle);
 }
 
 function resolveEntryId() {
@@ -364,6 +374,7 @@ function statusLabel(status) {
 function applyI18n() {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+  document.title = lang === "fa" ? "مرجع مدل‌های زبانی فارسی" : "Persian LLM Reference";
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     el.textContent = t(el.getAttribute("data-i18n"));
   });
@@ -376,13 +387,19 @@ function applyI18n() {
     });
   }
   document.getElementById("lang-toggle").textContent = lang === "fa" ? "EN" : "فا";
+  setApiLine();
 }
 
 function setApiLine() {
   const path = siteConfig?.manifestPath || "/data/reference-manifest.json";
   const raw = siteConfig?.manifestRaw || path;
-  document.getElementById("api-line").innerHTML =
-    `API: <code>${path}</code> · raw: <code>${raw}</code>`;
+  const el = document.getElementById("api-line");
+  if (!el) return;
+  if (lang === "fa") {
+    el.innerHTML = `داده: <code>${path}</code>، خام: <code>${raw}</code>`;
+  } else {
+    el.innerHTML = `API: <code>${path}</code> · raw: <code>${raw}</code>`;
+  }
 }
 
 function citeBibtex() {
@@ -448,7 +465,7 @@ function renderReferences() {
         <h3 class="ref-card__title"><a href="${c.url}" target="_blank" rel="noopener">${c.title}</a></h3>
         ${note ? `<p class="ref-card__note">${note}</p>` : ""}
         <div class="ref-card__actions">
-          <a class="ref-card__link" href="${c.url}" target="_blank" rel="noopener">${t("refs.visit")} →</a>
+          <a class="ref-card__link" href="${c.url}" target="_blank" rel="noopener">${t("refs.visit")}${lang === "fa" ? "" : " →"}</a>
           ${extra}
         </div>
       </article>`;
@@ -459,52 +476,29 @@ function renderReferences() {
 function renderStats() {
   const s = manifest.stats || {};
   const bar = document.getElementById("stats-bar");
+  if (!bar) return;
+  const total = s.total || manifest.entries.length;
   const models = s.byKind?.model || manifest.entries.filter((e) => e.kind === "model").length;
   const datasets = s.byKind?.dataset || manifest.entries.filter((e) => e.kind === "dataset").length;
   const measured = s.byStatus?.measured || manifest.entries.filter((e) => e.status === "measured").length;
   bar.innerHTML = `
-    <div class="stat-card">
-      <span class="stat-card__value">${s.total || manifest.entries.length}</span>
-      <span class="stat-card__label">${t("stats.entries")}</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-card__value">${models}</span>
-      <span class="stat-card__label">${t("stats.models")}</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-card__value">${datasets}</span>
-      <span class="stat-card__label">${t("stats.datasets")}</span>
-    </div>
-    <div class="stat-card stat-card--accent">
-      <span class="stat-card__value">${measured}</span>
-      <span class="stat-card__label">${t("status.measured")}</span>
-    </div>
-    <div class="stat-card stat-card--meta">
-      <span class="stat-card__label">v${manifest.version} · ${manifest.generatedAt?.slice(0, 10) || ""}</span>
-      <span class="stat-card__value">manifest</span>
-    </div>`;
+    <div class="hero-stat"><strong>${total}</strong><span>${t("stats.entries")}</span></div>
+    <div class="hero-stat"><strong>${models}</strong><span>${t("stats.models")}</span></div>
+    <div class="hero-stat"><strong>${datasets}</strong><span>${t("stats.datasets")}</span></div>
+    <div class="hero-stat hero-stat--accent"><strong>${measured}</strong><span>${t("status.measured")}</span></div>`;
 }
 
 function renderTrustPipeline() {
   const el = document.getElementById("trust-pipeline");
   if (!el || !manifest) return;
   const s = manifest.stats?.byStatus || {};
-  const indexed = s.indexed ?? manifest.entries.filter((e) => e.status === "indexed").length;
   const verified = s.verified ?? manifest.entries.filter((e) => e.status === "verified").length;
   const measured = s.measured ?? manifest.entries.filter((e) => e.status === "measured").length;
-  el.innerHTML = `
-    <div class="trust-step trust-step--indexed">
-      <span class="trust-step__count">${indexed}</span>
-      <span class="trust-step__label">${t("status.indexed")}</span>
-    </div>
-    <div class="trust-step trust-step--verified">
-      <span class="trust-step__count">${verified}</span>
-      <span class="trust-step__label">${t("status.verified")}</span>
-    </div>
-    <div class="trust-step trust-step--measured">
-      <span class="trust-step__count">${measured}</span>
-      <span class="trust-step__label">${t("status.measured")}</span>
-    </div>`;
+  const version = manifest.version || "";
+  el.textContent = t("stats.summary")
+    .replace("{measured}", measured)
+    .replace("{verified}", verified)
+    .replace("{version}", version);
 }
 
 function renderResultsMeta(count) {
@@ -515,7 +509,8 @@ function renderResultsMeta(count) {
     el.textContent = "";
     return;
   }
-  const extra = hasTreeFilter() ? ` · ${t("tree.filterActive")}` : "";
+  const sep = lang === "fa" ? "، " : " · ";
+  const extra = hasTreeFilter() ? `${sep}${t("tree.filterActive")}` : "";
   el.innerHTML = `${t("results.showing")} <strong>${count}</strong> ${t("results.of")} <strong>${total}</strong> ${t("results.entries")}${extra}`;
 }
 

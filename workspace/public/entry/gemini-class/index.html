@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gemini class (proprietary) · Persian LLM Reference</title>
   <meta name="description" content="Frontier multilingual; Persian supported — not Persian-native foundation." />
   <meta property="og:title" content="مرجع مدل‌های زبانی فارسی" />
-  <meta property="og:description" content="فهرست معتبر مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع و خروجی JSON." />
+  <meta property="og:description" content="مدل، داده و معیار فارسی را اینجا یکجا می‌بینید. برای هر مورد می‌دانید از کجا آمده." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" id="theme-color-active" content="#050608" />
+  <meta name="theme-color" id="theme-color-active" content="#faf7f2" />
   <script>
     (function () {
-      var saved = localStorage.getItem("plr-theme");
+      var STORAGE = "plr-theme";
+      var saved = localStorage.getItem(STORAGE);
       var theme =
-        saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        saved === "light" || saved === "dark"
+          ? saved
+          : "light";
       document.documentElement.setAttribute("data-theme", theme);
       var meta = document.getElementById("theme-color-active");
-      if (meta) meta.content = theme === "light" ? "#f4f1ea" : "#050608";
+      if (meta) meta.content = theme === "light" ? "#faf7f2" : "#050608";
     })();
   </script>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../app.css?v=0.10.3" />
-  <script src="../../theme-init.js?v=0.10.3" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../tokens.css?v=0.11.0" />
+  <link rel="stylesheet" href="../../app.css?v=0.11.0" />
+  <script src="../../theme-init.js?v=0.11.0" defer></script>
   <script type="application/ld+json" id="schema-dataset"></script>
 
   <link rel="canonical" href="https://sinakazemnezhad.github.io/persian-llm-reference/entry/gemini-class/" />
@@ -35,7 +39,7 @@
   <script>window.__PLR_ENTRY_ID__="gemini-class";</script>
 </head>
 <body>
-  <a class="skip-link" href="#atlas">Skip to atlas</a>
+  <a class="skip-link" href="#atlas" data-i18n="nav.skip">رفتن به فهرست</a>
 
   <div class="app-shell" id="app-shell">
     <header class="site-header" id="site-header">
@@ -44,17 +48,17 @@
           <svg class="brand-logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
             <rect x="1" y="1" width="26" height="26" rx="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
             <path d="M8 18 L14 8 L20 18" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lg" x1="8" y1="8" x2="20" y2="18"><stop stop-color="#6b9fff"/><stop offset="1" stop-color="#9b87f5"/></linearGradient></defs>
+            <defs><linearGradient id="lg" x1="8" y1="8" x2="20" y2="18"><stop stop-color="#0d5c44"/><stop offset="1" stop-color="#3d8f6e"/></linearGradient></defs>
           </svg>
-          <span class="brand-text">Persian LLM <em>Reference</em></span>
+          <span class="brand-text" data-i18n="brand.name">مرجع مدل‌های فارسی</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
         <a href="#atlas" data-i18n="nav.atlas">فهرست</a>
-        <a href="#tree" data-i18n="nav.tree">درخت</a>
+        <a href="#tree" data-i18n="nav.tree">دسته‌بندی</a>
         <a href="#references" data-i18n="nav.references">منابع</a>
         <a href="#timeline" data-i18n="nav.timeline">گاه‌شمار</a>
-          <a href="#source-radar" data-i18n="nav.radar">رادار</a>
-          <a href="#gap" data-i18n="nav.gap">شکاف‌ها</a>
+          <a href="#source-radar" data-i18n="nav.radar">وضعیت میدان</a>
+          <a href="#gap" data-i18n="nav.gap">جاهای خالی</a>
         </nav>
         <div class="header-actions">
           <button type="button" class="btn btn-ghost btn-sm theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
@@ -67,48 +71,29 @@
 
     <main>
       <section class="hero">
-        <div class="hero-bg" aria-hidden="true"></div>
         <div class="wrap hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow" data-i18n="hero.kicker">مرجع باز · هر ادعا با منبع معتبر</p>
             <h1 id="atlas-title" data-i18n="hero.title">مرجع مدل‌های زبانی فارسی</h1>
-            <p class="hero-lede" data-i18n="hero.lede">جایی برای پیدا کردن مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع، وضعیت تأیید و خروجی JSON برای تیم‌های فنی و پژوهشگران.</p>
+            <p class="hero-lede" data-i18n="hero.lede">فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. هر مورد منبع دارد و وضعیتش مشخص است.</p>
+            <div class="hero-stats" id="stats-bar" aria-live="polite"></div>
+            <p class="hero-meta" id="trust-pipeline"></p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#atlas" data-i18n="hero.ctaAtlas">مرور فهرست</a>
-              <a class="btn btn-ghost" href="#references" data-i18n="hero.ctaRefs">منابع اکوسیستم</a>
-              <a class="btn btn-ghost" id="hero-manifest-link" href="#" target="_blank" rel="noopener" data-i18n="hero.ctaJson">JSON manifest</a>
+              <a class="btn btn-primary" href="#atlas" data-i18n="hero.ctaAtlas">دیدن فهرست</a>
+              <a class="btn btn-ghost" href="#references" data-i18n="hero.ctaRefs">منابع اصلی</a>
+              <a class="btn btn-ghost" id="hero-manifest-link" href="#" target="_blank" rel="noopener" data-i18n="hero.ctaJson">دریافت JSON</a>
             </div>
           </div>
-          <div class="hero-panel">
-            <div class="stats-bar" id="stats-bar" aria-live="polite"></div>
-            <div class="trust-pipeline" id="trust-pipeline" aria-label="Verification pipeline"></div>
-          </div>
         </div>
       </section>
 
-      <section class="wrap principles" aria-labelledby="compare-heading">
-        <h2 id="compare-heading" class="sr-only" data-i18n="compare.heading">چرا از این مرجع استفاده کنیم؟</h2>
-        <ul class="principle-grid compare-list">
-          <li class="principle-card"><span class="principle-num">01</span><p data-i18n="compare.c1">اطلاعات منظم و قابل‌استفاده — نه فقط لیست لینک</p></li>
-          <li class="principle-card"><span class="principle-num">02</span><p data-i18n="compare.c2">سه سطح اعتماد: ثبت اولیه → تأیید منبع → نمرهٔ مستند</p></li>
-          <li class="principle-card"><span class="principle-num">03</span><p data-i18n="compare.c3">معیارهای ویژهٔ فارسی (خط، حقوق داده، ادبیات)</p></li>
-          <li class="principle-card"><span class="principle-num">04</span><p data-i18n="compare.c4">فارسی و انگلیسی · API ثابت برای اتوماسیون</p></li>
-        </ul>
-      </section>
-
-      <section class="wrap trust-panel" id="trust" aria-labelledby="trust-heading">
-        <div class="trust-banner">
-          <div>
-            <h2 id="trust-heading" data-i18n="trust.heading">اعتبار و روش کار</h2>
-            <p data-i18n="trust.body">هر مورد باید به منبع اصلی وصل باشد. وضعیت فقط با مدرک عوض می‌شود.</p>
-          </div>
-          <div class="trust-links">
-            <a href="#references" data-i18n="trust.references">منابع و ارجاعات</a>
-            <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener" data-i18n="trust.methodology">روش کار</a>
-            <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/ROADMAP.md" target="_blank" rel="noopener" data-i18n="trust.roadmap">نقشهٔ راه</a>
-            <a href="https://github.com/MohammadHeydari/Awesome-Persian-LLM" target="_blank" rel="noopener" data-i18n="trust.awesome">Awesome-Persian-LLM</a>
-          </div>
-        </div>
+      <section class="wrap site-intro" id="about">
+        <p class="intro-prose" data-i18n="intro.body">این صفحه برای کسی است که می‌خواهد بداند در فارسی چه مدل و داده و معیاری وجود دارد. لازم نیست بین لینک‌های پراکنده بگردید. هر ردیف به منبع اصلی وصل است. اگر عددی می‌بینید می‌توانید خودتان بروید بررسی کنید.</p>
+        <nav class="intro-links" aria-label="روش کار">
+          <a href="#references" data-i18n="trust.references">منابع</a>
+          <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener" data-i18n="trust.methodology">روش کار</a>
+          <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/ROADMAP.md" target="_blank" rel="noopener" data-i18n="trust.roadmap">نقشهٔ راه</a>
+          <a href="https://github.com/MohammadHeydari/Awesome-Persian-LLM" target="_blank" rel="noopener" data-i18n="trust.awesome">Awesome-Persian-LLM</a>
+        </nav>
       </section>
 
       <section class="workspace-section wrap" id="atlas" aria-labelledby="atlas-heading">
@@ -135,9 +120,9 @@
               <label class="filter-label" data-i18n="filter.statusAll">وضعیت</label>
               <select id="status-filter" aria-label="Status filter">
                 <option value="" data-i18n="filter.statusAll">همه وضعیت‌ها</option>
-                <option value="indexed" data-i18n="status.indexed">ثبت اولیه</option>
-                <option value="verified" data-i18n="status.verified">تأییدشده</option>
-                <option value="measured" data-i18n="status.measured">با نمرهٔ مستند</option>
+                <option value="indexed" data-i18n="status.indexed">تازه ثبت شده</option>
+                <option value="verified" data-i18n="status.verified">تأیید شده</option>
+                <option value="measured" data-i18n="status.measured">با نمره</option>
               </select>
             </div>
 
@@ -180,8 +165,8 @@
       <section class="section wrap" id="tree" aria-labelledby="tree-heading">
         <div class="section-head">
           <div>
-            <h2 id="tree-heading" class="section-title" data-i18n="tree.heading">درخت اکوسیستم</h2>
-            <p class="section-sub tree-sub" data-i18n="tree.sub">طبقه‌بندی و تبار مدل‌ها — بر پایهٔ دادهٔ موجود در manifest.</p>
+            <h2 id="tree-heading" class="section-title" data-i18n="tree.heading">دسته‌بندی و تبار</h2>
+            <p class="section-sub tree-sub" data-i18n="tree.sub">مدل‌ها را بر اساس نوع و مدل پایه می‌چینیم. فقط از دادهٔ همین فهرست.</p>
           </div>
           <button type="button" class="btn btn-ghost btn-sm hidden" id="tree-clear" data-i18n="tree.clear">پاک کردن فیلتر درخت</button>
         </div>
@@ -199,19 +184,19 @@
 
       <section class="section wrap" id="timeline" aria-labelledby="timeline-heading">
         <h2 id="timeline-heading" class="section-title" data-i18n="timeline.heading">گاه‌شمار اکوسیستم</h2>
-        <p class="section-sub" data-i18n="timeline.sub">نسخه‌های مهم مرجع و آخرین موارد تأییدشده.</p>
+        <p class="section-sub" data-i18n="timeline.sub">نسخه‌های مهم و تازه‌ترین موارد تأییدشده.</p>
         <div class="timeline-list" id="timeline-list"></div>
       </section>
 
       <section class="section wrap" id="source-radar" aria-labelledby="radar-heading">
-        <h2 id="radar-heading" class="section-title" data-i18n="radar.heading">نقشهٔ منابع فارسی</h2>
-        <p class="section-sub" data-i18n="radar.sub">چه چیزی در میدان هست و چه چیزی اینجا ثبت شده.</p>
+        <h2 id="radar-heading" class="section-title" data-i18n="radar.heading">وضعیت میدان</h2>
+        <p class="section-sub" data-i18n="radar.sub">چه چیز هست، چه چیز اینجا ثبت شده، چه چیز هنوز نیامده.</p>
         <div id="radar-panel"></div>
       </section>
 
       <section class="section wrap" id="gap" aria-labelledby="gap-heading">
         <div class="section-head">
-          <h2 id="gap-heading" class="section-title" data-i18n="gap.heading">چه چیزهایی هنوز کم است؟</h2>
+          <h2 id="gap-heading" class="section-title" data-i18n="gap.heading">چه چیزهایی هنوز نیامده؟</h2>
           <button type="button" class="btn btn-ghost btn-sm hidden" id="gap-clear" data-i18n="gap.clear">نمایش همه</button>
         </div>
         <ul class="gap-list" id="gap-list"></ul>
@@ -220,8 +205,8 @@
       <section class="section wrap references-section" id="references" aria-labelledby="references-heading">
         <div class="section-head">
           <div>
-            <h2 id="references-heading" class="section-title" data-i18n="refs.heading">منابع و ارجاعات</h2>
-            <p class="section-sub" data-i18n="refs.sub">PLR در کنار فهرست‌های کشف، جدول‌های امتیاز و مقالات — نه جایگزین آن‌ها. هر ردیف به منبع اصلی خودش لینک دارد.</p>
+            <h2 id="references-heading" class="section-title" data-i18n="refs.heading">ارجاع به منابع</h2>
+            <p class="section-sub" data-i18n="refs.sub">کنار فهرست‌های دیگر می‌ایستیم. جای آن‌ها را نمی‌گیریم. برای هر منبع لینک خودش را داریم.</p>
           </div>
         </div>
         <div class="refs-grid" id="refs-grid" aria-live="polite"></div>
@@ -236,9 +221,9 @@
     <footer class="site-footer">
       <div class="wrap footer-grid">
         <div class="footer-col footer-col--brand">
-          <p class="footer-brand">Persian LLM <em>Reference</em></p>
-          <p class="footer-tagline" data-i18n="footer.tagline">مرجع باز و قابل‌استناد برای اکوسیستم مدل‌های زبانی فارسی.</p>
-          <p class="footer-note" data-i18n="footer.law">نمرهٔ ساختگی ممنوع · مرجع جامعه‌محور برای همهٔ فارسی‌زبان‌ها</p>
+          <p class="footer-brand" data-i18n="brand.name">مرجع مدل‌های فارسی</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">راهنمای باز مدل‌های زبانی فارسی</p>
+          <p class="footer-note" data-i18n="footer.law">عدد نمی‌سازیم. اسم سازنده و منبع را می‌نویسیم.</p>
         </div>
         <div class="footer-col footer-col--cite">
           <div class="cite-block" id="cite-block"></div>
@@ -267,6 +252,6 @@
 
   <div class="boot-loader" id="boot-loader" aria-hidden="true"><div class="boot-spinner"></div></div>
 
-  <script src="../../app.js?v=0.10.3" type="module"></script>
+  <script src="../../app.js?v=0.11.0" type="module"></script>
 </body>
 </html>

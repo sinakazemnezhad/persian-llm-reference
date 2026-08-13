@@ -40,6 +40,8 @@ async function main() {
     record("home references section", home.text.includes("refs-grid") && home.text.includes("references-heading"));
     record("theme toggle present", home.text.includes('id="theme-toggle"'));
     record("theme-init script", home.text.includes("theme-init.js"));
+    record("tokens.css linked", home.text.includes("tokens.css"));
+    record("inline theme bootstrap", home.text.includes('setAttribute("data-theme"'));
     const entryPage = await fetchText("/entry/dorna-llama3-8b/");
     record("entry page /entry/{id}/", entryPage.status === 200 && entryPage.text.includes("dorna-llama3-8b"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);
@@ -83,10 +85,28 @@ async function main() {
     const count = await page.locator(".entry-card").count();
     record("browser renders entries", count >= MIN_ENTRIES);
 
+    await page.evaluate(() => {
+      localStorage.setItem("plr-theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    });
+    await page.reload({ waitUntil: "domcontentloaded" });
+
     await page.locator("#lang-toggle").click();
     await page.waitForTimeout(100);
     const title = await page.locator("#atlas-title").textContent();
     record("lang toggle", /Persian|فارسی|مرجع/.test(title || ""));
+
+    const darkBg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    await page.locator("#theme-toggle").click();
+    await page.waitForTimeout(200);
+    const themeState = await page.evaluate(() => ({
+      theme: document.documentElement.getAttribute("data-theme"),
+      bg: getComputedStyle(document.body).backgroundColor,
+      bg0: getComputedStyle(document.documentElement).getPropertyValue("--bg-0").trim(),
+    }));
+    record("theme toggle changes data-theme", themeState.theme === "light" || themeState.theme === "dark");
+    record("theme toggle changes background", themeState.bg !== darkBg);
+    record("light theme sets --bg-0", themeState.theme !== "light" || themeState.bg0 === "#faf7f2");
 
     await browser.close();
   } catch (err) {

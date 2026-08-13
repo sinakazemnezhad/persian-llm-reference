@@ -122,6 +122,7 @@ function entryIndexHtml(entry, indexTemplate) {
   let html = indexTemplate
     .replace(/href="favicon\.svg"/, `href="${depth}favicon.svg"`)
     .replace(/href="\.\/"/, `href="${depth}"`)
+    .replace(/href="tokens\.css[^"]*"/, `href="${depth}tokens.css?v=${REF.version}"`)
     .replace(/href="app\.css[^"]*"/, `href="${depth}app.css?v=${REF.version}"`)
     .replace(/src="theme-init\.js[^"]*"/, `src="${depth}theme-init.js?v=${REF.version}"`)
     .replace(/src="app\.js[^"]*"/, `src="${depth}app.js?v=${REF.version}"`)
