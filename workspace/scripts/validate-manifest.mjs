@@ -30,8 +30,8 @@ for (const e of data.entries) {
   }
 }
 
-if (data.entries.length < 55) {
-  console.error(`FAIL  only ${data.entries.length} entries — minimum 55 for global reference v0.4`);
+if (data.entries.length < 60) {
+  console.error(`FAIL  only ${data.entries.length} entries — minimum 60 for global reference v0.5`);
   errors++;
 }
 

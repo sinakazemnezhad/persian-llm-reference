@@ -412,3 +412,90 @@ a {
 .hidden {
   display: none !important;
 }
+
+.timeline-list {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.timeline-day time {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-day ul {
+  margin: 0;
+  padding-inline-start: 1.1rem;
+  color: var(--fog);
+  font-size: var(--text-sm);
+}
+
+.timeline-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  margin-inline-end: 0.35rem;
+}
+
+.timeline-tag--release {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.timeline-tag--measured {
+  border-color: #6ec9a8;
+  color: #6ec9a8;
+}
+
+.radar-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.radar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.radar-card {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.radar-card h3 {
+  margin: 0.35rem 0;
+  font-size: var(--text-base);
+}
+
+.radar-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--fog);
+}
+
+.radar-forecast {
+  margin-bottom: var(--space-4);
+  padding: var(--space-3);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+}
+
+.radar-forecast ul {
+  margin: var(--space-2) 0 0;
+  padding-inline-start: 1.1rem;
+  color: var(--fog);
+}

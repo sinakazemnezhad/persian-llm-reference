@@ -20,6 +20,14 @@ const I18N = {
     "atlas.heading": "Registry",
     "atlas.empty": "No matches.",
     "gap.heading": "Gap map",
+    "timeline.heading": "Field timeline",
+    "timeline.sub": "Registry milestones and recent verification receipts — not hype forecasts.",
+    "radar.heading": "Source radar",
+    "radar.sub": "External Persian LLM artifacts — cataloged, gap, or planned. Not a training corpus.",
+    "radar.cataloged": "cataloged",
+    "radar.gap": "field gap",
+    "radar.planned": "planned",
+    "radar.forecast": "PLR forecast",
     "trust.heading": "Trust & methodology",
     "trust.body":
       "Entries need a primary source URL. Status moves indexed → verified → measured only with cited evidence. Axis scores are editorial estimates where set; null means unknown — never invented.",
@@ -73,6 +81,14 @@ const I18N = {
     "atlas.heading": "رجیستری",
     "atlas.empty": "نتیجه‌ای نیست.",
     "gap.heading": "نقشهٔ شکاف",
+    "timeline.heading": "خط زمان میدان",
+    "timeline.sub": "نقطه‌های عطف رجیستری و رسیدهای تأیید اخیر — نه پیش‌بینی تبلیغاتی.",
+    "radar.heading": "رادار منبع",
+    "radar.sub": "آثار بیرونی مدل‌های فارسی — ثبت‌شده، شکاف، یا برنامه‌ریزی‌شده. نه پیکرهٔ آموزش.",
+    "radar.cataloged": "ثبت‌شده",
+    "radar.gap": "شکاف میدان",
+    "radar.planned": "برنامه‌ریزی",
+    "radar.forecast": "پیش‌بینی PLR",
     "trust.heading": "اعتماد و روش",
     "trust.body":
       "هر رکورد به نشانی منبع اولیه نیاز دارد. وضعیت فقط با استناد indexed → verified → measured می‌شود. نمرهٔ محورها برآورد تحریریه است؛ null یعنی نامشخص — نه ساختگی.",
@@ -132,11 +148,30 @@ const LANES = [
 ];
 
 const AXES = ["scriptFidelity", "corpusLaw", "curriculumFit", "literaryDepth", "nativePreference"];
-const MIN_ENTRIES = 40;
+const MIN_ENTRIES = 60;
+
+const RELEASE_MILESTONES = [
+  {
+    date: "2026-08-12",
+    en: "v0.3 — structured atlas, 41+ entries, bilingual UI",
+    fa: "نسخه ۰٫۳ — اطلس ساختاریافته، ۴۱+ رکورد، رابط دوزبانه",
+  },
+  {
+    date: "2026-08-13",
+    en: "v0.4 — 55 entries, link CI, PersianMedQA measured wave",
+    fa: "نسخه ۰٫۴ — ۵۵ رکورد، CI پیوند، موج measured با PersianMedQA",
+  },
+  {
+    date: "2026-08-13",
+    en: "v0.5 — 60+ entries, source radar UI, medical lane ingest",
+    fa: "نسخه ۰٫۵ — ۶۰+ رکورد، رادار منبع، ورود خط پزشکی",
+  },
+];
 
 let lang = localStorage.getItem("plr-lang") || "fa";
 let manifest = null;
 let siteConfig = null;
+let sourceRadar = null;
 let activeLane = "all";
 let viewMode = localStorage.getItem("plr-view") || "grid";
 let sortKey = "name";
@@ -384,6 +419,126 @@ function renderGap() {
   document.getElementById("gap-list").innerHTML = items.map((li) => `<li>${li}</li>`).join("");
 }
 
+function buildTimelineEvents() {
+  const byDate = new Map();
+  for (const m of RELEASE_MILESTONES) {
+    const label = m[lang] || m.en;
+    if (!byDate.has(m.date)) byDate.set(m.date, []);
+    byDate.get(m.date).push({ type: "release", label });
+  }
+  for (const e of manifest.entries) {
+    if (!e.verifiedAt) continue;
+    const day = e.verifiedAt.slice(0, 10);
+    if (!byDate.has(day)) byDate.set(day, []);
+    const name = e.name[lang] || e.name.en;
+    byDate.get(day).push({ type: "verify", label: name, id: e.id, status: e.status });
+  }
+  return [...byDate.entries()]
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .slice(0, 8);
+}
+
+function renderTimeline() {
+  const el = document.getElementById("timeline-list");
+  if (!el) return;
+  const events = buildTimelineEvents();
+  el.innerHTML = events
+    .map(([date, items]) => {
+      const rows = items
+        .slice(0, 6)
+        .map((item) => {
+          const tag = item.type === "release" ? "release" : item.status || "verified";
+          const link =
+            item.id && item.type === "verify"
+              ? `<a href="${entryUrl(item.id)}">${item.label}</a>`
+              : item.label;
+          return `<li><span class="timeline-tag timeline-tag--${tag}">${tag}</span> ${link}</li>`;
+        })
+        .join("");
+      const more =
+        items.length > 6
+          ? `<li class="muted">+${items.length - 6} ${lang === "fa" ? "بیشتر" : "more"}</li>`
+          : "";
+      return `<div class="timeline-day"><time datetime="${date}">${date}</time><ul>${rows}${more}</ul></div>`;
+    })
+    .join("");
+}
+
+function radarCoverageLabel(coverage) {
+  if (coverage === "field-gap") return t("radar.gap");
+  if (coverage === "planned") return t("radar.planned");
+  return t("radar.cataloged");
+}
+
+function renderRadar() {
+  const panel = document.getElementById("radar-panel");
+  if (!panel || !sourceRadar) return;
+
+  const stats = sourceRadar.stats || {};
+  const forecast = sourceRadar.forecast?.plr || {};
+  const items = (sourceRadar.items || []).slice(0, 12);
+
+  const statHtml = `
+    <div class="radar-stats">
+      <span class="stat"><strong>${stats.cataloged || 0}</strong> ${t("radar.cataloged")}</span>
+      <span class="stat"><strong>${stats.fieldGap || 0}</strong> ${t("radar.gap")}</span>
+      <span class="stat"><strong>${stats.planned || 0}</strong> ${t("radar.planned")}</span>
+      <span class="stat muted">${sourceRadar.version}</span>
+    </div>`;
+
+  const listHtml = items
+    .map((item) => {
+      const name = item.name?.[lang] || item.name?.en || item.id;
+      const analysis = item.analysis?.[lang] || item.analysis?.en || "";
+      const url = item.primaryUrl
+        ? `<a href="${item.primaryUrl}" target="_blank" rel="noopener">${lang === "fa" ? "منبع" : "source"}</a>`
+        : "";
+      const ids =
+        item.plrEntryIds?.length > 0
+          ? `<span class="muted">→ ${item.plrEntryIds.join(", ")}</span>`
+          : "";
+      return `<article class="radar-card">
+        <div class="entry-meta">
+          <span class="badge">${radarCoverageLabel(item.coverage)}</span>
+          <span class="badge">${item.category || "—"}</span>
+        </div>
+        <h3>${name}</h3>
+        <p>${analysis}</p>
+        ${ids}
+        ${url}
+      </article>`;
+    })
+    .join("");
+
+  const f05 = forecast.v0_5 || forecast["v0.5"];
+  const forecastHtml = f05
+    ? `<div class="radar-forecast">
+        <strong>${t("radar.forecast")} v0.5</strong>
+        <span class="muted">${f05.targetEntries}+ entries · ${f05.targetVerified}+ verified · ${f05.targetMeasured}+ measured</span>
+        <ul>${(f05.focus?.[lang] || f05.focus?.en || []).map((li) => `<li>${li}</li>`).join("")}</ul>
+      </div>`
+    : "";
+
+  panel.innerHTML = statHtml + forecastHtml + `<div class="radar-grid">${listHtml}</div>`;
+}
+
+async function loadSourceRadar() {
+  const urls = [
+    new URL("data/source-radar.json", location.href).href,
+    "/data/source-radar.json",
+    "/api/source-radar.json",
+  ];
+  for (const url of urls) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return res.json();
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
+}
+
 function exportCsv() {
   const entries = sortedEntries(filteredEntries());
   const header = ["id", "name_en", "kind", "class", "sizeB", "status", "license", "primary_url"];
@@ -459,12 +614,15 @@ async function boot() {
   }
 
   manifest = await loadManifest();
+  sourceRadar = await loadSourceRadar();
   setApiLine();
   renderCite();
   renderStats();
   injectSchema();
   fillFilters();
   renderLanes();
+  renderTimeline();
+  renderRadar();
   renderGap();
   renderAtlas();
 
@@ -474,6 +632,8 @@ async function boot() {
     applyI18n();
     fillFilters();
     renderLanes();
+    renderTimeline();
+    renderRadar();
     renderGap();
     renderStats();
     renderCite();

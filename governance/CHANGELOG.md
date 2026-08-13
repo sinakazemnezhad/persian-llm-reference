@@ -1,6 +1,14 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.5.0 — 2026-08-13
+
+- **61 entries** (+6): Meditron3-8B, BioMistral-7B, Gaokerena-V, MF3QA, Gemini 2.0 Flash class, Llama 3.1 405B class.
+- **Verification wave:** all 10 remaining `indexed` rows upgraded to `verified`.
+- **Measured lift:** 13 total — Meditron3-8B, Gemini 2.0 Flash, Llama 3.1 405B (PersianMedQA receipts).
+- **Atlas UI:** field timeline (releases + verification receipts) · source radar panel from `source-radar.json`.
+- E2E + validate minimum raised to **60 entries**.
+
 ## 0.4.1 — 2026-08-13
 
 - **Source radar** — `data/source-radar.json`: field map (cataloged / gap / planned), PLR forecast, bilingual field gaps.

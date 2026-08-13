@@ -1,6 +1,6 @@
 {
-  "version": "0.4.0",
-  "generatedAt": "2026-08-13T03:27:05.963Z",
+  "version": "0.5.0",
+  "generatedAt": "2026-08-13T03:32:16.368Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -254,7 +254,7 @@
       "org": "ysn-rfd",
       "sizeB": 0.15,
       "license": "YRSL-restricted",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Claims from-scratch Persian decoder; verify architecture and eval independently.",
         "fa": "ادعای معماری فارسی از صفر — نیاز به تأیید مستقل معماری و ارزیابی."
@@ -283,7 +283,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-13",
       "notes": "Small custom decoder (~152M params); YRSL v1.0 restricted license — not frontier native-foundation scale."
     },
     {
@@ -339,7 +339,7 @@
       "org": "Community",
       "sizeB": 7,
       "license": "Llama-2-community",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Early LLaMA adapter for Persian generation.",
         "fa": "از آداپترهای نخستین لاما برای تولید فارسی."
@@ -368,7 +368,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "qwen25-7b-instruct",
@@ -431,12 +431,14 @@
       "org": "OpenAI",
       "sizeB": null,
       "license": "proprietary",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Frontier closed model; Persian capable but English-born — second-class script risk.",
         "fa": "مدل مرزی بسته؛ فارسی بلد است اما انگلیسی‌زاده — خط درجهٔ دوم."
       },
-      "links": {},
+      "links": {
+        "web": "https://platform.openai.com/docs"
+      },
       "origin": {
         "base": "proprietary",
         "persianTraining": "multilingual-mix"
@@ -458,7 +460,8 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13",
+      "notes": "Legacy GPT-4 class row; see gpt-41-class for PersianMedQA measured receipt."
     },
     {
       "id": "parsbert",
@@ -727,7 +730,7 @@
       "org": "Research",
       "sizeB": null,
       "license": "research",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Short-answer cultural evaluation with Persian morphological variation.",
         "fa": "ارزیابی فرهنگی پاسخ کوتاه با تنوع صرفی فارسی."
@@ -756,7 +759,7 @@
         "literaryDepth": 3,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "gemma3-persian",
@@ -1007,12 +1010,14 @@
       "org": "Google",
       "sizeB": null,
       "license": "proprietary",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Frontier multilingual; Persian supported — not Persian-native foundation.",
         "fa": "مرز چندزبانه؛ فارسی دارد — بنیان فارسی نیست."
       },
-      "links": {},
+      "links": {
+        "web": "https://deepmind.google/technologies/gemini/"
+      },
       "origin": {
         "base": "proprietary",
         "persianTraining": "multilingual-mix"
@@ -1034,7 +1039,8 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13",
+      "notes": "Generic Gemini class; see gemini-25-class and gemini-20-flash-class for PersianMedQA scores."
     },
     {
       "id": "claude-class",
@@ -1433,7 +1439,7 @@
       "org": "Targoman",
       "sizeB": null,
       "license": "see-model-card",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Persian text corpus on Hugging Face — used in open Persian NLP pipelines.",
         "fa": "پیکرهٔ متن فارسی در Hugging Face — در خطوط پردازش باز فارسی."
@@ -1462,7 +1468,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "alpaca-persian",
@@ -1475,7 +1481,7 @@
       "org": "Community",
       "sizeB": null,
       "license": "see-model-card",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Persian translation/adaptation of Alpaca-style instruction data for fine-tuning.",
         "fa": "نسخهٔ فارسی دادهٔ دستوری سبک آلپاکا برای فاین‌تیون."
@@ -1504,7 +1510,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "percul-benchmark",
@@ -2124,7 +2130,7 @@
       "org": "IUST",
       "sizeB": null,
       "license": "research",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "12,282 multi-hop QA pairs from nine Persian Islamic encyclopedias; dataset not yet public.",
         "fa": "۱۲٬۲۸۲ جفت پرسش‌وپاسخ چندگامی از نه دانشنامهٔ اسلامی فارسی؛ پیکره هنوز عمومی نیست."
@@ -2153,7 +2159,7 @@
         "literaryDepth": 3,
         "nativePreference": 2
       },
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-13",
       "notes": "Paper published; public dataset release pending per authors."
     },
     {
@@ -2259,7 +2265,7 @@
       "org": "Alibaba",
       "sizeB": null,
       "license": "mixed",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Qwen3 family on Persian leaderboards; mix of open weights and API-only tiers.",
         "fa": "خانوادهٔ کوئن۳ در جدول‌های فارسی؛ ترکیب وزن باز و API."
@@ -2288,7 +2294,7 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "llama33-class",
@@ -2301,7 +2307,7 @@
       "org": "Meta",
       "sizeB": null,
       "license": "Llama-3.3-community",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Llama 3.3 instruct family — base for many Persian community fine-tunes including Dorna2.",
         "fa": "خانوادهٔ لاما ۳٫۳ دستوری — پایهٔ بسیاری از فاین‌تیون‌های فارسی از جمله درنا۲."
@@ -2330,7 +2336,7 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "wikimedia-fa-wikipedia",
@@ -2473,6 +2479,290 @@
         "nativePreference": 1
       },
       "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "meditron3-8b",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Meditron3-8B",
+        "fa": "مدیترون۳‑۸بی"
+      },
+      "org": "EPFL · Yale",
+      "sizeB": 8,
+      "license": "Llama-2-community",
+      "status": "measured",
+      "summary": {
+        "en": "Medical LLM family on Llama 2 — evaluated on PersianMedQA Persian split (39.70%).",
+        "fa": "خانوادهٔ مدل پزشکی روی لاما ۲ — ارزیابی‌شده در PersianMedQA فارسی (۳۹٫۷۰٪)."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2311.16057",
+        "repo": "https://github.com/epfLLM/Meditron",
+        "hf": "https://huggingface.co/epfl-llm/meditron3-8b"
+      },
+      "origin": {
+        "base": "Llama-2",
+        "persianTraining": "medical-domain-continued-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "weak"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "39.70",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 1
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "biomistral-7b",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "BioMistral-7B",
+        "fa": "بیومیسترال‑۷بی"
+      },
+      "org": "BioMistral",
+      "sizeB": 7,
+      "license": "Apache-2.0",
+      "status": "verified",
+      "summary": {
+        "en": "Open biomedical instruct model on Mistral — multilingual medical QA baseline, not Persian-native.",
+        "fa": "مدل دستوری زیست‌پزشکی باز روی میسترال — خط پایهٔ پرسش‌وپاسخ پزشکی چندزبانه."
+      },
+      "links": {
+        "hf": "https://huggingface.co/BioMistral/BioMistral-7B",
+        "paper": "https://arxiv.org/abs/2402.10373"
+      },
+      "origin": {
+        "base": "Mistral-7B",
+        "persianTraining": "medical-domain-continued-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "weak"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 1
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gaokerena-v",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Gaokerena-V — Persian medical assistant",
+        "fa": "گاوکرنا‑وی — دستیار پزشکی فارسی"
+      },
+      "org": "Gaokerena",
+      "sizeB": 8,
+      "license": "CC-BY-NC-SA-4.0",
+      "status": "verified",
+      "summary": {
+        "en": "First open Persian medical instruct model on Aya-Expanse-8B; 90M-token medical corpus + MF3QA physician Q&A.",
+        "fa": "نخستین مدل دستوری پزشکی فارسی باز روی آیا‑اکسپنس‑۸بی؛ پیکرهٔ ۹۰M توکن + MF3QA."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.16000",
+        "repo": "https://github.com/Mehrdadghassabi/Gaokerena-V",
+        "hf": "https://huggingface.co/gaokerena/gaokerena-v1.0"
+      },
+      "origin": {
+        "base": "aya-expanse-8b",
+        "persianTraining": "domain-SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 2
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gaokerena-mf3qa",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "MF3QA — Persian medical free-form QA",
+        "fa": "ام‌اف۳کیوای — پرسش‌وپاسخ آزاد پزشکی فارسی"
+      },
+      "org": "Gaokerena",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "verified",
+      "summary": {
+        "en": "~186k crawled medical QA pairs plus 20k expert-cleaned physician Q&A for Persian medical LLM training.",
+        "fa": "حدود ۱۸۶هزار جفت پرسش‌وپاسخ پزشکی خزیده‌شده به‌علاوه ۲۰هزار جفت پاک‌سازی‌شدهٔ پزشک."
+      },
+      "links": {
+        "repo": "https://github.com/Mehrdadghassabi/Gaokerena/tree/main/dataset/MF3QA",
+        "paper": "https://arxiv.org/abs/2505.16000",
+        "hf": "https://huggingface.co/datasets/gaokerena/MF3QA"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "instruction-SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 2
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gemini-20-flash-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Gemini 2.0 Flash class (proprietary)",
+        "fa": "ردهٔ جمینای ۲٫۰ فلش (اختصاصی)"
+      },
+      "org": "Google",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "Google frontier flash tier — 76.86% Persian accuracy on PersianMedQA (Table 3 selective-answering baseline).",
+        "fa": "ردهٔ فلش مرزی گوگل — ۷۶٫۸۶٪ دقت فارسی در PersianMedQA."
+      },
+      "links": {
+        "web": "https://deepmind.google/technologies/gemini/"
+      },
+      "origin": {
+        "base": "proprietary",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "proprietary",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "76.86",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "llama-31-405b-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Llama 3.1 405B class (open weights)",
+        "fa": "ردهٔ لاما ۳٫۱ ۴۰۵بی (وزن باز)"
+      },
+      "org": "Meta",
+      "sizeB": 405,
+      "license": "Llama-3.1-community",
+      "status": "measured",
+      "summary": {
+        "en": "Best open-weight general model on PersianMedQA Persian split — 69.25% (paper §4).",
+        "fa": "بهترین مدل عمومی با وزن باز در PersianMedQA فارسی — ۶۹٫۲۵٪."
+      },
+      "links": {
+        "hf": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct",
+        "paper": "https://arxiv.org/abs/2407.21783"
+      },
+      "origin": {
+        "base": "Llama-3.1",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "69.25",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": "2026-08-13"
     }
   ],
   "gapMap": {
@@ -2490,26 +2780,25 @@
     ]
   },
   "stats": {
-    "total": 55,
+    "total": 61,
     "byKind": {
-      "model": 26,
-      "dataset": 23,
+      "model": 31,
+      "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byClass": {
-      "adapted-instruct": 11,
+      "adapted-instruct": 14,
       "native-foundation": 1,
-      "multilingual-frontier": 10,
+      "multilingual-frontier": 12,
       "encoder-only": 4,
-      "dataset": 23,
+      "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 10,
-      "verified": 35,
-      "indexed": 10
+      "measured": 13,
+      "verified": 48
     }
   }
 }

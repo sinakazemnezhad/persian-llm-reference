@@ -1,33 +1,32 @@
 {
   "schema": "PERSIAN-LLM-REFERENCE/v1",
-  "version": "0.4.0",
-  "generatedAt": "2026-08-13T03:27:05.963Z",
+  "version": "0.5.0",
+  "generatedAt": "2026-08-13T03:32:16.368Z",
   "mission": {
     "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — clearer than link lists, more honest than hype.",
     "fa": "رجیستری باز و ساختاریافته با درگاه رسید برای مدل‌های زبانی فارسی — شفاف‌تر از فهرست پیوند، صادق‌تر از شعار."
   },
-  "entryCount": 55,
+  "entryCount": 61,
   "stats": {
-    "total": 55,
+    "total": 61,
     "byKind": {
-      "model": 26,
-      "dataset": 23,
+      "model": 31,
+      "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byClass": {
-      "adapted-instruct": 11,
+      "adapted-instruct": 14,
       "native-foundation": 1,
-      "multilingual-frontier": 10,
+      "multilingual-frontier": 12,
       "encoder-only": 4,
-      "dataset": 23,
+      "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 10,
-      "verified": 35,
-      "indexed": 10
+      "measured": 13,
+      "verified": 48
     }
   },
   "manifest": "https://sinakazemnezhad.github.io/persian-llm-reference/data/reference-manifest.json",

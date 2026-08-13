@@ -4,18 +4,18 @@
 
 **مرجع جهانی مدل‌های زبانی فارسی**
 
-The **open global atlas** for Persian (Farsi) language models — **55 sourced entries** (v0.4.0) with verification gates and bilingual JSON.
+The **open global atlas** for Persian (Farsi) language models — **61 sourced entries** (v0.5.0) with verification gates and bilingual JSON.
 
 > Not a personal notebook. Not a local mirror. **Online-first · community-maintained · machine-readable.**
 
-## Stats (v0.4.0)
+## Stats (v0.5.0)
 
 | | Count |
 |---|------|
-| **Total entries** | 55 |
-| **Verified** | 35+ |
-| **Measured** | 10 |
-| **PyPI** | `persian-llm-reference` 0.4.0 |
+| **Total entries** | 61 |
+| **Verified** | 48+ |
+| **Measured** | 13 |
+| **PyPI** | `persian-llm-reference` 0.5.0 |
 
 ## Why this repo exists
 
@@ -103,7 +103,7 @@ npm run e2e      # local server smoke
   title={Persian LLM Reference — Global Atlas},
   author={{Persian LLM Reference maintainers}},
   year={2026},
-  version={0.4.0},
+  version={0.5.0},
   url={https://sinakazemnezhad.github.io/persian-llm-reference},
   howpublished={\\url{https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json}},
   note={Check manifest generatedAt for snapshot date}

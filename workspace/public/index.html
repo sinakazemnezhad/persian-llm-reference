@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>مرجع جهانی مدل‌های زبانی فارسی · Persian LLM Reference</title>
-  <meta name="description" content="Structured open atlas for Persian (Farsi) LLMs — 55 sourced entries, 37+ verified, receipt-gated bilingual JSON API." />
+  <meta name="description" content="Structured open atlas for Persian (Farsi) LLMs — 61 sourced entries, 48+ verified, receipt-gated bilingual JSON API." />
   <meta name="keywords" content="Persian LLM, مدل زبانی فارسی, Farsi language model benchmark, Persian foundation model" />
   <meta property="og:title" content="Persian LLM Reference — Global Atlas" />
   <meta property="og:description" content="Structured open registry for Persian LLMs — models, datasets, benchmarks, leaderboards. Receipt-gated, bilingual JSON." />
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=0.4.0" />
+  <link rel="stylesheet" href="app.css?v=0.5.0" />
   <script type="application/ld+json" id="schema-dataset"></script>
 </head>
 <body>
@@ -98,6 +98,18 @@
       <p id="empty-state" class="lede hidden" data-i18n="atlas.empty">نتیجه‌ای نیست.</p>
     </section>
 
+    <section class="section wrap" id="timeline" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading" data-i18n="timeline.heading">خط زمان میدان</h2>
+      <p class="lede muted" data-i18n="timeline.sub">نقطه‌های عطف رجیستری و رسیدهای تأیید اخیر.</p>
+      <div class="timeline-list" id="timeline-list"></div>
+    </section>
+
+    <section class="section wrap" id="source-radar" aria-labelledby="radar-heading">
+      <h2 id="radar-heading" data-i18n="radar.heading">رادار منبع</h2>
+      <p class="lede muted" data-i18n="radar.sub">آثار بیرونی مدل‌های فارسی — ثبت‌شده، شکاف، یا برنامه‌ریزی‌شده.</p>
+      <div id="radar-panel"></div>
+    </section>
+
     <section class="section wrap" id="gap" aria-labelledby="gap-heading">
       <h2 id="gap-heading" data-i18n="gap.heading">نقشهٔ شکاف</h2>
       <ul class="gap-list" id="gap-list"></ul>
@@ -110,6 +122,6 @@
     <p data-i18n="footer.law">نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.</p>
   </footer>
 
-  <script src="app.js?v=0.3.0" type="module"></script>
+  <script src="app.js?v=0.5.0" type="module"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Field analysis — PLR lane
 
-**Updated:** 2026-08-13 · **Baseline:** v0.4.0 · 55 manifest entries  
+**Updated:** 2026-08-13 · **Baseline:** v0.5.0 · 61 manifest entries  
 **SSOT machine:** `data/source-radar.json` · **Gap mirror:** `gapMap` in `reference-manifest.json`
 
 ## PLR job on sources (not Alefbâ's job)
