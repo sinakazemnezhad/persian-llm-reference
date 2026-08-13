@@ -1,6 +1,6 @@
 # Roadmap — Persian LLM Reference
 
-**Saved:** 2026-08-13 · **Baseline:** v0.2.1 · 23 entries · SHA `6e8c393`
+**Saved:** 2026-08-13 · **Baseline:** v0.4.0 · 55 entries
 
 ## North star
 

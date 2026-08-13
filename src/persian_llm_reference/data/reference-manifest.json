@@ -1,6 +1,6 @@
 {
-  "version": "0.3.0",
-  "generatedAt": "2026-08-13T02:39:48.774Z",
+  "version": "0.4.0",
+  "generatedAt": "2026-08-13T03:20:08.708Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -111,7 +111,7 @@
       "links": {
         "hf": "https://huggingface.co/PartAI/Dorna-Llama3-8B-Instruct-GGUF",
         "ollama": "https://ollama.com/partai/dorna-llama3",
-        "leaderboard": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+        "leaderboard": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
       },
       "origin": {
         "base": "Llama-3-8B-Instruct",
@@ -132,7 +132,14 @@
           "score": null,
           "asOf": null,
           "receipt": "leaderboard-live",
-          "url": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+          "url": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
+        },
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "34.9",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -154,8 +161,8 @@
       },
       "org": "MaralGPT",
       "sizeB": 7,
-      "license": "open-weights",
-      "status": "indexed",
+      "license": "MIT",
+      "status": "verified",
       "summary": {
         "en": "Early open Persian chat model in the Maral family.",
         "fa": "از نخستین مدل‌های گفتگوی فارسی باز در خانوادهٔ مارال."
@@ -164,8 +171,8 @@
         "hf": "https://huggingface.co/MaralGPT/Maral-7B-alpha-1"
       },
       "origin": {
-        "base": "LLaMA-class",
-        "persianTraining": "Persian-SFT"
+        "base": "Mistral-7B-v0.1",
+        "persianTraining": "SFT"
       },
       "script": {
         "rtl": true,
@@ -184,7 +191,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "persian-phi",
@@ -195,19 +202,20 @@
         "fa": "پرشین‌فی"
       },
       "org": "Research",
-      "sizeB": 3,
-      "license": "research",
-      "status": "indexed",
+      "sizeB": 3.8,
+      "license": "Apache-2.0",
+      "status": "verified",
       "summary": {
         "en": "Compact cross-lingual adaptation via curriculum learning on small base.",
         "fa": "سازگاری فشردهٔ دوزبانه با یادگیری برنامه‌ای روی پایهٔ کوچک."
       },
       "links": {
-        "paper": "https://arxiv.org/abs/2512.07454"
+        "paper": "https://arxiv.org/abs/2512.07454",
+        "hf": "https://huggingface.co/amirakhlaghiqqq/PersianPhi"
       },
       "origin": {
-        "base": "Phi-class",
-        "persianTraining": "curriculum-SFT"
+        "base": "Phi-3-mini-4k-instruct",
+        "persianTraining": "SFT"
       },
       "script": {
         "rtl": true,
@@ -226,7 +234,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "yasin-persian-base",
@@ -237,8 +245,8 @@
         "fa": "یاسین — پایهٔ فارسی"
       },
       "org": "ysn-rfd",
-      "sizeB": null,
-      "license": "see-model-card",
+      "sizeB": 0.15,
+      "license": "YRSL-restricted",
       "status": "indexed",
       "summary": {
         "en": "Claims from-scratch Persian decoder; verify architecture and eval independently.",
@@ -269,7 +277,7 @@
         "nativePreference": null
       },
       "verifiedAt": null,
-      "notes": "native-foundation class requires independent verification before gate upgrade."
+      "notes": "Small custom decoder (~152M params); YRSL v1.0 restricted license — not frontier native-foundation scale."
     },
     {
       "id": "ava-llama3-v2",
@@ -281,8 +289,8 @@
       },
       "org": "Community",
       "sizeB": 8,
-      "license": "Llama-3-community",
-      "status": "indexed",
+      "license": "MIT",
+      "status": "verified",
       "summary": {
         "en": "Community Persian instruct fine-tune on Llama 3.",
         "fa": "تنظیم‌دقیق دستوری فارسی جامعه روی لاما ۳."
@@ -291,8 +299,8 @@
         "hf": "https://huggingface.co/MehdiHosseiniMoghadam/AVA-Llama-3-V2"
       },
       "origin": {
-        "base": "Llama-3",
-        "persianTraining": "SFT"
+        "base": "Llama-3-8B",
+        "persianTraining": "fine-tune"
       },
       "script": {
         "rtl": true,
@@ -311,7 +319,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "persian-llama-7b",
@@ -323,7 +331,7 @@
       },
       "org": "Community",
       "sizeB": 7,
-      "license": "open-weights",
+      "license": "Llama-2-community",
       "status": "indexed",
       "summary": {
         "en": "Early LLaMA adapter for Persian generation.",
@@ -333,8 +341,8 @@
         "hf": "https://huggingface.co/mostafaamiri/persian_llama_7b"
       },
       "origin": {
-        "base": "LLaMA",
-        "persianTraining": "adapter"
+        "base": "Llama-2-7B",
+        "persianTraining": "LoRA-SFT"
       },
       "script": {
         "rtl": true,
@@ -497,14 +505,15 @@
       },
       "org": "Research",
       "sizeB": null,
-      "license": "see-paper",
-      "status": "indexed",
+      "license": "CC-BY-NC-ND-4.0",
+      "status": "verified",
       "summary": {
         "en": "~73B-token Persian text corpus for pretraining research.",
         "fa": "پیکرهٔ متنی فارسی حدود ۷۳ میلیارد توکن برای پژوهش پیش‌آموزش."
       },
       "links": {
-        "paper": "https://arxiv.org/html/2502.09188v1"
+        "paper": "https://arxiv.org/html/2502.09188v1",
+        "hf": "https://huggingface.co/datasets/MatinaAI/matina_persian_text_corpus"
       },
       "origin": {
         "base": null,
@@ -516,7 +525,7 @@
         "morphology": "varies"
       },
       "corpus": {
-        "class": "open-corpus",
+        "class": "curated-persian-text",
         "licensedBooks": false,
         "tokensB": 73
       },
@@ -528,7 +537,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "mizan-leaderboard",
@@ -541,13 +550,13 @@
       "org": "MCINext",
       "sizeB": null,
       "license": "open",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Persian LLM benchmark aggregation — cite scores with as-of date.",
         "fa": "تجمیع بنچمارک مدل‌های فارسی — نمره را با تاریخ ذکر کنید."
       },
       "links": {
-        "web": "https://huggingface.co/spaces/MCINext/MIZAN"
+        "web": "https://huggingface.co/spaces/MCINext/mizan-llm-leaderboard"
       },
       "origin": {
         "base": null,
@@ -570,7 +579,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "open-persian-llm-leaderboard",
@@ -583,13 +592,13 @@
       "org": "PartAI · AUT NLP Lab",
       "sizeB": null,
       "license": "open",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Community leaderboard for open Persian generative models.",
         "fa": "جدول جامعه برای مدل‌های تولیدی فارسی باز."
       },
       "links": {
-        "web": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+        "web": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
       },
       "origin": {
         "base": null,
@@ -612,7 +621,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "awesome-persian-llm",
@@ -668,13 +677,14 @@
       "org": "Research",
       "sizeB": null,
       "license": "research",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Safety, fairness, social norms for Persian — cultural alignment eval.",
         "fa": "ایمنی، انصاف، هنجار اجتماعی برای فارسی — ارزیابی هم‌ترازی فرهنگی."
       },
       "links": {
-        "paper": "https://arxiv.org/abs/2504.12553"
+        "paper": "https://arxiv.org/abs/2504.12553",
+        "web": "https://huggingface.co/spaces/MCILAB/LLM_Alignment_Evaluation"
       },
       "origin": {
         "base": null,
@@ -697,7 +707,7 @@
         "literaryDepth": 2,
         "nativePreference": 2
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "taraz-benchmark",
@@ -751,18 +761,19 @@
       },
       "org": "Community",
       "sizeB": 4,
-      "license": "Gemma",
-      "status": "indexed",
+      "license": "Apache-2.0",
+      "status": "verified",
       "summary": {
         "en": "Community Persian fine-tunes on Gemma 3 — lightweight chat.",
         "fa": "تنظیم‌دقیق فارسی جامعه روی جمّا ۳ — گفتگوی سبک."
       },
       "links": {
-        "ollama": "https://ollama.com/mshojaei77/gemma3persian"
+        "ollama": "https://ollama.com/mshojaei77/gemma3persian",
+        "hf": "https://huggingface.co/mshojaei77/gemma-3-4b-persian-v0"
       },
       "origin": {
-        "base": "Gemma-3",
-        "persianTraining": "SFT"
+        "base": "google/gemma-3-4b-it",
+        "persianTraining": "fine-tune"
       },
       "script": {
         "rtl": true,
@@ -781,7 +792,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "dorna2-llama31-8b",
@@ -794,13 +805,14 @@
       "org": "PartAI",
       "sizeB": 8,
       "license": "Llama-3.1-community",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Successor in Dorna line on Llama 3.1 — cited in Persian alignment benchmarks.",
         "fa": "نسل بعدی درنا روی لاما ۳٫۱ — در بنچمارک‌های هم‌ترازی فارسی ذکر شده."
       },
       "links": {
-        "paper": "https://arxiv.org/abs/2504.12553"
+        "hf": "https://huggingface.co/PartAI/Dorna2-Llama3.1-8B-Instruct",
+        "leaderboard": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
       },
       "origin": {
         "base": "Llama-3.1-8B-Instruct",
@@ -823,7 +835,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "aya-expanse-8b",
@@ -1639,8 +1651,8 @@
       },
       "org": "sepy-dev",
       "sizeB": null,
-      "license": "see-repo",
-      "status": "indexed",
+      "license": "GPL-3.0",
+      "status": "verified",
       "summary": {
         "en": "Community index of Persian models packaged for Ollama local inference.",
         "fa": "فهرست جامعهٔ مدل‌های فارسی بسته‌بندی‌شده برای اولاما."
@@ -1669,7 +1681,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "dorna-4bit-quantized",
@@ -1682,7 +1694,7 @@
       "org": "Community",
       "sizeB": 8,
       "license": "Llama-3-community",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Quantized 4-bit variant of Dorna for consumer-GPU inference — sibling to PartAI GGUF release.",
         "fa": "نسخهٔ ۴بیت کوانتیزهٔ درنا برای GPU مصرفی — مکمل انتشار GGUF پارتی."
@@ -1691,8 +1703,8 @@
         "hf": "https://huggingface.co/amirMohammadi/Dorna-Llama3-8B-Instruct-Quantized4Bit"
       },
       "origin": {
-        "base": "Llama-3-8B-Instruct",
-        "persianTraining": "continued-pretrain+SFT"
+        "base": "PartAI/Dorna-Llama3-8B-Instruct",
+        "persianTraining": "quantized-4bit"
       },
       "script": {
         "rtl": true,
@@ -1711,7 +1723,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "dorna-llama3-8b-instruct",
@@ -1731,7 +1743,7 @@
       },
       "links": {
         "hf": "https://huggingface.co/PartAI/Dorna-Llama3-8B-Instruct",
-        "leaderboard": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+        "leaderboard": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
       },
       "origin": {
         "base": "Llama-3-8B-Instruct",
@@ -1752,7 +1764,7 @@
           "score": null,
           "asOf": null,
           "receipt": "leaderboard-live",
-          "url": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+          "url": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
         }
       ],
       "alefbaAxes": {
@@ -1765,27 +1777,28 @@
       "verifiedAt": "2026-08-13"
     },
     {
-      "id": "persian-biomedical-llm",
+      "id": "biopars",
       "kind": "model",
       "class": "adapted-instruct",
       "name": {
-        "en": "Persian biomedical LLM",
-        "fa": "مدل زیست‌پزشکی فارسی"
+        "en": "BioPars — Persian biomedical LLM",
+        "fa": "بیوپارس — مدل زیست‌پزشکی فارسی"
       },
       "org": "Research",
       "sizeB": null,
-      "license": "see-paper",
-      "status": "indexed",
+      "license": "CC-BY-NC-ND-4.0",
+      "status": "verified",
       "summary": {
-        "en": "Pretrained biomedical large language model for Persian biomedical text mining.",
-        "fa": "مدل زبانی بزرگ ازپیش‌آموزش‌دیده برای متن‌کاوی زیست‌پزشکی فارسی."
+        "en": "BioPars biomedical LLM for Persian clinical QA; Nature Scientific Reports + GitHub code.",
+        "fa": "مدل زیست‌پزشکی بیوپارس برای پرسش‌وپاسخ بالینی فارسی؛ مقالهٔ Nature + گیت‌هاب."
       },
       "links": {
-        "paper": "https://www.nature.com/articles/s41598-026-55970-3"
+        "paper": "https://www.nature.com/articles/s41598-026-55970-3",
+        "repo": "https://github.com/amirap80/BioPars"
       },
       "origin": {
-        "base": "domain-adapted",
-        "persianTraining": "biomedical-domain"
+        "base": "custom-biomedical",
+        "persianTraining": "domain-pretrain"
       },
       "script": {
         "rtl": true,
@@ -1803,6 +1816,612 @@
         "curriculumFit": 1,
         "literaryDepth": 0,
         "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "parse-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PARSE — Persian reasoning QA",
+        "fa": "پارس — پرسش‌وپاسخ استدلالی فارسی"
+      },
+      "org": "University of Innsbruck · IUST",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "verified",
+      "summary": {
+        "en": "10,800 open-domain reasoning QA items (Boolean, multiple-choice, factoid) with multi-hop and unanswerable cases.",
+        "fa": "۱۰٬۸۰۰ سؤال استدلالی دامنه‌باز (بله/خیر، چندگزینه‌ای، واقعی) با چندگامی و بدون‌پاسخ."
+      },
+      "links": {
+        "repo": "https://github.com/DataScienceUIBK/Parse",
+        "paper": "https://arxiv.org/abs/2602.01246",
+        "hf": "https://huggingface.co/datasets/JamshidJDMY/Parse"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "eval-benchmark",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 2,
+        "nativePreference": 2
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "ept-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "EPT — Persian trustworthiness eval",
+        "fa": "ای‌پی‌تی — ارزیابی اعتمادپذیری فارسی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "verified",
+      "summary": {
+        "en": "1,200 expert-curated prompts across ethics, fairness, privacy, robustness, safety, and truthfulness in Persian context.",
+        "fa": "۱٬۲۰۰ پرامپت خبره در شش بُعد اخلاق، انصاف، حریم خصوصی، استحکام، ایمنی و راست‌گویی."
+      },
+      "links": {
+        "repo": "https://github.com/Rezamirbagheri110/EPT-Benchmark",
+        "paper": "https://arxiv.org/abs/2509.06838",
+        "hf": "https://huggingface.co/datasets/mirbagheri-mohammadreza/EPT-Benchmark"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "eval-benchmark",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 3
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persianmedqa",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PersianMedQA",
+        "fa": "پرشین‌مدکیوای"
+      },
+      "org": "University of Tehran",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "verified",
+      "summary": {
+        "en": "20,785 bilingual Persian–English medical MCQs from 14 years of Iranian board exams across 23 specialties.",
+        "fa": "۲۰٬۷۸۵ سؤال چندگزینه‌ای پزشکی دوزبانه از ۱۴ سال آزمون‌های تخصصی ایران."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2506.00250",
+        "web": "https://mohammadjranjbar.github.io/PersianMedQA/",
+        "hf": "https://huggingface.co/datasets/MohammadJRanjbar/PersianMedQA"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 3,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": 3
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "pquad-dataset",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PQuAD — Persian reading comprehension",
+        "fa": "پیکیوای‌ای‌دی — درک مطلب فارسی"
+      },
+      "org": "AUT · Mabna Intelligent Computing",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "verified",
+      "summary": {
+        "en": "80,000 span-extraction QA pairs on Persian Wikipedia; 25% adversarially unanswerable.",
+        "fa": "۸۰٬۰۰۰ جفت پرسش‌وپاسخ استخراجی روی ویکی‌پدیای فارسی؛ ۲۵٪ بدون پاسخ."
+      },
+      "links": {
+        "repo": "https://github.com/AUT-NLP/PQuAD",
+        "paper": "https://arxiv.org/abs/2202.06219"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "wikipedia-mrc",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 2,
+        "curriculumFit": 2,
+        "literaryDepth": 2,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persianmhqa-dataset",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PersianMHQA — multi-hop QA",
+        "fa": "پرشین‌ام‌اچ‌کیوای — پرسش چندگامی"
+      },
+      "org": "IUST",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "verified",
+      "summary": {
+        "en": "7,000 open-domain multi-hop questions from Persian Wikipedia; partial public release on Hugging Face.",
+        "fa": "۷٬۰۰۰ پرسش چندگامی دامنه‌باز از ویکی‌پدیای فارسی؛ انتشار جزئی در Hugging Face."
+      },
+      "links": {
+        "hf": "https://huggingface.co/datasets/Arg1990/PersianMHQA",
+        "web": "https://en.civilica.com/doc/2111883/"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "wikipedia-mhqa",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 2,
+        "curriculumFit": null,
+        "literaryDepth": 2,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13",
+      "notes": "Full 7k release pending per authors; HF hosts sample subset."
+    },
+    {
+      "id": "hooshvare-bert-fa",
+      "kind": "model",
+      "class": "encoder-only",
+      "name": {
+        "en": "BERT-FA base (HooshvareLab)",
+        "fa": "برت پایهٔ فارسی (هوش‌ور)"
+      },
+      "org": "HooshvareLab",
+      "sizeB": 0.12,
+      "license": "MIT",
+      "status": "verified",
+      "summary": {
+        "en": "Widely used Persian BERT base for classification, NER, and embedding pipelines.",
+        "fa": "برت پایهٔ پرکاربرد فارسی برای طبقه‌بندی، شناسایی موجودیت و تعبیه."
+      },
+      "links": {
+        "hf": "https://huggingface.co/HooshvareLab/bert-fa-base-uncased"
+      },
+      "origin": {
+        "base": "BERT",
+        "persianTraining": "persian-corpus"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-open",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "islamicpcqa-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "IslamicPCQA — Persian multi-hop Islamic QA",
+        "fa": "اسلامیک‌پی‌سی‌کیوای"
+      },
+      "org": "IUST",
+      "sizeB": null,
+      "license": "research",
+      "status": "indexed",
+      "summary": {
+        "en": "12,282 multi-hop QA pairs from nine Persian Islamic encyclopedias; dataset not yet public.",
+        "fa": "۱۲٬۲۸۲ جفت پرسش‌وپاسخ چندگامی از نه دانشنامهٔ اسلامی فارسی؛ پیکره هنوز عمومی نیست."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2304.11664"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "domain-islamic",
+        "licensedBooks": true
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 3,
+        "curriculumFit": null,
+        "literaryDepth": 3,
+        "nativePreference": 2
+      },
+      "verifiedAt": null,
+      "notes": "Paper published; public dataset release pending per authors."
+    },
+    {
+      "id": "deepseek-v3-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "DeepSeek-V3 class (proprietary)",
+        "fa": "ردهٔ دیپ‌سیک‑وی۳ (اختصاصی)"
+      },
+      "org": "DeepSeek",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "indexed",
+      "summary": {
+        "en": "Frontier multilingual model class cited on Persian leaderboards; no open weights.",
+        "fa": "ردهٔ مدل چندزبانهٔ مرزی در جدول‌های فارسی؛ بدون وزن باز."
+      },
+      "links": {
+        "web": "https://www.deepseek.com/"
+      },
+      "origin": {
+        "base": "proprietary",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "oscar-2201-corpus",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "OSCAR-2201 (multilingual incl. Persian)",
+        "fa": "پیکرهٔ اسکار‑۲۲۰۱ (چندزبانه شامل فارسی)"
+      },
+      "org": "OSCAR / INRIA",
+      "sizeB": null,
+      "license": "CC0-1.0",
+      "status": "verified",
+      "summary": {
+        "en": "Large multilingual web corpus with Persian (`fa`) shard — common pretrain source, not literary-grade alone.",
+        "fa": "پیکرهٔ وب چندزبانه با سهم فارسی — منبع پیش‌آموزش رایج، نه کتابخانهٔ ادبی به‌تنهایی."
+      },
+      "links": {
+        "hf": "https://huggingface.co/datasets/oscar-corpus/OSCAR-2201"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "unknown",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "web-scrape-filtered",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 1,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 0,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "qwen3-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Qwen3 class (proprietary / open mix)",
+        "fa": "ردهٔ کوئن۳"
+      },
+      "org": "Alibaba",
+      "sizeB": null,
+      "license": "mixed",
+      "status": "indexed",
+      "summary": {
+        "en": "Qwen3 family on Persian leaderboards; mix of open weights and API-only tiers.",
+        "fa": "خانوادهٔ کوئن۳ در جدول‌های فارسی؛ ترکیب وزن باز و API."
+      },
+      "links": {
+        "web": "https://qwenlm.github.io/"
+      },
+      "origin": {
+        "base": "Qwen",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "llama33-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Llama 3.3 class (community + API)",
+        "fa": "ردهٔ لاما ۳٫۳"
+      },
+      "org": "Meta",
+      "sizeB": null,
+      "license": "Llama-3.3-community",
+      "status": "indexed",
+      "summary": {
+        "en": "Llama 3.3 instruct family — base for many Persian community fine-tunes including Dorna2.",
+        "fa": "خانوادهٔ لاما ۳٫۳ دستوری — پایهٔ بسیاری از فاین‌تیون‌های فارسی از جمله درنا۲."
+      },
+      "links": {
+        "hf": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      },
+      "origin": {
+        "base": "Llama-3.3",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "wikimedia-fa-wikipedia",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "Persian Wikipedia dump",
+        "fa": "دامپ ویکی‌پدیای فارسی"
+      },
+      "org": "Wikimedia",
+      "sizeB": null,
+      "license": "CC-BY-SA-3.0",
+      "status": "verified",
+      "summary": {
+        "en": "Canonical open encyclopedia corpus for Persian NLP pretrain and QA dataset construction.",
+        "fa": "پیکرهٔ دانشنامهٔ باز مرجع برای پیش‌آموزش و ساخت دادهٔ پرسش‌وپاسخ فارسی."
+      },
+      "links": {
+        "web": "https://dumps.wikimedia.org/fawiki/latest/"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "wikipedia",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 2,
+        "curriculumFit": 2,
+        "literaryDepth": 2,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gpt-41-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "GPT-4.1 class (proprietary)",
+        "fa": "ردهٔ جی‌پی‌تی‑۴٫۱ (اختصاصی)"
+      },
+      "org": "OpenAI",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "Frontier proprietary class; top PersianMedQA Persian accuracy in published eval (83.09%).",
+        "fa": "ردهٔ اختصاصی مرزی؛ بالاترین دقت فارسی در ارزیابی منتشرشدهٔ PersianMedQA."
+      },
+      "links": {
+        "web": "https://platform.openai.com/docs"
+      },
+      "origin": {
+        "base": "proprietary",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "83.09",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 3,
+        "nativePreference": 1
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gemini-25-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Gemini 2.5 class (proprietary)",
+        "fa": "ردهٔ جمینای ۲٫۵ (اختصاصی)"
+      },
+      "org": "Google",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "indexed",
+      "summary": {
+        "en": "Google frontier class evaluated on EPT Persian trustworthiness benchmark.",
+        "fa": "ردهٔ مرزی گوگل — ارزیابی‌شده در بنچمارک اعتمادپذیری فارسی EPT."
+      },
+      "links": {
+        "web": "https://deepmind.google/technologies/gemini/"
+      },
+      "origin": {
+        "base": "proprietary",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 1
       },
       "verifiedAt": null
     }
@@ -1822,26 +2441,26 @@
     ]
   },
   "stats": {
-    "total": 41,
+    "total": 55,
     "byKind": {
-      "model": 20,
-      "dataset": 15,
+      "model": 26,
+      "dataset": 23,
       "leaderboard": 4,
       "community-index": 2
     },
     "byClass": {
       "adapted-instruct": 11,
       "native-foundation": 1,
-      "multilingual-frontier": 5,
-      "encoder-only": 3,
-      "dataset": 15,
+      "multilingual-frontier": 10,
+      "encoder-only": 4,
+      "dataset": 23,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 4,
-      "indexed": 20,
-      "verified": 17
+      "measured": 5,
+      "verified": 37,
+      "indexed": 13
     }
   }
 }

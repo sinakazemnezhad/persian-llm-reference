@@ -1,6 +1,14 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.4.0 — 2026-08-13
+
+- **55 entries** (+14): PARSE, EPT, PersianMedQA, PQuAD, PersianMHQA, Hooshvare BERT-FA, IslamicPCQA (indexed), OSCAR-2201, Wikipedia FA dump, frontier class rows (DeepSeek-V3, Qwen3, Llama 3.3, Gemini 2.5), GPT-4.1 class (measured on PersianMedQA).
+- **Verification pass:** 12 indexed rows upgraded to `verified` (Maral, Persian-Phi, AVA, Matina corpus, MIZAN, PartAI leaderboard, ELAB, Gemma3 Persian, Dorna2, Ollama index, Dorna 4-bit, BioPars).
+- **Corrections:** YASIN size/license; MIZAN + PartAI leaderboard URL slugs; Dorna PersianMedQA measured receipt (34.9%); `persian-biomedical-llm` → `biopars`.
+- **Link CI:** Hugging Face gated assets (401/403) treated as auth-gated across all HF paths.
+- E2E + validate minimum raised to **55 entries**.
+
 ## 0.3.0 — 2026-08-13
 
 - **41 entries** — 18 new rows from Awesome-Persian-LLM gap audit (embeddings, cultural evals, datasets, Matina leaderboard, Dorna full weights).

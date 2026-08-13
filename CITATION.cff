@@ -6,7 +6,7 @@ authors:
 repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
 url: https://sinakazemnezhad.github.io/persian-llm-reference
 license: CC-BY-4.0
-version: 0.3.0
+version: 0.4.0
 keywords:
   - Persian LLM
   - Farsi language model

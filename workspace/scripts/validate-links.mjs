@@ -41,7 +41,7 @@ console.log(`validate-links — ${urls.length} URLs\n`);
 
 for (const url of urls) {
   const status = await checkUrl(url);
-  const hfGated = url.includes("huggingface.co/spaces") && (status === 401 || status === 403);
+  const hfGated = url.includes("huggingface.co/") && (status === 401 || status === 403);
   const ok = status < 400 || hfGated;
   console.log(`${ok ? "PASS" : "FAIL"}  ${status}  ${url}`);
   if (!ok) errors++;

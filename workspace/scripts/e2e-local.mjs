@@ -2,7 +2,7 @@
 /** dis-brand-agent repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-SCRIPTS-E2E-LOCAL-MJ name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:10:02.804Z */
 
 const BASE = process.env.PLR_E2E_BASE || "http://127.0.0.1:5294";
-const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 40);
+const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 55);
 let pass = 0;
 let fail = 0;
 

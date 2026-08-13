@@ -1,6 +1,6 @@
 # Ecosystem map — Persian LLM references
 
-**Updated:** 2026-08-13 · **Baseline:** PLR v0.2.1 · 23 entries
+**Updated:** 2026-08-13 · **Baseline:** PLR v0.4.0 · 55 entries
 
 ## Three layers (complement, don’t compete)
 
