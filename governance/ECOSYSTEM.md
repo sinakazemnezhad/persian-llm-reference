@@ -25,7 +25,7 @@ Awesome finds · Leaderboards score · PLR types and verifies · Alefbâ builds 
 
 ## Awesome-Persian-LLM — relationship
 
-**Maintainer:** [Mohammad Heydari](https://github.com/MohammadHeydari) · MIT · community curated.
+**Maintainer:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) (public repo) · MIT · community curated.
 
 PLR already lists Awesome as a **verified** `community-index` entry (`awesome-persian-llm`). Summary policy:
 

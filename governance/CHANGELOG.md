@@ -1,6 +1,10 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.9.1 — 2026-08-13
+
+- **Attribution fix:** remove personal name from PyPI-facing README; Awesome credit is bibliographic link only until maintainer PR merges.
+
 ## 0.9.0 — 2026-08-13
 
 - **Ecosystem tree:** taxonomy panel (kind → class → entries) + base lineage panel (`origin.base`).

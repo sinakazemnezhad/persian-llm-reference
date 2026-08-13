@@ -26,7 +26,7 @@ The **open atlas** for Persian (Farsi) language models — **63 sourced entries*
 | Hugging Face search | Model hosting + cards | Persian taxonomy · corpus · script fields |
 | Papers & repos | Primary artifacts | Indexed rows with `asOf` dates and cite URLs |
 
-**Discovery credit:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) by Mohammad Heydari — verified entry `awesome-persian-llm` · [ECOSYSTEM.md](governance/ECOSYSTEM.md).
+**Upstream discovery:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) — verified community index `awesome-persian-llm` · [ECOSYSTEM.md](governance/ECOSYSTEM.md). Bibliographic link only — not an endorsement or partnership.
 
 ## Live surfaces (after deploy)
 

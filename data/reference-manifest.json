@@ -1,6 +1,6 @@
 {
-  "version": "0.9.0",
-  "generatedAt": "2026-08-13T04:01:37.932Z",
+  "version": "0.9.1",
+  "generatedAt": "2026-08-13T04:05:02.471Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -21,8 +21,8 @@
         "type": "upstream-discovery",
         "title": "Awesome-Persian-LLM",
         "url": "https://github.com/MohammadHeydari/Awesome-Persian-LLM",
-        "maintainer": "Mohammad Heydari",
-        "note": "Discovery source credited for many PLR rows; reciprocal link pending maintainer PR."
+        "maintainer": "Awesome-Persian-LLM maintainers",
+        "note": "Discovery source credited for many PLR rows. Reciprocal README link PR open — bibliographic credit only, not endorsement."
       }
     ]
   },
