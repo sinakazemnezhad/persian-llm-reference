@@ -10,6 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../public");
 const DATA_DIR = path.resolve(__dirname, "../../data");
 const MANIFEST_FILE = path.join(DATA_DIR, "reference-manifest.json");
+const RADAR_FILE = path.join(DATA_DIR, "source-radar.json");
 const HOST = process.env.PLR_HOST || "127.0.0.1";
 const PORT = Number(process.env.PLR_PORT || 5294);
 const VERSION = "0.1.0";
@@ -57,6 +58,15 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, manifest);
     } catch {
       return sendJson(res, 500, { error: "manifest_read_failed" });
+    }
+  }
+
+  if (url.pathname === "/api/source-radar.json" || url.pathname === "/api/source-radar") {
+    try {
+      const radar = JSON.parse(fs.readFileSync(RADAR_FILE, "utf8"));
+      return sendJson(res, 200, radar);
+    } catch {
+      return sendJson(res, 404, { error: "source_radar_not_found" });
     }
   }
 

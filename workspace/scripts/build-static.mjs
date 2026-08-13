@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const MANIFEST_SRC = path.join(ROOT, "data/reference-manifest.json");
+const RADAR_SRC = path.join(ROOT, "data/source-radar.json");
 const PUBLIC = path.resolve(__dirname, "../public");
 const REF = JSON.parse(fs.readFileSync(path.join(ROOT, "REFERENCE.json"), "utf8"));
 
@@ -45,6 +46,15 @@ fs.writeFileSync(
   "utf8"
 );
 
+if (fs.existsSync(RADAR_SRC)) {
+  const radar = JSON.parse(fs.readFileSync(RADAR_SRC, "utf8"));
+  radar.version = REF.version;
+  radar.generatedAt = manifest.generatedAt;
+  radar.stats = { ...radar.stats, plrManifestEntries: manifest.entries.length };
+  fs.writeFileSync(path.join(PUBLIC, "data/source-radar.json"), JSON.stringify(radar, null, 2), "utf8");
+  fs.writeFileSync(RADAR_SRC, JSON.stringify(radar, null, 2) + "\n", "utf8");
+}
+
 const siteConfig = {
   version: REF.version,
   canonicalSite: REF.canonicalSite,
@@ -66,6 +76,7 @@ const wellKnown = {
   stats: manifest.stats,
   manifest: `${REF.canonicalSite}/data/reference-manifest.json`,
   manifestRaw: REF.manifestRaw,
+  sourceRadar: `${REF.canonicalSite}/data/source-radar.json`,
   repo: REF.canonicalRepo,
 };
 

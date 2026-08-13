@@ -1,0 +1,488 @@
+{
+  "version": "0.4.0",
+  "generatedAt": "2026-08-13T03:27:05.963Z",
+  "schema": "PERSIAN-LLM-REFERENCE/source-radar/v1",
+  "mission": {
+    "en": "Field map of external Persian LLM sources — what exists, what PLR catalogs, what remains gap. Not a training corpus.",
+    "fa": "نقشهٔ منابع بیرونی مدل‌های فارسی — چه هست، چه در PLR ثبت شده، چه شکاف مانده. نه پیکرهٔ آموزش."
+  },
+  "lanes": {
+    "plr": {
+      "repo": "PERSIAN-LLM-REFERENCE",
+      "job": "Catalog public artifacts with verification gates",
+      "port": 5294
+    },
+    "build": {
+      "note": "Licensed curriculum + gates live in separate build programs — see gapMap and fieldGaps only",
+      "plrPolicy": "No program rows until measured artifacts ship"
+    }
+  },
+  "fieldGaps": {
+    "en": [
+      "No frontier-scale model whose first world is licensed Persian literature",
+      "Few native-rater preference loops at production scale",
+      "Literary register and book-memory evals remain sparse",
+      "Most open instruct models are English-base adaptations under 15B",
+      "No unified Persian tokenizer fertility benchmark with public receipts",
+      "Publisher-licensed book corpora rarely documented with provenance in open registries"
+    ],
+    "fa": [
+      "هیچ مدل مرزی که جهان اولش ادبیات مجازدار فارسی باشد وجود ندارد",
+      "حلقهٔ ترجیح ارزیاب بومی در مقیاس تولید کم است",
+      "ارزیابی گونهٔ ادبی و حافظهٔ کتاب هنوز پراکنده است",
+      "بیشتر مدل‌های دستوری باز، سازگاری روی پایهٔ انگلیسی زیر ۱۵ میلیارد پارامترند",
+      "بنچمارک باروری توکنایزر فارسی با رسید عمومی یکپارچه نیست",
+      "پیکره‌های کتابی ناشرمجوزدار به‌ندرت با منشأ در رجیستری‌های باز مستند می‌شوند"
+    ]
+  },
+  "categories": [
+    {
+      "id": "models-instruct",
+      "label": {
+        "en": "Persian instruct models",
+        "fa": "مدل‌های دستوری فارسی"
+      }
+    },
+    {
+      "id": "models-encoder",
+      "label": {
+        "en": "Encoder / embedding",
+        "fa": "رمزگذار / تعبیه"
+      }
+    },
+    {
+      "id": "models-frontier",
+      "label": {
+        "en": "Frontier multilingual",
+        "fa": "چندزبانهٔ مرزی"
+      }
+    },
+    {
+      "id": "datasets-pretrain",
+      "label": {
+        "en": "Pretrain / web corpora",
+        "fa": "پیش‌آموزش / پیکرهٔ وب"
+      }
+    },
+    {
+      "id": "datasets-instruction",
+      "label": {
+        "en": "Instruction / synthetic",
+        "fa": "دستوری / مصنوعی"
+      }
+    },
+    {
+      "id": "datasets-eval",
+      "label": {
+        "en": "Benchmarks & eval suites",
+        "fa": "بنچمارک و ارزیابی"
+      }
+    },
+    {
+      "id": "leaderboards",
+      "label": {
+        "en": "Leaderboards",
+        "fa": "جدول‌ها"
+      }
+    },
+    {
+      "id": "community",
+      "label": {
+        "en": "Community indexes",
+        "fa": "فهرست‌های جامعه"
+      }
+    },
+    {
+      "id": "field-gap",
+      "label": {
+        "en": "Documented field gaps (not catalog rows)",
+        "fa": "شکاف‌های مستندشدهٔ میدان"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "dorna-line",
+      "category": "models-instruct",
+      "name": {
+        "en": "Dorna family (Llama3 / 3.1)",
+        "fa": "خانوادهٔ درنا"
+      },
+      "plrEntryIds": [
+        "dorna-llama3-8b",
+        "dorna-llama3-8b-instruct",
+        "dorna2-llama31-8b",
+        "dorna-4bit-quantized"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/PartAI/Dorna-Llama3-8B-Instruct",
+      "analysis": {
+        "en": "De facto Persian instruct baseline; measured on PersianMedQA.",
+        "fa": "خط پایهٔ دستوری فارسی؛ سنجش‌شده روی PersianMedQA."
+      }
+    },
+    {
+      "id": "persianmind",
+      "category": "models-instruct",
+      "name": {
+        "en": "PersianMind v1",
+        "fa": "پرشین‌مایند"
+      },
+      "plrEntryIds": [
+        "persianmind-v1"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/universitytehran/PersianMind-v1.0",
+      "analysis": {
+        "en": "Cross-lingual UT model; paper scores on Belebele + ParsiNLU.",
+        "fa": "مدل دوزبانهٔ دانشگاه تهران؛ نمرات مقاله."
+      }
+    },
+    {
+      "id": "maral-7b",
+      "category": "models-instruct",
+      "name": {
+        "en": "Maral-7B",
+        "fa": "مارال ۷بی"
+      },
+      "plrEntryIds": [
+        "maral-7b"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/MaralGPT/Maral-7B-alpha-1",
+      "analysis": {
+        "en": "Mistral-7B SFT; verified license + base.",
+        "fa": "SFT روی میسترال؛ مجوز و پایه تأیید شده."
+      }
+    },
+    {
+      "id": "native-foundation-gap",
+      "category": "field-gap",
+      "name": {
+        "en": "Licensed-literature-first foundation model",
+        "fa": "مدل بنیادین با جهان اول ادبیات مجازدار"
+      },
+      "plrEntryIds": [],
+      "coverage": "field-gap",
+      "primaryUrl": null,
+      "analysis": {
+        "en": "Gap #1 in gapMap. Build programs may target this; PLR catalogs only when weights + eval receipt exist.",
+        "fa": "شکاف ۱ در نقشهٔ شکاف. برنامه‌های ساخت می‌توانند هدف بگیرند؛ PLR فقط با رسید ارزیابی ثبت می‌کند."
+      }
+    },
+    {
+      "id": "parsbench",
+      "category": "datasets-eval",
+      "name": {
+        "en": "ParsBench",
+        "fa": "پارس‌بنچ"
+      },
+      "plrEntryIds": [
+        "parsbench"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://github.com/ParsBench/ParsBench",
+      "analysis": {
+        "en": "Canonical open Persian eval suite on GitHub.",
+        "fa": "مجموعهٔ ارزیابی باز فارسی."
+      }
+    },
+    {
+      "id": "persianmedqa",
+      "category": "datasets-eval",
+      "name": {
+        "en": "PersianMedQA",
+        "fa": "پرشین‌مدکیوای"
+      },
+      "plrEntryIds": [
+        "persianmedqa"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://arxiv.org/abs/2506.00250",
+      "analysis": {
+        "en": "20k+ medical MCQs; now primary receipt source for measured model rows.",
+        "fa": "۲۰هزار+ سؤال پزشکی؛ منبع رسید برای ردیف‌های measured."
+      }
+    },
+    {
+      "id": "parse-benchmark",
+      "category": "datasets-eval",
+      "name": {
+        "en": "PARSE reasoning QA",
+        "fa": "پارس — استدلال"
+      },
+      "plrEntryIds": [
+        "parse-benchmark"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://arxiv.org/abs/2602.01246",
+      "analysis": {
+        "en": "10.8k open-domain reasoning items; fills QA reasoning gap.",
+        "fa": "۱۰٫۸هزار سؤال استدلالی دامنه‌باز."
+      }
+    },
+    {
+      "id": "ept-benchmark",
+      "category": "datasets-eval",
+      "name": {
+        "en": "EPT trustworthiness",
+        "fa": "ای‌پی‌تی اعتمادپذیری"
+      },
+      "plrEntryIds": [
+        "ept-benchmark"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://arxiv.org/abs/2509.06838",
+      "analysis": {
+        "en": "Persian cultural trust eval; 1.2k expert prompts.",
+        "fa": "ارزیابی اعتماد فرهنگی فارسی."
+      }
+    },
+    {
+      "id": "pquad",
+      "category": "datasets-eval",
+      "name": {
+        "en": "PQuAD reading comprehension",
+        "fa": "پیکیوای‌ای‌دی"
+      },
+      "plrEntryIds": [
+        "pquad-dataset"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://github.com/AUT-NLP/PQuAD",
+      "analysis": {
+        "en": "80k MRC on Persian Wikipedia.",
+        "fa": "۸۰هزار درک مطلب ویکی‌پدیای فارسی."
+      }
+    },
+    {
+      "id": "famteb",
+      "category": "datasets-eval",
+      "name": {
+        "en": "FaMTEB embeddings",
+        "fa": "فام‌تی‌ای‌بی"
+      },
+      "plrEntryIds": [
+        "famteb-benchmark"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://arxiv.org/pdf/2502.11571",
+      "analysis": {
+        "en": "Persian embedding benchmark lane.",
+        "fa": "خط بنچمارک تعبیهٔ فارسی."
+      }
+    },
+    {
+      "id": "mizan",
+      "category": "leaderboards",
+      "name": {
+        "en": "MIZAN leaderboard",
+        "fa": "جدول میزان"
+      },
+      "plrEntryIds": [
+        "mizan-leaderboard"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/spaces/MCINext/mizan-llm-leaderboard",
+      "analysis": {
+        "en": "Live Persian LLM rankings.",
+        "fa": "رتبه‌بندی زندهٔ مدل‌های فارسی."
+      }
+    },
+    {
+      "id": "partai-leaderboard",
+      "category": "leaderboards",
+      "name": {
+        "en": "PartAI Open Persian LLM Leaderboard",
+        "fa": "جدول باز PartAI"
+      },
+      "plrEntryIds": [
+        "open-persian-llm-leaderboard"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard",
+      "analysis": {
+        "en": "Widely cited community rankings.",
+        "fa": "جدول پراستناد جامعه."
+      }
+    },
+    {
+      "id": "awesome-persian-llm",
+      "category": "community",
+      "name": {
+        "en": "Awesome-Persian-LLM",
+        "fa": "آوسام فارسی"
+      },
+      "plrEntryIds": [
+        "awesome-persian-llm"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://github.com/MohammadHeydari/Awesome-Persian-LLM",
+      "analysis": {
+        "en": "Primary discovery layer; PLR ingests with verification.",
+        "fa": "لایهٔ کشف؛ PLR با تأیید می‌خورد."
+      }
+    },
+    {
+      "id": "oscar-fa",
+      "category": "datasets-pretrain",
+      "name": {
+        "en": "OSCAR-2201 (fa shard)",
+        "fa": "اسکار فارسی"
+      },
+      "plrEntryIds": [
+        "oscar-2201-corpus"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://huggingface.co/datasets/oscar-corpus/OSCAR-2201",
+      "analysis": {
+        "en": "Common web pretrain source — not literary-grade alone; corpus law: web-scrape-filtered.",
+        "fa": "منبع وب رایج پیش‌آموزش — به‌تنهایی ادبی نیست."
+      }
+    },
+    {
+      "id": "wikipedia-fa",
+      "category": "datasets-pretrain",
+      "name": {
+        "en": "Persian Wikipedia dump",
+        "fa": "ویکی‌پدیای فارسی"
+      },
+      "plrEntryIds": [
+        "wikimedia-fa-wikipedia"
+      ],
+      "coverage": "cataloged",
+      "primaryUrl": "https://dumps.wikimedia.org/fawiki/latest/",
+      "analysis": {
+        "en": "Open encyclopedia corpus; basis for PQuAD/PersianMHQA.",
+        "fa": "پیکرهٔ دانشنامهٔ باز."
+      }
+    },
+    {
+      "id": "islamicpcqa",
+      "category": "datasets-eval",
+      "name": {
+        "en": "IslamicPCQA",
+        "fa": "اسلامیک‌پی‌سی‌کیوای"
+      },
+      "plrEntryIds": [
+        "islamicpcqa-benchmark"
+      ],
+      "coverage": "cataloged-partial",
+      "primaryUrl": "https://arxiv.org/abs/2304.11664",
+      "analysis": {
+        "en": "Paper published; public dataset release pending per authors.",
+        "fa": "مقاله منتشر؛ پیکرهٔ عمومی هنوز نیامده."
+      }
+    },
+    {
+      "id": "persian-news-kaggle",
+      "category": "datasets-pretrain",
+      "name": {
+        "en": "Persian news (Kaggle)",
+        "fa": "اخبار فارسی کگل"
+      },
+      "plrEntryIds": [],
+      "coverage": "planned",
+      "primaryUrl": null,
+      "analysis": {
+        "en": "v0.5 ingest candidate; needs stable primary URL + license.",
+        "fa": "نامزد v0.5؛ نیاز به نشانی و مجوز پایدار."
+      }
+    },
+    {
+      "id": "native-preference-gap",
+      "category": "field-gap",
+      "name": {
+        "en": "Native-rater preference data at scale",
+        "fa": "دادهٔ ترجیح ارزیاب بومی در مقیاس"
+      },
+      "plrEntryIds": [],
+      "coverage": "field-gap",
+      "primaryUrl": null,
+      "analysis": {
+        "en": "Gap #2. No public registry row until dataset + license published.",
+        "fa": "شکاف ۲."
+      }
+    },
+    {
+      "id": "literary-eval-gap",
+      "category": "field-gap",
+      "name": {
+        "en": "Literary register + book-memory eval",
+        "fa": "ارزیابی گونهٔ ادبی و حافظهٔ کتاب"
+      },
+      "plrEntryIds": [],
+      "coverage": "field-gap",
+      "primaryUrl": null,
+      "analysis": {
+        "en": "Gap #3. Sparse vs chat/instruction benchmarks.",
+        "fa": "شکاف ۳."
+      }
+    },
+    {
+      "id": "publisher-licensed-books",
+      "category": "field-gap",
+      "name": {
+        "en": "Publisher-licensed book shelf (documented)",
+        "fa": "قفسهٔ کتاب ناشرمجوزدار مستند"
+      },
+      "plrEntryIds": [],
+      "coverage": "field-gap",
+      "primaryUrl": null,
+      "analysis": {
+        "en": "Build-program corpus lane — PLR indexes public dataset releases only, not private MOUs.",
+        "fa": "خط پیکرهٔ برنامهٔ ساخت — PLR فقط انتشار عمومی را ثبت می‌کند."
+      }
+    }
+  ],
+  "forecast": {
+    "plr": {
+      "v0.5": {
+        "targetEntries": 60,
+        "targetVerified": 40,
+        "targetMeasured": 12,
+        "focus": {
+          "en": [
+            "Remaining indexed → verified",
+            "Persian news + regional models",
+            "Timeline UI",
+            "Source radar in API"
+          ],
+          "fa": [
+            "indexed به verified",
+            "اخبار فارسی + مدل‌های منطقه‌ای",
+            "خط زمان",
+            "رادار منبع در API"
+          ]
+        }
+      },
+      "v1.0": {
+        "targetEntries": 65,
+        "targetMeasured": 15,
+        "focus": {
+          "en": [
+            "Majority primary URLs verified",
+            "External citation",
+            "JSON schema stable"
+          ],
+          "fa": [
+            "اکثریت نشانی‌ها تأییدشده",
+            "استناد خارجی",
+            "طرحواره پایدار"
+          ]
+        }
+      }
+    },
+    "field": {
+      "en": "Expect more reasoning/trust/medical eval papers in 2026; instruct models stay English-base under 15B unless a native-foundation receipt ships.",
+      "fa": "ارزیابی استدلال/اعتماد/پزشکی در ۲۰۲۶ بیشتر می‌شود؛ مدل‌های دستوری باز هم انگلیسی‌پایه می‌مانند مگر رسید بنیاد بومی بیاید."
+    }
+  },
+  "stats": {
+    "cataloged": 14,
+    "fieldGap": 4,
+    "planned": 1,
+    "catalogedPartial": 1,
+    "plrManifestEntries": 55
+  }
+}

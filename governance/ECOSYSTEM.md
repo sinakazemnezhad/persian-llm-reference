@@ -57,9 +57,38 @@ PLR already lists Awesome as a **verified** `community-index` entry (`awesome-pe
 
 ---
 
-## Gap audit — high-value artifacts in Awesome, not yet in PLR
+## Gap audit — v0.4 status
 
-*Ingestion candidates for v0.3 tranches. Each needs primary URL verification before merge.*
+*v0.3–v0.4 tranches ingested. Remaining candidates for v0.5.*
+
+### Ingested in PLR v0.3–v0.4 ✓
+
+| Artifact | PLR id |
+|----------|--------|
+| Dorna 4-bit / full weights | `dorna-4bit-quantized`, `dorna-llama3-8b-instruct` |
+| Persian Ollama index | `persian-ollama-index` |
+| FarsiSyntheticData | `farsi-synthetic-data` |
+| Persian-Synthetic-Instruct | `persian-synthetic-instruct` |
+| TLPC, alpaca-persian | `tlpc-corpus`, `alpaca-persian` |
+| FaMTEB, FarsInstruct, Khayyam | `famteb-benchmark`, `farsinstruct`, `khayyam-persianmmlu` |
+| PARSE, EPT, PERCUL, MELAC, Taarof | `parse-benchmark`, `ept-benchmark`, … |
+| Hakim, Tooka-SBERT | `hakim-embedding`, `tooka-sbert` |
+| Matina leaderboard | `matina-llm-leaderboard` |
+| PersianMedQA, PQuAD, PersianMHQA | `persianmedqa`, `pquad-dataset`, `persianmhqa-dataset` |
+
+### Still planned (v0.5+)
+
+| Artifact | Priority |
+|----------|----------|
+| Persian news (Kaggle) | Medium — needs stable URL + license |
+| Additional regional instruct models | Medium |
+| IslamicPCQA public release | When dataset ships |
+
+See **`data/source-radar.json`** and **[FIELD_ANALYSIS.md](./FIELD_ANALYSIS.md)** for full field map.
+
+---
+
+## Gap audit archive (v0.3 planning)
 
 ### Models & weights
 

@@ -36,6 +36,7 @@ The **open global atlas** for Persian (Farsi) language models — **55 sourced e
 | **PyPI (Python client)** | `https://pypi.org/project/persian-llm-reference/` |
 | **Manifest JSON** | `/data/reference-manifest.json` |
 | **Raw manifest (cite in papers)** | `https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json` |
+| **Source radar (field gaps + forecast)** | `/data/source-radar.json` |
 | **Agent discovery** | `/.well-known/persian-llm-reference.json` |
 
 ## Repository layout

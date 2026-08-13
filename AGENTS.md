@@ -10,7 +10,9 @@
 | `cd workspace && npm start` | Local atlas `:5294` |
 | `cd workspace && npm run e2e` | Prove cascade |
 
-**SSOT:** `data/reference-manifest.json` · **GitHub:** `sinakazemnezhad/persian-llm-reference`
+**SSOT:** `data/reference-manifest.json` · **Field radar:** `data/source-radar.json` · **Analysis:** `governance/FIELD_ANALYSIS.md`
+
+**GitHub:** `sinakazemnezhad/persian-llm-reference`
 
 **Plan:** `governance/ROADMAP.md` · **PyPI:** `pip install persian-llm-reference` · `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`
 
