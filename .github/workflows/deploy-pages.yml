@@ -6,6 +6,8 @@ on:
       - "data/**"
       - "workspace/**"
       - "REFERENCE.json"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
 permissions:
   contents: read
   pages: write
