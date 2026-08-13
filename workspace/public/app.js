@@ -23,6 +23,8 @@ const I18N = {
     "inspector.axes": "Persian axes",
     "inspector.links": "Sources",
     "inspector.open": "View details",
+    "inspector.share": "Share page",
+    "inspector.copied": "Copied",
     "axis.scriptFidelity": "Script",
     "axis.corpusLaw": "Corpus",
     "axis.curriculumFit": "Curriculum",
@@ -127,6 +129,8 @@ const I18N = {
     "inspector.axes": "محورهای فارسی",
     "inspector.links": "منابع",
     "inspector.open": "مشاهدهٔ جزئیات",
+    "inspector.share": "اشتراک لینک",
+    "inspector.copied": "کپی شد",
     "axis.scriptFidelity": "خط",
     "axis.corpusLaw": "حقوق داده",
     "axis.curriculumFit": "برنامهٔ درسی",
@@ -234,7 +238,7 @@ const LANES = [
 ];
 
 const AXES = ["scriptFidelity", "corpusLaw", "curriculumFit", "literaryDepth", "nativePreference"];
-const MIN_ENTRIES = 60;
+const MIN_ENTRIES = 67;
 
 const RELEASE_MILESTONES = [
   {
@@ -272,7 +276,24 @@ let activeGapTag = "";
 let activeLineageBase = "";
 let activeTreeKind = "";
 let activeTreeClass = "";
-let selectedEntryId = new URLSearchParams(location.search).get("entry") || "";
+let selectedEntryId = "";
+
+function resolveEntryId() {
+  if (typeof window !== "undefined" && window.__PLR_ENTRY_ID__) return window.__PLR_ENTRY_ID__;
+  const q = new URLSearchParams(location.search).get("entry");
+  if (q) return q;
+  const basePath = (siteConfig?.basePath || "").replace(/\/$/, "");
+  let path = location.pathname;
+  if (basePath && path.startsWith(basePath)) path = path.slice(basePath.length);
+  const m = path.match(/\/entry\/([^/]+)\/?$/);
+  return m ? decodeURIComponent(m[1]) : "";
+}
+
+function atlasHomeUrl() {
+  const basePath = (siteConfig?.basePath || "").replace(/\/$/, "");
+  if (basePath) return `${basePath}/`;
+  return "/";
+}
 
 function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
@@ -468,9 +489,15 @@ function inspectorLinksHtml(links) {
 }
 
 function entryUrl(id) {
-  const u = new URL(location.href);
-  u.searchParams.set("entry", id);
-  return u.toString();
+  const basePath = (siteConfig?.basePath || "").replace(/\/$/, "");
+  if (basePath) return `${basePath}/entry/${encodeURIComponent(id)}/`;
+  return `/entry/${encodeURIComponent(id)}/`;
+}
+
+function absoluteEntryUrl(id) {
+  const base = (siteConfig?.canonicalSite || location.origin).replace(/\/$/, "");
+  const basePath = (siteConfig?.basePath || "").replace(/\/$/, "");
+  return `${base}${basePath}/entry/${encodeURIComponent(id)}/`;
 }
 
 function renderCard(entry, index = 0) {
@@ -782,22 +809,14 @@ function renderTable(entries) {
 function openInspector(id, pushState = true) {
   if (!id || !manifest.entries.find((e) => e.id === id)) return;
   selectedEntryId = id;
-  if (pushState) {
-    const u = new URL(location.href);
-    u.searchParams.set("entry", id);
-    history.pushState({ entry: id }, "", u);
-  }
+  if (pushState) history.pushState({ entry: id }, "", entryUrl(id));
   renderInspector();
   renderAtlas();
 }
 
 function closeInspector(pushState = true) {
   selectedEntryId = "";
-  if (pushState) {
-    const u = new URL(location.href);
-    u.searchParams.delete("entry");
-    history.pushState({}, "", u);
-  }
+  if (pushState) history.pushState({}, "", atlasHomeUrl());
   document.getElementById("entry-inspector")?.classList.add("hidden");
   renderAtlas();
 }
@@ -836,11 +855,32 @@ function renderInspector() {
     ${axisChartHtml(entryAxes(entry)) ? `<div class="inspector-section"><h4>${t("inspector.axes")}</h4>${axisChartHtml(entryAxes(entry))}</div>` : ""}
     ${entry.links ? `<div class="inspector-section"><h4>${t("inspector.links")}</h4><div class="inspector-links">${inspectorLinksHtml(entry.links)}</div></div>` : ""}
     ${relatedEntriesHtml(entry)}
+    <div class="inspector-section">
+      <h4>${t("inspector.share")}</h4>
+      <div class="inspector-share">
+        <input type="text" class="inspector-share__url" readonly value="${absoluteEntryUrl(entry.id)}" aria-label="${t("inspector.share")}" />
+        <button type="button" class="btn btn-ghost" data-copy-share>${t("inspector.share")}</button>
+      </div>
+    </div>
     <div class="inspector-actions">
       <button type="button" class="btn btn-primary compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
     </div>`;
   panel.classList.remove("hidden");
   content.querySelector("[data-compare]")?.addEventListener("click", () => toggleCompare(entry.id));
+  content.querySelector("[data-copy-share]")?.addEventListener("click", async (ev) => {
+    const url = absoluteEntryUrl(entry.id);
+    try {
+      await navigator.clipboard.writeText(url);
+      const btn = ev.currentTarget;
+      const prev = btn.textContent;
+      btn.textContent = t("inspector.copied");
+      setTimeout(() => {
+        btn.textContent = prev;
+      }, 1600);
+    } catch {
+      content.querySelector(".inspector-share__url")?.select();
+    }
+  });
   content.querySelectorAll("[data-related]").forEach((btn) => {
     btn.addEventListener("click", () => openInspector(btn.dataset.related));
   });
@@ -1204,7 +1244,7 @@ function exportCsv() {
 }
 
 function applyDeepLink() {
-  const id = new URLSearchParams(location.search).get("entry");
+  const id = resolveEntryId();
   document.querySelectorAll(".entry-card.highlight").forEach((el) => el.classList.remove("highlight"));
   if (!id) {
     if (selectedEntryId) closeInspector(false);
@@ -1323,6 +1363,8 @@ async function boot() {
     siteConfig = {};
   }
 
+  selectedEntryId = resolveEntryId();
+
   manifest = await loadManifest();
   sourceRadar = await loadSourceRadar();
   setApiLine();
@@ -1409,7 +1451,7 @@ async function boot() {
   });
 
   window.addEventListener("popstate", () => {
-    selectedEntryId = new URLSearchParams(location.search).get("entry") || "";
+    selectedEntryId = resolveEntryId();
     if (selectedEntryId) renderInspector();
     else document.getElementById("entry-inspector")?.classList.add("hidden");
     applyDeepLink();

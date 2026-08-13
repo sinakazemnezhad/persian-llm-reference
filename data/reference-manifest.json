@@ -1,6 +1,6 @@
 {
-  "version": "0.9.1",
-  "generatedAt": "2026-08-13T04:05:02.471Z",
+  "version": "0.10.0",
+  "generatedAt": "2026-08-13T04:15:35.815Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -120,7 +120,7 @@
       "org": "PartAI",
       "sizeB": 8,
       "license": "Llama-3-community",
-      "status": "measured",
+      "status": "verified",
       "summary": {
         "en": "Widely used Persian instruct model; strong results on public Persian leaderboards under 10B.",
         "fa": "مدل دستوری فارسی پرکاربرد؛ نتایج قوی در جدول‌های عمومی فارسی زیر ۱۰ میلیارد پارامتر."
@@ -150,13 +150,6 @@
           "asOf": null,
           "receipt": "leaderboard-live",
           "url": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
-        },
-        {
-          "name": "PersianMedQA (Persian)",
-          "score": "34.9",
-          "asOf": "2025-06",
-          "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -170,7 +163,8 @@
       "firstSeen": "2024-06",
       "gapTags": [
         "instruct-stack"
-      ]
+      ],
+      "notes": "PersianMedQA paper evaluates Dorna2-LLaMA-3.1-8B separately (see dorna2-llama31-8b). Leaderboard link is live-receipt only."
     },
     {
       "id": "maral-7b",
@@ -2349,7 +2343,7 @@
       "org": "Meta",
       "sizeB": null,
       "license": "Llama-3.3-community",
-      "status": "verified",
+      "status": "measured",
       "summary": {
         "en": "Llama 3.3 instruct family — base for many Persian community fine-tunes including Dorna2.",
         "fa": "خانوادهٔ لاما ۳٫۳ دستوری — پایهٔ بسیاری از فاین‌تیون‌های فارسی از جمله درنا۲."
@@ -2370,7 +2364,15 @@
         "class": "mixed-web",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "66.63",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 0,
@@ -2559,7 +2561,7 @@
       "benchmarks": [
         {
           "name": "PersianMedQA (Persian)",
-          "score": "39.70",
+          "score": "38.67",
           "asOf": "2025-06",
           "receipt": "paper",
           "url": "https://arxiv.org/abs/2506.00250"
@@ -2586,7 +2588,7 @@
       "org": "BioMistral",
       "sizeB": 7,
       "license": "Apache-2.0",
-      "status": "verified",
+      "status": "measured",
       "summary": {
         "en": "Open biomedical instruct model on Mistral — multilingual medical QA baseline, not Persian-native.",
         "fa": "مدل دستوری زیست‌پزشکی باز روی میسترال — خط پایهٔ پرسش‌وپاسخ پزشکی چندزبانه."
@@ -2608,7 +2610,15 @@
         "class": "domain-medical",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "25.76",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 2,
@@ -2793,7 +2803,7 @@
       "benchmarks": [
         {
           "name": "PersianMedQA (Persian)",
-          "score": "69.25",
+          "score": "67.02",
           "asOf": "2025-06",
           "receipt": "paper",
           "url": "https://arxiv.org/abs/2506.00250"
@@ -2912,6 +2922,186 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "qwen25-72b-instruct",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Qwen 2.5 72B Instruct",
+        "fa": "کوئن ۲٫۵ ۷۲بی دستوری"
+      },
+      "org": "Alibaba",
+      "sizeB": 72,
+      "license": "Apache-2.0",
+      "status": "measured",
+      "summary": {
+        "en": "Large open Qwen 2.5 instruct tier — 65.17% Persian accuracy on PersianMedQA (paper Table A).",
+        "fa": "ردهٔ دستوری باز کوئن ۲٫۵ ۷۲بی — ۶۵٫۱۷٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+      },
+      "links": {
+        "hf": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Qwen-2.5",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "65.17",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2024-09"
+    },
+    {
+      "id": "mixtral-8x22b-instruct",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Mixtral 8x22B Instruct",
+        "fa": "میکسترال ۸×۲۲بی دستوری"
+      },
+      "org": "Mistral AI",
+      "sizeB": 141,
+      "license": "Apache-2.0",
+      "status": "measured",
+      "summary": {
+        "en": "Mistral sparse MoE instruct model — 36.78% Persian accuracy on PersianMedQA (paper Table A).",
+        "fa": "مدل دستوری MoE میسترال — ۳۶٫۷۸٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+      },
+      "links": {
+        "hf": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Mixtral-8x22B",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "36.78",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2024-04"
+    },
+    {
+      "id": "mistral-saba-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Mistral Saba class (proprietary)",
+        "fa": "ردهٔ میسترال سابا (اختصاصی)"
+      },
+      "org": "Mistral AI",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "Mistral Saba proprietary tier — 61.85% Persian accuracy on PersianMedQA (paper Table A).",
+        "fa": "ردهٔ اختصاصی میسترال سابا — ۶۱٫۸۵٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+      },
+      "links": {
+        "web": "https://mistral.ai/",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "proprietary",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "61.85",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2025-06"
+    },
+    {
+      "id": "meditron3-qwen25-7b",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Meditron3-Qwen2.5-7B",
+        "fa": "مدیترون۳‑کوئن۲٫۵‑۷بی"
+      },
+      "org": "EPFL · Yale",
+      "sizeB": 7,
+      "license": "Apache-2.0",
+      "status": "measured",
+      "summary": {
+        "en": "Medical Meditron3 variant on Qwen 2.5 7B — 37.62% Persian accuracy on PersianMedQA (paper Table A).",
+        "fa": "نسخهٔ پزشکی مدیترون۳ روی کوئن ۲٫۵ ۷بی — ۳۷٫۶۲٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2506.00250",
+        "repo": "https://github.com/epfLLM/Meditron"
+      },
+      "origin": {
+        "base": "Qwen-2.5-7B",
+        "persianTraining": "medical-domain-continued-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "weak"
+      },
+      "corpus": {
+        "class": "domain-medical",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "37.62",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2025-06"
     }
   ],
   "gapMap": {
@@ -2935,25 +3125,25 @@
     ]
   },
   "stats": {
-    "total": 63,
+    "total": 67,
     "byKind": {
-      "model": 33,
+      "model": 37,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byClass": {
-      "adapted-instruct": 14,
+      "adapted-instruct": 15,
       "native-foundation": 1,
-      "multilingual-frontier": 14,
+      "multilingual-frontier": 17,
       "encoder-only": 4,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 15,
-      "verified": 48
+      "measured": 20,
+      "verified": 47
     }
   }
 }

@@ -1,6 +1,6 @@
 # Roadmap — Persian LLM Reference
 
-**Saved:** 2026-08-13 · **Baseline:** v0.5.0 · 61 entries
+**Saved:** 2026-08-13 · **Baseline:** v0.10.0 · 67 entries
 
 ## North star
 
@@ -161,7 +161,8 @@ People need **decisions**, not another link dump.
 
 | Version | Bar | Target date (indicative) |
 |---------|-----|--------------------------|
-| **v0.9.0** *(now)* | 63 entries · ecosystem tree · lineage · related inspector | 2026-08 |
+| **v0.10.0** *(now)* | 67 entries · 20 measured · `/entry/{id}/` pages · link audit | 2026-08 |
+| **v0.9.0** | 63 entries · ecosystem tree · lineage · related inspector | 2026-08 |
 | **v0.8.0** | 63 entries · atlas UI v2 workspace · inspector · ⌘K palette | 2026-08 |
 | **v0.6.0** | 63 entries · 15 measured · compare UI · JSON Schema v1 | 2026-08 |
 | **v0.2.1** | 23 entries · live site · methodology · no fake scores | 2026-08 |
@@ -171,7 +172,7 @@ People need **decisions**, not another link dump.
 | **v1.0** | 60+ entries · majority linked · 15+ measured · zero broken primary URLs · ≥1 external citation | months 4–6 |
 | **v2.0** | Schema stable · community PRs · optional `persian-llm-reference` org · custom domain | year 1+ |
 
-**Current stats (v0.9.0):** 63 entries · **48 verified** · **15 measured** · 0 indexed.
+**Current stats (v0.10.0):** 67 entries · **47 verified** · **20 measured** · 0 indexed.
 
 ---
 
@@ -183,7 +184,7 @@ People need **decisions**, not another link dump.
 
 - [ ] `cd workspace && npm run build` — PASS
 - [ ] `cd workspace && npm run e2e` — GREEN
-- [ ] Live site: 23 entries via `/data/reference-manifest.json`
+- [x] Live site: 67 entries via `/data/reference-manifest.json`
 - [ ] Trailing slash: `/` → 200; no slash → redirect OK
 - [ ] `node scripts/validate-links.mjs` — PASS (document HF Spaces 401 as auth-gated)
 
@@ -218,7 +219,7 @@ People need **decisions**, not another link dump.
 ### Step 1.3 — Raise verification
 
 - [ ] Upgrade **10 rows** from `indexed` → `verified` (license + size + base confirmed)
-- [ ] Upgrade **4+ rows** to `measured` (benchmark name, score, `asOf`, link)
+- [x] Upgrade **4+ rows** to `measured` (benchmark name, score, `asOf`, link)
 - [ ] Close **ParsBench** — add primary URL or explicit URL-pending note in `summary`
 - [ ] Add **Dorna** non-GGUF HF weights if published
 
@@ -266,7 +267,8 @@ People need **decisions**, not another link dump.
 
 ### Step 2.2 — Navigation and cite
 
-- [ ] Deep link `?entry={id}` scrolls to card + highlights
+- [x] Deep link `?entry={id}` scrolls to card + highlights
+- [x] Share URL `/entry/{id}/` per entry (static page + inspector copy)
 - [ ] Card actions: Open HF · Open paper · Open repo (when present)
 - [ ] Footer / trust panel: “Cite this registry” with version + `generatedAt`
 - [ ] Share URL copies bilingual-safe link
@@ -339,7 +341,7 @@ Home or nav shortcuts — pre-filtered views:
 
 - [ ] **60+** entries
 - [ ] Majority with primary links
-- [ ] **15+** measured
+- [x] **20+** measured
 - [ ] Zero broken primary URLs
 - [ ] Bilingual parity on all new UI strings
 

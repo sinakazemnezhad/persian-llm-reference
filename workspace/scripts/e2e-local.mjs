@@ -2,7 +2,7 @@
 /** dis-brand-agent repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-SCRIPTS-E2E-LOCAL-MJ name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:10:02.804Z */
 
 const BASE = process.env.PLR_E2E_BASE || "http://127.0.0.1:5294";
-const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 63);
+const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 67);
 let pass = 0;
 let fail = 0;
 
@@ -37,6 +37,8 @@ async function main() {
     record("home timeline + radar", home.text.includes("timeline-list") && home.text.includes("radar-panel"));
     record("home compare panel", home.text.includes("compare-panel"));
     record("home tree UI", home.text.includes("taxonomy-tree") && home.text.includes("lineage-tree"));
+    const entryPage = await fetchText("/entry/dorna-llama3-8b/");
+    record("entry page /entry/{id}/", entryPage.status === 200 && entryPage.text.includes("dorna-llama3-8b"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);
   try {
     const pageBase = `${BASE}/`;

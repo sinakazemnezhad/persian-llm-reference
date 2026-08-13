@@ -107,9 +107,51 @@ fs.writeFileSync(
   "utf8"
 );
 
+function escapeAttr(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
+
+function entryIndexHtml(entry, indexTemplate) {
+  const depth = "../../";
+  const title = `${entry.name.en} · Persian LLM Reference`;
+  const description = entry.summary?.en || entry.name.en;
+  const canonical = `${REF.canonicalSite}/entry/${entry.id}/`;
+  let html = indexTemplate
+    .replace(/href="favicon\.svg"/, `href="${depth}favicon.svg"`)
+    .replace(/href="\.\/"/, `href="${depth}"`)
+    .replace(/href="app\.css[^"]*"/, `href="${depth}app.css?v=${REF.version}"`)
+    .replace(/src="app\.js[^"]*"/, `src="${depth}app.js?v=${REF.version}"`)
+    .replace(/<title>[^<]+<\/title>/, `<title>${escapeAttr(title)}</title>`)
+    .replace(
+      /<meta name="description"[^>]+>/,
+      `<meta name="description" content="${escapeAttr(description)}" />`
+    );
+  const headExtra = `
+  <link rel="canonical" href="${canonical}" />
+  <meta property="og:title" content="${escapeAttr(entry.name.en)}" />
+  <meta property="og:description" content="${escapeAttr(description)}" />
+  <meta property="og:url" content="${canonical}" />
+  <meta property="og:type" content="article" />
+  <script>window.__PLR_ENTRY_ID__=${JSON.stringify(entry.id)};</script>`;
+  html = html.replace("</head>", `${headExtra}\n</head>`);
+  return html;
+}
+
+const indexTemplate = fs.readFileSync(path.join(PUBLIC, "index.html"), "utf8");
+const entryRoot = path.join(PUBLIC, "entry");
+fs.mkdirSync(entryRoot, { recursive: true });
+for (const entry of manifest.entries) {
+  const dir = path.join(entryRoot, entry.id);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, "index.html"), entryIndexHtml(entry, indexTemplate), "utf8");
+}
+
 // Python PyPI bundle
 const pyDataDir = path.join(ROOT, "src/persian_llm_reference/data");
 fs.mkdirSync(pyDataDir, { recursive: true });
 fs.copyFileSync(MANIFEST_SRC, path.join(pyDataDir, "reference-manifest.json"));
 
-console.log(`build — v${REF.version} · ${manifest.entries.length} entries · static public/ ready`);
+console.log(`build — v${REF.version} · ${manifest.entries.length} entries · ${manifest.entries.length} entry pages · static public/ ready`);

@@ -95,16 +95,27 @@ const server = http.createServer(async (req, res) => {
   }
 
   const filePath = safeJoin(ROOT, url.pathname);
-  if (!filePath || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+  if (!filePath || !fs.existsSync(filePath)) {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Not found");
     return;
   }
 
-  const ext = path.extname(filePath);
+  let servePath = filePath;
+  if (fs.statSync(filePath).isDirectory()) {
+    const indexPath = path.join(filePath, "index.html");
+    if (!fs.existsSync(indexPath)) {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Not found");
+      return;
+    }
+    servePath = indexPath;
+  }
+
+  const ext = path.extname(servePath);
   const type = TYPES[ext] || "application/octet-stream";
   res.writeHead(200, { "Content-Type": type, "Cache-Control": "no-store" });
-  fs.createReadStream(filePath).pipe(res);
+  fs.createReadStream(servePath).pipe(res);
 });
 
 server.listen(PORT, HOST, () => {

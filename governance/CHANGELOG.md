@@ -1,6 +1,13 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.10.0 — 2026-08-13
+
+- **Measured wave (20+):** +4 PersianMedQA rows from paper Table A (Qwen 2.5 72B, Mixtral 8x22B, Mistral Saba class, Meditron3-Qwen2.5-7B); biomistral-7b + llama33-class upgraded; score alignment to appendix table.
+- **Receipt fix:** remove mis-attributed PersianMedQA score from `dorna-llama3-8b` (paper evaluates Dorna2 separately).
+- **Entry pages:** static `/entry/{id}/` with SEO meta, canonical URL, inspector share + copy.
+- **ROADMAP sync:** v0.10 stats, milestone ladder, deep-link checkbox.
+
 ## 0.9.1 — 2026-08-13
 
 - **Attribution fix:** remove personal name from PyPI-facing README; Awesome credit is bibliographic link only until maintainer PR merges.

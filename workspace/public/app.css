@@ -549,6 +549,18 @@ body[dir="rtl"] .workspace-inspector { animation-name: inspector-in-rtl; }
 .inspector-links a:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
 
 .inspector-actions { display: flex; gap: var(--space-2); margin-top: var(--space-5); }
+.inspector-share { display: flex; gap: var(--space-2); align-items: center; }
+.inspector-share__url {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+}
 
 /* Table */
 .table-wrap {

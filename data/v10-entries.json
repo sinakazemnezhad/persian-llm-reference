@@ -1,0 +1,182 @@
+[
+  {
+    "id": "qwen25-72b-instruct",
+    "kind": "model",
+    "class": "multilingual-frontier",
+    "name": {
+      "en": "Qwen 2.5 72B Instruct",
+      "fa": "کوئن ۲٫۵ ۷۲بی دستوری"
+    },
+    "org": "Alibaba",
+    "sizeB": 72,
+    "license": "Apache-2.0",
+    "status": "measured",
+    "summary": {
+      "en": "Large open Qwen 2.5 instruct tier — 65.17% Persian accuracy on PersianMedQA (paper Table A).",
+      "fa": "ردهٔ دستوری باز کوئن ۲٫۵ ۷۲بی — ۶۵٫۱۷٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+    },
+    "links": {
+      "hf": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+      "paper": "https://arxiv.org/abs/2506.00250"
+    },
+    "origin": {
+      "base": "Qwen-2.5",
+      "persianTraining": "multilingual-pretrain"
+    },
+    "script": {
+      "rtl": true,
+      "zwnj": "partial",
+      "morphology": "partial"
+    },
+    "corpus": {
+      "class": "mixed-web",
+      "licensedBooks": false
+    },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "65.17",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "verifiedAt": "2026-08-13",
+    "firstSeen": "2024-09"
+  },
+  {
+    "id": "mixtral-8x22b-instruct",
+    "kind": "model",
+    "class": "multilingual-frontier",
+    "name": {
+      "en": "Mixtral 8x22B Instruct",
+      "fa": "میکسترال ۸×۲۲بی دستوری"
+    },
+    "org": "Mistral AI",
+    "sizeB": 141,
+    "license": "Apache-2.0",
+    "status": "measured",
+    "summary": {
+      "en": "Mistral sparse MoE instruct model — 36.78% Persian accuracy on PersianMedQA (paper Table A).",
+      "fa": "مدل دستوری MoE میسترال — ۳۶٫۷۸٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+    },
+    "links": {
+      "hf": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "paper": "https://arxiv.org/abs/2506.00250"
+    },
+    "origin": {
+      "base": "Mixtral-8x22B",
+      "persianTraining": "multilingual-pretrain"
+    },
+    "script": {
+      "rtl": true,
+      "zwnj": "partial",
+      "morphology": "partial"
+    },
+    "corpus": {
+      "class": "mixed-web",
+      "licensedBooks": false
+    },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "36.78",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "verifiedAt": "2026-08-13",
+    "firstSeen": "2024-04"
+  },
+  {
+    "id": "mistral-saba-class",
+    "kind": "model",
+    "class": "multilingual-frontier",
+    "name": {
+      "en": "Mistral Saba class (proprietary)",
+      "fa": "ردهٔ میسترال سابا (اختصاصی)"
+    },
+    "org": "Mistral AI",
+    "sizeB": null,
+    "license": "proprietary",
+    "status": "measured",
+    "summary": {
+      "en": "Mistral Saba proprietary tier — 61.85% Persian accuracy on PersianMedQA (paper Table A).",
+      "fa": "ردهٔ اختصاصی میسترال سابا — ۶۱٫۸۵٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+    },
+    "links": {
+      "web": "https://mistral.ai/",
+      "paper": "https://arxiv.org/abs/2506.00250"
+    },
+    "origin": {
+      "base": "proprietary",
+      "persianTraining": "multilingual-pretrain"
+    },
+    "script": {
+      "rtl": true,
+      "zwnj": "partial",
+      "morphology": "partial"
+    },
+    "corpus": {
+      "class": "mixed-web",
+      "licensedBooks": false
+    },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "61.85",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "verifiedAt": "2026-08-13",
+    "firstSeen": "2025-06"
+  },
+  {
+    "id": "meditron3-qwen25-7b",
+    "kind": "model",
+    "class": "adapted-instruct",
+    "name": {
+      "en": "Meditron3-Qwen2.5-7B",
+      "fa": "مدیترون۳‑کوئن۲٫۵‑۷بی"
+    },
+    "org": "EPFL · Yale",
+    "sizeB": 7,
+    "license": "Apache-2.0",
+    "status": "measured",
+    "summary": {
+      "en": "Medical Meditron3 variant on Qwen 2.5 7B — 37.62% Persian accuracy on PersianMedQA (paper Table A).",
+      "fa": "نسخهٔ پزشکی مدیترون۳ روی کوئن ۲٫۵ ۷بی — ۳۷٫۶۲٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2506.00250",
+      "repo": "https://github.com/epfLLM/Meditron"
+    },
+    "origin": {
+      "base": "Qwen-2.5-7B",
+      "persianTraining": "medical-domain-continued-pretrain"
+    },
+    "script": {
+      "rtl": true,
+      "zwnj": "partial",
+      "morphology": "weak"
+    },
+    "corpus": {
+      "class": "domain-medical",
+      "licensedBooks": false
+    },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "37.62",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "verifiedAt": "2026-08-13",
+    "firstSeen": "2025-06"
+  }
+]
