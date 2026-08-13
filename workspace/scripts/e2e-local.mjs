@@ -38,6 +38,7 @@ async function main() {
     record("home compare panel", home.text.includes("compare-panel"));
     record("home tree UI", home.text.includes("taxonomy-tree") && home.text.includes("lineage-tree"));
     record("home references section", home.text.includes("refs-grid") && home.text.includes("references-heading"));
+    record("theme toggle present", home.text.includes('id="theme-toggle"'));
     const entryPage = await fetchText("/entry/dorna-llama3-8b/");
     record("entry page /entry/{id}/", entryPage.status === 200 && entryPage.text.includes("dorna-llama3-8b"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);

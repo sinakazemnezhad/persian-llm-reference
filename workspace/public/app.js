@@ -89,6 +89,8 @@ const I18N = {
     "cite.copy": "Copy BibTeX",
     "cite.copied": "Copied",
     "footer.tagline": "Open, citable atlas for the Persian LLM ecosystem.",
+    "theme.toLight": "Switch to light theme",
+    "theme.toDark": "Switch to dark theme",
     "footer.law": "No invented scores. Community atlas — we cite the people who built the work.",
     "view.grid": "Cards",
     "view.table": "Table",
@@ -211,6 +213,8 @@ const I18N = {
     "cite.copy": "کپی BibTeX",
     "cite.copied": "کپی شد",
     "footer.tagline": "مرجع باز و قابل‌استناد برای اکوسیستم مدل‌های زبانی فارسی.",
+    "theme.toLight": "تغییر به حالت روشن",
+    "theme.toDark": "تغییر به حالت تیره",
     "footer.law": "نمرهٔ ساختگی ممنوع · مرجع جامعه‌محور — سازندگان و منابعشان را ذکر می‌کنیم",
     "view.grid": "نمای کارت",
     "view.table": "نمای جدول",
@@ -309,6 +313,32 @@ let activeLineageBase = "";
 let activeTreeKind = "";
 let activeTreeClass = "";
 let selectedEntryId = "";
+
+function getTheme() {
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+}
+
+function setTheme(theme) {
+  const next = theme === "light" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("plr-theme", next);
+  updateThemeToggle();
+}
+
+function updateThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const light = getTheme() === "light";
+  btn.textContent = light ? "☽" : "☀";
+  btn.setAttribute("aria-label", light ? t("theme.toDark") : t("theme.toLight"));
+}
+
+function initThemeToggle() {
+  updateThemeToggle();
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    setTheme(getTheme() === "light" ? "dark" : "light");
+  });
+}
 
 function resolveEntryId() {
   if (typeof window !== "undefined" && window.__PLR_ENTRY_ID__) return window.__PLR_ENTRY_ID__;
@@ -1472,6 +1502,7 @@ async function boot() {
   renderComparePanel();
   renderAtlas();
   initCommandPalette();
+  initThemeToggle();
   document.getElementById("tree-clear")?.addEventListener("click", clearTreeFilters);
   hideBootLoader();
 
@@ -1480,6 +1511,7 @@ async function boot() {
     lang = lang === "fa" ? "en" : "fa";
     localStorage.setItem("plr-lang", lang);
     applyI18n();
+    updateThemeToggle();
     fillFilters();
     renderLanes();
     renderTimeline();

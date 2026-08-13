@@ -1,6 +1,11 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.10.2 — 2026-08-13
+
+- **Light theme:** system preference + header toggle (☀/☽), persisted in `localStorage`.
+- **Tokens:** semantic CSS variables for both dark and light palettes.
+
 ## 0.10.1 — 2026-08-13
 
 - **References section:** ecosystem sources grid (Awesome, MIZAN, PartAI, Matina, PersianMedQA, Hugging Face) from `meta.citations` — bilingual notes.
