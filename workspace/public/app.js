@@ -1,6 +1,23 @@
 const I18N = {
   en: {
     "nav.contribute": "Contribute on GitHub",
+    "nav.atlas": "Registry",
+    "nav.timeline": "Timeline",
+    "nav.radar": "Sources",
+    "nav.gap": "Gaps",
+    "results.showing": "Showing",
+    "results.of": "of",
+    "results.entries": "entries",
+    "inspector.meta": "Details",
+    "inspector.benchmarks": "Benchmarks",
+    "inspector.axes": "Persian axes",
+    "inspector.links": "Sources",
+    "inspector.open": "View details",
+    "axis.scriptFidelity": "Script",
+    "axis.corpusLaw": "Corpus",
+    "axis.curriculumFit": "Curriculum",
+    "axis.literaryDepth": "Literary",
+    "axis.nativePreference": "Native",
     "hero.kicker": "Open reference · every claim sourced",
     "hero.title": "Persian LLM Reference",
     "hero.lede":
@@ -78,6 +95,23 @@ const I18N = {
   },
   fa: {
     "nav.contribute": "همکاری در گیت‌هاب",
+    "nav.atlas": "فهرست",
+    "nav.timeline": "گاه‌شمار",
+    "nav.radar": "منابع",
+    "nav.gap": "شکاف‌ها",
+    "results.showing": "نمایش",
+    "results.of": "از",
+    "results.entries": "مورد",
+    "inspector.meta": "جزئیات",
+    "inspector.benchmarks": "معیارهای سنجش",
+    "inspector.axes": "محورهای فارسی",
+    "inspector.links": "منابع",
+    "inspector.open": "مشاهدهٔ جزئیات",
+    "axis.scriptFidelity": "خط",
+    "axis.corpusLaw": "حقوق داده",
+    "axis.curriculumFit": "برنامهٔ درسی",
+    "axis.literaryDepth": "ادبیات",
+    "axis.nativePreference": "ترجیح بومی",
     "hero.kicker": "مرجع باز · هر ادعا با منبع معتبر",
     "hero.title": "مرجع مدل‌های زبانی فارسی",
     "hero.lede":
@@ -195,8 +229,8 @@ const RELEASE_MILESTONES = [
   },
   {
     date: "2026-08-13",
-    en: "v0.5 — 60+ entries, source radar UI, medical lane ingest",
-    fa: "نسخه ۰.۵ — بیش از ۶۰ مورد، نقشهٔ منابع و بخش پزشکی",
+    en: "v0.8 — atlas UI v2: workspace, inspector, command palette",
+    fa: "نسخه ۰.۸ — رابط اطلس نسل دوم: فضای کاری، جزئیات، جستجوی سریع",
   },
 ];
 
@@ -210,6 +244,7 @@ let sortKey = "name";
 let sortDir = 1;
 let compareIds = JSON.parse(localStorage.getItem("plr-compare") || "[]").slice(0, 3);
 let activeGapTag = "";
+let selectedEntryId = new URLSearchParams(location.search).get("entry") || "";
 
 function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
@@ -263,11 +298,61 @@ function renderStats() {
   const bar = document.getElementById("stats-bar");
   const models = s.byKind?.model || manifest.entries.filter((e) => e.kind === "model").length;
   const datasets = s.byKind?.dataset || manifest.entries.filter((e) => e.kind === "dataset").length;
+  const measured = s.byStatus?.measured || manifest.entries.filter((e) => e.status === "measured").length;
   bar.innerHTML = `
-    <span class="stat"><strong>${s.total || manifest.entries.length}</strong> ${t("stats.entries")}</span>
-    <span class="stat"><strong>${models}</strong> ${t("stats.models")}</span>
-    <span class="stat"><strong>${datasets}</strong> ${t("stats.datasets")}</span>
-    <span class="stat muted">${manifest.version} · ${manifest.generatedAt?.slice(0, 10) || ""}</span>`;
+    <div class="stat-card">
+      <span class="stat-card__value">${s.total || manifest.entries.length}</span>
+      <span class="stat-card__label">${t("stats.entries")}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__value">${models}</span>
+      <span class="stat-card__label">${t("stats.models")}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__value">${datasets}</span>
+      <span class="stat-card__label">${t("stats.datasets")}</span>
+    </div>
+    <div class="stat-card stat-card--accent">
+      <span class="stat-card__value">${measured}</span>
+      <span class="stat-card__label">${t("status.measured")}</span>
+    </div>
+    <div class="stat-card stat-card--meta">
+      <span class="stat-card__label">v${manifest.version} · ${manifest.generatedAt?.slice(0, 10) || ""}</span>
+      <span class="stat-card__value">manifest</span>
+    </div>`;
+}
+
+function renderTrustPipeline() {
+  const el = document.getElementById("trust-pipeline");
+  if (!el || !manifest) return;
+  const s = manifest.stats?.byStatus || {};
+  const indexed = s.indexed ?? manifest.entries.filter((e) => e.status === "indexed").length;
+  const verified = s.verified ?? manifest.entries.filter((e) => e.status === "verified").length;
+  const measured = s.measured ?? manifest.entries.filter((e) => e.status === "measured").length;
+  el.innerHTML = `
+    <div class="trust-step trust-step--indexed">
+      <span class="trust-step__count">${indexed}</span>
+      <span class="trust-step__label">${t("status.indexed")}</span>
+    </div>
+    <div class="trust-step trust-step--verified">
+      <span class="trust-step__count">${verified}</span>
+      <span class="trust-step__label">${t("status.verified")}</span>
+    </div>
+    <div class="trust-step trust-step--measured">
+      <span class="trust-step__count">${measured}</span>
+      <span class="trust-step__label">${t("status.measured")}</span>
+    </div>`;
+}
+
+function renderResultsMeta(count) {
+  const el = document.getElementById("results-meta");
+  if (!el) return;
+  const total = manifest.entries.length;
+  if (count === total && !getFilters().q && !getFilters().kind && !getFilters().cls && !getFilters().status && activeLane === "all" && !activeGapTag) {
+    el.textContent = "";
+    return;
+  }
+  el.innerHTML = `${t("results.showing")} <strong>${count}</strong> ${t("results.of")} <strong>${total}</strong> ${t("results.entries")}`;
 }
 
 function injectSchema() {
@@ -292,15 +377,44 @@ function entryAxes(entry) {
   return entry.persianAxes || entry.alefbaAxes || null;
 }
 
-function axisDots(axes) {
+function entryInitial(entry) {
+  const name = entry.name.en || entry.name.fa || entry.id;
+  return name.charAt(0).toUpperCase();
+}
+
+function benchMeterHtml(benchmarks) {
+  const bench = benchmarks?.[0];
+  if (!bench) return "";
+  const score = parseFloat(bench.score);
+  if (Number.isNaN(score)) return "";
+  const pct = Math.min(100, Math.max(0, score));
+  return `<div class="bench-meter">
+    <div class="bench-meter__head">
+      <span class="bench-meter__name">${bench.name}</span>
+      <span class="bench-meter__val">${score}%</span>
+    </div>
+    <div class="bench-meter__track"><div class="bench-meter__fill" style="width:${pct}%"></div></div>
+  </div>`;
+}
+
+function axisChartHtml(axes) {
   if (!axes) return "";
-  const nums = AXES.map((k) => axes[k]).filter((v) => typeof v === "number");
-  if (nums.length === 0) return "";
-  const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
-  const filled = Math.round(avg);
-  return `<span class="axis-row" title="Persian axes (editorial; null=unknown)">${Array.from({ length: 4 })
-    .map((_, i) => `<span class="axis-dot ${i < filled ? "filled" : ""}"></span>`)
-    .join("")}</span>`;
+  const rows = AXES.map((key) => {
+    const val = axes[key];
+    if (typeof val !== "number") return "";
+    const pct = Math.round((val / 5) * 100);
+    const label = t(`axis.${key}`) || key;
+    return `<div class="axis-row-mini">
+      <span>${label}</span>
+      <div class="axis-row-mini__bar"><div class="axis-row-mini__fill" style="width:${pct}%"></div></div>
+      <span class="axis-row-mini__val">${val}/5</span>
+    </div>`;
+  }).filter(Boolean);
+  return rows.length ? `<div class="axis-chart">${rows.join("")}</div>` : "";
+}
+
+function axisDots(axes) {
+  return axisChartHtml(axes);
 }
 
 function linkHtml(links, compact = false) {
@@ -315,32 +429,48 @@ function linkHtml(links, compact = false) {
   return parts.length ? `<div class="card-links${compact ? " card-links--compact" : ""}">${parts.join("")}</div>` : "";
 }
 
+function inspectorLinksHtml(links) {
+  if (!links) return "";
+  const labels = { hf: "Hugging Face", paper: "Paper", repo: "Repository", web: "Web", ollama: "Ollama", leaderboard: "Leaderboard" };
+  const parts = Object.entries(links)
+    .filter(([, url]) => url)
+    .map(([key, url]) => `<a href="${url}" target="_blank" rel="noopener">${labels[key] || key}</a>`);
+  return parts.join("");
+}
+
 function entryUrl(id) {
   const u = new URL(location.href);
   u.searchParams.set("entry", id);
   return u.toString();
 }
 
-function renderCard(entry) {
+function renderCard(entry, index = 0) {
   const name = entry.name[lang] || entry.name.en;
   const summary = entry.summary[lang] || entry.summary.en;
   const classLabel = t(`class.${entry.class}`) || entry.class;
   const size = entry.sizeB ? `${entry.sizeB}B` : "—";
   const inCompare = compareIds.includes(entry.id);
-  const bench = entry.benchmarks?.[0];
-  const score = bench ? `${bench.name}: ${bench.score}%` : "—";
+  const isSelected = selectedEntryId === entry.id;
+  const delay = Math.min(index, 12) * 30;
   return `
-    <article class="entry-card" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}" id="entry-${entry.id}">
-      <div class="entry-meta">
-        <span class="badge">${classLabel}</span>
-        <span class="badge badge--status-${entry.status}">${statusLabel(entry.status)}</span>
-        <span class="badge">${size}</span>
+    <article class="entry-card${isSelected ? " is-selected highlight" : ""}" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}" id="entry-${entry.id}" style="animation-delay:${delay}ms">
+      <div class="entry-card__stripe entry-card__stripe--${entry.status}"></div>
+      <div class="entry-card__body">
+        <div class="entry-card__top">
+          <div class="entry-card__avatar" aria-hidden="true">${entryInitial(entry)}</div>
+          <div class="entry-card__meta">
+            <span class="badge badge--status-${entry.status}">${statusLabel(entry.status)}</span>
+            <span class="badge">${classLabel}</span>
+          </div>
+        </div>
+        <h3><a href="${entryUrl(entry.id)}">${name}</a></h3>
+        <p class="entry-card__summary">${summary}</p>
+        ${benchMeterHtml(entry.benchmarks)}
+        <div class="entry-card__footer">
+          <span class="badge">${size}</span>
+          <button type="button" class="btn btn-ghost compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
+        </div>
       </div>
-      <h3><a href="${entryUrl(entry.id)}">${name}</a></h3>
-      <p>${summary}</p>
-      ${axisDots(entryAxes(entry))}
-      ${linkHtml(entry.links)}
-      <button type="button" class="btn btn-ghost compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
     </article>`;
 }
 
@@ -395,7 +525,8 @@ function renderTable(entries) {
     .map((e) => {
       const name = e.name[lang] || e.name.en;
       const size = e.sizeB ?? "—";
-      return `<tr data-id="${e.id}">
+      const sel = selectedEntryId === e.id ? " is-selected" : "";
+      return `<tr data-id="${e.id}" class="${sel.trim()}">
         <td><a href="${entryUrl(e.id)}">${name}</a></td>
         <td>${t(`kind.${e.kind}`) || e.kind}</td>
         <td>${t(`class.${e.class}`) || e.class}</td>
@@ -405,19 +536,100 @@ function renderTable(entries) {
       </tr>`;
     })
     .join("");
+  tbody.querySelectorAll("tr").forEach((row) => {
+    row.addEventListener("click", (ev) => {
+      if (ev.target.closest("a")) return;
+      openInspector(row.dataset.id);
+    });
+  });
+}
+
+function openInspector(id, pushState = true) {
+  if (!id || !manifest.entries.find((e) => e.id === id)) return;
+  selectedEntryId = id;
+  if (pushState) {
+    const u = new URL(location.href);
+    u.searchParams.set("entry", id);
+    history.pushState({ entry: id }, "", u);
+  }
+  renderInspector();
+  renderAtlas();
+}
+
+function closeInspector(pushState = true) {
+  selectedEntryId = "";
+  if (pushState) {
+    const u = new URL(location.href);
+    u.searchParams.delete("entry");
+    history.pushState({}, "", u);
+  }
+  document.getElementById("entry-inspector")?.classList.add("hidden");
+  renderAtlas();
+}
+
+function renderInspector() {
+  const panel = document.getElementById("entry-inspector");
+  const content = document.getElementById("inspector-content");
+  if (!panel || !content) return;
+  const entry = manifest.entries.find((e) => e.id === selectedEntryId);
+  if (!entry) {
+    panel.classList.add("hidden");
+    return;
+  }
+  const name = entry.name[lang] || entry.name.en;
+  const summary = entry.summary[lang] || entry.summary.en;
+  const inCompare = compareIds.includes(entry.id);
+  const benches = (entry.benchmarks || [])
+    .map((b) => benchMeterHtml([b]))
+    .join("");
+  content.innerHTML = `
+    <div class="inspector-header">
+      <div class="entry-card__meta">
+        <span class="badge badge--status-${entry.status}">${statusLabel(entry.status)}</span>
+        <span class="badge">${t(`class.${entry.class}`) || entry.class}</span>
+      </div>
+      <h3>${name}</h3>
+      <p class="inspector-summary">${summary}</p>
+    </div>
+    <div class="inspector-grid">
+      <div class="inspector-field"><span class="inspector-field__label">${t("table.kind")}</span><span class="inspector-field__value">${t(`kind.${entry.kind}`) || entry.kind}</span></div>
+      <div class="inspector-field"><span class="inspector-field__label">${t("table.size")}</span><span class="inspector-field__value">${entry.sizeB ? `${entry.sizeB}B` : "—"}</span></div>
+      <div class="inspector-field"><span class="inspector-field__label">license</span><span class="inspector-field__value">${entry.license ?? "—"}</span></div>
+      <div class="inspector-field"><span class="inspector-field__label">id</span><span class="inspector-field__value" style="font-family:var(--font-mono);font-size:0.75rem">${entry.id}</span></div>
+    </div>
+    ${benches ? `<div class="inspector-section"><h4>${t("inspector.benchmarks")}</h4>${benches}</div>` : ""}
+    ${axisChartHtml(entryAxes(entry)) ? `<div class="inspector-section"><h4>${t("inspector.axes")}</h4>${axisChartHtml(entryAxes(entry))}</div>` : ""}
+    ${entry.links ? `<div class="inspector-section"><h4>${t("inspector.links")}</h4><div class="inspector-links">${inspectorLinksHtml(entry.links)}</div></div>` : ""}
+    <div class="inspector-actions">
+      <button type="button" class="btn btn-primary compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
+    </div>`;
+  panel.classList.remove("hidden");
+  content.querySelector("[data-compare]")?.addEventListener("click", () => toggleCompare(entry.id));
+}
+
+function bindCardInteractions() {
+  document.querySelectorAll(".entry-card").forEach((card) => {
+    card.addEventListener("click", (ev) => {
+      if (ev.target.closest("a, button, .card-links")) return;
+      openInspector(card.dataset.id);
+    });
+  });
 }
 
 function renderAtlas() {
   if (!manifest) return;
   const entries = sortedEntries(filteredEntries());
-  document.getElementById("entry-grid").innerHTML = entries.map(renderCard).join("");
+  document.getElementById("entry-grid").innerHTML = entries.map((e, i) => renderCard(e, i)).join("");
   bindCompareButtons();
+  bindCardInteractions();
   renderTable(entries);
   document.getElementById("empty-state").classList.toggle("hidden", entries.length > 0);
   document.getElementById("entry-grid").classList.toggle("hidden", viewMode !== "grid");
   document.getElementById("table-wrap").classList.toggle("hidden", viewMode !== "table");
   document.getElementById("view-grid").classList.toggle("active", viewMode === "grid");
   document.getElementById("view-table").classList.toggle("active", viewMode === "table");
+  renderResultsMeta(entries.length);
+  if (selectedEntryId) renderInspector();
   applyDeepLink();
 }
 
@@ -495,7 +707,9 @@ function toggleCompare(id) {
   }
   localStorage.setItem("plr-compare", JSON.stringify(compareIds));
   renderComparePanel();
+  renderCompareDock();
   renderAtlas();
+  if (selectedEntryId) renderInspector();
 }
 
 function renderComparePanel() {
@@ -511,7 +725,7 @@ function renderComparePanel() {
     .map((e) => {
       const name = e.name[lang] || e.name.en;
       const bench = e.benchmarks?.[0];
-      const score = bench ? `${bench.score}%` : "—";
+      const score = bench ? `${parseFloat(bench.score) || bench.score}%` : "—";
       return `<tr>
         <td><a href="${entryUrl(e.id)}">${name}</a></td>
         <td>${t(`class.${e.class}`) || e.class}</td>
@@ -535,6 +749,41 @@ function renderComparePanel() {
     compareIds = [];
     localStorage.setItem("plr-compare", "[]");
     renderComparePanel();
+    renderCompareDock();
+    renderAtlas();
+  });
+  renderCompareDock();
+}
+
+function renderCompareDock() {
+  const dock = document.getElementById("compare-dock");
+  if (!dock) return;
+  if (compareIds.length === 0) {
+    dock.classList.add("hidden");
+    dock.innerHTML = "";
+    return;
+  }
+  const chips = compareIds
+    .map((id) => {
+      const e = manifest.entries.find((x) => x.id === id);
+      if (!e) return "";
+      const name = e.name[lang] || e.name.en;
+      return `<span class="compare-dock__chip">${name}<button type="button" data-remove="${id}" aria-label="Remove">×</button></span>`;
+    })
+    .join("");
+  dock.innerHTML = `
+    <div class="compare-dock__items">${chips}</div>
+    <a class="btn btn-primary btn-sm" href="#compare">${t("compare.panel")}</a>
+    <button type="button" class="btn btn-ghost btn-sm" id="dock-clear">${t("compare.clear")}</button>`;
+  dock.classList.remove("hidden");
+  dock.querySelectorAll("[data-remove]").forEach((btn) => {
+    btn.addEventListener("click", () => toggleCompare(btn.dataset.remove));
+  });
+  document.getElementById("dock-clear")?.addEventListener("click", () => {
+    compareIds = [];
+    localStorage.setItem("plr-compare", "[]");
+    renderComparePanel();
+    renderCompareDock();
     renderAtlas();
   });
 }
@@ -617,10 +866,22 @@ function renderRadar() {
 
   const statHtml = `
     <div class="radar-stats">
-      <span class="stat"><strong>${stats.cataloged || 0}</strong> ${t("radar.cataloged")}</span>
-      <span class="stat"><strong>${stats.fieldGap || 0}</strong> ${t("radar.gap")}</span>
-      <span class="stat"><strong>${stats.planned || 0}</strong> ${t("radar.planned")}</span>
-      <span class="stat muted">${sourceRadar.version}</span>
+      <div class="stat-card">
+        <span class="stat-card__value">${stats.cataloged || 0}</span>
+        <span class="stat-card__label">${t("radar.cataloged")}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__value">${stats.fieldGap || 0}</span>
+        <span class="stat-card__label">${t("radar.gap")}</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__value">${stats.planned || 0}</span>
+        <span class="stat-card__label">${t("radar.planned")}</span>
+      </div>
+      <div class="stat-card stat-card--meta">
+        <span class="stat-card__label">${sourceRadar.version}</span>
+        <span class="stat-card__value">radar</span>
+      </div>
     </div>`;
 
   const listHtml = items
@@ -706,11 +967,83 @@ function exportCsv() {
 function applyDeepLink() {
   const id = new URLSearchParams(location.search).get("entry");
   document.querySelectorAll(".entry-card.highlight").forEach((el) => el.classList.remove("highlight"));
-  if (!id) return;
+  if (!id) {
+    if (selectedEntryId) closeInspector(false);
+    return;
+  }
+  selectedEntryId = id;
   const card = document.getElementById(`entry-${id}`);
   if (card) {
-    card.classList.add("highlight");
+    card.classList.add("highlight", "is-selected");
     card.scrollIntoView({ behavior: "smooth", block: "center" });
+    renderInspector();
+  }
+}
+
+function initCommandPalette() {
+  const palette = document.getElementById("cmd-palette");
+  const backdrop = document.getElementById("cmd-backdrop");
+  const input = document.getElementById("cmd-input");
+  const results = document.getElementById("cmd-results");
+  const search = document.getElementById("search");
+  if (!palette || !input) return;
+
+  const open = () => {
+    palette.classList.remove("hidden");
+    input.value = search?.value || "";
+    renderCmdResults(input.value);
+    input.focus();
+    input.select();
+  };
+  const close = () => palette.classList.add("hidden");
+
+  const renderCmdResults = (q) => {
+    const query = q.trim().toLowerCase();
+    const list = manifest.entries
+      .filter((e) => !query || JSON.stringify(e).toLowerCase().includes(query))
+      .slice(0, 8);
+    results.innerHTML = list
+      .map(
+        (e, i) =>
+          `<div class="cmd-item${i === 0 ? " is-active" : ""}" data-id="${e.id}" role="option">
+            <span>${e.name[lang] || e.name.en}</span>
+            <span class="cmd-item__meta">${statusLabel(e.status)}</span>
+          </div>`
+      )
+      .join("");
+    results.querySelectorAll(".cmd-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        if (search) search.value = "";
+        close();
+        openInspector(item.dataset.id);
+        document.getElementById("atlas")?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  };
+
+  document.addEventListener("keydown", (ev) => {
+    if ((ev.metaKey || ev.ctrlKey) && ev.key === "k") {
+      ev.preventDefault();
+      open();
+    }
+    if (ev.key === "Escape") close();
+  });
+  document.getElementById("cmd-hint")?.addEventListener("click", open);
+  backdrop?.addEventListener("click", close);
+  input.addEventListener("input", () => renderCmdResults(input.value));
+  input.addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") {
+      const first = results.querySelector(".cmd-item");
+      if (first) first.click();
+    }
+  });
+}
+
+function hideBootLoader() {
+  const loader = document.getElementById("boot-loader");
+  if (loader) {
+    loader.classList.add("is-done");
+    document.body.classList.remove("is-loading");
   }
 }
 
@@ -741,6 +1074,7 @@ async function loadManifest() {
 }
 
 async function boot() {
+  document.body.classList.add("is-loading");
   applyI18n();
   try {
     siteConfig = await fetch(new URL("site-config.json", location.href)).then((r) => r.json());
@@ -755,6 +1089,7 @@ async function boot() {
   setApiLine();
   renderCite();
   renderStats();
+  renderTrustPipeline();
   injectSchema();
   fillFilters();
   renderLanes();
@@ -763,7 +1098,10 @@ async function boot() {
   renderGap();
   renderComparePanel();
   renderAtlas();
+  initCommandPalette();
+  hideBootLoader();
 
+  document.getElementById("inspector-close")?.addEventListener("click", () => closeInspector());
   document.getElementById("lang-toggle").addEventListener("click", () => {
     lang = lang === "fa" ? "en" : "fa";
     localStorage.setItem("plr-lang", lang);
@@ -774,9 +1112,12 @@ async function boot() {
     renderRadar();
     renderGap();
     renderComparePanel();
+    renderCompareDock();
     renderStats();
+    renderTrustPipeline();
     renderCite();
     renderAtlas();
+    if (selectedEntryId) renderInspector();
   });
 
   ["search", "class-filter", "status-filter", "kind-filter"].forEach((id) => {
@@ -809,7 +1150,12 @@ async function boot() {
     });
   });
 
-  window.addEventListener("popstate", applyDeepLink);
+  window.addEventListener("popstate", () => {
+    selectedEntryId = new URLSearchParams(location.search).get("entry") || "";
+    if (selectedEntryId) renderInspector();
+    else document.getElementById("entry-inspector")?.classList.add("hidden");
+    applyDeepLink();
+  });
 }
 
 boot();

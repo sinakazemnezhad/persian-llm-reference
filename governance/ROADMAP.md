@@ -161,7 +161,8 @@ People need **decisions**, not another link dump.
 
 | Version | Bar | Target date (indicative) |
 |---------|-----|--------------------------|
-| **v0.6.0** *(now)* | 63 entries · 15 measured · compare UI · JSON Schema v1 | 2026-08 |
+| **v0.8.0** *(now)* | 63 entries · atlas UI v2 workspace · inspector · ⌘K palette | 2026-08 |
+| **v0.6.0** | 63 entries · 15 measured · compare UI · JSON Schema v1 | 2026-08 |
 | **v0.2.1** | 23 entries · live site · methodology · no fake scores | 2026-08 |
 | **v0.3** | 40+ entries · link CI · Awesome cross-link PR | weeks 1–4 |
 | **v0.4** | 10+ `verified` · 8+ `measured` · ParsBench URL · Dorna HF non-GGUF | weeks 3–6 *(met)* |
@@ -169,7 +170,7 @@ People need **decisions**, not another link dump.
 | **v1.0** | 60+ entries · majority linked · 15+ measured · zero broken primary URLs · ≥1 external citation | months 4–6 |
 | **v2.0** | Schema stable · community PRs · optional `persian-llm-reference` org · custom domain | year 1+ |
 
-**Current stats (v0.6.0):** 63 entries · **48 verified** · **15 measured** · 0 indexed.
+**Current stats (v0.8.0):** 63 entries · **48 verified** · **15 measured** · 0 indexed.
 
 ---
 

@@ -1,6 +1,12 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.8.0 — 2026-08-13
+
+- **Atlas UI v2:** research workspace — sidebar filters, entry inspector panel, ⌘K command palette, compare dock.
+- **Visual system:** Instrument Serif + Vazirmatn, trust pipeline, benchmark meters, Persian axis charts in inspector.
+- **Interaction:** click-to-inspect, deep links, mobile full-screen inspector, staggered card load.
+
 ## 0.6.0 — 2026-08-13
 
 - **63 entries** · **15 measured** (v1.0 measured bar): Gemma 3 27B class, open-weight ensemble (PersianMedQA receipts).
