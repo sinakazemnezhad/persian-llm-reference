@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=0.8.0" />
+  <link rel="stylesheet" href="app.css?v=0.9.0" />
   <script type="application/ld+json" id="schema-dataset"></script>
 </head>
 <body>
@@ -31,8 +31,9 @@
           <span class="brand-text">Persian LLM <em>Reference</em></span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="#atlas" data-i18n="nav.atlas">فهرست</a>
-          <a href="#timeline" data-i18n="nav.timeline">گاه‌شمار</a>
+        <a href="#atlas" data-i18n="nav.atlas">فهرست</a>
+        <a href="#tree" data-i18n="nav.tree">درخت</a>
+        <a href="#timeline" data-i18n="nav.timeline">گاه‌شمار</a>
           <a href="#source-radar" data-i18n="nav.radar">منابع</a>
           <a href="#gap" data-i18n="nav.gap">شکاف‌ها</a>
         </nav>
@@ -150,6 +151,26 @@
         </div>
       </section>
 
+      <section class="section wrap" id="tree" aria-labelledby="tree-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="tree-heading" class="section-title" data-i18n="tree.heading">درخت اکوسیستم</h2>
+            <p class="section-sub tree-sub" data-i18n="tree.sub">طبقه‌بندی و تبار مدل‌ها — بر پایهٔ دادهٔ موجود در manifest.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm hidden" id="tree-clear" data-i18n="tree.clear">پاک کردن فیلتر درخت</button>
+        </div>
+        <div class="tree-panels">
+          <div class="tree-panel">
+            <h3 class="tree-panel__title" data-i18n="tree.taxonomy">طبقه‌بندی</h3>
+            <ul class="tree taxonomy-tree" id="taxonomy-tree" role="tree" aria-label="Taxonomy"></ul>
+          </div>
+          <div class="tree-panel">
+            <h3 class="tree-panel__title" data-i18n="tree.lineage">تبار پایه</h3>
+            <ul class="tree lineage-tree" id="lineage-tree" role="tree" aria-label="Lineage"></ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section wrap" id="timeline" aria-labelledby="timeline-heading">
         <h2 id="timeline-heading" class="section-title" data-i18n="timeline.heading">گاه‌شمار اکوسیستم</h2>
         <p class="section-sub" data-i18n="timeline.sub">نسخه‌های مهم مرجع و آخرین موارد تأییدشده.</p>
@@ -197,6 +218,6 @@
 
   <div class="boot-loader" id="boot-loader" aria-hidden="true"><div class="boot-spinner"></div></div>
 
-  <script src="app.js?v=0.8.0" type="module"></script>
+  <script src="app.js?v=0.9.0" type="module"></script>
 </body>
 </html>

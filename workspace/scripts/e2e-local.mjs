@@ -36,6 +36,7 @@ async function main() {
     record("home UI lanes + table", home.text.includes("lane-bar") && home.text.includes("compare-table"));
     record("home timeline + radar", home.text.includes("timeline-list") && home.text.includes("radar-panel"));
     record("home compare panel", home.text.includes("compare-panel"));
+    record("home tree UI", home.text.includes("taxonomy-tree") && home.text.includes("lineage-tree"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);
   try {
     const pageBase = `${BASE}/`;

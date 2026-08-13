@@ -5,6 +5,16 @@ const I18N = {
     "nav.timeline": "Timeline",
     "nav.radar": "Sources",
     "nav.gap": "Gaps",
+    "nav.tree": "Tree",
+    "tree.heading": "Ecosystem tree",
+    "tree.sub": "Taxonomy and base-model lineage — from manifest fields only, not invented genealogy.",
+    "tree.taxonomy": "Taxonomy",
+    "tree.lineage": "Base lineage",
+    "tree.clear": "Clear tree filter",
+    "tree.filterActive": "Tree filter active",
+    "inspector.related": "Related entries",
+    "inspector.sameBase": "Same base model",
+    "inspector.sameOrg": "Same organization",
     "results.showing": "Showing",
     "results.of": "of",
     "results.entries": "entries",
@@ -99,6 +109,16 @@ const I18N = {
     "nav.timeline": "گاه‌شمار",
     "nav.radar": "منابع",
     "nav.gap": "شکاف‌ها",
+    "nav.tree": "درخت",
+    "tree.heading": "درخت اکوسیستم",
+    "tree.sub": "طبقه‌بندی و تبار پایهٔ مدل‌ها — فقط از فیلدهای manifest، بدون ساخت نسبت ساختگی.",
+    "tree.taxonomy": "طبقه‌بندی",
+    "tree.lineage": "تبار پایه",
+    "tree.clear": "پاک کردن فیلتر درخت",
+    "tree.filterActive": "فیلتر درخت فعال",
+    "inspector.related": "موارد مرتبط",
+    "inspector.sameBase": "همان مدل پایه",
+    "inspector.sameOrg": "همان سازمان",
     "results.showing": "نمایش",
     "results.of": "از",
     "results.entries": "مورد",
@@ -229,6 +249,11 @@ const RELEASE_MILESTONES = [
   },
   {
     date: "2026-08-13",
+    en: "v0.9 — ecosystem tree: taxonomy + base lineage + related entries",
+    fa: "نسخه ۰.۹ — درخت اکوسیستم: طبقه‌بندی، تبار پایه، موارد مرتبط",
+  },
+  {
+    date: "2026-08-13",
     en: "v0.8 — atlas UI v2: workspace, inspector, command palette",
     fa: "نسخه ۰.۸ — رابط اطلس نسل دوم: فضای کاری، جزئیات، جستجوی سریع",
   },
@@ -244,6 +269,9 @@ let sortKey = "name";
 let sortDir = 1;
 let compareIds = JSON.parse(localStorage.getItem("plr-compare") || "[]").slice(0, 3);
 let activeGapTag = "";
+let activeLineageBase = "";
+let activeTreeKind = "";
+let activeTreeClass = "";
 let selectedEntryId = new URLSearchParams(location.search).get("entry") || "";
 
 function t(key) {
@@ -348,11 +376,12 @@ function renderResultsMeta(count) {
   const el = document.getElementById("results-meta");
   if (!el) return;
   const total = manifest.entries.length;
-  if (count === total && !getFilters().q && !getFilters().kind && !getFilters().cls && !getFilters().status && activeLane === "all" && !activeGapTag) {
+  if (count === total && !getFilters().q && !getFilters().kind && !getFilters().cls && !getFilters().status && activeLane === "all" && !activeGapTag && !hasTreeFilter()) {
     el.textContent = "";
     return;
   }
-  el.innerHTML = `${t("results.showing")} <strong>${count}</strong> ${t("results.of")} <strong>${total}</strong> ${t("results.entries")}`;
+  const extra = hasTreeFilter() ? ` · ${t("tree.filterActive")}` : "";
+  el.innerHTML = `${t("results.showing")} <strong>${count}</strong> ${t("results.of")} <strong>${total}</strong> ${t("results.entries")}${extra}`;
 }
 
 function injectSchema() {
@@ -486,15 +515,221 @@ function getFilters() {
 function filteredEntries() {
   const { q, kind, cls, status } = getFilters();
   const lane = LANES.find((l) => l.id === activeLane) || LANES[0];
+  const kindVal = activeTreeKind || kind;
+  const classVal = activeTreeClass || cls;
   return manifest.entries.filter((e) => {
     if (!lane.match(e)) return false;
     if (activeGapTag && !(e.gapTags || []).includes(activeGapTag)) return false;
-    if (kind && e.kind !== kind) return false;
-    if (cls && e.class !== cls) return false;
+    if (activeLineageBase && e.origin?.base !== activeLineageBase) return false;
+    if (kindVal && e.kind !== kindVal) return false;
+    if (classVal && e.class !== classVal) return false;
     if (status && e.status !== status) return false;
     if (!q) return true;
     return JSON.stringify(e).toLowerCase().includes(q);
   });
+}
+
+function hasTreeFilter() {
+  return Boolean(activeLineageBase || activeTreeKind || activeTreeClass);
+}
+
+function clearTreeFilters() {
+  activeLineageBase = "";
+  activeTreeKind = "";
+  activeTreeClass = "";
+  document.getElementById("kind-filter").value = "";
+  document.getElementById("class-filter").value = "";
+  renderTree();
+  renderAtlas();
+}
+
+function scrollToAtlas() {
+  document.getElementById("atlas")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function relatedEntries(entry) {
+  const base = entry.origin?.base;
+  const org = entry.org;
+  const siblings = base
+    ? manifest.entries.filter((e) => e.id !== entry.id && e.origin?.base === base)
+    : [];
+  const sameOrg = org
+    ? manifest.entries.filter(
+        (e) => e.id !== entry.id && e.org === org && !siblings.some((s) => s.id === e.id)
+      )
+    : [];
+  return { siblings, sameOrg };
+}
+
+function relatedEntriesHtml(entry) {
+  const { siblings, sameOrg } = relatedEntries(entry);
+  if (!siblings.length && !sameOrg.length) return "";
+  const row = (e) => {
+    const name = e.name[lang] || e.name.en;
+    return `<button type="button" class="inspector-related__item" data-related="${e.id}">${name}</button>`;
+  };
+  return `<div class="inspector-section"><h4>${t("inspector.related")}</h4><div class="inspector-related">
+    ${siblings.length ? `<div class="inspector-related__group"><span class="inspector-related__label">${t("inspector.sameBase")}</span>${siblings.map(row).join("")}</div>` : ""}
+    ${sameOrg.length ? `<div class="inspector-related__group"><span class="inspector-related__label">${t("inspector.sameOrg")}</span>${sameOrg.map(row).join("")}</div>` : ""}
+  </div></div>`;
+}
+
+function renderTaxonomyTree() {
+  const el = document.getElementById("taxonomy-tree");
+  if (!el) return;
+  const tree = {};
+  for (const e of manifest.entries) {
+    if (!tree[e.kind]) tree[e.kind] = {};
+    if (!tree[e.kind][e.class]) tree[e.kind][e.class] = [];
+    tree[e.kind][e.class].push(e);
+  }
+  const kinds = Object.keys(tree).sort();
+  el.innerHTML = kinds
+    .map((kind) => {
+      const classes = Object.keys(tree[kind]).sort();
+      const kindCount = classes.reduce((n, c) => n + tree[kind][c].length, 0);
+      const kindActive = activeTreeKind === kind && !activeTreeClass;
+      const classNodes = classes
+        .map((cls) => {
+          const entries = tree[kind][cls].sort((a, b) =>
+            (a.name[lang] || a.name.en).localeCompare(b.name[lang] || b.name.en)
+          );
+          const clsActive = activeTreeKind === kind && activeTreeClass === cls;
+          const leaves = entries
+            .map((e) => {
+              const name = e.name[lang] || e.name.en;
+              return `<li class="tree-leaf-row">
+                <button type="button" class="tree-node tree-node--leaf" data-tree-entry="${e.id}">
+                  <span class="tree-node__status tree-node__status--${e.status}" aria-hidden="true"></span>
+                  ${name}
+                </button>
+              </li>`;
+            })
+            .join("");
+          return `<li>
+            <button type="button" class="tree-node tree-node--branch${clsActive ? " is-active" : ""}" data-tree-kind="${kind}" data-tree-class="${cls}">
+              <span>${t(`class.${cls}`) || cls}</span>
+              <span class="tree-node__count">${entries.length}</span>
+            </button>
+            <ul>${leaves}</ul>
+          </li>`;
+        })
+        .join("");
+      return `<li>
+        <details open>
+          <summary>
+            <button type="button" class="tree-node tree-node--branch${kindActive ? " is-active" : ""}" data-tree-kind="${kind}" data-tree-class="">
+              <span>${t(`kind.${kind}`) || kind}</span>
+              <span class="tree-node__count">${kindCount}</span>
+            </button>
+          </summary>
+          <ul>${classNodes}</ul>
+        </details>
+      </li>`;
+    })
+    .join("");
+  el.querySelectorAll("[data-tree-kind]").forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const k = btn.dataset.treeKind;
+      const c = btn.dataset.treeClass || "";
+      if (activeTreeKind === k && activeTreeClass === c) {
+        clearTreeFilters();
+        return;
+      }
+      activeTreeKind = k;
+      activeTreeClass = c;
+      activeLineageBase = "";
+      document.getElementById("kind-filter").value = k;
+      document.getElementById("class-filter").value = c;
+      renderTree();
+      renderAtlas();
+      scrollToAtlas();
+    });
+  });
+  el.querySelectorAll("[data-tree-entry]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openInspector(btn.dataset.treeEntry);
+      scrollToAtlas();
+    });
+  });
+}
+
+function renderLineageTree() {
+  const el = document.getElementById("lineage-tree");
+  if (!el) return;
+  const groups = new Map();
+  for (const e of manifest.entries) {
+    if (e.kind !== "model") continue;
+    const base = e.origin?.base;
+    if (!base) continue;
+    if (!groups.has(base)) groups.set(base, []);
+    groups.get(base).push(e);
+  }
+  const sorted = [...groups.entries()].sort((a, b) => b[1].length - a[1].length);
+  el.innerHTML = sorted
+    .map(([base, entries]) => {
+      const baseActive = activeLineageBase === base;
+      const sortedEntries = [...entries].sort((a, b) =>
+        (a.name[lang] || a.name.en).localeCompare(b.name[lang] || b.name.en)
+      );
+      const leaves = sortedEntries
+        .map((e) => {
+          const name = e.name[lang] || e.name.en;
+          return `<li class="tree-leaf-row">
+            <button type="button" class="tree-node tree-node--leaf" data-tree-entry="${e.id}">
+              <span class="tree-node__status tree-node__status--${e.status}" aria-hidden="true"></span>
+              ${name}
+            </button>
+          </li>`;
+        })
+        .join("");
+      return `<li>
+        <details${baseActive ? " open" : ""}>
+          <summary>
+            <button type="button" class="tree-node tree-node--branch${baseActive ? " is-active" : ""}" data-lineage-base="${base}">
+              <span>${base}</span>
+              <span class="tree-node__count">${entries.length}</span>
+            </button>
+          </summary>
+          <ul>${leaves}</ul>
+        </details>
+      </li>`;
+    })
+    .join("");
+  el.querySelectorAll("[data-lineage-base]").forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const base = btn.dataset.lineageBase;
+      if (activeLineageBase === base) {
+        clearTreeFilters();
+        return;
+      }
+      activeLineageBase = base;
+      activeTreeKind = "";
+      activeTreeClass = "";
+      document.getElementById("kind-filter").value = "";
+      document.getElementById("class-filter").value = "";
+      renderTree();
+      renderAtlas();
+      scrollToAtlas();
+    });
+  });
+  el.querySelectorAll("[data-tree-entry]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openInspector(btn.dataset.treeEntry);
+      scrollToAtlas();
+    });
+  });
+}
+
+function renderTree() {
+  renderTaxonomyTree();
+  renderLineageTree();
+  const clearBtn = document.getElementById("tree-clear");
+  if (clearBtn) clearBtn.classList.toggle("hidden", !hasTreeFilter());
 }
 
 function sortedEntries(entries) {
@@ -600,11 +835,15 @@ function renderInspector() {
     ${benches ? `<div class="inspector-section"><h4>${t("inspector.benchmarks")}</h4>${benches}</div>` : ""}
     ${axisChartHtml(entryAxes(entry)) ? `<div class="inspector-section"><h4>${t("inspector.axes")}</h4>${axisChartHtml(entryAxes(entry))}</div>` : ""}
     ${entry.links ? `<div class="inspector-section"><h4>${t("inspector.links")}</h4><div class="inspector-links">${inspectorLinksHtml(entry.links)}</div></div>` : ""}
+    ${relatedEntriesHtml(entry)}
     <div class="inspector-actions">
       <button type="button" class="btn btn-primary compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
     </div>`;
   panel.classList.remove("hidden");
   content.querySelector("[data-compare]")?.addEventListener("click", () => toggleCompare(entry.id));
+  content.querySelectorAll("[data-related]").forEach((btn) => {
+    btn.addEventListener("click", () => openInspector(btn.dataset.related));
+  });
 }
 
 function bindCardInteractions() {
@@ -1096,9 +1335,11 @@ async function boot() {
   renderTimeline();
   renderRadar();
   renderGap();
+  renderTree();
   renderComparePanel();
   renderAtlas();
   initCommandPalette();
+  document.getElementById("tree-clear")?.addEventListener("click", clearTreeFilters);
   hideBootLoader();
 
   document.getElementById("inspector-close")?.addEventListener("click", () => closeInspector());
@@ -1111,6 +1352,7 @@ async function boot() {
     renderTimeline();
     renderRadar();
     renderGap();
+    renderTree();
     renderComparePanel();
     renderCompareDock();
     renderStats();
@@ -1121,8 +1363,24 @@ async function boot() {
   });
 
   ["search", "class-filter", "status-filter", "kind-filter"].forEach((id) => {
-    document.getElementById(id).addEventListener("input", renderAtlas);
-    document.getElementById(id).addEventListener("change", renderAtlas);
+    document.getElementById(id).addEventListener("input", () => {
+      if (id === "kind-filter" || id === "class-filter") {
+        activeTreeKind = "";
+        activeTreeClass = "";
+        activeLineageBase = "";
+        renderTree();
+      }
+      renderAtlas();
+    });
+    document.getElementById(id).addEventListener("change", () => {
+      if (id === "kind-filter" || id === "class-filter") {
+        activeTreeKind = "";
+        activeTreeClass = "";
+        activeLineageBase = "";
+        renderTree();
+      }
+      renderAtlas();
+    });
   });
 
   document.getElementById("view-grid").addEventListener("click", () => {

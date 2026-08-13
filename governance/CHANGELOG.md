@@ -1,6 +1,12 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.9.0 — 2026-08-13
+
+- **Ecosystem tree:** taxonomy panel (kind → class → entries) + base lineage panel (`origin.base`).
+- **Tree filters:** click branch to filter atlas; click leaf to open inspector.
+- **Inspector related:** same base model + same organization siblings.
+
 ## 0.8.0 — 2026-08-13
 
 - **Atlas UI v2:** research workspace — sidebar filters, entry inspector panel, ⌘K command palette, compare dock.

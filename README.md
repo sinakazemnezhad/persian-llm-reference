@@ -4,18 +4,18 @@
 
 **مرجع مدل‌های زبانی فارسی**
 
-The **open atlas** for Persian (Farsi) language models — **63 sourced entries** (v0.8.0) with verification gates and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
+The **open atlas** for Persian (Farsi) language models — **63 sourced entries** (v0.9.0) with verification gates and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
 
 > Community-maintained · sourced · machine-readable · online-first.
 
-## Stats (v0.8.0)
+## Stats (v0.9.0)
 
 | | Count |
 |---|------|
 | **Total entries** | 63 |
 | **Verified** | 48 |
 | **Measured** | 15 |
-| **PyPI** | `persian-llm-reference` 0.8.0 |
+| **PyPI** | `persian-llm-reference` 0.9.0 |
 
 ## How PLR fits the ecosystem
 
@@ -103,7 +103,7 @@ npm run e2e      # local server smoke
   title={Persian LLM Reference — Open Atlas},
   author={{Persian LLM Reference maintainers}},
   year={2026},
-  version={0.8.0},
+  version={0.9.0},
   url={https://sinakazemnezhad.github.io/persian-llm-reference},
   howpublished={\\url{https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json}},
   note={Check manifest generatedAt for snapshot date}
