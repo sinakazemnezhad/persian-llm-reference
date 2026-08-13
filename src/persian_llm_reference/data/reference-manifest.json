@@ -1,6 +1,6 @@
 {
-  "version": "0.11.1",
-  "generatedAt": "2026-08-13T04:51:37.519Z",
+  "version": "0.11.2",
+  "generatedAt": "2026-08-13T04:55:12.967Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -24,7 +24,7 @@
         "maintainer": "Awesome-Persian-LLM maintainers",
         "note": {
           "en": "Community discovery index — bibliographic credit for many PLR rows; complements, does not replace.",
-          "fa": "فهرست کشف جامعه — اعتبار کتابشناختی برای بسیاری از ردیف‌های PLR؛ مکمل، نه جایگزین."
+          "fa": "فهرست کشف جامعه. اعتبار کتابشناختی برای بسیاری از ردیف‌های PLR؛ مکمل، نه جایگزین."
         }
       },
       {
@@ -34,7 +34,7 @@
         "maintainer": "MCINext",
         "note": {
           "en": "Persian LLM alignment and benchmark scores — PLR links scores, does not mirror live tables.",
-          "fa": "جدول هم‌راستایی و معیار مدل‌های فارسی — PLR لینک می‌دهد، جدول زنده را کپی نمی‌کند."
+          "fa": "جدول هم‌راستایی و معیار مدل‌های فارسی. PLR لینک می‌دهد، جدول زنده را کپی نمی‌کند."
         }
       },
       {
@@ -64,7 +64,7 @@
         "maintainer": "University of Tehran · SBUMS",
         "note": {
           "en": "Primary measured-score receipt for 20+ model rows — bilingual medical QA from Iranian national exams.",
-          "fa": "مدرک اصلی نمرهٔ مستند برای ۲۰+ مدل — پرسش‌وپاسخ پزشکی دوزبانه از آزمون‌های ملی ایران."
+          "fa": "مدرک اصلی نمرهٔ مستند برای ۲۰+ مدل. پرسش‌وپاسخ پزشکی دوزبانه از آزمون‌های ملی ایران."
         },
         "extra": "https://mohammadjranjbar.github.io/PersianMedQA/"
       },
@@ -75,14 +75,14 @@
         "maintainer": "Hugging Face community",
         "note": {
           "en": "Hosting layer for weights and cards — PLR adds taxonomy and verification gates on top.",
-          "fa": "لایهٔ میزبانی وزن‌ها و کارت‌ها — PLR طبقه‌بندی و دروازهٔ تأیید را اضافه می‌کند."
+          "fa": "لایهٔ میزبانی وزن‌ها و کارت‌ها. PLR طبقه‌بندی و دروازهٔ تأیید را اضافه می‌کند."
         }
       }
     ]
   },
   "mission": {
     "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — alongside discovery lists and leaderboards, with sourced records and honest nulls.",
-    "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی — در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
+    "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی. در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
   },
   "taxonomy": {
     "classes": [

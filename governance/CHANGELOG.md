@@ -1,6 +1,10 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.11.2 — 2026-08-13
+
+- **FIX** Persian locale module (`plr-locale.js`), `displayText()` on manifest copy, CI validator + agent rule for FA digits and typography.
+
 ## 0.11.1 — 2026-08-13
 
 - **FIX** Persian UI numerals: `fa-IR` digits in hero stats, tables, radar, timeline; Vazirmatn-only typography for RTL.

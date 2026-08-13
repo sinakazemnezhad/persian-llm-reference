@@ -17,3 +17,5 @@
 **Plan:** `governance/ROADMAP.md` · **PyPI:** `pip install persian-llm-reference` · `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`
 
 **Law:** Receipt before claim. No invented benchmark scores. Honor upstream curators and builders.
+
+**Persian UI law:** `workspace/public/plr-locale.js` + `.cursor/rules/persian-ui-locale-law.mdc` — FA mode uses Persian digits (`۶۷` not `67`), Vazirmatn-only typography, no em-dash SaaS copy. `npm run build` runs `validate-persian-ui.mjs`.

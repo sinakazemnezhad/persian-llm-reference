@@ -1,3 +1,13 @@
+import {
+  displayText as displayTextFor,
+  emptyValue as emptyValueFor,
+  formatNum as formatNumFor,
+  formatPercent as formatPercentFor,
+  formatScorePair as formatScorePairFor,
+  formatSizeB as formatSizeBFor,
+  localizeDigits as localizeDigitsFor,
+} from "./plr-locale.js";
+
 const I18N = {
   en: {
     "nav.contribute": "GitHub",
@@ -104,7 +114,9 @@ const I18N = {
     "table.class": "Class",
     "table.size": "Size (B)",
     "table.status": "Status",
+    "table.license": "License",
     "table.links": "Links",
+    "compare.colPersianMedQA": "PersianMedQA",
     "cite.heading": "Cite this registry",
     "lane.all": "All",
     "lane.finetune": "Fine-tune",
@@ -233,6 +245,8 @@ const I18N = {
     "table.size": "اندازه (میلیارد)",
     "table.status": "وضعیت",
     "table.links": "لینک‌ها",
+    "table.license": "مجوز",
+    "compare.colPersianMedQA": "پرشین‌مد‌کیوای",
     "cite.heading": "چطور به این مرجع ارجاع دهیم",
     "lane.all": "همه",
     "lane.finetune": "مدل‌های فارسی‌شده",
@@ -367,38 +381,40 @@ function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
 }
 
-const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
-
 function emptyValue() {
-  return lang === "fa" ? "ندارد" : "—";
+  return emptyValueFor(lang);
 }
 
 function localizeDigits(text) {
-  if (lang !== "fa" || text === null || text === undefined) return String(text ?? "");
-  return String(text).replace(/\d/g, (d) => FA_DIGITS[Number(d)]);
+  return localizeDigitsFor(text, lang);
 }
 
 function formatNum(value) {
-  if (value === null || value === undefined || value === "") return emptyValue();
-  if (typeof value === "number" && !Number.isNaN(value)) {
-    return lang === "fa" ? value.toLocaleString("fa-IR") : String(value);
-  }
-  return localizeDigits(String(value));
+  return formatNumFor(value, lang);
 }
 
 function formatSizeB(sizeB) {
-  if (sizeB === null || sizeB === undefined || sizeB === "") return emptyValue();
-  return localizeDigits(`${sizeB}B`);
+  return formatSizeBFor(sizeB, lang);
 }
 
 function formatPercent(score) {
-  const n = parseFloat(score);
-  if (Number.isNaN(n)) return emptyValue();
-  return `${localizeDigits(String(n))}٪`;
+  return formatPercentFor(score, lang);
 }
 
 function formatScorePair(value, max = 5) {
-  return `${formatNum(value)}/${formatNum(max)}`;
+  return formatScorePairFor(value, max, lang);
+}
+
+function displayText(text) {
+  return displayTextFor(text, lang);
+}
+
+function entryName(entry) {
+  return displayText(entry.name[lang] || entry.name.en);
+}
+
+function entrySummary(entry) {
+  return displayText(entry.summary[lang] || entry.summary.en);
 }
 
 function statusLabel(status) {
@@ -475,8 +491,10 @@ function renderCite() {
 
 function refNote(citation) {
   if (!citation?.note) return "";
-  if (typeof citation.note === "string") return citation.note;
-  return citation.note[lang] || citation.note.en || "";
+  let note = "";
+  if (typeof citation.note === "string") note = citation.note;
+  else note = citation.note[lang] || citation.note.en || "";
+  return displayText(note);
 }
 
 function renderReferences() {
@@ -644,8 +662,8 @@ function absoluteEntryUrl(id) {
 }
 
 function renderCard(entry, index = 0) {
-  const name = entry.name[lang] || entry.name.en;
-  const summary = entry.summary[lang] || entry.summary.en;
+  const name = entryName(entry);
+  const summary = entrySummary(entry);
   const classLabel = t(`class.${entry.class}`) || entry.class;
   const size = formatSizeB(entry.sizeB);
   const inCompare = compareIds.includes(entry.id);
@@ -735,7 +753,7 @@ function relatedEntriesHtml(entry) {
   const { siblings, sameOrg } = relatedEntries(entry);
   if (!siblings.length && !sameOrg.length) return "";
   const row = (e) => {
-    const name = e.name[lang] || e.name.en;
+              const name = displayText(e.name[lang] || e.name.en);
     return `<button type="button" class="inspector-related__item" data-related="${e.id}">${name}</button>`;
   };
   return `<div class="inspector-section"><h4>${t("inspector.related")}</h4><div class="inspector-related">
@@ -767,7 +785,7 @@ function renderTaxonomyTree() {
           const clsActive = activeTreeKind === kind && activeTreeClass === cls;
           const leaves = entries
             .map((e) => {
-              const name = e.name[lang] || e.name.en;
+              const name = entryName(e);
               return `<li class="tree-leaf-row">
                 <button type="button" class="tree-node tree-node--leaf" data-tree-entry="${e.id}">
                   <span class="tree-node__status tree-node__status--${e.status}" aria-hidden="true"></span>
@@ -846,7 +864,7 @@ function renderLineageTree() {
       );
       const leaves = sortedEntries
         .map((e) => {
-          const name = e.name[lang] || e.name.en;
+          const name = entryName(e);
           return `<li class="tree-leaf-row">
             <button type="button" class="tree-node tree-node--leaf" data-tree-entry="${e.id}">
               <span class="tree-node__status tree-node__status--${e.status}" aria-hidden="true"></span>
@@ -928,7 +946,7 @@ function renderTable(entries) {
   const tbody = document.getElementById("compare-body");
   tbody.innerHTML = entries
     .map((e) => {
-      const name = e.name[lang] || e.name.en;
+      const name = entryName(e);
       const size = formatSizeB(e.sizeB);
       const sel = selectedEntryId === e.id ? " is-selected" : "";
       return `<tr data-id="${e.id}" class="${sel.trim()}">
@@ -973,8 +991,8 @@ function renderInspector() {
     panel.classList.add("hidden");
     return;
   }
-  const name = entry.name[lang] || entry.name.en;
-  const summary = entry.summary[lang] || entry.summary.en;
+  const name = entryName(entry);
+  const summary = entrySummary(entry);
   const inCompare = compareIds.includes(entry.id);
   const benches = (entry.benchmarks || [])
     .map((b) => benchMeterHtml([b]))
@@ -1145,7 +1163,7 @@ function renderComparePanel() {
     .map((id) => manifest.entries.find((e) => e.id === id))
     .filter(Boolean)
     .map((e) => {
-      const name = e.name[lang] || e.name.en;
+      const name = entryName(e);
       const bench = e.benchmarks?.[0];
       const score = bench ? formatPercent(parseFloat(bench.score) || bench.score) : emptyValue();
       return `<tr>
@@ -1165,7 +1183,7 @@ function renderComparePanel() {
     </div>
     <div class="table-wrap"><table class="compare-table"><thead><tr>
       <th>${t("table.name")}</th><th>${t("table.class")}</th><th>${t("table.size")}</th>
-      <th>${t("table.status")}</th><th>PersianMedQA</th><th>license</th>
+      <th>${t("table.status")}</th><th>${t("compare.colPersianMedQA")}</th><th>${t("table.license")}</th>
     </tr></thead><tbody>${rows}</tbody></table></div>`;
   document.getElementById("compare-clear")?.addEventListener("click", () => {
     compareIds = [];
@@ -1189,7 +1207,7 @@ function renderCompareDock() {
     .map((id) => {
       const e = manifest.entries.find((x) => x.id === id);
       if (!e) return "";
-      const name = e.name[lang] || e.name.en;
+      const name = entryName(e);
       return `<span class="compare-dock__chip">${name}<button type="button" data-remove="${id}" aria-label="Remove">×</button></span>`;
     })
     .join("");
@@ -1230,13 +1248,13 @@ function buildTimelineEvents() {
     if (e.firstSeen) {
       const day = `${e.firstSeen}-01`;
       if (!byDate.has(day)) byDate.set(day, []);
-      const name = e.name[lang] || e.name.en;
+      const name = entryName(e);
       byDate.get(day).push({ type: "verify", label: `${name} (${t("timeline.firstSeen")})`, id: e.id, status: e.status });
     }
     if (!e.verifiedAt) continue;
     const day = e.verifiedAt.slice(0, 10);
     if (!byDate.has(day)) byDate.set(day, []);
-    const name = e.name[lang] || e.name.en;
+              const name = displayText(e.name[lang] || e.name.en);
     byDate.get(day).push({ type: "verify", label: name, id: e.id, status: e.status });
   }
   return [...byDate.entries()]
@@ -1257,8 +1275,8 @@ function renderTimeline() {
           const tag = t(tagKey) || item.status || "verified";
           const link =
             item.id && item.type === "verify"
-              ? `<a href="${entryUrl(item.id)}">${item.label}</a>`
-              : item.label;
+              ? `<a href="${entryUrl(item.id)}">${displayText(item.label)}</a>`
+              : displayText(item.label);
           const tagClass = item.type === "release" ? "release" : item.status || "verified";
           return `<li><span class="timeline-tag timeline-tag--${tagClass}">${tag}</span> ${link}</li>`;
         })
@@ -1308,8 +1326,8 @@ function renderRadar() {
 
   const listHtml = items
     .map((item) => {
-      const name = item.name?.[lang] || item.name?.en || item.id;
-      const analysis = item.analysis?.[lang] || item.analysis?.en || "";
+      const name = displayText(item.name?.[lang] || item.name?.en || item.id);
+      const analysis = displayText(item.analysis?.[lang] || item.analysis?.en || "");
       const url = item.primaryUrl
         ? `<a href="${item.primaryUrl}" target="_blank" rel="noopener">${t("radar.sourceLink")}</a>`
         : "";
@@ -1432,7 +1450,7 @@ function initCommandPalette() {
       .map(
         (e, i) =>
           `<div class="cmd-item${i === 0 ? " is-active" : ""}" data-id="${e.id}" role="option">
-            <span>${e.name[lang] || e.name.en}</span>
+            <span>${entryName(e)}</span>
             <span class="cmd-item__meta">${statusLabel(e.status)}</span>
           </div>`
       )

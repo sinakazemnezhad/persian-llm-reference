@@ -42,6 +42,7 @@ async function main() {
     record("theme-init script", home.text.includes("theme-init.js"));
     record("tokens.css linked", home.text.includes("tokens.css"));
     record("inline theme bootstrap", home.text.includes('setAttribute("data-theme"'));
+    record("plr-locale module", home.text.includes("plr-locale.js") || (await fetchText("/app.js")).text.includes("plr-locale.js"));
     const entryPage = await fetchText("/entry/dorna-llama3-8b/");
     record("entry page /entry/{id}/", entryPage.status === 200 && entryPage.text.includes("dorna-llama3-8b"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);
@@ -81,6 +82,20 @@ async function main() {
 
     await page.goto(`${BASE}/`, { waitUntil: "domcontentloaded" });
     record("browser no pageerror", errors.length === 0);
+
+    await page.evaluate(() => {
+      localStorage.setItem("plr-lang", "fa");
+      document.documentElement.lang = "fa";
+      document.documentElement.dir = "rtl";
+    });
+    await page.reload({ waitUntil: "networkidle" });
+    await page.waitForSelector(".hero-stat strong", { timeout: 8000 });
+    const heroStatText = await page.locator(".hero-stat strong").first().textContent();
+    record("fa hero stats use Persian digits", /[۰-۹]/.test(heroStatText || ""));
+    const heroFont = await page.evaluate(() =>
+      getComputedStyle(document.querySelector(".hero h1")).fontFamily.toLowerCase()
+    );
+    record("fa hero uses Vazirmatn", heroFont.includes("vazirmatn"));
 
     const count = await page.locator(".entry-card").count();
     record("browser renders entries", count >= MIN_ENTRIES);

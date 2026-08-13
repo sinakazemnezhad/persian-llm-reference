@@ -1,0 +1,62 @@
+---
+description: Persian UI locale law for PLR workspace — digits, fonts, copy tone
+globs:
+  - workspace/public/**
+  - workspace/scripts/**
+  - data/reference-manifest.json
+  - data/source-radar.json
+  - REFERENCE.json
+  - AGENTS.md
+alwaysApply: false
+---
+
+# Persian UI locale law (PLR)
+
+## When this applies
+
+Any change to the public atlas (`workspace/public/**`), Persian copy (`I18N.fa`), or manifest text shown in the FA UI.
+
+## Digits
+
+When `lang === "fa"`:
+
+1. **Never** print raw JavaScript numbers in the DOM (`${count}`, `${total}`, etc.).
+2. **Always** use helpers from `workspace/public/plr-locale.js`:
+   - `formatNum(value, lang)` — integers and counts
+   - `formatPercent(score, lang)` — scores with `٪`
+   - `formatSizeB(sizeB, lang)` — model sizes (`۷B`)
+   - `localizeDigits(text, lang)` — versions, dates, mixed strings
+   - `displayText(text, lang)` — manifest summaries, notes, names shown to users
+3. English mode (`lang === "en"`) keeps Western digits (`67`).
+
+## Typography (RTL / FA)
+
+1. **Font:** `Vazirmatn` only for Persian surfaces. Do not add Literata, Instrument Serif, Inter, or other Latin display fonts to `index.html`.
+2. **Tokens:** `--font-display` and `--font-sans` must resolve to Vazirmatn for FA.
+3. Enable Vazirmatn stylistic sets on RTL: `font-feature-settings: "ss01", "ss02", "ss03"`.
+
+## Copy tone (FA marketing + UI strings)
+
+Forbidden in `I18N.fa` and hero/intro/footer:
+
+- Em dash `—`, en dash `–`, middle dot `·`
+- ASCII digits `0-9` (use Persian digits in the string itself: `۳` not `3`)
+- SaaS patterns: eyebrow kickers, numbered `01/02/03` feature grids, glass stat cards, dot-grid hero backgrounds
+
+Write like a human Persian reference page: short sentences, periods, plain links.
+
+## Empty values
+
+FA: `ندارد` — not `—` or `-`.
+
+## Verification (required before ship)
+
+```bash
+cd workspace && npm run build && npm run e2e
+```
+
+`prebuild` runs `validate-persian-ui.mjs`. It must stay green.
+
+## Data layer
+
+Manifest `summary.fa` / `name.fa` may still contain `—` from upstream curation. The UI must pass visible FA strings through `displayText()` so digits localize; prefer fixing FA copy to use `.` or `،` instead of `—` when editing manifest rows.
