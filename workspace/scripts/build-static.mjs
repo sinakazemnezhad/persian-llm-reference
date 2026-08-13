@@ -36,6 +36,12 @@ delete publicManifest.agentAttribution;
 
 fs.mkdirSync(path.join(PUBLIC, "data"), { recursive: true });
 fs.mkdirSync(path.join(PUBLIC, ".well-known"), { recursive: true });
+fs.mkdirSync(path.join(PUBLIC, "schema"), { recursive: true });
+
+const schemaSrc = path.join(ROOT, "schema/reference-manifest-v1.json");
+if (fs.existsSync(schemaSrc)) {
+  fs.copyFileSync(schemaSrc, path.join(PUBLIC, "schema/reference-manifest-v1.json"));
+}
 
 const sourceManifest = structuredClone(manifest);
 delete sourceManifest.agentAttribution;

@@ -1,6 +1,15 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.6.0 — 2026-08-13
+
+- **63 entries** · **15 measured** (v1.0 measured bar): Gemma 3 27B class, open-weight ensemble (PersianMedQA receipts).
+- **summary.fa** polish pass on all entries + pattern rules (`polish-summary-fa.mjs`).
+- **Compare UI:** up to 3 side-by-side rows · gap-topic filter · `firstSeen` on timeline.
+- **JSON Schema v1** — `schema/reference-manifest-v1.json` + `validate-schema.mjs` in build.
+- **meta.citations** — Awesome-Persian-LLM credited as upstream discovery source.
+- **Docs:** `docs/HUGGINGFACE_ORG_README.md` for HF org profile paste.
+
 ## 0.5.1 — 2026-08-13
 
 - **Tone pass (repo-wide):** collaborative scientific wording — complement Awesome/MIZAN/PartAI; remove competitive framing (`beats`, `lack`, `own the index`, `Global Atlas`).

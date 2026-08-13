@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sinakazemnezhad.github.io/persian-llm-reference/schema/reference-manifest-v1.json",
+  "title": "Persian LLM Reference Manifest v1",
+  "type": "object",
+  "required": ["version", "schema", "entries"],
+  "properties": {
+    "version": { "type": "string" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "schema": { "const": "PERSIAN-LLM-REFERENCE/v1" },
+    "mission": {
+      "type": "object",
+      "required": ["en", "fa"],
+      "properties": {
+        "en": { "type": "string" },
+        "fa": { "type": "string" }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    },
+    "gapMap": { "type": "object" },
+    "stats": { "type": "object" }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "kind", "class", "name", "status", "summary", "links"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "kind": {
+          "enum": ["model", "dataset", "leaderboard", "community-index"]
+        },
+        "class": { "type": "string" },
+        "name": {
+          "type": "object",
+          "required": ["en", "fa"],
+          "properties": {
+            "en": { "type": "string" },
+            "fa": { "type": "string" }
+          }
+        },
+        "status": {
+          "enum": ["indexed", "verified", "measured"]
+        },
+        "summary": {
+          "type": "object",
+          "required": ["en", "fa"],
+          "properties": {
+            "en": { "type": "string" },
+            "fa": { "type": "string" }
+          }
+        },
+        "links": { "type": "object" },
+        "benchmarks": { "type": "array" },
+        "firstSeen": { "type": "string" },
+        "gapTags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "verifiedAt": { "type": "string" }
+      }
+    }
+  }
+}

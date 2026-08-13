@@ -6,6 +6,12 @@ const I18N = {
     "hero.lede":
       "A structured open registry for Persian models — models, datasets, benchmarks, leaderboards. JSON for researchers, developers, and agents. Community-maintained alongside Awesome lists and public leaderboards.",
     "compare.heading": "Why use this reference?",
+    "compare.panel": "Compare (up to 3)",
+    "compare.add": "Compare",
+    "compare.clear": "Clear",
+    "compare.empty": "Select up to 3 entries to compare side by side.",
+    "gap.filter": "Filter by topic",
+    "gap.clear": "Show all",
     "compare.c1": "Structured records — not links alone",
     "compare.c2": "Three trust levels: indexed → verified → measured",
     "compare.c3": "Persian-specific axes (editorial estimates; null = unknown)",
@@ -24,6 +30,7 @@ const I18N = {
     "timeline.sub": "Documented milestones and recent verifications — based on sources, not marketing.",
     "timeline.more": "more",
     "timeline.release": "release",
+    "timeline.firstSeen": "first seen",
     "radar.heading": "Source radar",
     "radar.sub": "Persian LLM sources in the field — cataloged here, documented gaps, or planned releases.",
     "radar.cataloged": "cataloged",
@@ -76,6 +83,12 @@ const I18N = {
     "hero.lede":
       "جایی برای پیدا کردن مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع، وضعیت تأیید و خروجی JSON برای تیم‌های فنی، استارتاپ‌ها و پژوهشگران. مثل فهرست‌های پراکنده نیست؛ جمع‌آوری شده و با هم به‌روز می‌شود.",
     "compare.heading": "چرا از این مرجع استفاده کنیم؟",
+    "compare.panel": "مقایسه (حداکثر ۳ مورد)",
+    "compare.add": "افزودن به مقایسه",
+    "compare.clear": "پاک کردن",
+    "compare.empty": "حداکثر ۳ مورد را برای مقایسهٔ کنارهم انتخاب کنید.",
+    "gap.filter": "فیلتر بر اساس موضوع",
+    "gap.clear": "نمایش همه",
     "compare.c1": "اطلاعات منظم و قابل‌استفاده — نه فقط لیست لینک",
     "compare.c2": "سه سطح اعتماد: ثبت اولیه → تأیید منبع → نمرهٔ مستند",
     "compare.c3": "معیارهای ویژهٔ فارسی (خط، حقوق داده، ادبیات)",
@@ -94,6 +107,7 @@ const I18N = {
     "timeline.sub": "نسخه‌های مهم مرجع و آخرین موارد تأییدشده — بر پایهٔ منبع واقعی، نه شعار تبلیغاتی.",
     "timeline.more": "مورد دیگر",
     "timeline.release": "نسخه",
+    "timeline.firstSeen": "اولین ثبت",
     "radar.heading": "نقشهٔ منابع فارسی",
     "radar.sub": "چه چیزی در میدان هست، چه چیزی اینجا ثبت شده و چه چیزی هنوز در دست توسعه است.",
     "radar.cataloged": "در این مرجع",
@@ -194,6 +208,8 @@ let activeLane = "all";
 let viewMode = localStorage.getItem("plr-view") || "grid";
 let sortKey = "name";
 let sortDir = 1;
+let compareIds = JSON.parse(localStorage.getItem("plr-compare") || "[]").slice(0, 3);
+let activeGapTag = "";
 
 function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
@@ -310,6 +326,9 @@ function renderCard(entry) {
   const summary = entry.summary[lang] || entry.summary.en;
   const classLabel = t(`class.${entry.class}`) || entry.class;
   const size = entry.sizeB ? `${entry.sizeB}B` : "—";
+  const inCompare = compareIds.includes(entry.id);
+  const bench = entry.benchmarks?.[0];
+  const score = bench ? `${bench.name}: ${bench.score}%` : "—";
   return `
     <article class="entry-card" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}" id="entry-${entry.id}">
       <div class="entry-meta">
@@ -321,6 +340,7 @@ function renderCard(entry) {
       <p>${summary}</p>
       ${axisDots(entryAxes(entry))}
       ${linkHtml(entry.links)}
+      <button type="button" class="btn btn-ghost compare-add${inCompare ? " active" : ""}" data-compare="${entry.id}">${t("compare.add")}</button>
     </article>`;
 }
 
@@ -338,6 +358,7 @@ function filteredEntries() {
   const lane = LANES.find((l) => l.id === activeLane) || LANES[0];
   return manifest.entries.filter((e) => {
     if (!lane.match(e)) return false;
+    if (activeGapTag && !(e.gapTags || []).includes(activeGapTag)) return false;
     if (kind && e.kind !== kind) return false;
     if (cls && e.class !== cls) return false;
     if (status && e.status !== status) return false;
@@ -390,6 +411,7 @@ function renderAtlas() {
   if (!manifest) return;
   const entries = sortedEntries(filteredEntries());
   document.getElementById("entry-grid").innerHTML = entries.map(renderCard).join("");
+  bindCompareButtons();
   renderTable(entries);
   document.getElementById("empty-state").classList.toggle("hidden", entries.length > 0);
   document.getElementById("entry-grid").classList.toggle("hidden", viewMode !== "grid");
@@ -444,7 +466,86 @@ function renderLanes() {
 
 function renderGap() {
   const items = manifest.gapMap[lang] || manifest.gapMap.en;
-  document.getElementById("gap-list").innerHTML = items.map((li) => `<li>${li}</li>`).join("");
+  const tags = manifest.gapMap.tags || [];
+  document.getElementById("gap-list").innerHTML = items
+    .map(
+      (li, i) =>
+        `<li><button type="button" class="gap-btn${activeGapTag === tags[i] ? " active" : ""}" data-gap="${tags[i] || ""}">${li}</button></li>`
+    )
+    .join("");
+  document.getElementById("gap-list").querySelectorAll(".gap-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.gap;
+      activeGapTag = activeGapTag === tag ? "" : tag;
+      renderGap();
+      renderAtlas();
+    });
+  });
+  const clearBtn = document.getElementById("gap-clear");
+  if (clearBtn) clearBtn.classList.toggle("hidden", !activeGapTag);
+}
+
+function toggleCompare(id) {
+  if (compareIds.includes(id)) {
+    compareIds = compareIds.filter((x) => x !== id);
+  } else if (compareIds.length < 3) {
+    compareIds = [...compareIds, id];
+  } else {
+    compareIds = [compareIds[1], compareIds[2], id];
+  }
+  localStorage.setItem("plr-compare", JSON.stringify(compareIds));
+  renderComparePanel();
+  renderAtlas();
+}
+
+function renderComparePanel() {
+  const panel = document.getElementById("compare-panel");
+  if (!panel) return;
+  if (compareIds.length === 0) {
+    panel.innerHTML = `<p class="muted">${t("compare.empty")}</p>`;
+    return;
+  }
+  const rows = compareIds
+    .map((id) => manifest.entries.find((e) => e.id === id))
+    .filter(Boolean)
+    .map((e) => {
+      const name = e.name[lang] || e.name.en;
+      const bench = e.benchmarks?.[0];
+      const score = bench ? `${bench.score}%` : "—";
+      return `<tr>
+        <td><a href="${entryUrl(e.id)}">${name}</a></td>
+        <td>${t(`class.${e.class}`) || e.class}</td>
+        <td>${e.sizeB ?? "—"}</td>
+        <td>${statusLabel(e.status)}</td>
+        <td>${score}</td>
+        <td>${e.license ?? "—"}</td>
+      </tr>`;
+    })
+    .join("");
+  panel.innerHTML = `
+    <div class="compare-panel-head">
+      <h3>${t("compare.panel")}</h3>
+      <button type="button" class="btn btn-ghost" id="compare-clear">${t("compare.clear")}</button>
+    </div>
+    <div class="table-wrap"><table class="compare-table"><thead><tr>
+      <th>${t("table.name")}</th><th>${t("table.class")}</th><th>${t("table.size")}</th>
+      <th>${t("table.status")}</th><th>PersianMedQA</th><th>license</th>
+    </tr></thead><tbody>${rows}</tbody></table></div>`;
+  document.getElementById("compare-clear")?.addEventListener("click", () => {
+    compareIds = [];
+    localStorage.setItem("plr-compare", "[]");
+    renderComparePanel();
+    renderAtlas();
+  });
+}
+
+function bindCompareButtons() {
+  document.querySelectorAll("[data-compare]").forEach((btn) => {
+    btn.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      toggleCompare(btn.dataset.compare);
+    });
+  });
 }
 
 function buildTimelineEvents() {
@@ -455,6 +556,12 @@ function buildTimelineEvents() {
     byDate.get(m.date).push({ type: "release", label });
   }
   for (const e of manifest.entries) {
+    if (e.firstSeen) {
+      const day = `${e.firstSeen}-01`;
+      if (!byDate.has(day)) byDate.set(day, []);
+      const name = e.name[lang] || e.name.en;
+      byDate.get(day).push({ type: "verify", label: `${name} (${t("timeline.firstSeen")})`, id: e.id, status: e.status });
+    }
     if (!e.verifiedAt) continue;
     const day = e.verifiedAt.slice(0, 10);
     if (!byDate.has(day)) byDate.set(day, []);
@@ -654,6 +761,7 @@ async function boot() {
   renderTimeline();
   renderRadar();
   renderGap();
+  renderComparePanel();
   renderAtlas();
 
   document.getElementById("lang-toggle").addEventListener("click", () => {
@@ -665,6 +773,7 @@ async function boot() {
     renderTimeline();
     renderRadar();
     renderGap();
+    renderComparePanel();
     renderStats();
     renderCite();
     renderAtlas();

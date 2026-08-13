@@ -1,13 +1,13 @@
 {
   "name": "persian-llm-reference",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "description": "Global open atlas of Persian (Farsi) language models",
   "scripts": {
     "validate": "node scripts/validate-manifest.mjs",
     "build": "node scripts/build-static.mjs",
-    "prebuild": "node scripts/validate-manifest.mjs",
+    "prebuild": "node scripts/validate-manifest.mjs && node scripts/validate-schema.mjs",
     "prestart": "node scripts/build-static.mjs",
     "start": "node src/server.mjs",
     "dev": "node --watch src/server.mjs",

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "gemma-3-27b-it-class",
+    "kind": "model",
+    "class": "multilingual-frontier",
+    "name": { "en": "Gemma 3 27B IT class", "fa": "ردهٔ جمّا ۳ ۲۷بی دستوری" },
+    "org": "Google",
+    "sizeB": 27,
+    "license": "Gemma",
+    "status": "measured",
+    "summary": {
+      "en": "Google Gemma 3 instruct tier — 59.06% Persian accuracy on PersianMedQA (paper Table 3).",
+      "fa": "ردهٔ دستوری جمّا ۳ گوگل — ۵۹٫۰۶٪ دقت فارسی در PersianMedQA (جدول ۳ مقاله)."
+    },
+    "links": {
+      "hf": "https://huggingface.co/google/gemma-3-27b-it",
+      "paper": "https://arxiv.org/abs/2506.00250"
+    },
+    "origin": { "base": "Gemma-3", "persianTraining": "multilingual-pretrain" },
+    "script": { "rtl": true, "zwnj": "partial", "morphology": "partial" },
+    "corpus": { "class": "mixed-web", "licensedBooks": false },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "59.06",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "firstSeen": "2025-06",
+    "alefbaAxes": { "scriptFidelity": 2, "corpusLaw": 0, "curriculumFit": 0, "literaryDepth": 2, "nativePreference": 0 },
+    "verifiedAt": "2026-08-13"
+  },
+  {
+    "id": "open-ensemble-persianmedqa",
+    "kind": "model",
+    "class": "multilingual-frontier",
+    "name": { "en": "Open-weight ensemble (PersianMedQA)", "fa": "مجموعهٔ مدل‌های باز (PersianMedQA)" },
+    "org": "PersianMedQA authors",
+    "sizeB": null,
+    "license": "see-paper",
+    "status": "measured",
+    "summary": {
+      "en": "Majority-vote ensemble of diverse open-weight families — 73.7% Persian on PersianMedQA (paper §4.4).",
+      "fa": "ترکیب رأی‌گیری چند خانوادهٔ مدل باز — ۷۳٫۷٪ دقت فارسی در PersianMedQA (بخش ۴٫۴ مقاله)."
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2506.00250",
+      "web": "https://mohammadjranjbar.github.io/PersianMedQA/"
+    },
+    "origin": { "base": "ensemble", "persianTraining": "inference-only" },
+    "script": { "rtl": true, "zwnj": null, "morphology": null },
+    "corpus": { "class": "eval-benchmark", "licensedBooks": false },
+    "benchmarks": [
+      {
+        "name": "PersianMedQA (Persian)",
+        "score": "73.70",
+        "asOf": "2025-06",
+        "receipt": "paper",
+        "url": "https://arxiv.org/abs/2506.00250"
+      }
+    ],
+    "firstSeen": "2025-06",
+    "notes": "Not a single checkpoint — documented ensemble result from PersianMedQA evaluation.",
+    "alefbaAxes": { "scriptFidelity": null, "corpusLaw": null, "curriculumFit": null, "literaryDepth": null, "nativePreference": null },
+    "verifiedAt": "2026-08-13"
+  }
+]

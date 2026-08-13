@@ -1,6 +1,6 @@
 {
-  "version": "0.5.0",
-  "generatedAt": "2026-08-13T03:38:22.219Z",
+  "version": "0.6.0",
+  "generatedAt": "2026-08-13T03:42:43.154Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -15,6 +15,15 @@
       "leaderboards",
       "community-indexes",
       "research-programs"
+    ],
+    "citations": [
+      {
+        "type": "upstream-discovery",
+        "title": "Awesome-Persian-LLM",
+        "url": "https://github.com/MohammadHeydari/Awesome-Persian-LLM",
+        "maintainer": "Mohammad Heydari",
+        "note": "Discovery source credited for many PLR rows; reciprocal link pending maintainer PR."
+      }
     ]
   },
   "mission": {
@@ -97,7 +106,8 @@
         "literaryDepth": 2,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "firstSeen": "2024-01"
     },
     {
       "id": "dorna-llama3-8b",
@@ -112,8 +122,8 @@
       "license": "Llama-3-community",
       "status": "measured",
       "summary": {
-        "en": "Widely cited Persian instruct model; tops several Persian leaderboards under 10B.",
-        "fa": "مدل دستوری فارسی پراستفاده؛ صدر جدول‌های فارسی زیر ۱۰ میلیارد پارامتر."
+        "en": "Widely used Persian instruct model; strong results on public Persian leaderboards under 10B.",
+        "fa": "مدل دستوری فارسی پرکاربرد؛ نتایج قوی در جدول‌های عمومی فارسی زیر ۱۰ میلیارد پارامتر."
       },
       "links": {
         "hf": "https://huggingface.co/PartAI/Dorna-Llama3-8B-Instruct-GGUF",
@@ -156,7 +166,11 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "firstSeen": "2024-06",
+      "gapTags": [
+        "instruct-stack"
+      ]
     },
     {
       "id": "maral-7b",
@@ -198,7 +212,8 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2023-06"
     },
     {
       "id": "persian-phi",
@@ -284,7 +299,10 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-13",
-      "notes": "Small custom decoder (~152M params); YRSL v1.0 restricted license — not frontier native-foundation scale."
+      "notes": "Small custom decoder (~152M params); YRSL v1.0 restricted license — not frontier native-foundation scale.",
+      "gapTags": [
+        "native-foundation"
+      ]
     },
     {
       "id": "ava-llama3-v2",
@@ -418,7 +436,8 @@
         "literaryDepth": 1,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "firstSeen": "2024-09"
     },
     {
       "id": "gpt-4-class",
@@ -503,7 +522,8 @@
         "literaryDepth": 0,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "firstSeen": "2020-05"
     },
     {
       "id": "matina-corpus",
@@ -519,7 +539,7 @@
       "status": "verified",
       "summary": {
         "en": "~73B-token Persian text corpus for pretraining research.",
-        "fa": "پیکرهٔ متنی فارسی حدود ۷۳ میلیارد توکن برای پژوهش پیش‌آموزش."
+        "fa": "مجموعه‌دادهٔ فارسی — پیکرهٔ متنی فارسی حدود ۷۳ میلیارد توکن برای پژوهش پیش‌آموزش."
       },
       "links": {
         "paper": "https://arxiv.org/html/2502.09188v1",
@@ -605,7 +625,7 @@
       "status": "verified",
       "summary": {
         "en": "Community leaderboard for open Persian generative models.",
-        "fa": "جدول جامعه برای مدل‌های تولیدی فارسی باز."
+        "fa": "جدول امتیاز عمومی برای مقایسهٔ مدل‌های فارسی در معیارهای منتشرشده."
       },
       "links": {
         "web": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard"
@@ -690,7 +710,7 @@
       "status": "verified",
       "summary": {
         "en": "Safety, fairness, social norms for Persian — cultural alignment eval.",
-        "fa": "ایمنی، انصاف، هنجار اجتماعی برای فارسی — ارزیابی هم‌ترازی فرهنگی."
+        "fa": "معیار سنجش: Safety, fairness, social norms for Persian — cultural alignment ."
       },
       "links": {
         "paper": "https://arxiv.org/abs/2504.12553",
@@ -733,7 +753,7 @@
       "status": "verified",
       "summary": {
         "en": "Short-answer cultural evaluation with Persian morphological variation.",
-        "fa": "ارزیابی فرهنگی پاسخ کوتاه با تنوع صرفی فارسی."
+        "fa": "معیار سنجش: Short-answer cultural uation with Persian morphological variation."
       },
       "links": {
         "paper": "https://doi.org/10.48550/arxiv.2602.22827"
@@ -759,7 +779,10 @@
         "literaryDepth": 3,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval"
+      ]
     },
     {
       "id": "gemma3-persian",
@@ -861,7 +884,11 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2025-01",
+      "gapTags": [
+        "instruct-stack"
+      ]
     },
     {
       "id": "aya-expanse-8b",
@@ -970,7 +997,7 @@
       "status": "verified",
       "summary": {
         "en": "Persian natural language understanding benchmark — MCQ and comprehension tasks.",
-        "fa": "بنچمارک درک زبان طبیعی فارسی — چندگزینه‌ای و درک مطلب."
+        "fa": "معیار سنجش: Persian natural language understanding  — MCQ and comprehension tasks."
       },
       "links": {
         "repo": "https://github.com/persiannlp/parsinlu",
@@ -1232,7 +1259,7 @@
       "status": "verified",
       "summary": {
         "en": "Massive text embedding benchmark suite for Persian language models.",
-        "fa": "مجموعهٔ بنچمارک تعبیهٔ متن برای مدل‌های فارسی."
+        "fa": "معیار سنجش: Massive text embedding  suite for Persian language models."
       },
       "links": {
         "paper": "https://arxiv.org/pdf/2502.11571"
@@ -1274,7 +1301,7 @@
       "status": "verified",
       "summary": {
         "en": "Instruction dataset empowering Persian LLMs for instruction following.",
-        "fa": "پیکرهٔ دستوری برای تقویت پیروی از دستور در مدل‌های فارسی."
+        "fa": "مجموعه‌دادهٔ فارسی — پیکرهٔ دستوری برای تقویت پیروی از دستور در مدل‌های فارسی."
       },
       "links": {
         "paper": "https://arxiv.org/html/2407.11186v1"
@@ -1316,7 +1343,7 @@
       "status": "verified",
       "summary": {
         "en": "Multitask Persian knowledge benchmark — measures whether LLMs are truly wise in Persian.",
-        "fa": "بنچمارک دانش چندوظیفه‌ای فارسی — سنجش «خرد» واقعی مدل در فارسی."
+        "fa": "معیار سنجش: Multitask Persian knowledge  — measures whether LLMs are truly wise in Persian."
       },
       "links": {
         "paper": "https://openreview.net/forum?id=yIEyHP7AvH"
@@ -1358,7 +1385,7 @@
       "status": "verified",
       "summary": {
         "en": "High-quality Farsi instruction-following synthetic datasets generated with LLMs.",
-        "fa": "پیکره‌های مصنوعی دستوری فارسی با کیفیت بالا تولیدشده با مدل‌های زبانی."
+        "fa": "مجموعه‌دادهٔ فارسی — پیکره‌های مصنوعی دستوری فارسی با کیفیت بالا تولیدشده با مدل‌های زبانی."
       },
       "links": {
         "repo": "https://github.com/MohammadHeydari/FarsiSyntheticData"
@@ -1400,7 +1427,7 @@
       "status": "verified",
       "summary": {
         "en": "Hugging Face dataset of synthetic Persian instruction examples for SFT.",
-        "fa": "پیکرهٔ Hugging Face از نمونه‌های دستوری مصنوعی فارسی برای SFT."
+        "fa": "مجموعه‌دادهٔ فارسی — پیکرهٔ Hugging Face از نمونه‌های دستوری مصنوعی فارسی برای SFT."
       },
       "links": {
         "hf": "https://huggingface.co/datasets/Heydaritoday/Persian-Synthetic-Instruct"
@@ -1442,7 +1469,7 @@
       "status": "verified",
       "summary": {
         "en": "Persian text corpus on Hugging Face — used in open Persian NLP pipelines.",
-        "fa": "پیکرهٔ متن فارسی در Hugging Face — در خطوط پردازش باز فارسی."
+        "fa": "مجموعه‌دادهٔ فارسی — در خطوط پردازش باز فارسی."
       },
       "links": {
         "hf": "https://huggingface.co/datasets/Targoman/TLPC"
@@ -1526,7 +1553,7 @@
       "status": "verified",
       "summary": {
         "en": "Story-driven cultural evaluation of LLMs in Persian literary and social context.",
-        "fa": "ارزیابی فرهنگی روایت‌محور مدل‌ها در زمینهٔ ادبی و اجتماعی فارسی."
+        "fa": "معیار سنجش: Story-driven cultural uation of LLMs in Persian literary and social context."
       },
       "links": {
         "paper": "https://aclanthology.org/2025.naacl-long.631.pdf"
@@ -1552,7 +1579,10 @@
         "literaryDepth": 3,
         "nativePreference": 2
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval"
+      ]
     },
     {
       "id": "melac-benchmark",
@@ -1568,7 +1598,7 @@
       "status": "verified",
       "summary": {
         "en": "Massive evaluation of large language models on Persian tasks.",
-        "fa": "ارزیابی گستردهٔ مدل‌های زبانی بزرگ روی وظایف فارسی."
+        "fa": "معیار سنجش: Massive uation of large language models on Persian tasks."
       },
       "links": {
         "paper": "https://aclanthology.org/2025.ijcnlp-long.105.pdf"
@@ -1594,7 +1624,10 @@
         "literaryDepth": 2,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval"
+      ]
     },
     {
       "id": "taarof-benchmark",
@@ -1610,7 +1643,7 @@
       "status": "verified",
       "summary": {
         "en": "Benchmark testing whether LLMs understand Persian taarof and politeness norms.",
-        "fa": "آزمون درک تعارف و هنجارهای ادب فارسی در مدل‌های زبانی."
+        "fa": "معیار سنجش: testing whether LLMs understand Persian taarof and politeness norms."
       },
       "links": {
         "paper": "https://aclanthology.org/2025.emnlp-main.94.pdf"
@@ -1636,7 +1669,10 @@
         "literaryDepth": 3,
         "nativePreference": 3
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval"
+      ]
     },
     {
       "id": "persianrag",
@@ -1652,7 +1688,7 @@
       "status": "verified",
       "summary": {
         "en": "Retrieval-augmented generation system and resources for Persian language QA.",
-        "fa": "سامانه و منابع RAG برای پرسش‌وپاسخ فارسی."
+        "fa": "معیار سنجش: Retri-augmented generation system and resources for Persian language QA."
       },
       "links": {
         "paper": "https://arxiv.org/abs/2411.02832"
@@ -1900,7 +1936,10 @@
         "literaryDepth": 2,
         "nativePreference": 2
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval"
+      ]
     },
     {
       "id": "ept-benchmark",
@@ -1944,7 +1983,10 @@
         "literaryDepth": 1,
         "nativePreference": 3
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "native-preference"
+      ]
     },
     {
       "id": "persianmedqa",
@@ -2133,7 +2175,7 @@
       "status": "verified",
       "summary": {
         "en": "12,282 multi-hop QA pairs from nine Persian Islamic encyclopedias; dataset not yet public.",
-        "fa": "۱۲٬۲۸۲ جفت پرسش‌وپاسخ چندگامی از نه دانشنامهٔ اسلامی فارسی؛ پیکره هنوز عمومی نیست."
+        "fa": "مجموعه‌دادهٔ فارسی — ۱۲٬۲۸۲ جفت پرسش‌وپاسخ چندگامی از نه دانشنامهٔ اسلامی فارسی؛ پیکره هنوز عمومی نیست."
       },
       "links": {
         "paper": "https://arxiv.org/abs/2304.11664"
@@ -2176,7 +2218,7 @@
       "status": "measured",
       "summary": {
         "en": "Frontier multilingual model class cited on Persian leaderboards; no open weights.",
-        "fa": "ردهٔ مدل چندزبانهٔ مرزی در جدول‌های فارسی؛ بدون وزن باز."
+        "fa": "جدول امتیاز عمومی برای مقایسهٔ مدل‌های فارسی در معیارهای منتشرشده."
       },
       "links": {
         "web": "https://www.deepseek.com/"
@@ -2226,7 +2268,7 @@
       "status": "verified",
       "summary": {
         "en": "Large multilingual web corpus with Persian (`fa`) shard — common pretrain source, not literary-grade alone.",
-        "fa": "پیکرهٔ وب چندزبانه با سهم فارسی — منبع پیش‌آموزش رایج، نه کتابخانهٔ ادبی به‌تنهایی."
+        "fa": "مجموعه‌دادهٔ فارسی — منبع پیش‌آموزش رایج، نه کتابخانهٔ ادبی به‌تنهایی."
       },
       "links": {
         "hf": "https://huggingface.co/datasets/oscar-corpus/OSCAR-2201"
@@ -2268,7 +2310,7 @@
       "status": "verified",
       "summary": {
         "en": "Qwen3 family on Persian leaderboards; mix of open weights and API-only tiers.",
-        "fa": "خانوادهٔ کوئن۳ در جدول‌های فارسی؛ ترکیب وزن باز و API."
+        "fa": "جدول امتیاز عمومی برای مقایسهٔ مدل‌های فارسی در معیارهای منتشرشده."
       },
       "links": {
         "web": "https://qwenlm.github.io/"
@@ -2352,7 +2394,7 @@
       "status": "verified",
       "summary": {
         "en": "Canonical open encyclopedia corpus for Persian NLP pretrain and QA dataset construction.",
-        "fa": "پیکرهٔ دانشنامهٔ باز مرجع برای پیش‌آموزش و ساخت دادهٔ پرسش‌وپاسخ فارسی."
+        "fa": "مجموعه‌دادهٔ فارسی — پیکرهٔ دانشنامهٔ باز مرجع برای پیش‌آموزش و ساخت دادهٔ پرسش‌وپاسخ فارسی."
       },
       "links": {
         "web": "https://dumps.wikimedia.org/fawiki/latest/"
@@ -2530,7 +2572,8 @@
         "literaryDepth": 1,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2024-11"
     },
     {
       "id": "biomistral-7b",
@@ -2617,7 +2660,8 @@
         "literaryDepth": 1,
         "nativePreference": 2
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "firstSeen": "2025-05"
     },
     {
       "id": "gaokerena-mf3qa",
@@ -2763,6 +2807,111 @@
         "nativePreference": 0
       },
       "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "gemma-3-27b-it-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Gemma 3 27B IT class",
+        "fa": "ردهٔ جمّا ۳ ۲۷بی دستوری"
+      },
+      "org": "Google",
+      "sizeB": 27,
+      "license": "Gemma",
+      "status": "measured",
+      "summary": {
+        "en": "Google Gemma 3 instruct tier — 59.06% Persian accuracy on PersianMedQA (paper Table 3).",
+        "fa": "خانوادهٔ دستوری جمّا ۳ گوگل — ۵۹٫۰۶٪ دقت فارسی در PersianMedQA (جدول ۳ مقاله)."
+      },
+      "links": {
+        "hf": "https://huggingface.co/google/gemma-3-27b-it",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Gemma-3",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-web",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "59.06",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "firstSeen": "2025-06",
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 0,
+        "curriculumFit": 0,
+        "literaryDepth": 2,
+        "nativePreference": 0
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "open-ensemble-persianmedqa",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Open-weight ensemble (PersianMedQA)",
+        "fa": "مجموعهٔ مدل‌های باز (PersianMedQA)"
+      },
+      "org": "PersianMedQA authors",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "measured",
+      "summary": {
+        "en": "Majority-vote ensemble of diverse open-weight families — 73.7% Persian on PersianMedQA (paper §4.4).",
+        "fa": "ترکیب رأی‌گیری چند خانوادهٔ مدل باز — ۷۳٫۷٪ دقت فارسی در PersianMedQA (بخش ۴٫۴ مقاله)."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2506.00250",
+        "web": "https://mohammadjranjbar.github.io/PersianMedQA/"
+      },
+      "origin": {
+        "base": "ensemble",
+        "persianTraining": "inference-only"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "eval-benchmark",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "73.70",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "firstSeen": "2025-06",
+      "notes": "Not a single checkpoint — documented ensemble result from PersianMedQA evaluation.",
+      "alefbaAxes": {
+        "scriptFidelity": null,
+        "corpusLaw": null,
+        "curriculumFit": null,
+        "literaryDepth": null,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
     }
   ],
   "gapMap": {
@@ -2777,12 +2926,18 @@
       "نظرسنجی ارزیاب بومی در مقیاس محصول واقعی کم است",
       "معیار سنجش سبک ادبی و حافظهٔ کتاب در فارسی هنوز پراکنده است",
       "بیشتر مدل‌های باز، نسخهٔ فارسی‌شدهٔ مدل انگلیسی زیر ۱۵ میلیارد پارامترند"
+    ],
+    "tags": [
+      "native-foundation",
+      "native-preference",
+      "literary-eval",
+      "instruct-stack"
     ]
   },
   "stats": {
-    "total": 61,
+    "total": 63,
     "byKind": {
-      "model": 31,
+      "model": 33,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
@@ -2790,14 +2945,14 @@
     "byClass": {
       "adapted-instruct": 14,
       "native-foundation": 1,
-      "multilingual-frontier": 12,
+      "multilingual-frontier": 14,
       "encoder-only": 4,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 13,
+      "measured": 15,
       "verified": 48
     }
   }
