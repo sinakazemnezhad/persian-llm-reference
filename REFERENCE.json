@@ -16,7 +16,7 @@
   },
   "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
   "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
-  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/PERSIAN-LLM-REFERENCE/main/data/reference-manifest.json",
   "githubPagesBase": "/persian-llm-reference",
   "license": "CC-BY-4.0",
   "scope": "global-community",
@@ -30,7 +30,7 @@
     "name": "DIS BRAND Governed Agent",
     "agent": "DIS-PLUSONE-GOV-AGENT",
     "action": "edit",
-    "at": "2026-08-13T01:42:28.047Z",
-    "file": "persian-llm-reference/REFERENCE.json"
+    "at": "2026-08-13T01:48:27.631Z",
+    "file": "PERSIAN-LLM-REFERENCE/REFERENCE.json"
   }
 }

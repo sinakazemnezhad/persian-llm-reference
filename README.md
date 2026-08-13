@@ -1,5 +1,7 @@
-<!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-README-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:36:45.936Z file=persian-llm-reference/README.md -->
+<!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-README-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:48:30.446Z file=PERSIAN-LLM-REFERENCE/README.md -->
 # Persian LLM Reference
+
+**Local path:** `PLUS ONE/PERSIAN-LLM-REFERENCE/` — this folder is the git repo root for GitHub.
 
 **مرجع جهانی مدل‌های زبانی فارسی**
 

@@ -1,7 +1,7 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:46:06.503Z",
-  "schema": "persian-llm-reference/v1",
+  "generatedAt": "2026-08-13T01:54:06.364Z",
+  "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
     "maintainer": "Persian LLM Reference maintainers",
@@ -1129,7 +1129,7 @@
     "name": "DIS BRAND Governed Agent",
     "agent": "DIS-PLUSONE-GOV-AGENT",
     "action": "edit",
-    "at": "2026-08-13T01:42:30.986Z",
-    "file": "persian-llm-reference/data/reference-manifest.json"
+    "at": "2026-08-13T01:48:27.698Z",
+    "file": "PERSIAN-LLM-REFERENCE/data/reference-manifest.json"
   }
 }

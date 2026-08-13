@@ -1,7 +1,7 @@
 {
-  "schema": "persian-llm-reference/v1",
+  "schema": "PERSIAN-LLM-REFERENCE/v1",
   "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:46:06.503Z",
+  "generatedAt": "2026-08-13T01:54:06.364Z",
   "mission": {
     "en": "The open global atlas for Persian (Farsi) language models — more complete than link lists, more honest than hype.",
     "fa": "اطلس باز جهانی برای مدل‌های زبانی فارسی — کامل‌تر از فهرست پیوند، صادق‌تر از شعار."
@@ -33,6 +33,6 @@
     }
   },
   "manifest": "https://sinakazemnezhad.github.io/persian-llm-reference/data/reference-manifest.json",
-  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/PERSIAN-LLM-REFERENCE/main/data/reference-manifest.json",
   "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
 }
