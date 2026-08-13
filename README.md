@@ -1,11 +1,10 @@
-<!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-README-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:48:30.446Z file=PERSIAN-LLM-REFERENCE/README.md -->
 # Persian LLM Reference
 
-**Local path:** `PLUS ONE/PERSIAN-LLM-REFERENCE/` — this folder is the git repo root for GitHub.
+**Local path:** `~/Desktop/PERSIAN-LLM-REFERENCE/` — this folder is the git repo root for GitHub.
 
 **مرجع جهانی مدل‌های زبانی فارسی**
 
-The **open global atlas** for Persian (Farsi) language models — built to be more complete than link lists and more honest than hype.
+The **open global atlas** for Persian (Farsi) language models — built as a structured registry — clearer than link lists and more honest than hype.
 
 > Not a personal notebook. Not a local mirror. **Online-first · community-maintained · machine-readable.**
 
@@ -34,6 +33,7 @@ The **open global atlas** for Persian (Farsi) language models — built to be mo
 | `data/reference-manifest.json` | **SSOT** — all models, datasets, benchmarks |
 | `workspace/public/` | Static site (GitHub Pages root after build) |
 | `governance/MANIFEST_LAW.md` | Taxonomy + verification gates |
+| `governance/METHODOLOGY.md` | Trust, axes, cite policy |
 | `governance/POSITIONING.md` | How we beat other references |
 | `REFERENCE.json` | Product identity (neutral, global) |
 
@@ -64,7 +64,7 @@ npm run e2e      # local server smoke
 @misc{persian_llm_reference,
   title={Persian LLM Reference — Global Atlas},
   year={2026},
-  url={https://persian-llm-reference.github.io},
+  url={https://sinakazemnezhad.github.io/persian-llm-reference},
   note={Manifest version in generatedAt field}
 }
 ```

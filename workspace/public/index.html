@@ -6,19 +6,19 @@
   <title>مرجع جهانی مدل‌های زبانی فارسی · Persian LLM Reference</title>
   <meta name="description" content="The open global atlas for Persian (Farsi) language models — receipt-gated, bilingual, machine JSON API." />
   <meta property="og:title" content="Persian LLM Reference — Global Atlas" />
-  <meta property="og:description" content="The most complete open reference for Persian LLMs — models, datasets, benchmarks, leaderboards." />
+  <meta property="og:description" content="Structured open registry for Persian LLMs — models, datasets, benchmarks, leaderboards. Receipt-gated, bilingual JSON." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=0.2.0" />
+  <link rel="stylesheet" href="app.css?v=0.2.1" />
   <script type="application/ld+json" id="schema-dataset"></script>
 </head>
 <body>
   <a class="hidden" href="#atlas">Skip to atlas</a>
   <header class="site-header wrap">
-    <a class="brand" href="/">Persian LLM <span>Reference</span></a>
+    <a class="brand" href="./">Persian LLM <span>Reference</span></a>
     <div class="header-actions">
       <button type="button" class="btn btn-ghost" id="lang-toggle" aria-label="Switch language">EN</button>
       <a class="btn btn-primary" id="github-link" href="#" target="_blank" rel="noopener" data-i18n="nav.contribute">Contribute</a>
@@ -29,7 +29,7 @@
     <section class="hero wrap">
       <p class="kicker" data-i18n="hero.kicker">Global atlas · receipt before claim</p>
       <h1 id="atlas-title" data-i18n="hero.title">مرجع جهانی مدل‌های زبانی فارسی</h1>
-      <p class="lede" data-i18n="hero.lede">کامل‌ترین مرجع باز برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. نه فهرست شخصی — اطلس جامعه.</p>
+      <p class="lede" data-i18n="hero.lede">رجیستری باز و ساختاریافته برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. نگهداری جامعه — نه فهرست شخصی.</p>
       <div class="stats-bar" id="stats-bar" aria-live="polite"></div>
     </section>
 
@@ -41,6 +41,13 @@
         <li data-i18n="compare.c3">محور فارسی‌محور — خط، پیکره، ادبیات</li>
         <li data-i18n="compare.c4">دوزبانه FA/EN · API پایدار</li>
       </ul>
+    </section>
+
+
+    <section class="section wrap trust-panel" id="trust" aria-labelledby="trust-heading">
+      <h2 id="trust-heading" data-i18n="trust.heading">اعتماد و روش</h2>
+      <p class="lede" data-i18n="trust.body">هر رکورد به نشانی منبع اولیه نیاز دارد.</p>
+      <p class="muted"><a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener">governance/METHODOLOGY.md</a></p>
     </section>
 
     <section class="wrap toolbar" aria-label="Filters">
@@ -73,6 +80,6 @@
     <p data-i18n="footer.law">نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.</p>
   </footer>
 
-  <script src="app.js?v=0.2.0" type="module"></script>
+  <script src="app.js?v=0.2.1" type="module"></script>
 </body>
 </html>

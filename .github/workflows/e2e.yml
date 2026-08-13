@@ -19,5 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - run: npm run build
+      - run: npm run validate:links
       - run: node src/server.mjs &
       - run: sleep 2 && npm run e2e

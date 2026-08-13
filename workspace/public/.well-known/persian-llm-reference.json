@@ -1,23 +1,21 @@
 {
   "schema": "PERSIAN-LLM-REFERENCE/v1",
-  "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:54:06.364Z",
+  "version": "0.2.1",
+  "generatedAt": "2026-08-13T02:05:30.816Z",
   "mission": {
-    "en": "The open global atlas for Persian (Farsi) language models — more complete than link lists, more honest than hype.",
-    "fa": "اطلس باز جهانی برای مدل‌های زبانی فارسی — کامل‌تر از فهرست پیوند، صادق‌تر از شعار."
+    "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — clearer than link lists, more honest than hype.",
+    "fa": "رجیستری باز و ساختاریافته با درگاه رسید برای مدل‌های زبانی فارسی — شفاف‌تر از فهرست پیوند، صادق‌تر از شعار."
   },
-  "entryCount": 24,
+  "entryCount": 23,
   "stats": {
-    "total": 24,
+    "total": 23,
     "byKind": {
-      "program": 1,
       "model": 15,
       "dataset": 4,
       "leaderboard": 3,
       "community-index": 1
     },
     "byClass": {
-      "program": 1,
       "adapted-instruct": 8,
       "native-foundation": 1,
       "multilingual-frontier": 5,
@@ -27,12 +25,12 @@
       "community-index": 1
     },
     "byStatus": {
-      "indexed": 18,
       "measured": 4,
+      "indexed": 17,
       "verified": 2
     }
   },
   "manifest": "https://sinakazemnezhad.github.io/persian-llm-reference/data/reference-manifest.json",
-  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/PERSIAN-LLM-REFERENCE/main/data/reference-manifest.json",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
   "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
 }

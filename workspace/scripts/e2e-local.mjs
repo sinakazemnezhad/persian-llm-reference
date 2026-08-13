@@ -26,14 +26,35 @@ async function main() {
     record("/api/health", health.ok === true);
 
     manifest = await fetch(`${BASE}/api/reference.json`).then((r) => r.json());
-    record("api/reference.json entries", manifest.entries?.length >= 20);
+    record("api/reference.json entries", manifest.entries?.length >= 23);
     record("gapMap present", Array.isArray(manifest.gapMap?.en));
 
     const home = await fetchText("/");
     record("/ 200", home.status === 200);
     record("home atlas UI", home.text.includes('id="atlas"') && home.text.includes("stats-bar"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);
-    record("data/reference-manifest.json", staticManifest?.entries?.length >= 20);
+  try {
+    const pageBase = `${BASE}/`;
+    const murl = new URL("data/reference-manifest.json", pageBase).href;
+    const resolved = await fetch(murl).then((r) => r.json());
+    record("manifest URL resolution (./data/)", resolved.entries?.length >= 23);
+    const cfg = await fetch(`${BASE}/site-config.json`).then((r) => r.json()).catch(() => ({}));
+    const basePath = (cfg.basePath || "").replace(/\/$/, "");
+    if (basePath) {
+      const ghStyle = new URL(`${basePath}/data/reference-manifest.json`, BASE).href;
+      const r2 = await fetch(ghStyle);
+      if (r2.ok) {
+        const m2 = await r2.json();
+        record("manifest URL resolution (basePath)", m2.entries?.length >= 23);
+      } else {
+        record("manifest URL resolution (basePath skipped local)", true);
+      }
+    }
+  } catch {
+    record("manifest URL resolution", false);
+  }
+
+    record("data/reference-manifest.json", staticManifest?.entries?.length >= 23);
   } catch (e) {
     console.error("RED  E2E crash:", e.message);
     process.exit(1);
@@ -50,7 +71,7 @@ async function main() {
     record("browser no pageerror", errors.length === 0);
 
     const count = await page.locator(".entry-card").count();
-    record("browser renders entries", count >= 20);
+    record("browser renders entries", count >= 23);
 
     await page.locator("#lang-toggle").click();
     await page.waitForTimeout(100);

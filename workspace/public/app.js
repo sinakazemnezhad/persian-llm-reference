@@ -1,15 +1,14 @@
-/** dis-brand-agent repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-PUBLIC-APP-JS name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:36:45.860Z */
 const I18N = {
   en: {
     "nav.contribute": "Contribute on GitHub",
-    "hero.kicker": "Global atlas · receipt before claim",
+    "hero.kicker": "Global registry · receipt before claim",
     "hero.title": "Persian LLM Reference",
     "hero.lede":
-      "The most complete open reference for Persian models — model, corpus, benchmark, leaderboard. JSON for researchers and agents. A community atlas — not a personal list.",
+      "A structured open registry for Persian models — model, corpus, benchmark, leaderboard. JSON for researchers and agents. Community-maintained — not a personal list.",
     "compare.heading": "Why this reference?",
     "compare.c1": "Structured JSON — not links only",
     "compare.c2": "Verification gates indexed → measured",
-    "compare.c3": "Persian-native axes — script, corpus, literature",
+    "compare.c3": "Persian axes (editorial estimates; null = unknown)",
     "compare.c4": "Bilingual FA/EN · stable API",
     "stats.entries": "entries",
     "stats.models": "models",
@@ -20,6 +19,8 @@ const I18N = {
     "atlas.heading": "Registry",
     "atlas.empty": "No matches.",
     "gap.heading": "Gap map",
+    "trust.heading": "Trust & methodology",
+    "trust.body": "Entries need a primary source URL. Status moves indexed → verified → measured only with cited evidence. Axis scores are editorial estimates where set; null means unknown — never invented.",
     "footer.law": "No invented scores. Global reference — not a personal project.",
     "class.native-foundation": "Native foundation",
     "class.adapted-instruct": "Adapted instruct",
@@ -32,14 +33,14 @@ const I18N = {
   },
   fa: {
     "nav.contribute": "مشارکت در گیت‌هاب",
-    "hero.kicker": "اطلس جهانی · رسید قبل از ادعا",
+    "hero.kicker": "رجیستری جهانی · رسید قبل از ادعا",
     "hero.title": "مرجع جهانی مدل‌های زبانی فارسی",
     "hero.lede":
-      "کامل‌ترین مرجع باز برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. اطلس جامعه — نه فهرست شخصی.",
+      "رجیستری باز و ساختاریافته برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. نگهداری جامعه — نه فهرست شخصی.",
     "compare.heading": "چرا این مرجع؟",
     "compare.c1": "ساختار JSON — نه فقط پیوند",
     "compare.c2": "درگاه تأیید indexed → measured",
-    "compare.c3": "محور فارسی‌محور — خط، پیکره، ادبیات",
+    "compare.c3": "محور فارسی (برآورد تحریریه؛ null = نامشخص)",
     "compare.c4": "دوزبانه FA/EN · API پایدار",
     "stats.entries": "رکورد",
     "stats.models": "مدل",
@@ -50,6 +51,8 @@ const I18N = {
     "atlas.heading": "رجیستری",
     "atlas.empty": "نتیجه‌ای نیست.",
     "gap.heading": "نقشهٔ شکاف",
+    "trust.heading": "اعتماد و روش",
+    "trust.body": "هر رکورد به نشانی منبع اولیه نیاز دارد. وضعیت فقط با استناد indexed → verified → measured می‌شود. نمرهٔ محورها برآورد تحریریه است؛ null یعنی نامشخص — نه ساختگی.",
     "footer.law": "نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.",
     "class.native-foundation": "بنیان فارسی",
     "class.adapted-instruct": "دستوری سازگارشده",
@@ -120,12 +123,17 @@ function injectSchema() {
   });
 }
 
+function entryAxes(entry) {
+  return entry.persianAxes || entry.alefbaAxes || null;
+}
+
 function axisDots(axes) {
   if (!axes) return "";
   const nums = AXES.map((k) => axes[k]).filter((v) => typeof v === "number");
-  const avg = nums.reduce((a, b) => a + b, 0) / Math.max(1, nums.length);
+  if (nums.length === 0) return "";
+  const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
   const filled = Math.round(avg);
-  return `<span class="axis-row" title="Persian axes">${Array.from({ length: 4 })
+  return `<span class="axis-row" title="Persian axes (editorial; null=unknown)">${Array.from({ length: 4 })
     .map((_, i) => `<span class="axis-dot ${i < filled ? "filled" : ""}"></span>`)
     .join("")}</span>`;
 }
@@ -156,7 +164,7 @@ function renderCard(entry) {
       </div>
       <h3>${name}</h3>
       <p>${summary}</p>
-      ${axisDots(entry.alefbaAxes)}
+      ${axisDots(entryAxes(entry))}
       ${linkHtml(entry.links)}
     </article>`;
 }
@@ -199,11 +207,24 @@ function renderGap() {
   document.getElementById("gap-list").innerHTML = items.map((li) => `<li>${li}</li>`).join("");
 }
 
+function resolveManifestUrl() {
+  const basePath = (siteConfig?.basePath || "").replace(/\/$/, "");
+  if (basePath) {
+    return new URL(`${basePath}/data/reference-manifest.json`, location.origin).href;
+  }
+  const pageBase = location.href.endsWith("/") ? location.href : `${location.href}/`;
+  return new URL("data/reference-manifest.json", pageBase).href;
+}
+
 async function loadManifest() {
-  const paths = ["data/reference-manifest.json", "/data/reference-manifest.json", "/api/reference.json"];
-  for (const p of paths) {
+  const urls = [resolveManifestUrl()];
+  const fallback = new URL("data/reference-manifest.json", location.href);
+  if (!urls.includes(fallback.href)) urls.push(fallback.href);
+  urls.push("/data/reference-manifest.json", "/api/reference.json");
+
+  for (const url of urls) {
     try {
-      const res = await fetch(p);
+      const res = await fetch(url);
       if (res.ok) return res.json();
     } catch {
       /* try next */
@@ -215,7 +236,7 @@ async function loadManifest() {
 async function boot() {
   applyI18n();
   try {
-    siteConfig = await fetch("site-config.json").then((r) => r.json());
+    siteConfig = await fetch(new URL("site-config.json", location.href)).then((r) => r.json());
     const gh = document.getElementById("github-link");
     if (gh && siteConfig.canonicalRepo) gh.href = siteConfig.canonicalRepo;
   } catch {

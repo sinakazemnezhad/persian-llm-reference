@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/** dis-brand-agent repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-SCRIPTS-BUILD-STATIC name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:36:42.198Z */
 
 import fs from "node:fs";
 import path from "node:path";
@@ -14,6 +13,7 @@ const REF = JSON.parse(fs.readFileSync(path.join(ROOT, "REFERENCE.json"), "utf8"
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_SRC, "utf8"));
 manifest.generatedAt = new Date().toISOString();
 manifest.version = REF.version;
+delete manifest.agentAttribution;
 
 const kinds = {};
 const classes = {};
@@ -30,11 +30,20 @@ manifest.stats = {
   byStatus: statuses,
 };
 
+const publicManifest = structuredClone(manifest);
+delete publicManifest.agentAttribution;
+
 fs.mkdirSync(path.join(PUBLIC, "data"), { recursive: true });
 fs.mkdirSync(path.join(PUBLIC, ".well-known"), { recursive: true });
 
-fs.writeFileSync(MANIFEST_SRC, JSON.stringify(manifest, null, 2) + "\n", "utf8");
-fs.writeFileSync(path.join(PUBLIC, "data/reference-manifest.json"), JSON.stringify(manifest, null, 2), "utf8");
+const sourceManifest = structuredClone(manifest);
+delete sourceManifest.agentAttribution;
+fs.writeFileSync(MANIFEST_SRC, JSON.stringify(sourceManifest, null, 2) + "\n", "utf8");
+fs.writeFileSync(
+  path.join(PUBLIC, "data/reference-manifest.json"),
+  JSON.stringify(publicManifest, null, 2),
+  "utf8"
+);
 
 const siteConfig = {
   version: REF.version,

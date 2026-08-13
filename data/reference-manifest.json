@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:54:06.364Z",
+  "version": "0.2.1",
+  "generatedAt": "2026-08-13T02:05:30.816Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -18,8 +18,8 @@
     ]
   },
   "mission": {
-    "en": "The open global atlas for Persian (Farsi) language models — more complete than link lists, more honest than hype.",
-    "fa": "اطلس باز جهانی برای مدل‌های زبانی فارسی — کامل‌تر از فهرست پیوند، صادق‌تر از شعار."
+    "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — clearer than link lists, more honest than hype.",
+    "fa": "رجیستری باز و ساختاریافته با درگاه رسید برای مدل‌های زبانی فارسی — شفاف‌تر از فهرست پیوند، صادق‌تر از شعار."
   },
   "taxonomy": {
     "classes": [
@@ -41,50 +41,6 @@
     ]
   },
   "entries": [
-    {
-      "id": "alefba-program",
-      "kind": "program",
-      "class": "program",
-      "name": {
-        "en": "Alefbâ",
-        "fa": "الفبا"
-      },
-      "org": "Founding charter",
-      "sizeB": null,
-      "license": "charter",
-      "status": "indexed",
-      "summary": {
-        "en": "Persian foundation intelligence program — alphabet → literature curriculum, licensed bookshelf, gate receipts.",
-        "fa": "برنامهٔ هوش بنیادین فارسی — برنامهٔ درسی الفبا تا ادبیات، قفسهٔ مجوزدار، رسید دروازه."
-      },
-      "links": {
-        "web": "https://sinakazemnezhad.github.io/persian-llm-reference",
-        "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
-      },
-      "origin": {
-        "base": null,
-        "persianTraining": "native-foundation-target"
-      },
-      "script": {
-        "rtl": true,
-        "zwnj": "target",
-        "morphology": "target"
-      },
-      "corpus": {
-        "class": "licensed-books-target",
-        "licensedBooks": true
-      },
-      "benchmarks": [],
-      "alefbaAxes": {
-        "scriptFidelity": 4,
-        "corpusLaw": 4,
-        "curriculumFit": 4,
-        "literaryDepth": 4,
-        "nativePreference": 4
-      },
-      "verifiedAt": null,
-      "notes": "Target state — model not shipped; charter defines the gap this atlas maps."
-    },
     {
       "id": "persianmind-v1",
       "kind": "model",
@@ -931,8 +887,8 @@
       "license": "open",
       "status": "indexed",
       "summary": {
-        "en": "Persian LLM evaluation benchmark suite used in leaderboard rankings.",
-        "fa": "مجموعهٔ ارزیابی مدل‌های فارسی — در جدول‌ها استفاده می‌شود."
+        "en": "Persian LLM evaluation benchmark suite used in leaderboard rankings. Primary project URL pending — cite leaderboard entries that reference ParsBench until a canonical HF/paper link is confirmed.",
+        "fa": "مجموعهٔ ارزیابی مدل‌های فارسی — در جدول‌ها استفاده می‌شود. نشانی اصلی پروژه هنوز تأیید نشده؛ تا زمان تأیید، از جدول‌هایی که ParsBench را ذکر می‌کنند استناد کنید."
       },
       "links": {},
       "origin": {
@@ -956,7 +912,8 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": null,
+      "notes": "Primary URL pending — open a PR when HF dataset or paper link is verified."
     },
     {
       "id": "parsi-nlu",
@@ -1096,16 +1053,14 @@
     ]
   },
   "stats": {
-    "total": 24,
+    "total": 23,
     "byKind": {
-      "program": 1,
       "model": 15,
       "dataset": 4,
       "leaderboard": 3,
       "community-index": 1
     },
     "byClass": {
-      "program": 1,
       "adapted-instruct": 8,
       "native-foundation": 1,
       "multilingual-frontier": 5,
@@ -1115,21 +1070,9 @@
       "community-index": 1
     },
     "byStatus": {
-      "indexed": 18,
       "measured": 4,
+      "indexed": 17,
       "verified": 2
     }
-  },
-  "agentAttribution": {
-    "repo": "PLUS ONE",
-    "product": "DIS BRAND",
-    "namespace": "dis-brand-agent",
-    "tag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-DATA-REFERENCE-MANIFEST-JSON",
-    "fileTag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-DATA-REFERENCE-MANIFEST-JSON",
-    "name": "DIS BRAND Governed Agent",
-    "agent": "DIS-PLUSONE-GOV-AGENT",
-    "action": "edit",
-    "at": "2026-08-13T01:48:27.698Z",
-    "file": "PERSIAN-LLM-REFERENCE/data/reference-manifest.json"
   }
 }
