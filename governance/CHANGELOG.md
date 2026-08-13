@@ -1,6 +1,10 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.11.1 — 2026-08-13
+
+- **FIX** Persian UI numerals: `fa-IR` digits in hero stats, tables, radar, timeline; Vazirmatn-only typography for RTL.
+
 ## 0.11.0 — 2026-08-13
 
 - **PROGRESS** Editorial Persian home: single-column hero, warm light default, human copy, no SaaS eyebrow/stat cards/principle grid; site-intro prose + text links.

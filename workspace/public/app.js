@@ -367,6 +367,40 @@ function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
 }
 
+const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
+
+function emptyValue() {
+  return lang === "fa" ? "ندارد" : "—";
+}
+
+function localizeDigits(text) {
+  if (lang !== "fa" || text === null || text === undefined) return String(text ?? "");
+  return String(text).replace(/\d/g, (d) => FA_DIGITS[Number(d)]);
+}
+
+function formatNum(value) {
+  if (value === null || value === undefined || value === "") return emptyValue();
+  if (typeof value === "number" && !Number.isNaN(value)) {
+    return lang === "fa" ? value.toLocaleString("fa-IR") : String(value);
+  }
+  return localizeDigits(String(value));
+}
+
+function formatSizeB(sizeB) {
+  if (sizeB === null || sizeB === undefined || sizeB === "") return emptyValue();
+  return localizeDigits(`${sizeB}B`);
+}
+
+function formatPercent(score) {
+  const n = parseFloat(score);
+  if (Number.isNaN(n)) return emptyValue();
+  return `${localizeDigits(String(n))}٪`;
+}
+
+function formatScorePair(value, max = 5) {
+  return `${formatNum(value)}/${formatNum(max)}`;
+}
+
 function statusLabel(status) {
   return t(`status.${status}`) || status;
 }
@@ -482,10 +516,10 @@ function renderStats() {
   const datasets = s.byKind?.dataset || manifest.entries.filter((e) => e.kind === "dataset").length;
   const measured = s.byStatus?.measured || manifest.entries.filter((e) => e.status === "measured").length;
   bar.innerHTML = `
-    <div class="hero-stat"><strong>${total}</strong><span>${t("stats.entries")}</span></div>
-    <div class="hero-stat"><strong>${models}</strong><span>${t("stats.models")}</span></div>
-    <div class="hero-stat"><strong>${datasets}</strong><span>${t("stats.datasets")}</span></div>
-    <div class="hero-stat hero-stat--accent"><strong>${measured}</strong><span>${t("status.measured")}</span></div>`;
+    <div class="hero-stat"><strong>${formatNum(total)}</strong><span>${t("stats.entries")}</span></div>
+    <div class="hero-stat"><strong>${formatNum(models)}</strong><span>${t("stats.models")}</span></div>
+    <div class="hero-stat"><strong>${formatNum(datasets)}</strong><span>${t("stats.datasets")}</span></div>
+    <div class="hero-stat hero-stat--accent"><strong>${formatNum(measured)}</strong><span>${t("status.measured")}</span></div>`;
 }
 
 function renderTrustPipeline() {
@@ -496,9 +530,9 @@ function renderTrustPipeline() {
   const measured = s.measured ?? manifest.entries.filter((e) => e.status === "measured").length;
   const version = manifest.version || "";
   el.textContent = t("stats.summary")
-    .replace("{measured}", measured)
-    .replace("{verified}", verified)
-    .replace("{version}", version);
+    .replace("{measured}", formatNum(measured))
+    .replace("{verified}", formatNum(verified))
+    .replace("{version}", localizeDigits(version));
 }
 
 function renderResultsMeta(count) {
@@ -511,7 +545,7 @@ function renderResultsMeta(count) {
   }
   const sep = lang === "fa" ? "، " : " · ";
   const extra = hasTreeFilter() ? `${sep}${t("tree.filterActive")}` : "";
-  el.innerHTML = `${t("results.showing")} <strong>${count}</strong> ${t("results.of")} <strong>${total}</strong> ${t("results.entries")}${extra}`;
+  el.innerHTML = `${t("results.showing")} <strong>${formatNum(count)}</strong> ${t("results.of")} <strong>${formatNum(total)}</strong> ${t("results.entries")}${extra}`;
 }
 
 function injectSchema() {
@@ -550,7 +584,7 @@ function benchMeterHtml(benchmarks) {
   return `<div class="bench-meter">
     <div class="bench-meter__head">
       <span class="bench-meter__name">${bench.name}</span>
-      <span class="bench-meter__val">${score}%</span>
+      <span class="bench-meter__val">${formatPercent(score)}</span>
     </div>
     <div class="bench-meter__track"><div class="bench-meter__fill" style="width:${pct}%"></div></div>
   </div>`;
@@ -566,7 +600,7 @@ function axisChartHtml(axes) {
     return `<div class="axis-row-mini">
       <span>${label}</span>
       <div class="axis-row-mini__bar"><div class="axis-row-mini__fill" style="width:${pct}%"></div></div>
-      <span class="axis-row-mini__val">${val}/5</span>
+      <span class="axis-row-mini__val">${formatScorePair(val)}</span>
     </div>`;
   }).filter(Boolean);
   return rows.length ? `<div class="axis-chart">${rows.join("")}</div>` : "";
@@ -613,7 +647,7 @@ function renderCard(entry, index = 0) {
   const name = entry.name[lang] || entry.name.en;
   const summary = entry.summary[lang] || entry.summary.en;
   const classLabel = t(`class.${entry.class}`) || entry.class;
-  const size = entry.sizeB ? `${entry.sizeB}B` : "—";
+  const size = formatSizeB(entry.sizeB);
   const inCompare = compareIds.includes(entry.id);
   const isSelected = selectedEntryId === entry.id;
   const delay = Math.min(index, 12) * 30;
@@ -745,7 +779,7 @@ function renderTaxonomyTree() {
           return `<li>
             <button type="button" class="tree-node tree-node--branch${clsActive ? " is-active" : ""}" data-tree-kind="${kind}" data-tree-class="${cls}">
               <span>${t(`class.${cls}`) || cls}</span>
-              <span class="tree-node__count">${entries.length}</span>
+              <span class="tree-node__count">${formatNum(entries.length)}</span>
             </button>
             <ul>${leaves}</ul>
           </li>`;
@@ -756,7 +790,7 @@ function renderTaxonomyTree() {
           <summary>
             <button type="button" class="tree-node tree-node--branch${kindActive ? " is-active" : ""}" data-tree-kind="${kind}" data-tree-class="">
               <span>${t(`kind.${kind}`) || kind}</span>
-              <span class="tree-node__count">${kindCount}</span>
+              <span class="tree-node__count">${formatNum(kindCount)}</span>
             </button>
           </summary>
           <ul>${classNodes}</ul>
@@ -826,7 +860,7 @@ function renderLineageTree() {
           <summary>
             <button type="button" class="tree-node tree-node--branch${baseActive ? " is-active" : ""}" data-lineage-base="${base}">
               <span>${base}</span>
-              <span class="tree-node__count">${entries.length}</span>
+              <span class="tree-node__count">${formatNum(entries.length)}</span>
             </button>
           </summary>
           <ul>${leaves}</ul>
@@ -895,7 +929,7 @@ function renderTable(entries) {
   tbody.innerHTML = entries
     .map((e) => {
       const name = e.name[lang] || e.name.en;
-      const size = e.sizeB ?? "—";
+      const size = formatSizeB(e.sizeB);
       const sel = selectedEntryId === e.id ? " is-selected" : "";
       return `<tr data-id="${e.id}" class="${sel.trim()}">
         <td><a href="${entryUrl(e.id)}">${name}</a></td>
@@ -956,7 +990,7 @@ function renderInspector() {
     </div>
     <div class="inspector-grid">
       <div class="inspector-field"><span class="inspector-field__label">${t("table.kind")}</span><span class="inspector-field__value">${t(`kind.${entry.kind}`) || entry.kind}</span></div>
-      <div class="inspector-field"><span class="inspector-field__label">${t("table.size")}</span><span class="inspector-field__value">${entry.sizeB ? `${entry.sizeB}B` : "—"}</span></div>
+      <div class="inspector-field"><span class="inspector-field__label">${t("table.size")}</span><span class="inspector-field__value">${formatSizeB(entry.sizeB)}</span></div>
       <div class="inspector-field"><span class="inspector-field__label">license</span><span class="inspector-field__value">${entry.license ?? "—"}</span></div>
       <div class="inspector-field"><span class="inspector-field__label">id</span><span class="inspector-field__value" style="font-family:var(--font-mono);font-size:0.75rem">${entry.id}</span></div>
     </div>
@@ -1113,14 +1147,14 @@ function renderComparePanel() {
     .map((e) => {
       const name = e.name[lang] || e.name.en;
       const bench = e.benchmarks?.[0];
-      const score = bench ? `${parseFloat(bench.score) || bench.score}%` : "—";
+      const score = bench ? formatPercent(parseFloat(bench.score) || bench.score) : emptyValue();
       return `<tr>
         <td><a href="${entryUrl(e.id)}">${name}</a></td>
         <td>${t(`class.${e.class}`) || e.class}</td>
-        <td>${e.sizeB ?? "—"}</td>
+        <td>${formatSizeB(e.sizeB)}</td>
         <td>${statusLabel(e.status)}</td>
         <td>${score}</td>
-        <td>${e.license ?? "—"}</td>
+        <td>${e.license ? localizeDigits(e.license) : emptyValue()}</td>
       </tr>`;
     })
     .join("");
@@ -1231,9 +1265,9 @@ function renderTimeline() {
         .join("");
       const more =
         items.length > 6
-          ? `<li class="muted">+${items.length - 6} ${t("timeline.more")}</li>`
+          ? `<li class="muted">${lang === "fa" ? "" : "+"}${formatNum(items.length - 6)} ${t("timeline.more")}</li>`
           : "";
-      return `<div class="timeline-day"><time datetime="${date}">${date}</time><ul>${rows}${more}</ul></div>`;
+      return `<div class="timeline-day"><time datetime="${date}">${localizeDigits(date)}</time><ul>${rows}${more}</ul></div>`;
     })
     .join("");
 }
@@ -1255,19 +1289,19 @@ function renderRadar() {
   const statHtml = `
     <div class="radar-stats">
       <div class="stat-card">
-        <span class="stat-card__value">${stats.cataloged || 0}</span>
+        <span class="stat-card__value">${formatNum(stats.cataloged || 0)}</span>
         <span class="stat-card__label">${t("radar.cataloged")}</span>
       </div>
       <div class="stat-card">
-        <span class="stat-card__value">${stats.fieldGap || 0}</span>
+        <span class="stat-card__value">${formatNum(stats.fieldGap || 0)}</span>
         <span class="stat-card__label">${t("radar.gap")}</span>
       </div>
       <div class="stat-card">
-        <span class="stat-card__value">${stats.planned || 0}</span>
+        <span class="stat-card__value">${formatNum(stats.planned || 0)}</span>
         <span class="stat-card__label">${t("radar.planned")}</span>
       </div>
       <div class="stat-card stat-card--meta">
-        <span class="stat-card__label">${sourceRadar.version}</span>
+        <span class="stat-card__label">${localizeDigits(sourceRadar.version)}</span>
         <span class="stat-card__value">radar</span>
       </div>
     </div>`;
@@ -1286,7 +1320,7 @@ function renderRadar() {
       return `<article class="radar-card">
         <div class="entry-meta">
           <span class="badge">${radarCoverageLabel(item.coverage)}</span>
-          <span class="badge">${item.category || "—"}</span>
+          <span class="badge">${item.category || emptyValue()}</span>
         </div>
         <h3>${name}</h3>
         <p>${analysis}</p>
@@ -1299,8 +1333,12 @@ function renderRadar() {
   const f05 = forecast.v0_5 || forecast["v0.5"];
   const forecastHtml = f05
     ? `<div class="radar-forecast">
-        <strong>${t("radar.forecast")} v0.5</strong>
-        <span class="muted">${f05.targetEntries}+ entries · ${f05.targetVerified}+ verified · ${f05.targetMeasured}+ measured</span>
+        <strong>${t("radar.forecast")} ${localizeDigits("v0.5")}</strong>
+        <span class="muted">${
+          lang === "fa"
+            ? `${formatNum(f05.targetEntries)}+ مورد، ${formatNum(f05.targetVerified)}+ تأیید، ${formatNum(f05.targetMeasured)}+ با نمره`
+            : `${f05.targetEntries}+ entries · ${f05.targetVerified}+ verified · ${f05.targetMeasured}+ measured`
+        }</span>
         <ul>${(f05.focus?.[lang] || f05.focus?.en || []).map((li) => `<li>${li}</li>`).join("")}</ul>
       </div>`
     : "";
