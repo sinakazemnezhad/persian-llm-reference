@@ -171,5 +171,5 @@ See **`data/source-radar.json`** and **[FIELD_ANALYSIS.md](./FIELD_ANALYSIS.md)*
 ## Related
 
 - [ROADMAP.md](./ROADMAP.md) — phased execution
-- [POSITIONING.md](./POSITIONING.md) — vs other references
+- [POSITIONING.md](./POSITIONING.md) — what PLR is, alongside other references
 - [outreach/AWESOME_PERSIAN_LLM_PR.md](./outreach/AWESOME_PERSIAN_LLM_PR.md) — PR draft

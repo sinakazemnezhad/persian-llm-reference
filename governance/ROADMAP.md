@@ -39,7 +39,7 @@ reference first (map the field) → authority second (own the index) → infrast
 |----------|----------------|
 | **Researchers** | One structured index: models, datasets, benchmarks, leaderboards — with primary URLs and verification status |
 | **Builders / engineers** | JSON API, taxonomy, size/class/license fields — copy-paste artifacts (HF id, license, links) |
-| **Community curators** | Governed registry with PR template — better than scattered Awesome lists |
+| **Community curators** | Governed registry with PR template — structured layer on top of existing lists |
 | **Agents (Cursor, etc.)** | Machine-readable manifest with honest `null`s — no hallucinated benchmark scores |
 | **Persian NLP field** | Neutral atlas that cites everyone; promotes no single project |
 
@@ -104,7 +104,7 @@ People need **decisions**, not another link dump.
 **Rules**
 
 - “Best for X” only when **measured** with receipt; otherwise “no measured winner yet”.
-- Depth per row beats raw row count.
+- Depth per row matters more than raw row count.
 - Gap map stays current as entries grow.
 
 ### 2. Usable — 30-second wins
@@ -471,7 +471,7 @@ node scripts/validate-links.mjs
 |-----|------|
 | [METHODOLOGY.md](./METHODOLOGY.md) | How we verify and cite |
 | [MANIFEST_LAW.md](./MANIFEST_LAW.md) | Taxonomy and gates |
-| [POSITIONING.md](./POSITIONING.md) | vs other references |
+| [POSITIONING.md](./POSITIONING.md) | What PLR is alongside other references |
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | PR rules |
 | [CHANGELOG.md](./CHANGELOG.md) | Release log |
 | [../AGENTS.md](../AGENTS.md) | Agent ops |

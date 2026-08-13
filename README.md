@@ -47,7 +47,7 @@ The **open global atlas** for Persian (Farsi) language models — **61 sourced e
 | `workspace/public/` | Static site (GitHub Pages root after build) |
 | `governance/MANIFEST_LAW.md` | Taxonomy + verification gates |
 | `governance/METHODOLOGY.md` | Trust, axes, cite policy |
-| `governance/POSITIONING.md` | How we beat other references |
+| `governance/POSITIONING.md` | What PLR is — alongside other references |
 | `governance/ROADMAP.md` | **Full phased plan** — meaningful · usable · productive · smart |
 | `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md` | PyPI OIDC publish (sourcea-boot pattern) |
 | `pyproject.toml` | Python package · `pip install persian-llm-reference` |
