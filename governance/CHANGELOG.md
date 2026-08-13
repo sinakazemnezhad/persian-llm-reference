@@ -1,6 +1,12 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.10.1 — 2026-08-13
+
+- **References section:** ecosystem sources grid (Awesome, MIZAN, PartAI, Matina, PersianMedQA, Hugging Face) from `meta.citations` — bilingual notes.
+- **Design:** hero CTAs, reference cards, footer grid, BibTeX copy, principle card accents.
+- **Manifest:** expanded `meta.citations` with typed upstream/leaderboard/benchmark links.
+
 ## 0.10.0 — 2026-08-13
 
 - **Measured wave (20+):** +4 PersianMedQA rows from paper Table A (Qwen 2.5 72B, Mixtral 8x22B, Mistral Saba class, Meditron3-Qwen2.5-7B); biomistral-7b + llama33-class upgraded; score alignment to appendix table.

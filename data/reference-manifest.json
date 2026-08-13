@@ -1,6 +1,6 @@
 {
-  "version": "0.10.0",
-  "generatedAt": "2026-08-13T04:15:35.815Z",
+  "version": "0.10.1",
+  "generatedAt": "2026-08-13T04:26:55.345Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -22,7 +22,61 @@
         "title": "Awesome-Persian-LLM",
         "url": "https://github.com/MohammadHeydari/Awesome-Persian-LLM",
         "maintainer": "Awesome-Persian-LLM maintainers",
-        "note": "Discovery source credited for many PLR rows. Reciprocal README link PR open — bibliographic credit only, not endorsement."
+        "note": {
+          "en": "Community discovery index — bibliographic credit for many PLR rows; complements, does not replace.",
+          "fa": "فهرست کشف جامعه — اعتبار کتابشناختی برای بسیاری از ردیف‌های PLR؛ مکمل، نه جایگزین."
+        }
+      },
+      {
+        "type": "leaderboard",
+        "title": "MIZAN LLM Leaderboard",
+        "url": "https://huggingface.co/spaces/MCINext/mizan-llm-leaderboard",
+        "maintainer": "MCINext",
+        "note": {
+          "en": "Persian LLM alignment and benchmark scores — PLR links scores, does not mirror live tables.",
+          "fa": "جدول هم‌راستایی و معیار مدل‌های فارسی — PLR لینک می‌دهد، جدول زنده را کپی نمی‌کند."
+        }
+      },
+      {
+        "type": "leaderboard",
+        "title": "Open Persian LLM Leaderboard (PartAI)",
+        "url": "https://huggingface.co/spaces/PartAI/open-persian-llm-leaderboard",
+        "maintainer": "PartAI",
+        "note": {
+          "en": "Public Persian instruct model rankings under 10B and beyond.",
+          "fa": "رتبه‌بندی عمومی مدل‌های دستوری فارسی زیر ۱۰ میلیارد و بیشتر."
+        }
+      },
+      {
+        "type": "leaderboard",
+        "title": "Matina Persian LLM Leaderboard",
+        "url": "https://huggingface.co/spaces/MatinaAI/persian_llm_leaderboard",
+        "maintainer": "MatinaAI",
+        "note": {
+          "en": "Persian LLM evaluation space from Matina corpus authors.",
+          "fa": "فضای ارزیابی مدل فارسی از نویسندگان پیکرهٔ ماتینا."
+        }
+      },
+      {
+        "type": "benchmark",
+        "title": "PersianMedQA",
+        "url": "https://arxiv.org/abs/2506.00250",
+        "maintainer": "University of Tehran · SBUMS",
+        "note": {
+          "en": "Primary measured-score receipt for 20+ model rows — bilingual medical QA from Iranian national exams.",
+          "fa": "مدرک اصلی نمرهٔ مستند برای ۲۰+ مدل — پرسش‌وپاسخ پزشکی دوزبانه از آزمون‌های ملی ایران."
+        },
+        "extra": "https://mohammadjranjbar.github.io/PersianMedQA/"
+      },
+      {
+        "type": "dataset-index",
+        "title": "Hugging Face — Persian models & datasets",
+        "url": "https://huggingface.co/models?language=fa",
+        "maintainer": "Hugging Face community",
+        "note": {
+          "en": "Hosting layer for weights and cards — PLR adds taxonomy and verification gates on top.",
+          "fa": "لایهٔ میزبانی وزن‌ها و کارت‌ها — PLR طبقه‌بندی و دروازهٔ تأیید را اضافه می‌کند."
+        }
       }
     ]
   },

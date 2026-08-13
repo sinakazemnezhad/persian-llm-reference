@@ -6,6 +6,10 @@ const I18N = {
     "nav.radar": "Sources",
     "nav.gap": "Gaps",
     "nav.tree": "Tree",
+    "nav.references": "References",
+    "hero.ctaAtlas": "Browse registry",
+    "hero.ctaRefs": "Ecosystem sources",
+    "hero.ctaJson": "JSON manifest",
     "tree.heading": "Ecosystem tree",
     "tree.sub": "Taxonomy and base-model lineage — from manifest fields only, not invented genealogy.",
     "tree.taxonomy": "Taxonomy",
@@ -73,6 +77,18 @@ const I18N = {
     "trust.methodology": "Methodology",
     "trust.roadmap": "Roadmap",
     "trust.awesome": "Awesome-Persian-LLM",
+    "trust.references": "Sources & citations",
+    "refs.heading": "Sources & citations",
+    "refs.sub": "PLR works alongside discovery lists, leaderboards, and papers — it does not replace them. Each row links to its own primary source.",
+    "refs.type.upstream-discovery": "Discovery",
+    "refs.type.leaderboard": "Leaderboard",
+    "refs.type.benchmark": "Benchmark",
+    "refs.type.dataset-index": "Hosting",
+    "refs.visit": "Open source",
+    "refs.extra": "Project page",
+    "cite.copy": "Copy BibTeX",
+    "cite.copied": "Copied",
+    "footer.tagline": "Open, citable atlas for the Persian LLM ecosystem.",
     "footer.law": "No invented scores. Community atlas — we cite the people who built the work.",
     "view.grid": "Cards",
     "view.table": "Table",
@@ -112,6 +128,10 @@ const I18N = {
     "nav.radar": "منابع",
     "nav.gap": "شکاف‌ها",
     "nav.tree": "درخت",
+    "nav.references": "منابع",
+    "hero.ctaAtlas": "مرور فهرست",
+    "hero.ctaRefs": "منابع اکوسیستم",
+    "hero.ctaJson": "JSON manifest",
     "tree.heading": "درخت اکوسیستم",
     "tree.sub": "طبقه‌بندی و تبار پایهٔ مدل‌ها — فقط از فیلدهای manifest، بدون ساخت نسبت ساختگی.",
     "tree.taxonomy": "طبقه‌بندی",
@@ -179,6 +199,18 @@ const I18N = {
     "trust.methodology": "روش کار",
     "trust.roadmap": "نقشهٔ راه",
     "trust.awesome": "فهرست Awesome-Persian-LLM",
+    "trust.references": "منابع و ارجاعات",
+    "refs.heading": "منابع و ارجاعات",
+    "refs.sub": "PLR در کنار فهرست‌های کشف، جدول‌های امتیاز و مقالات — نه جایگزین آن‌ها. هر ردیف به منبع اصلی خودش لینک دارد.",
+    "refs.type.upstream-discovery": "کشف",
+    "refs.type.leaderboard": "جدول امتیاز",
+    "refs.type.benchmark": "معیار سنجش",
+    "refs.type.dataset-index": "میزبانی",
+    "refs.visit": "باز کردن منبع",
+    "refs.extra": "صفحهٔ پروژه",
+    "cite.copy": "کپی BibTeX",
+    "cite.copied": "کپی شد",
+    "footer.tagline": "مرجع باز و قابل‌استناد برای اکوسیستم مدل‌های زبانی فارسی.",
     "footer.law": "نمرهٔ ساختگی ممنوع · مرجع جامعه‌محور — سازندگان و منابعشان را ذکر می‌کنیم",
     "view.grid": "نمای کارت",
     "view.table": "نمای جدول",
@@ -327,19 +359,75 @@ function setApiLine() {
     `API: <code>${path}</code> · raw: <code>${raw}</code>`;
 }
 
-function renderCite() {
+function citeBibtex() {
   const raw = siteConfig?.manifestRaw || "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json";
   const ver = manifest.version || "0.3.0";
   const date = manifest.generatedAt?.slice(0, 10) || "";
-  document.getElementById("cite-block").innerHTML = `
-    <p><strong>${t("cite.heading")}</strong></p>
-    <pre class="cite-pre">@misc{persian_llm_reference,
+  return `@misc{persian_llm_reference,
   title={Persian LLM Reference},
   year={2026},
   url={${siteConfig?.canonicalSite || "https://sinakazemnezhad.github.io/persian-llm-reference"}},
   note={manifest v${ver} generatedAt ${date}}
 }
-Manifest: ${raw}</pre>`;
+Manifest: ${raw}`;
+}
+
+function renderCite() {
+  const block = document.getElementById("cite-block");
+  if (!block) return;
+  block.innerHTML = `
+    <div class="cite-block__head">
+      <p class="cite-block__title"><strong>${t("cite.heading")}</strong></p>
+      <button type="button" class="btn btn-ghost btn-sm" data-copy-cite>${t("cite.copy")}</button>
+    </div>
+    <pre class="cite-pre">${citeBibtex().replace(/</g, "&lt;")}</pre>`;
+  block.querySelector("[data-copy-cite]")?.addEventListener("click", async (ev) => {
+    try {
+      await navigator.clipboard.writeText(citeBibtex());
+      const btn = ev.currentTarget;
+      const prev = btn.textContent;
+      btn.textContent = t("cite.copied");
+      setTimeout(() => {
+        btn.textContent = prev;
+      }, 1600);
+    } catch {
+      block.querySelector(".cite-pre")?.focus?.();
+    }
+  });
+}
+
+function refNote(citation) {
+  if (!citation?.note) return "";
+  if (typeof citation.note === "string") return citation.note;
+  return citation.note[lang] || citation.note.en || "";
+}
+
+function renderReferences() {
+  const el = document.getElementById("refs-grid");
+  if (!el) return;
+  const citations = manifest.meta?.citations || [];
+  el.innerHTML = citations
+    .map((c) => {
+      const typeLabel = t(`refs.type.${c.type}`) || c.type;
+      const note = refNote(c);
+      const extra = c.extra
+        ? `<a class="ref-card__link ref-card__link--secondary" href="${c.extra}" target="_blank" rel="noopener">${t("refs.extra")}</a>`
+        : "";
+      return `
+      <article class="ref-card ref-card--${c.type}">
+        <div class="ref-card__top">
+          <span class="ref-card__type">${typeLabel}</span>
+          <span class="ref-card__org">${c.maintainer || ""}</span>
+        </div>
+        <h3 class="ref-card__title"><a href="${c.url}" target="_blank" rel="noopener">${c.title}</a></h3>
+        ${note ? `<p class="ref-card__note">${note}</p>` : ""}
+        <div class="ref-card__actions">
+          <a class="ref-card__link" href="${c.url}" target="_blank" rel="noopener">${t("refs.visit")} →</a>
+          ${extra}
+        </div>
+      </article>`;
+    })
+    .join("");
 }
 
 function renderStats() {
@@ -1359,6 +1447,8 @@ async function boot() {
     siteConfig = await fetch(new URL("site-config.json", location.href)).then((r) => r.json());
     const gh = document.getElementById("github-link");
     if (gh && siteConfig.canonicalRepo) gh.href = siteConfig.canonicalRepo;
+    const manifestLink = document.getElementById("hero-manifest-link");
+    if (manifestLink && siteConfig.manifestRaw) manifestLink.href = siteConfig.manifestRaw;
   } catch {
     siteConfig = {};
   }
@@ -1369,6 +1459,7 @@ async function boot() {
   sourceRadar = await loadSourceRadar();
   setApiLine();
   renderCite();
+  renderReferences();
   renderStats();
   renderTrustPipeline();
   injectSchema();
@@ -1400,6 +1491,7 @@ async function boot() {
     renderStats();
     renderTrustPipeline();
     renderCite();
+    renderReferences();
     renderAtlas();
     if (selectedEntryId) renderInspector();
   });
