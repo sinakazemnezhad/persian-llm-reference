@@ -8,21 +8,23 @@
   <meta property="og:title" content="مرجع مدل‌های زبانی فارسی" />
   <meta property="og:description" content="فهرست معتبر مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع و خروجی JSON." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#050608" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" id="theme-color-active" content="#050608" />
   <script>
     (function () {
       var saved = localStorage.getItem("plr-theme");
       var theme =
         saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
       document.documentElement.setAttribute("data-theme", theme);
+      var meta = document.getElementById("theme-color-active");
+      if (meta) meta.content = theme === "light" ? "#f4f1ea" : "#050608";
     })();
   </script>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../app.css?v=0.10.2" />
+  <link rel="stylesheet" href="../../app.css?v=0.10.3" />
+  <script src="../../theme-init.js?v=0.10.3" defer></script>
   <script type="application/ld+json" id="schema-dataset"></script>
 
   <link rel="canonical" href="https://sinakazemnezhad.github.io/persian-llm-reference/entry/famteb-benchmark/" />
@@ -55,10 +57,10 @@
           <a href="#gap" data-i18n="nav.gap">شکاف‌ها</a>
         </nav>
         <div class="header-actions">
-          <button type="button" class="btn btn-ghost btn-sm theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀</button>
-          <button type="button" class="btn btn-ghost btn-sm" id="cmd-hint" aria-hidden="true">⌘K</button>
+          <button type="button" class="btn btn-ghost btn-sm theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
           <button type="button" class="btn btn-ghost btn-sm" id="lang-toggle" aria-label="Switch language">EN</button>
-          <a class="btn btn-primary btn-sm" id="github-link" href="#" target="_blank" rel="noopener" data-i18n="nav.contribute">Contribute</a>
+          <button type="button" class="btn btn-ghost btn-sm header-kbd" id="cmd-hint" aria-hidden="true">⌘K</button>
+          <a class="btn btn-primary btn-sm header-github" id="github-link" href="#" target="_blank" rel="noopener" data-i18n="nav.contribute">GitHub</a>
         </div>
       </div>
     </header>
@@ -265,6 +267,6 @@
 
   <div class="boot-loader" id="boot-loader" aria-hidden="true"><div class="boot-spinner"></div></div>
 
-  <script src="../../app.js?v=0.10.2" type="module"></script>
+  <script src="../../app.js?v=0.10.3" type="module"></script>
 </body>
 </html>

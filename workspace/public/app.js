@@ -1,6 +1,6 @@
 const I18N = {
   en: {
-    "nav.contribute": "Contribute on GitHub",
+    "nav.contribute": "GitHub",
     "nav.atlas": "Registry",
     "nav.timeline": "Timeline",
     "nav.radar": "Sources",
@@ -124,7 +124,7 @@ const I18N = {
     "status.measured": "measured",
   },
   fa: {
-    "nav.contribute": "همکاری در گیت‌هاب",
+    "nav.contribute": "گیت‌هاب",
     "nav.atlas": "فهرست",
     "nav.timeline": "گاه‌شمار",
     "nav.radar": "منابع",
@@ -315,29 +315,25 @@ let activeTreeClass = "";
 let selectedEntryId = "";
 
 function getTheme() {
-  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+  return window.plrGetTheme ? window.plrGetTheme() : document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
 }
 
 function setTheme(theme) {
-  const next = theme === "light" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("plr-theme", next);
+  if (window.plrSetTheme) window.plrSetTheme(theme);
+  else document.documentElement.setAttribute("data-theme", theme === "light" ? "light" : "dark");
   updateThemeToggle();
 }
 
 function updateThemeToggle() {
   const btn = document.getElementById("theme-toggle");
   if (!btn) return;
+  if (window.plrPaintThemeButton) window.plrPaintThemeButton();
   const light = getTheme() === "light";
-  btn.textContent = light ? "☽" : "☀";
   btn.setAttribute("aria-label", light ? t("theme.toDark") : t("theme.toLight"));
 }
 
 function initThemeToggle() {
   updateThemeToggle();
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
-    setTheme(getTheme() === "light" ? "dark" : "light");
-  });
 }
 
 function resolveEntryId() {

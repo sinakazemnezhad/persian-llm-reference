@@ -123,6 +123,7 @@ function entryIndexHtml(entry, indexTemplate) {
     .replace(/href="favicon\.svg"/, `href="${depth}favicon.svg"`)
     .replace(/href="\.\/"/, `href="${depth}"`)
     .replace(/href="app\.css[^"]*"/, `href="${depth}app.css?v=${REF.version}"`)
+    .replace(/src="theme-init\.js[^"]*"/, `src="${depth}theme-init.js?v=${REF.version}"`)
     .replace(/src="app\.js[^"]*"/, `src="${depth}app.js?v=${REF.version}"`)
     .replace(/<title>[^<]+<\/title>/, `<title>${escapeAttr(title)}</title>`)
     .replace(

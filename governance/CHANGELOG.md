@@ -1,6 +1,11 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.10.3 — 2026-08-13
+
+- **Light theme fix:** separate `html[data-theme]` tokens (no `:root` dark bleed); SVG sun/moon toggle via `theme-init.js`.
+- **Header polish:** GitHub CTA uses accent blue (not cream white box); compact labels; ⌘K hidden on mobile.
+
 ## 0.10.2 — 2026-08-13
 
 - **Light theme:** system preference + header toggle (☀/☽), persisted in `localStorage`.
