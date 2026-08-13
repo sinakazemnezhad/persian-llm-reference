@@ -22,15 +22,21 @@ const I18N = {
     "gap.heading": "Gap map",
     "timeline.heading": "Field timeline",
     "timeline.sub": "Registry milestones and recent verification receipts — not hype forecasts.",
+    "timeline.more": "more",
+    "timeline.release": "release",
     "radar.heading": "Source radar",
     "radar.sub": "External Persian LLM artifacts — cataloged, gap, or planned. Not a training corpus.",
     "radar.cataloged": "cataloged",
     "radar.gap": "field gap",
     "radar.planned": "planned",
     "radar.forecast": "PLR forecast",
+    "radar.sourceLink": "view source",
     "trust.heading": "Trust & methodology",
     "trust.body":
       "Entries need a primary source URL. Status moves indexed → verified → measured only with cited evidence. Axis scores are editorial estimates where set; null means unknown — never invented.",
+    "trust.methodology": "Methodology",
+    "trust.roadmap": "Roadmap",
+    "trust.awesome": "Awesome-Persian-LLM",
     "footer.law": "No invented scores. Global reference — not a personal project.",
     "view.grid": "Cards",
     "view.table": "Table",
@@ -59,67 +65,79 @@ const I18N = {
     "kind.dataset": "dataset",
     "kind.leaderboard": "leaderboard",
     "kind.community-index": "index",
+    "status.indexed": "indexed",
+    "status.verified": "verified",
+    "status.measured": "measured",
   },
   fa: {
-    "nav.contribute": "مشارکت در گیت‌هاب",
-    "hero.kicker": "رجیستری جهانی · رسید قبل از ادعا",
-    "hero.title": "مرجع جهانی مدل‌های زبانی فارسی",
+    "nav.contribute": "همکاری در گیت‌هاب",
+    "hero.kicker": "مرجع باز · هر ادعا با منبع معتبر",
+    "hero.title": "مرجع مدل‌های زبانی فارسی",
     "hero.lede":
-      "رجیستری باز و ساختاریافته برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. نگهداری جامعه — نه فهرست شخصی.",
-    "compare.heading": "چرا این مرجع؟",
-    "compare.c1": "ساختار JSON — نه فقط پیوند",
-    "compare.c2": "درگاه تأیید indexed → measured",
-    "compare.c3": "محور فارسی (برآورد تحریریه؛ null = نامشخص)",
-    "compare.c4": "دوزبانه FA/EN · API پایدار",
-    "stats.entries": "رکورد",
+      "جایی برای پیدا کردن مدل‌ها، داده‌ها و معیارهای سنجش فارسی — با لینک منبع، وضعیت تأیید و خروجی JSON برای تیم‌های فنی، استارتاپ‌ها و پژوهشگران. مثل فهرست‌های پراکنده نیست؛ جمع‌آوری شده و با هم به‌روز می‌شود.",
+    "compare.heading": "چرا از این مرجع استفاده کنیم؟",
+    "compare.c1": "اطلاعات منظم و قابل‌استفاده — نه فقط لیست لینک",
+    "compare.c2": "سه سطح اعتماد: ثبت اولیه → تأیید منبع → نمرهٔ مستند",
+    "compare.c3": "معیارهای ویژهٔ فارسی (خط، حقوق داده، ادبیات)",
+    "compare.c4": "فارسی و انگلیسی · API ثابت برای اتوماسیون",
+    "stats.entries": "مورد",
     "stats.models": "مدل",
-    "stats.datasets": "پیکره",
-    "filter.search": "جستجو…",
-    "filter.all": "همه کلاس‌ها",
-    "filter.kindAll": "همه انواع",
-    "filter.statusAll": "همه وضعیت‌ها",
-    "atlas.heading": "رجیستری",
-    "atlas.empty": "نتیجه‌ای نیست.",
-    "gap.heading": "نقشهٔ شکاف",
-    "timeline.heading": "خط زمان میدان",
-    "timeline.sub": "نقطه‌های عطف رجیستری و رسیدهای تأیید اخیر — نه پیش‌بینی تبلیغاتی.",
-    "radar.heading": "رادار منبع",
-    "radar.sub": "آثار بیرونی مدل‌های فارسی — ثبت‌شده، شکاف، یا برنامه‌ریزی‌شده. نه پیکرهٔ آموزش.",
-    "radar.cataloged": "ثبت‌شده",
-    "radar.gap": "شکاف میدان",
-    "radar.planned": "برنامه‌ریزی",
-    "radar.forecast": "پیش‌بینی PLR",
-    "trust.heading": "اعتماد و روش",
+    "stats.datasets": "داده",
+    "filter.search": "جستجو در نام، سازمان، توضیح…",
+    "filter.all": "همهٔ دسته‌ها",
+    "filter.kindAll": "همهٔ انواع",
+    "filter.statusAll": "همهٔ وضعیت‌ها",
+    "atlas.heading": "فهرست مدل‌ها و داده‌ها",
+    "atlas.empty": "موردی با این فیلتر پیدا نشد.",
+    "gap.heading": "چه چیزهایی هنوز کم است؟",
+    "timeline.heading": "گاه‌شمار اکوسیستم",
+    "timeline.sub": "نسخه‌های مهم مرجع و آخرین موارد تأییدشده — بر پایهٔ منبع واقعی، نه شعار تبلیغاتی.",
+    "timeline.more": "مورد دیگر",
+    "timeline.release": "نسخه",
+    "radar.heading": "نقشهٔ منابع فارسی",
+    "radar.sub": "چه چیزی در میدان هست، چه چیزی اینجا ثبت شده و چه چیزی هنوز در دست توسعه است.",
+    "radar.cataloged": "در این مرجع",
+    "radar.gap": "شکاف بازار",
+    "radar.planned": "در راه",
+    "radar.forecast": "برنامهٔ توسعه",
+    "radar.sourceLink": "مشاهدهٔ منبع",
+    "trust.heading": "اعتبار و روش کار",
     "trust.body":
-      "هر رکورد به نشانی منبع اولیه نیاز دارد. وضعیت فقط با استناد indexed → verified → measured می‌شود. نمرهٔ محورها برآورد تحریریه است؛ null یعنی نامشخص — نه ساختگی.",
-    "footer.law": "نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.",
-    "view.grid": "کارت",
-    "view.table": "جدول",
-    "export.csv": "خروجی CSV",
+      "هر مورد باید به منبع اصلی (مقاله، گیت‌هاب، هابینگ فیس) وصل باشد. وضعیت فقط با مدرک عوض می‌شود: از ثبت اولیه به تأییدشده و بعد با نمرهٔ مستند. امتیازهای محور فارسی برآورد تیم تحریریه است؛ اگر چیزی نامشخص است خالی می‌ماند — عدد ساختگی نمی‌زنیم.",
+    "trust.methodology": "روش کار",
+    "trust.roadmap": "نقشهٔ راه",
+    "trust.awesome": "فهرست Awesome-Persian-LLM",
+    "footer.law": "نمرهٔ ساختگی ممنوع · مرجع جامعه‌محور برای همهٔ فارسی‌زبان‌ها",
+    "view.grid": "نمای کارت",
+    "view.table": "نمای جدول",
+    "export.csv": "دانلود CSV",
     "table.name": "نام",
     "table.kind": "نوع",
-    "table.class": "کلاس",
-    "table.size": "اندازه (B)",
+    "table.class": "دسته",
+    "table.size": "اندازه (میلیارد)",
     "table.status": "وضعیت",
-    "table.links": "پیوند",
-    "cite.heading": "استناد به این مرجع",
+    "table.links": "لینک‌ها",
+    "cite.heading": "چطور به این مرجع ارجاع دهیم",
     "lane.all": "همه",
-    "lane.finetune": "فاین‌تیون",
-    "lane.benchmark": "بنچمارک",
-    "lane.leaderboard": "جدول",
-    "lane.frontier": "مرز API",
-    "class.native-foundation": "بنیان فارسی",
-    "class.adapted-instruct": "دستوری سازگارشده",
-    "class.multilingual-frontier": "مرز چندزبانه",
-    "class.encoder-only": "فقط رمزگذار",
-    "class.dataset": "پیکره",
-    "class.leaderboard": "جدول",
+    "lane.finetune": "مدل‌های فارسی‌شده",
+    "lane.benchmark": "معیارهای سنجش",
+    "lane.leaderboard": "جدول امتیاز",
+    "lane.frontier": "مدل‌های API",
+    "class.native-foundation": "بنیان بومی فارسی",
+    "class.adapted-instruct": "مدل دستوری فارسی‌شده",
+    "class.multilingual-frontier": "مدل مرزی چندزبانه",
+    "class.encoder-only": "مدل رمزگذار",
+    "class.dataset": "مجموعه داده",
+    "class.leaderboard": "جدول امتیاز",
     "class.community-index": "فهرست جامعه",
-    "class.program": "برنامه",
+    "class.program": "برنامهٔ پژوهشی",
     "kind.model": "مدل",
-    "kind.dataset": "پیکره",
+    "kind.dataset": "داده",
     "kind.leaderboard": "جدول",
     "kind.community-index": "فهرست",
+    "status.indexed": "ثبت اولیه",
+    "status.verified": "تأییدشده",
+    "status.measured": "با نمرهٔ مستند",
   },
 };
 
@@ -154,17 +172,17 @@ const RELEASE_MILESTONES = [
   {
     date: "2026-08-12",
     en: "v0.3 — structured atlas, 41+ entries, bilingual UI",
-    fa: "نسخه ۰٫۳ — اطلس ساختاریافته، ۴۱+ رکورد، رابط دوزبانه",
+    fa: "نسخه ۰.۳ — راه‌اندازی اطلس با بیش از ۴۱ مورد و رابط دوزبانه",
   },
   {
     date: "2026-08-13",
     en: "v0.4 — 55 entries, link CI, PersianMedQA measured wave",
-    fa: "نسخه ۰٫۴ — ۵۵ رکورد، CI پیوند، موج measured با PersianMedQA",
+    fa: "نسخه ۰.۴ — ۵۵ مورد، بررسی خودکار لینک‌ها، نمره‌های PersianMedQA",
   },
   {
     date: "2026-08-13",
     en: "v0.5 — 60+ entries, source radar UI, medical lane ingest",
-    fa: "نسخه ۰٫۵ — ۶۰+ رکورد، رادار منبع، ورود خط پزشکی",
+    fa: "نسخه ۰.۵ — بیش از ۶۰ مورد، نقشهٔ منابع و بخش پزشکی",
   },
 ];
 
@@ -181,6 +199,10 @@ function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
 }
 
+function statusLabel(status) {
+  return t(`status.${status}`) || status;
+}
+
 function applyI18n() {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
@@ -189,6 +211,12 @@ function applyI18n() {
   });
   const search = document.getElementById("search");
   if (search) search.placeholder = t("filter.search");
+  const statusSel = document.getElementById("status-filter");
+  if (statusSel) {
+    [...statusSel.options].forEach((opt) => {
+      if (opt.value) opt.textContent = statusLabel(opt.value);
+    });
+  }
   document.getElementById("lang-toggle").textContent = lang === "fa" ? "EN" : "فا";
 }
 
@@ -286,7 +314,7 @@ function renderCard(entry) {
     <article class="entry-card" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}" id="entry-${entry.id}">
       <div class="entry-meta">
         <span class="badge">${classLabel}</span>
-        <span class="badge badge--status-${entry.status}">${entry.status}</span>
+        <span class="badge badge--status-${entry.status}">${statusLabel(entry.status)}</span>
         <span class="badge">${size}</span>
       </div>
       <h3><a href="${entryUrl(entry.id)}">${name}</a></h3>
@@ -351,7 +379,7 @@ function renderTable(entries) {
         <td>${t(`kind.${e.kind}`) || e.kind}</td>
         <td>${t(`class.${e.class}`) || e.class}</td>
         <td>${size}</td>
-        <td><span class="badge badge--status-${e.status}">${e.status}</span></td>
+        <td><span class="badge badge--status-${e.status}">${statusLabel(e.status)}</span></td>
         <td>${linkHtml(e.links, true)}</td>
       </tr>`;
     })
@@ -447,17 +475,19 @@ function renderTimeline() {
       const rows = items
         .slice(0, 6)
         .map((item) => {
-          const tag = item.type === "release" ? "release" : item.status || "verified";
+          const tagKey = item.type === "release" ? "timeline.release" : `status.${item.status || "verified"}`;
+          const tag = t(tagKey) || item.status || "verified";
           const link =
             item.id && item.type === "verify"
               ? `<a href="${entryUrl(item.id)}">${item.label}</a>`
               : item.label;
-          return `<li><span class="timeline-tag timeline-tag--${tag}">${tag}</span> ${link}</li>`;
+          const tagClass = item.type === "release" ? "release" : item.status || "verified";
+          return `<li><span class="timeline-tag timeline-tag--${tagClass}">${tag}</span> ${link}</li>`;
         })
         .join("");
       const more =
         items.length > 6
-          ? `<li class="muted">+${items.length - 6} ${lang === "fa" ? "بیشتر" : "more"}</li>`
+          ? `<li class="muted">+${items.length - 6} ${t("timeline.more")}</li>`
           : "";
       return `<div class="timeline-day"><time datetime="${date}">${date}</time><ul>${rows}${more}</ul></div>`;
     })
@@ -491,7 +521,7 @@ function renderRadar() {
       const name = item.name?.[lang] || item.name?.en || item.id;
       const analysis = item.analysis?.[lang] || item.analysis?.en || "";
       const url = item.primaryUrl
-        ? `<a href="${item.primaryUrl}" target="_blank" rel="noopener">${lang === "fa" ? "منبع" : "source"}</a>`
+        ? `<a href="${item.primaryUrl}" target="_blank" rel="noopener">${t("radar.sourceLink")}</a>`
         : "";
       const ids =
         item.plrEntryIds?.length > 0
