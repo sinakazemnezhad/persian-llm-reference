@@ -90,4 +90,9 @@ fs.writeFileSync(
   "utf8"
 );
 
+// Python PyPI bundle
+const pyDataDir = path.join(ROOT, "src/persian_llm_reference/data");
+fs.mkdirSync(pyDataDir, { recursive: true });
+fs.copyFileSync(MANIFEST_SRC, path.join(pyDataDir, "reference-manifest.json"));
+
 console.log(`build — v${REF.version} · ${manifest.entries.length} entries · static public/ ready`);

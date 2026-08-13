@@ -13,17 +13,18 @@ The **open global atlas** for Persian (Farsi) language models — built as a str
 | Existing references | What they lack | What PLR adds |
 |---------------------|----------------|---------------|
 | [Awesome Persian LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) | Links rot; no schema | Structured records + verification gates |
-
-**Discovery credit:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) by Mohammad Heydari is our primary upstream discovery index — listed as a verified entry (`awesome-persian-llm`) and credited in [ECOSYSTEM.md](governance/ECOSYSTEM.md). We structure and verify; they discover.
 | Leaderboards (MIZAN, PartAI) | Scores only; no corpus law | Model + dataset + benchmark in one manifest |
 | Hugging Face search | No Persian-native taxonomy | Script · corpus · curriculum · literary axes |
 | Papers | Scattered | Indexed with `asOf` dates and primary URLs |
+
+**Discovery credit:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) by Mohammad Heydari — verified entry `awesome-persian-llm` · [ECOSYSTEM.md](governance/ECOSYSTEM.md).
 
 ## Live surfaces (after deploy)
 
 | Surface | URL |
 |---------|-----|
 | **Atlas UI** | `https://sinakazemnezhad.github.io/persian-llm-reference` |
+| **PyPI (Python client)** | `https://pypi.org/project/persian-llm-reference/` |
 | **Manifest JSON** | `/data/reference-manifest.json` |
 | **Agent discovery** | `/.well-known/persian-llm-reference.json` |
 | **Raw (cite in papers)** | `raw.githubusercontent.com/.../data/reference-manifest.json` |
@@ -38,7 +39,8 @@ The **open global atlas** for Persian (Farsi) language models — built as a str
 | `governance/METHODOLOGY.md` | Trust, axes, cite policy |
 | `governance/POSITIONING.md` | How we beat other references |
 | `governance/ROADMAP.md` | **Full phased plan** — meaningful · usable · productive · smart |
-| `REFERENCE.json` | Product identity (neutral, global) |
+| `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md` | PyPI OIDC publish (sourcea-boot pattern) |
+| `pyproject.toml` | Python package · `pip install persian-llm-reference` |
 
 ## GitHub setup (required)
 
@@ -46,6 +48,29 @@ The **open global atlas** for Persian (Farsi) language models — built as a str
 2. Enable **GitHub Pages** → source: **GitHub Actions**
 3. Push `main` branch
 4. Site: `https://sinakazemnezhad.github.io/persian-llm-reference`
+
+## Python client (PyPI)
+
+Same pattern as [sourcea-boot](https://github.com/Noetfield-Systems/sourcea-boot) · [pypi.org/project/sourcea-boot](https://pypi.org/project/sourcea-boot/).
+
+```bash
+pip install persian-llm-reference
+plr stats
+plr get persianmind-v1
+plr cite
+plr validate
+```
+
+Editable install from repo root:
+
+```bash
+cd workspace && node scripts/sync-python-manifest.mjs
+pip install -e .
+```
+
+- **Python client:** MIT (`LICENSE-MIT`)
+- **Registry metadata:** CC-BY-4.0 (`LICENSE`)
+- **Publish:** GitHub Release → `publish-pypi` workflow (trusted publishing). See `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`.
 
 ## Build & verify
 

@@ -12,6 +12,6 @@
 
 **SSOT:** `data/reference-manifest.json` · **GitHub:** `sinakazemnezhad/persian-llm-reference`
 
-**Plan:** `governance/ROADMAP.md` — phases 1–4, v0.3.0 live (41 entries).
+**Plan:** `governance/ROADMAP.md` · **PyPI:** `pip install persian-llm-reference` · `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`
 
 **Law:** Receipt before claim. No invented benchmark scores.

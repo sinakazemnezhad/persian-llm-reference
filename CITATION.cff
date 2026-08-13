@@ -6,4 +6,14 @@ authors:
 repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
 url: https://sinakazemnezhad.github.io/persian-llm-reference
 license: CC-BY-4.0
-version: 0.2.0
+version: 0.3.0
+keywords:
+  - Persian LLM
+  - Farsi language model
+  - NLP benchmark
+preferred-citation:
+  type: software
+  title: Persian LLM Reference — Global Atlas
+  year: 2026
+  url: https://sinakazemnezhad.github.io/persian-llm-reference/
+  notes: "Manifest JSON at raw.githubusercontent.com — check version and generatedAt"

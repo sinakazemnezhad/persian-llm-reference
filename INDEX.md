@@ -13,5 +13,7 @@
 | [governance/outreach/AWESOME_PERSIAN_LLM_PR.md](./governance/outreach/AWESOME_PERSIAN_LLM_PR.md) | Reciprocal PR draft |
 | [workspace/public/index.html](./workspace/public/index.html) | Atlas UI |
 | [AGENTS.md](./AGENTS.md) | Agent ops |
+| [pyproject.toml](./pyproject.toml) | PyPI package (MIT client) |
+| [docs/PYPI_TRUSTED_PUBLISHING_SETUP.md](./docs/PYPI_TRUSTED_PUBLISHING_SETUP.md) | Publish to PyPI |
 | Port | `127.0.0.1:5294` |
 | GitHub | [sinakazemnezhad/persian-llm-reference](https://github.com/sinakazemnezhad/persian-llm-reference) |

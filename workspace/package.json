@@ -11,7 +11,7 @@
     "prestart": "node scripts/build-static.mjs",
     "start": "node src/server.mjs",
     "dev": "node --watch src/server.mjs",
-    "sync:reference": "node scripts/build-static.mjs",
+    "sync:python": "node scripts/sync-python-manifest.mjs",
     "e2e": "node scripts/e2e-local.mjs",
     "verify:local": "npm run build && node scripts/validate-links.mjs && node scripts/e2e-local.mjs",
     "validate:links": "node scripts/validate-links.mjs"

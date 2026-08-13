@@ -3,3 +3,10 @@ node_modules/
 *.log
 .env
 .env.*
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "persian-llm-reference"
+version = "0.3.0"
+description = "Structured open atlas for Persian (Farsi) LLMs — manifest loader and CLI for researchers and agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE-MIT"]
+authors = [{ name = "Persian LLM Reference maintainers" }]
+keywords = [
+  "persian",
+  "farsi",
+  "llm",
+  "language-model",
+  "benchmark",
+  "registry",
+  "nlp",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://sinakazemnezhad.github.io/persian-llm-reference/"
+Repository = "https://github.com/sinakazemnezhad/persian-llm-reference"
+Documentation = "https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md"
+"Bug Tracker" = "https://github.com/sinakazemnezhad/persian-llm-reference/issues"
+Changelog = "https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/CHANGELOG.md"
+
+[project.scripts]
+persian-llm-reference = "persian_llm_reference.cli:main"
+plr = "persian_llm_reference.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+persian_llm_reference = ["data/*.json"]

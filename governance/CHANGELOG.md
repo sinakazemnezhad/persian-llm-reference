@@ -6,10 +6,10 @@
 - **41 entries** — 18 new rows from Awesome-Persian-LLM gap audit (embeddings, cultural evals, datasets, Matina leaderboard, Dorna full weights).
 - **ParsBench** verified with GitHub primary URL; **ParsiNLU** fixed to persiannlp/parsinlu + paper.
 - **Atlas UI v0.3:** use-case lanes, card/table views, sortable compare table, CSV export, `?entry=` deep links, cite block.
-- **Governance:** ROADMAP, ECOSYSTEM, Awesome outreach PR draft (submitted upstream #2).
+- **Python PyPI package** `persian-llm-reference` (MIT client, `plr` CLI) — same pattern as sourcea-boot.
+- **CI:** `build-check-pypi.yml` + `publish-pypi.yml` (trusted publishing).
+- **Publication:** `CITATION.cff` v0.3.0 · `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`.
 - E2E + validate minimum raised to **40 entries**; link validation in CI.
-
-## Unreleased
 
 ## 0.1.0 — 2026-08-12
 

@@ -1,0 +1,46 @@
+# CI: build sdist/wheel and validate metadata on every push/PR — no PyPI upload.
+
+name: build-check-pypi
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pyproject.toml"
+      - "src/**"
+      - "data/reference-manifest.json"
+      - "README.md"
+      - ".github/workflows/build-check-pypi.yml"
+  pull_request:
+    paths:
+      - "pyproject.toml"
+      - "src/**"
+      - "data/reference-manifest.json"
+      - "README.md"
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Sync manifest into Python package
+        working-directory: workspace
+        run: node scripts/sync-python-manifest.mjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: python -m pip install --upgrade pip build twine
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Check package metadata
+        run: twine check dist/*
+      - name: Smoke CLI from wheel
+        run: |
+          pip install dist/*.whl
+          persian-llm-reference version
+          plr stats
+          plr validate
