@@ -1,6 +1,6 @@
 {
   "version": "0.5.0",
-  "generatedAt": "2026-08-13T03:35:29.859Z",
+  "generatedAt": "2026-08-13T03:38:22.219Z",
   "schema": "PERSIAN-LLM-REFERENCE/source-radar/v1",
   "mission": {
     "en": "Field map of external Persian LLM sources — what exists, what PLR catalogs, what remains gap. Not a training corpus.",

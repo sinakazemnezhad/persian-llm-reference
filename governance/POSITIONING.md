@@ -8,7 +8,7 @@
 LINK LISTS DISCOVER · PLR CLASSIFIES · VERIFIES · COMPARES · STAYS CURRENT
 ```
 
-## Neutral global product
+## Neutral community product
 
 | Not this | This |
 |----------|------|

@@ -2,11 +2,11 @@
 
 **Local path:** `~/Desktop/PERSIAN-LLM-REFERENCE/` — this folder is the git repo root for GitHub.
 
-**مرجع جهانی مدل‌های زبانی فارسی**
+**مرجع مدل‌های زبانی فارسی**
 
-The **open global atlas** for Persian (Farsi) language models — **61 sourced entries** (v0.5.0) with verification gates and bilingual JSON.
+The **open atlas** for Persian (Farsi) language models — **61 sourced entries** (v0.5.0) with verification gates and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
 
-> Not a personal notebook. Not a local mirror. **Online-first · community-maintained · machine-readable.**
+> Community-maintained · sourced · machine-readable · online-first.
 
 ## Stats (v0.5.0)
 
@@ -17,14 +17,14 @@ The **open global atlas** for Persian (Farsi) language models — **61 sourced e
 | **Measured** | 13 |
 | **PyPI** | `persian-llm-reference` 0.5.0 |
 
-## Why this repo exists
+## How PLR fits the ecosystem
 
-| Existing references | What they lack | What PLR adds |
-|---------------------|----------------|---------------|
-| [Awesome Persian LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) | Links rot; no schema | Structured records + verification gates |
-| Leaderboards (MIZAN, PartAI) | Scores only; no corpus law | Model + dataset + benchmark in one manifest |
-| Hugging Face search | No Persian-native taxonomy | Script · corpus · curriculum · literary axes |
-| Papers | Scattered | Indexed with `asOf` dates and primary URLs |
+| Resource | What it offers | What PLR adds alongside |
+|----------|----------------|-------------------------|
+| [Awesome Persian LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) | Curated discovery links | Structured records + verification gates |
+| Leaderboards (MIZAN, PartAI) | Benchmark scores | Links to leaderboards inside one manifest |
+| Hugging Face search | Model hosting + cards | Persian taxonomy · corpus · script fields |
+| Papers & repos | Primary artifacts | Indexed rows with `asOf` dates and cite URLs |
 
 **Discovery credit:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) by Mohammad Heydari — verified entry `awesome-persian-llm` · [ECOSYSTEM.md](governance/ECOSYSTEM.md).
 
@@ -100,7 +100,7 @@ npm run e2e      # local server smoke
 
 ```bibtex
 @misc{persian_llm_reference,
-  title={Persian LLM Reference — Global Atlas},
+  title={Persian LLM Reference — Open Atlas},
   author={{Persian LLM Reference maintainers}},
   year={2026},
   version={0.5.0},

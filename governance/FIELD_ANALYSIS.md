@@ -21,14 +21,14 @@ PLR does not host training shards, license MOUs, or build-program corpus rows.
 
 ---
 
-## Current field picture (v0.4.0)
+## Current field picture (v0.5.0)
 
 | Dimension | Count / note |
 |-----------|----------------|
-| Manifest entries | 55 |
-| Verified | 35 |
-| Measured | 10 |
-| Indexed (upgrade queue) | 10 |
+| Manifest entries | 61 |
+| Verified | 48 |
+| Measured | 13 |
+| Indexed | 0 |
 | Native-foundation class | 1 (`yasin-persian-base` — small, restricted; not gap-closer) |
 | Reasoning eval gap (2026) | Partially closed — PARSE, PersianMHQA, PQuAD cataloged |
 | Medical eval | PersianMedQA — now primary measured receipt source |
@@ -37,7 +37,7 @@ PLR does not host training shards, license MOUs, or build-program corpus rows.
 
 ---
 
-## Analysis (what the field lacks)
+## Open questions (documented, not solved here)
 
 1. **Native foundation** — No frontier model whose pretrain world is licensed Persian literature (gapMap #1).
 2. **Preference loops** — Few production-scale native-rater datasets (gapMap #2).

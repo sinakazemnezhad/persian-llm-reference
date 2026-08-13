@@ -5,7 +5,7 @@
 | Path | Role |
 |------|------|
 | [REFERENCE.json](./REFERENCE.json) | Product identity |
-| [README.md](./README.md) | GitHub + global positioning |
+| [README.md](./README.md) | GitHub + community overview |
 | [data/reference-manifest.json](./data/reference-manifest.json) | Registry SSOT |
 | [governance/MANIFEST_LAW.md](./governance/MANIFEST_LAW.md) | Taxonomy + gates |
 | [governance/ROADMAP.md](./governance/ROADMAP.md) | Full phased plan (v0.3 → v2.0) |

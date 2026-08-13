@@ -1,9 +1,9 @@
 {
   "version": "0.5.0",
-  "generatedAt": "2026-08-13T03:35:29.859Z",
+  "generatedAt": "2026-08-13T03:38:22.219Z",
   "schema": "PERSIAN-LLM-REFERENCE/source-radar/v1",
   "mission": {
-    "en": "Field map of external Persian LLM sources — what exists, what PLR catalogs, what remains gap. Not a training corpus.",
+    "en": "Field map of Persian LLM sources — what exists in the community, what PLR catalogs, and what open questions remain. Not a training corpus.",
     "fa": "نقشهٔ منابع مدل‌های فارسی — چه در میدان هست، چه اینجا ثبت شده و چه هنوز کم است."
   },
   "lanes": {

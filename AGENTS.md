@@ -16,4 +16,4 @@
 
 **Plan:** `governance/ROADMAP.md` · **PyPI:** `pip install persian-llm-reference` · `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`
 
-**Law:** Receipt before claim. No invented benchmark scores.
+**Law:** Receipt before claim. No invented benchmark scores. Honor upstream curators and builders.

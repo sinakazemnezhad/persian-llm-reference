@@ -1,10 +1,10 @@
 {
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "version": "0.5.0",
-  "generatedAt": "2026-08-13T03:32:16.368Z",
+  "generatedAt": "2026-08-13T03:38:22.219Z",
   "mission": {
-    "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — clearer than link lists, more honest than hype.",
-    "fa": "رجیستری باز و ساختاریافته با درگاه رسید برای مدل‌های زبانی فارسی — شفاف‌تر از فهرست پیوند، صادق‌تر از شعار."
+    "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — alongside discovery lists and leaderboards, with sourced records and honest nulls.",
+    "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی — در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
   },
   "entryCount": 61,
   "stats": {

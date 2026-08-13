@@ -6,14 +6,14 @@
 
 ---
 
-## Strategy (why this PR is unique)
+## Strategy (why this PR helps)
 
 | Avoid | Do instead |
 |-------|------------|
 | Copy Awesome’s link style into PLR | Offer a **different artifact** (JSON manifest + verification gates) |
 | “We’re better” | “You discover · we structure — same mission” |
 | Long README dump | **One short section** + table of contents line |
-| Compete with MIZAN/PartAI | Position PLR as **index of indexes** — Awesome included as a row |
+| Pit PLR against MIZAN/PartAI | Complement them — PLR as **index of indexes**; Awesome included as a row |
 | Ask maintainer to curate PLR | Offer **give-back**: changelog credits when we ingest from Awesome |
 
 **Reciprocal truth:** PLR already lists Awesome as a verified `community-index` entry with maintainer credit. This PR completes the loop.

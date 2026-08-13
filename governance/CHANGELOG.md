@@ -1,6 +1,13 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.5.1 — 2026-08-13
+
+- **Tone pass (repo-wide):** collaborative scientific wording — complement Awesome/MIZAN/PartAI; remove competitive framing (`beats`, `lack`, `own the index`, `Global Atlas`).
+- **Mission copy:** sourced records alongside discovery lists; honest nulls.
+- **UI (FA/EN):** footer, hero, gap heading, status labels aligned with community atlas tone.
+- **Docs:** `POSITIONING.md`, `ROADMAP.md`, `ECOSYSTEM.md`, `README.md`, `CITATION.cff`.
+
 ## 0.5.0 — 2026-08-13
 
 - **61 entries** (+6): Meditron3-8B, BioMistral-7B, Gaokerena-V, MF3QA, Gemini 2.0 Flash class, Llama 3.1 405B class.

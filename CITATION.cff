@@ -1,19 +1,19 @@
 cff-version: 1.2.0
-title: Persian LLM Reference — Global Atlas
+title: Persian LLM Reference — Open Atlas
 message: "If you use this atlas, please cite it as below."
 authors:
   - name: Persian LLM Reference maintainers
 repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
 url: https://sinakazemnezhad.github.io/persian-llm-reference
 license: CC-BY-4.0
-version: 0.4.0
+version: 0.5.0
 keywords:
   - Persian LLM
   - Farsi language model
   - NLP benchmark
 preferred-citation:
   type: software
-  title: Persian LLM Reference — Global Atlas
+  title: Persian LLM Reference — Open Atlas
   year: 2026
   url: https://sinakazemnezhad.github.io/persian-llm-reference/
   notes: "Manifest JSON at raw.githubusercontent.com — check version and generatedAt"

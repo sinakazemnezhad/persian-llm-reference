@@ -6,7 +6,7 @@
 
 ```text
 Become the trusted, citable, bilingual atlas for Persian LLMs —
-the place researchers, builders, and agents go first,
+a place researchers, builders, and agents can rely on,
 because every row has a source and every score is earned.
 ```
 
@@ -19,14 +19,14 @@ STRUCTURED · SOURCED · BILINGUAL · HONEST NULLS — THE ATLAS EARNS AUTHORITY
 ## Mission arc
 
 ```text
-reference first (map the field) → authority second (own the index) → infrastructure third (schema + community)
+reference first (map the field) → trust second (maintain the index) → infrastructure third (schema + community)
 ```
 
 | Phase | Focus | Outcome |
 |-------|-------|---------|
 | **1 — Credibility** | Prove it works; grow registry; raise verification | Obviously real and useful |
 | **2 — Usability** | Compare, cite, deep links, use-case lanes | People open it weekly |
-| **3 — Authority** | Timeline, gap tags, external citations, HF presence | Default index for papers and tools |
+| **3 — Trust** | Timeline, gap tags, external citations, HF presence | Trusted index for papers and tools |
 | **4 — Infrastructure** | Stable schema, community PRs, optional org/domain | Persian LLM layer on the internet |
 
 ---
@@ -45,15 +45,15 @@ reference first (map the field) → authority second (own the index) → infrast
 
 **Not for:** investors, fundraising, or selling a founder charter inside the registry.
 
-### Why (the problem)
+### Why (the landscape)
 
-| Today | Gap PLR fills |
-|-------|----------------|
-| Awesome-Persian-LLM and similar lists | Useful but unstructured; links rot; no verification gates |
-| MIZAN, PartAI leaderboards | Scores for some models; not a full ecosystem map |
-| Hugging Face search | No Persian-native taxonomy or corpus-law fields |
-| Hype and self-promotion | Invented numbers; charter projects listed as “best” |
-| Papers and agents | No canonical structured index to cite |
+| Resource today | How PLR complements it |
+|----------------|------------------------|
+| Awesome-Persian-LLM and similar lists | Discovery stays with curators; PLR adds typed records and verification gates |
+| MIZAN, PartAI leaderboards | Scores stay on leaderboards; PLR links them inside one ecosystem map |
+| Hugging Face search | Hosting stays on HF; PLR adds Persian taxonomy and corpus-law fields |
+| Uncited marketing claims | PLR documents gaps honestly; measured rows need receipts |
+| Papers and agents | One canonical structured manifest to cite |
 
 ### To build what
 
@@ -67,8 +67,8 @@ reference first (map the field) → authority second (own the index) → infrast
 
 ### Why build that
 
-1. **Someone must own the map** — gaps cannot be closed until they are documented honestly.
-2. **Authority compounds** — sourced rows → citations → default index.
+1. **Someone must document the map** — open questions cannot be addressed until they are named honestly.
+2. **Trust compounds through sourcing** — cited rows → external citations → field-wide utility.
 3. **Agents need honest data** — `null` is a feature; invented scores poison research.
 4. **Neutrality enables collaboration** — link Awesome-Persian-LLM as ally; cite MIZAN/PartAI; do not replace them.
 5. **Alefbâ needs a mirror** — charter builds what the gap map says is missing; PLR documents the gap without selling Alefbâ in the registry.
@@ -103,11 +103,11 @@ People need **decisions**, not another link dump.
 
 **Rules**
 
-- “Best for X” only when **measured** with receipt; otherwise “no measured winner yet”.
+- “Strong fit for X” only when **measured** with receipt; otherwise “no measured result published yet”.
 - Depth per row matters more than raw row count.
 - Gap map stays current as entries grow.
 
-### 2. Usable — 30-second wins
+### 2. Usable — clarity in 30 seconds
 
 | Audience | Usability deliverable |
 |----------|----------------------|
@@ -175,7 +175,7 @@ People need **decisions**, not another link dump.
 
 ## Phase 1 — Credibility + completeness (weeks 1–4)
 
-**Goal:** Obviously *real* and *useful* — not “another awesome list.”
+**Goal:** Obviously *real* and *useful* — a structured companion to existing discovery lists.
 
 ### Step 1.1 — Prove green baseline
 
@@ -395,7 +395,7 @@ Home or nav shortcuts — pre-filtered views:
 
 ---
 
-## Gap thesis (long-term — what the field lacks)
+## Open questions (long-term — documented in `gapMap`)
 
 Document honestly in `gapMap`; do not invent solutions in the registry.
 
@@ -412,10 +412,10 @@ When Alefbâ ships capabilities, they appear as **one earned row** — the refer
 
 | Not this | Why |
 |----------|-----|
-| Beat GPT on Persian chat | Layer 5 product — not a registry job |
-| Replace MIZAN or PartAI | Cite them; mirror structure only |
+| A Persian chat product | Layer 5 application — not a registry job |
+| Replace MIZAN or PartAI | Cite them; link to their scores |
 | Fundraising site | That is Alefbâ |
-| “Most complete in the world” without count + verification | Credibility law |
+| “Most complete in the world” without count + verification | Credibility requires receipts, not slogans |
 | Invented benchmark or axis scores | Receipt before claim |
 | Chat widget ranking models | Smart = schema, not theater |
 | Move repo into PLUS ONE | Desktop standalone repo |

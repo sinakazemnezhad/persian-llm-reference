@@ -43,16 +43,16 @@ PLR already lists Awesome as a **verified** `community-index` entry (`awesome-pe
 | “Underrepresented language” narrative | Gap map (EN + FA) — same mission, different artifact |
 | Breadth over depth | Awesome stays broad; PLR goes deep per artifact |
 
-### What PLR adds (unique value)
+### What PLR adds alongside discovery lists
 
-| Capability | Awesome today | PLR |
-|------------|---------------|-----|
+| Capability | Discovery lists (e.g. Awesome) | PLR structured atlas |
+|------------|-------------------------------|----------------------|
 | Machine JSON API | — | `reference-manifest.json` + `.well-known` |
 | Verification ladder | — | `indexed` → `verified` → `measured` |
 | Per-row license / size / origin | — | Required fields |
 | Honest benchmark nulls | — | Receipt + `asOf` or `null` |
 | Persian depth axes (editorial) | — | Five axes; `null` = unknown |
-| Gap map (what field lacks) | — | `gapMap` in manifest |
+| Gap map (open questions in the field) | — | `gapMap` in manifest |
 | Bilingual browse UI | — | FA default atlas |
 
 ---
