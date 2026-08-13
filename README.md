@@ -13,6 +13,8 @@ The **open global atlas** for Persian (Farsi) language models — built as a str
 | Existing references | What they lack | What PLR adds |
 |---------------------|----------------|---------------|
 | [Awesome Persian LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) | Links rot; no schema | Structured records + verification gates |
+
+**Discovery credit:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) by Mohammad Heydari is our primary upstream discovery index — listed as a verified entry (`awesome-persian-llm`) and credited in [ECOSYSTEM.md](governance/ECOSYSTEM.md). We structure and verify; they discover.
 | Leaderboards (MIZAN, PartAI) | Scores only; no corpus law | Model + dataset + benchmark in one manifest |
 | Hugging Face search | No Persian-native taxonomy | Script · corpus · curriculum · literary axes |
 | Papers | Scattered | Indexed with `asOf` dates and primary URLs |
@@ -35,6 +37,7 @@ The **open global atlas** for Persian (Farsi) language models — built as a str
 | `governance/MANIFEST_LAW.md` | Taxonomy + verification gates |
 | `governance/METHODOLOGY.md` | Trust, axes, cite policy |
 | `governance/POSITIONING.md` | How we beat other references |
+| `governance/ROADMAP.md` | **Full phased plan** — meaningful · usable · productive · smart |
 | `REFERENCE.json` | Product identity (neutral, global) |
 
 ## GitHub setup (required)

@@ -8,6 +8,9 @@
 | [README.md](./README.md) | GitHub + global positioning |
 | [data/reference-manifest.json](./data/reference-manifest.json) | Registry SSOT |
 | [governance/MANIFEST_LAW.md](./governance/MANIFEST_LAW.md) | Taxonomy + gates |
+| [governance/ROADMAP.md](./governance/ROADMAP.md) | Full phased plan (v0.3 → v2.0) |
+| [governance/ECOSYSTEM.md](./governance/ECOSYSTEM.md) | Awesome · leaderboards · Alefbâ map |
+| [governance/outreach/AWESOME_PERSIAN_LLM_PR.md](./governance/outreach/AWESOME_PERSIAN_LLM_PR.md) | Reciprocal PR draft |
 | [workspace/public/index.html](./workspace/public/index.html) | Atlas UI |
 | [AGENTS.md](./AGENTS.md) | Agent ops |
 | Port | `127.0.0.1:5294` |

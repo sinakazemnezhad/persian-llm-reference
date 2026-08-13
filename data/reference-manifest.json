@@ -1,6 +1,6 @@
 {
   "version": "0.2.1",
-  "generatedAt": "2026-08-13T02:05:30.816Z",
+  "generatedAt": "2026-08-13T02:21:17.428Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -627,11 +627,12 @@
       "license": "MIT",
       "status": "verified",
       "summary": {
-        "en": "Community curated link list — we index and verify; they discover.",
-        "fa": "فهرست پیوندی جامعه — ما فهرست و تأیید می‌کنیم؛ آن‌ها کشف می‌کنند."
+        "en": "Primary discovery index for Persian LLMs — papers, models, datasets, tools. PLR ingests from here; reciprocal structured atlas outreach in governance/outreach/.",
+        "fa": "فهرست اصلی کشف برای مدل‌های فارسی — مقاله، مدل، پیکره، ابزار. مرجع PLR از اینجا می‌خواند؛ همکاری متقابل در governance/outreach/."
       },
       "links": {
-        "repo": "https://github.com/MohammadHeydari/Awesome-Persian-LLM"
+        "repo": "https://github.com/MohammadHeydari/Awesome-Persian-LLM",
+        "web": "https://github.com/MohammadHeydari/Awesome-Persian-LLM#why-this-repo"
       },
       "origin": {
         "base": null,

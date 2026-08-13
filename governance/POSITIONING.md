@@ -40,9 +40,15 @@ Primary queries we own:
 
 We **link and credit** Awesome-Persian-LLM, MIZAN, PartAI leaderboard as `community-index` / `leaderboard` entries — we do not compete by hiding them.
 
+Full ecosystem map: [ECOSYSTEM.md](./ECOSYSTEM.md) · Awesome PR draft: [outreach/AWESOME_PERSIAN_LLM_PR.md](./outreach/AWESOME_PERSIAN_LLM_PR.md).
+
+```text
+Awesome finds · Leaderboards score · PLR types and verifies · Alefbâ builds (separate)
+```
+
 ## Authority path
 
-1. Ship public site + manifest (week 1)
-2. PR to Awesome list: "verified atlas" link (week 2)
+1. Ship public site + manifest (week 1) — done
+2. PR to Awesome list: structured companion section (week 2) — draft ready
 3. Hugging Face org README + dataset card pointing to manifest (week 3)
 4. arXiv short paper: "Persian LLM Reference schema v1" (month 2)
