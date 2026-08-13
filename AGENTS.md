@@ -12,6 +12,6 @@
 
 **SSOT:** `data/reference-manifest.json` · **GitHub:** `sinakazemnezhad/persian-llm-reference`
 
-**Plan:** `governance/ROADMAP.md` — phases 1–4, milestones v0.3 → v2.0, checklists.
+**Plan:** `governance/ROADMAP.md` — phases 1–4, v0.3.0 live (41 entries).
 
 **Law:** Receipt before claim. No invented benchmark scores.

@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>مرجع جهانی مدل‌های زبانی فارسی · Persian LLM Reference</title>
-  <meta name="description" content="The open global atlas for Persian (Farsi) language models — receipt-gated, bilingual, machine JSON API." />
+  <meta name="description" content="Structured open atlas for Persian (Farsi) LLMs — 40+ sourced entries, verification gates, bilingual JSON API." />
+  <meta name="keywords" content="Persian LLM, مدل زبانی فارسی, Farsi language model benchmark, Persian foundation model" />
   <meta property="og:title" content="Persian LLM Reference — Global Atlas" />
   <meta property="og:description" content="Structured open registry for Persian LLMs — models, datasets, benchmarks, leaderboards. Receipt-gated, bilingual JSON." />
   <meta property="og:type" content="website" />
@@ -12,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=0.2.1" />
+  <link rel="stylesheet" href="app.css?v=0.3.0" />
   <script type="application/ld+json" id="schema-dataset"></script>
 </head>
 <body>
@@ -43,15 +44,23 @@
       </ul>
     </section>
 
-
     <section class="section wrap trust-panel" id="trust" aria-labelledby="trust-heading">
       <h2 id="trust-heading" data-i18n="trust.heading">اعتماد و روش</h2>
       <p class="lede" data-i18n="trust.body">هر رکورد به نشانی منبع اولیه نیاز دارد.</p>
-      <p class="muted"><a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener">governance/METHODOLOGY.md</a></p>
+      <p class="muted">
+        <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY</a>
+        · <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/ROADMAP.md" target="_blank" rel="noopener">ROADMAP</a>
+        · <a href="https://github.com/MohammadHeydari/Awesome-Persian-LLM" target="_blank" rel="noopener">Awesome-Persian-LLM</a>
+      </p>
     </section>
+
+    <section class="wrap lane-bar" aria-label="Use-case lanes" id="lanes"></section>
 
     <section class="wrap toolbar" aria-label="Filters">
       <input type="search" id="search" data-i18n-placeholder="filter.search" placeholder="جستجو…" />
+      <select id="kind-filter" aria-label="Kind filter">
+        <option value="" data-i18n="filter.kindAll">All kinds</option>
+      </select>
       <select id="class-filter" aria-label="Class filter">
         <option value="" data-i18n="filter.all">همه کلاس‌ها</option>
       </select>
@@ -61,11 +70,31 @@
         <option value="verified">verified</option>
         <option value="measured">measured</option>
       </select>
+      <div class="toolbar-actions">
+        <button type="button" class="btn btn-ghost" id="view-grid" data-i18n="view.grid">Cards</button>
+        <button type="button" class="btn btn-ghost" id="view-table" data-i18n="view.table">Table</button>
+        <button type="button" class="btn btn-ghost" id="export-csv" data-i18n="export.csv">Export CSV</button>
+      </div>
     </section>
 
     <section class="section wrap" id="atlas" aria-labelledby="atlas-heading">
       <h2 id="atlas-heading" data-i18n="atlas.heading">رجیستری</h2>
       <div class="entry-grid" id="entry-grid"></div>
+      <div class="table-wrap hidden" id="table-wrap">
+        <table class="compare-table" id="compare-table">
+          <thead>
+            <tr>
+              <th data-sort="name" data-i18n="table.name">Name</th>
+              <th data-sort="kind" data-i18n="table.kind">Kind</th>
+              <th data-sort="class" data-i18n="table.class">Class</th>
+              <th data-sort="sizeB" data-i18n="table.size">Size</th>
+              <th data-sort="status" data-i18n="table.status">Status</th>
+              <th data-i18n="table.links">Links</th>
+            </tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
       <p id="empty-state" class="lede hidden" data-i18n="atlas.empty">نتیجه‌ای نیست.</p>
     </section>
 
@@ -77,9 +106,10 @@
 
   <footer class="site-footer wrap">
     <p class="api-line" id="api-line"></p>
+    <div class="cite-block" id="cite-block"></div>
     <p data-i18n="footer.law">نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.</p>
   </footer>
 
-  <script src="app.js?v=0.2.1" type="module"></script>
+  <script src="app.js?v=0.3.0" type="module"></script>
 </body>
 </html>

@@ -296,6 +296,119 @@ a {
   font-size: var(--text-xs);
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.toolbar input,
+.toolbar select {
+  flex: 1 1 140px;
+  min-width: 120px;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--sand);
+  font: inherit;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.btn-ghost.active,
+.lane-btn.active {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.lane-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.lane-btn {
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--sand);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.entry-card.highlight {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.entry-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-card h3 a:hover {
+  color: var(--gold);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+}
+
+.compare-table th {
+  background: var(--panel);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.compare-table tbody tr:hover {
+  background: rgba(61, 139, 139, 0.08);
+}
+
+.card-links--compact a {
+  margin-inline-end: 0.35rem;
+}
+
+.cite-block {
+  margin: var(--space-4) 0;
+}
+
+.cite-pre {
+  overflow-x: auto;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  font-size: var(--text-xs);
+  color: var(--fog);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
 .hidden {
   display: none !important;
 }

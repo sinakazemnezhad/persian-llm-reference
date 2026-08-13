@@ -1,12 +1,15 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
-## Unreleased
+## 0.3.0 — 2026-08-13
 
-- Add `governance/ROADMAP.md` — full phased plan (meaningful · usable · productive · smart); linked from README, INDEX, AGENTS.
-- Add `governance/ECOSYSTEM.md` — Awesome / leaderboard / Alefbâ relationship map and ingestion gap audit.
-- Add `governance/outreach/AWESOME_PERSIAN_LLM_PR.md` — unique reciprocal PR draft (not a copy of Awesome).
-- Upgrade `awesome-persian-llm` manifest entry — discovery credit + `links.web`.
+- **41 entries** — 18 new rows from Awesome-Persian-LLM gap audit (embeddings, cultural evals, datasets, Matina leaderboard, Dorna full weights).
+- **ParsBench** verified with GitHub primary URL; **ParsiNLU** fixed to persiannlp/parsinlu + paper.
+- **Atlas UI v0.3:** use-case lanes, card/table views, sortable compare table, CSV export, `?entry=` deep links, cite block.
+- **Governance:** ROADMAP, ECOSYSTEM, Awesome outreach PR draft (submitted upstream #2).
+- E2E + validate minimum raised to **40 entries**; link validation in CI.
+
+## Unreleased
 
 ## 0.1.0 — 2026-08-12
 

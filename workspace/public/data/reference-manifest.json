@@ -1,6 +1,6 @@
 {
-  "version": "0.2.1",
-  "generatedAt": "2026-08-13T02:21:17.428Z",
+  "version": "0.3.0",
+  "generatedAt": "2026-08-13T02:37:29.646Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -886,12 +886,15 @@
       "org": "Research",
       "sizeB": null,
       "license": "open",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
-        "en": "Persian LLM evaluation benchmark suite used in leaderboard rankings. Primary project URL pending — cite leaderboard entries that reference ParsBench until a canonical HF/paper link is confirmed.",
-        "fa": "مجموعهٔ ارزیابی مدل‌های فارسی — در جدول‌ها استفاده می‌شود. نشانی اصلی پروژه هنوز تأیید نشده؛ تا زمان تأیید، از جدول‌هایی که ParsBench را ذکر می‌کنند استناد کنید."
+        "en": "Persian LLM evaluation benchmark suite — canonical open-source project on GitHub.",
+        "fa": "مجموعهٔ ارزیابی مدل‌های فارسی — پروژهٔ متن‌باز اصلی در گیت‌هاب."
       },
-      "links": {},
+      "links": {
+        "repo": "https://github.com/ParsBench/ParsBench",
+        "web": "https://github.com/ParsBench/ParsBench"
+      },
       "origin": {
         "base": null,
         "persianTraining": null
@@ -913,8 +916,7 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": null,
-      "notes": "Primary URL pending — open a PR when HF dataset or paper link is verified."
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "parsi-nlu",
@@ -927,13 +929,14 @@
       "org": "Research",
       "sizeB": null,
       "license": "research",
-      "status": "indexed",
+      "status": "verified",
       "summary": {
         "en": "Persian natural language understanding benchmark — MCQ and comprehension tasks.",
         "fa": "بنچمارک درک زبان طبیعی فارسی — چندگزینه‌ای و درک مطلب."
       },
       "links": {
-        "paper": "https://arxiv.org/abs/2401.06466"
+        "repo": "https://github.com/persiannlp/parsinlu",
+        "paper": "https://arxiv.org/abs/2012.06154"
       },
       "origin": {
         "base": null,
@@ -956,7 +959,7 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "gemini-class",
@@ -1037,6 +1040,771 @@
         "nativePreference": 0
       },
       "verifiedAt": null
+    },
+    {
+      "id": "matina-llm-leaderboard",
+      "kind": "leaderboard",
+      "class": "leaderboard",
+      "name": {
+        "en": "Matina Persian LLM Leaderboard",
+        "fa": "جدول مدل‌های فارسی ماتینا"
+      },
+      "org": "MatinaAI",
+      "sizeB": null,
+      "license": "open",
+      "status": "verified",
+      "summary": {
+        "en": "Hugging Face Space ranking Persian LLMs — companion to MIZAN and PartAI boards.",
+        "fa": "فضای Hugging Face برای رتبه‌بندی مدل‌های فارسی — مکمل MIZAN و PartAI."
+      },
+      "links": {
+        "web": "https://huggingface.co/spaces/MatinaAI/persian_llm_leaderboard"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": null,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": null,
+        "licensedBooks": null
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": null,
+        "corpusLaw": null,
+        "curriculumFit": null,
+        "literaryDepth": null,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "hakim-embedding",
+      "kind": "model",
+      "class": "encoder-only",
+      "name": {
+        "en": "Hakim — Farsi text embedding",
+        "fa": "حکیم — تعبیهٔ متن فارسی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "verified",
+      "summary": {
+        "en": "Farsi text embedding model for retrieval and semantic search pipelines.",
+        "fa": "مدل تعبیهٔ متن فارسی برای بازیابی و جستجوی معنایی."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.08435"
+      },
+      "origin": {
+        "base": "encoder",
+        "persianTraining": "persian-focused"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-open",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 1,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "tooka-sbert",
+      "kind": "model",
+      "class": "encoder-only",
+      "name": {
+        "en": "Tooka-SBERT",
+        "fa": "توکا-اس‌برت"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "verified",
+      "summary": {
+        "en": "Lightweight Persian sentence embedding models for downstream NLP tasks.",
+        "fa": "مدل‌های تعبیهٔ جملهٔ سبک فارسی برای وظایف پایین‌دستی."
+      },
+      "links": {
+        "paper": "https://aclanthology.org/2025.findings-ijcnlp.147.pdf"
+      },
+      "origin": {
+        "base": "SBERT-class",
+        "persianTraining": "persian-focused"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-open",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 3,
+        "corpusLaw": 1,
+        "curriculumFit": null,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "famteb-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "FaMTEB — Persian embedding benchmark",
+        "fa": "فام‌تی‌ای‌بی — بنچمارک تعبیهٔ فارسی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Massive text embedding benchmark suite for Persian language models.",
+        "fa": "مجموعهٔ بنچمارک تعبیهٔ متن برای مدل‌های فارسی."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2502.11571"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "eval"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "benchmark-embedding",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": null,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "farsinstruct",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "FarsInstruct",
+        "fa": "فارس‌اینستراکت"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Instruction dataset empowering Persian LLMs for instruction following.",
+        "fa": "پیکرهٔ دستوری برای تقویت پیروی از دستور در مدل‌های فارسی."
+      },
+      "links": {
+        "paper": "https://arxiv.org/html/2407.11186v1"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "instruction-SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 2,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "khayyam-persianmmlu",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "Khayyam Challenge — PersianMMLU",
+        "fa": "چالش خیام — پرشین‌ام‌ام‌ال‌یو"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Multitask Persian knowledge benchmark — measures whether LLMs are truly wise in Persian.",
+        "fa": "بنچمارک دانش چندوظیفه‌ای فارسی — سنجش «خرد» واقعی مدل در فارسی."
+      },
+      "links": {
+        "paper": "https://openreview.net/forum?id=yIEyHP7AvH"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "eval"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "benchmark-knowledge",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": null,
+        "curriculumFit": 2,
+        "literaryDepth": 2,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "farsi-synthetic-data",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "FarsiSyntheticData",
+        "fa": "دادهٔ مصنوعی فارسی"
+      },
+      "org": "MohammadHeydari",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "verified",
+      "summary": {
+        "en": "High-quality Farsi instruction-following synthetic datasets generated with LLMs.",
+        "fa": "پیکره‌های مصنوعی دستوری فارسی با کیفیت بالا تولیدشده با مدل‌های زبانی."
+      },
+      "links": {
+        "repo": "https://github.com/MohammadHeydari/FarsiSyntheticData"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "synthetic-instruction"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "synthetic-instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 2,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persian-synthetic-instruct",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "Persian-Synthetic-Instruct (HF)",
+        "fa": "دستور مصنوعی فارسی"
+      },
+      "org": "Heydaritoday",
+      "sizeB": null,
+      "license": "see-model-card",
+      "status": "verified",
+      "summary": {
+        "en": "Hugging Face dataset of synthetic Persian instruction examples for SFT.",
+        "fa": "پیکرهٔ Hugging Face از نمونه‌های دستوری مصنوعی فارسی برای SFT."
+      },
+      "links": {
+        "hf": "https://huggingface.co/datasets/Heydaritoday/Persian-Synthetic-Instruct"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "synthetic-instruction"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "synthetic-instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 2,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "tlpc-corpus",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "TLPC — Targoman Persian corpus",
+        "fa": "پیکرهٔ تارگومان TLPC"
+      },
+      "org": "Targoman",
+      "sizeB": null,
+      "license": "see-model-card",
+      "status": "indexed",
+      "summary": {
+        "en": "Persian text corpus on Hugging Face — used in open Persian NLP pipelines.",
+        "fa": "پیکرهٔ متن فارسی در Hugging Face — در خطوط پردازش باز فارسی."
+      },
+      "links": {
+        "hf": "https://huggingface.co/datasets/Targoman/TLPC"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "pretrain-corpus"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "web-mixed",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "alpaca-persian",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "Alpaca Persian",
+        "fa": "آلپاکا فارسی"
+      },
+      "org": "Community",
+      "sizeB": null,
+      "license": "see-model-card",
+      "status": "indexed",
+      "summary": {
+        "en": "Persian translation/adaptation of Alpaca-style instruction data for fine-tuning.",
+        "fa": "نسخهٔ فارسی دادهٔ دستوری سبک آلپاکا برای فاین‌تیون."
+      },
+      "links": {
+        "hf": "https://huggingface.co/datasets/sinarashidi/alpaca-persian"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "instruction-SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 2,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "percul-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PERCUL — cultural eval (Persian)",
+        "fa": "پرکول — ارزیابی فرهنگی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Story-driven cultural evaluation of LLMs in Persian literary and social context.",
+        "fa": "ارزیابی فرهنگی روایت‌محور مدل‌ها در زمینهٔ ادبی و اجتماعی فارسی."
+      },
+      "links": {
+        "paper": "https://aclanthology.org/2025.naacl-long.631.pdf"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "eval-cultural"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "benchmark-cultural",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": null,
+        "curriculumFit": 2,
+        "literaryDepth": 3,
+        "nativePreference": 2
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "melac-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "MELAC — massive Persian LLM eval",
+        "fa": "ملاک — ارزیابی گسترده"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Massive evaluation of large language models on Persian tasks.",
+        "fa": "ارزیابی گستردهٔ مدل‌های زبانی بزرگ روی وظایف فارسی."
+      },
+      "links": {
+        "paper": "https://aclanthology.org/2025.ijcnlp-long.105.pdf"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "eval"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "benchmark-suite",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": null,
+        "curriculumFit": 2,
+        "literaryDepth": 2,
+        "nativePreference": 1
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "taarof-benchmark",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "Taarof — Persian pragmatics eval",
+        "fa": "تعارف — ارزیابی pragmaتیک فارسی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Benchmark testing whether LLMs understand Persian taarof and politeness norms.",
+        "fa": "آزمون درک تعارف و هنجارهای ادب فارسی در مدل‌های زبانی."
+      },
+      "links": {
+        "paper": "https://aclanthology.org/2025.emnlp-main.94.pdf"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "eval-cultural"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": "benchmark-cultural",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": null,
+        "curriculumFit": 2,
+        "literaryDepth": 3,
+        "nativePreference": 3
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persianrag",
+      "kind": "dataset",
+      "class": "dataset",
+      "name": {
+        "en": "PersianRAG",
+        "fa": "پرشین‌رگ"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "research",
+      "status": "verified",
+      "summary": {
+        "en": "Retrieval-augmented generation system and resources for Persian language QA.",
+        "fa": "سامانه و منابع RAG برای پرسش‌وپاسخ فارسی."
+      },
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.02832"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": "RAG"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": null
+      },
+      "corpus": {
+        "class": "RAG-index",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persian-ollama-index",
+      "kind": "community-index",
+      "class": "community-index",
+      "name": {
+        "en": "Persian Ollama LLM index",
+        "fa": "فهرست اولامای فارسی"
+      },
+      "org": "sepy-dev",
+      "sizeB": null,
+      "license": "see-repo",
+      "status": "indexed",
+      "summary": {
+        "en": "Community index of Persian models packaged for Ollama local inference.",
+        "fa": "فهرست جامعهٔ مدل‌های فارسی بسته‌بندی‌شده برای اولاما."
+      },
+      "links": {
+        "repo": "https://github.com/sepy-dev/Persian-Ollama-LLm"
+      },
+      "origin": {
+        "base": null,
+        "persianTraining": null
+      },
+      "script": {
+        "rtl": null,
+        "zwnj": null,
+        "morphology": null
+      },
+      "corpus": {
+        "class": null,
+        "licensedBooks": null
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": null,
+        "corpusLaw": null,
+        "curriculumFit": null,
+        "literaryDepth": null,
+        "nativePreference": null
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "dorna-4bit-quantized",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Dorna-Llama3-8B 4-bit (quantized)",
+        "fa": "درنا ۴بیت کوانتیزه"
+      },
+      "org": "Community",
+      "sizeB": 8,
+      "license": "Llama-3-community",
+      "status": "indexed",
+      "summary": {
+        "en": "Quantized 4-bit variant of Dorna for consumer-GPU inference — sibling to PartAI GGUF release.",
+        "fa": "نسخهٔ ۴بیت کوانتیزهٔ درنا برای GPU مصرفی — مکمل انتشار GGUF پارتی."
+      },
+      "links": {
+        "hf": "https://huggingface.co/amirMohammadi/Dorna-Llama3-8B-Instruct-Quantized4Bit"
+      },
+      "origin": {
+        "base": "Llama-3-8B-Instruct",
+        "persianTraining": "continued-pretrain+SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-open+instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": null
+    },
+    {
+      "id": "dorna-llama3-8b-instruct",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Dorna-Llama3-8B-Instruct (full weights)",
+        "fa": "درنا — وزن کامل"
+      },
+      "org": "PartAI",
+      "sizeB": 8,
+      "license": "Llama-3-community",
+      "status": "verified",
+      "summary": {
+        "en": "Full-precision Dorna instruct weights on Hugging Face — distinct from GGUF distribution.",
+        "fa": "وزن کامل دستوری درنا در Hugging Face — جدا از توزیع GGUF."
+      },
+      "links": {
+        "hf": "https://huggingface.co/PartAI/Dorna-Llama3-8B-Instruct",
+        "leaderboard": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+      },
+      "origin": {
+        "base": "Llama-3-8B-Instruct",
+        "persianTraining": "continued-pretrain+SFT"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "mixed-open+instruction",
+        "licensedBooks": false
+      },
+      "benchmarks": [
+        {
+          "name": "Open Persian LLM Leaderboard",
+          "score": null,
+          "asOf": null,
+          "receipt": "leaderboard-live",
+          "url": "https://huggingface.co/spaces/PartAI/Open_Persian_LLM_Leaderboard"
+        }
+      ],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 1,
+        "nativePreference": null
+      },
+      "verifiedAt": "2026-08-13"
+    },
+    {
+      "id": "persian-biomedical-llm",
+      "kind": "model",
+      "class": "adapted-instruct",
+      "name": {
+        "en": "Persian biomedical LLM",
+        "fa": "مدل زیست‌پزشکی فارسی"
+      },
+      "org": "Research",
+      "sizeB": null,
+      "license": "see-paper",
+      "status": "indexed",
+      "summary": {
+        "en": "Pretrained biomedical large language model for Persian biomedical text mining.",
+        "fa": "مدل زبانی بزرگ ازپیش‌آموزش‌دیده برای متن‌کاوی زیست‌پزشکی فارسی."
+      },
+      "links": {
+        "paper": "https://www.nature.com/articles/s41598-026-55970-3"
+      },
+      "origin": {
+        "base": "domain-adapted",
+        "persianTraining": "biomedical-domain"
+      },
+      "script": {
+        "rtl": true,
+        "zwnj": "partial",
+        "morphology": "partial"
+      },
+      "corpus": {
+        "class": "domain-biomedical",
+        "licensedBooks": false
+      },
+      "benchmarks": [],
+      "alefbaAxes": {
+        "scriptFidelity": 2,
+        "corpusLaw": 1,
+        "curriculumFit": 1,
+        "literaryDepth": 0,
+        "nativePreference": null
+      },
+      "verifiedAt": null
     }
   ],
   "gapMap": {
@@ -1054,26 +1822,26 @@
     ]
   },
   "stats": {
-    "total": 23,
+    "total": 41,
     "byKind": {
-      "model": 15,
-      "dataset": 4,
-      "leaderboard": 3,
-      "community-index": 1
+      "model": 20,
+      "dataset": 15,
+      "leaderboard": 4,
+      "community-index": 2
     },
     "byClass": {
-      "adapted-instruct": 8,
+      "adapted-instruct": 11,
       "native-foundation": 1,
       "multilingual-frontier": 5,
-      "encoder-only": 1,
-      "dataset": 4,
-      "leaderboard": 3,
-      "community-index": 1
+      "encoder-only": 3,
+      "dataset": 15,
+      "leaderboard": 4,
+      "community-index": 2
     },
     "byStatus": {
       "measured": 4,
-      "indexed": 17,
-      "verified": 2
+      "indexed": 20,
+      "verified": 17
     }
   }
 }

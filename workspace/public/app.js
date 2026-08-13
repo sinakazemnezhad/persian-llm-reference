@@ -15,13 +15,30 @@ const I18N = {
     "stats.datasets": "datasets",
     "filter.search": "Search…",
     "filter.all": "All classes",
+    "filter.kindAll": "All kinds",
     "filter.statusAll": "All statuses",
     "atlas.heading": "Registry",
     "atlas.empty": "No matches.",
     "gap.heading": "Gap map",
     "trust.heading": "Trust & methodology",
-    "trust.body": "Entries need a primary source URL. Status moves indexed → verified → measured only with cited evidence. Axis scores are editorial estimates where set; null means unknown — never invented.",
+    "trust.body":
+      "Entries need a primary source URL. Status moves indexed → verified → measured only with cited evidence. Axis scores are editorial estimates where set; null means unknown — never invented.",
     "footer.law": "No invented scores. Global reference — not a personal project.",
+    "view.grid": "Cards",
+    "view.table": "Table",
+    "export.csv": "Export CSV",
+    "table.name": "Name",
+    "table.kind": "Kind",
+    "table.class": "Class",
+    "table.size": "Size (B)",
+    "table.status": "Status",
+    "table.links": "Links",
+    "cite.heading": "Cite this registry",
+    "lane.all": "All",
+    "lane.finetune": "Fine-tune",
+    "lane.benchmark": "Benchmarks",
+    "lane.leaderboard": "Leaderboards",
+    "lane.frontier": "Frontier APIs",
     "class.native-foundation": "Native foundation",
     "class.adapted-instruct": "Adapted instruct",
     "class.multilingual-frontier": "Multilingual frontier",
@@ -30,6 +47,10 @@ const I18N = {
     "class.leaderboard": "Leaderboard",
     "class.community-index": "Community index",
     "class.program": "Program",
+    "kind.model": "model",
+    "kind.dataset": "dataset",
+    "kind.leaderboard": "leaderboard",
+    "kind.community-index": "index",
   },
   fa: {
     "nav.contribute": "مشارکت در گیت‌هاب",
@@ -47,29 +68,79 @@ const I18N = {
     "stats.datasets": "پیکره",
     "filter.search": "جستجو…",
     "filter.all": "همه کلاس‌ها",
+    "filter.kindAll": "همه انواع",
     "filter.statusAll": "همه وضعیت‌ها",
     "atlas.heading": "رجیستری",
     "atlas.empty": "نتیجه‌ای نیست.",
     "gap.heading": "نقشهٔ شکاف",
     "trust.heading": "اعتماد و روش",
-    "trust.body": "هر رکورد به نشانی منبع اولیه نیاز دارد. وضعیت فقط با استناد indexed → verified → measured می‌شود. نمرهٔ محورها برآورد تحریریه است؛ null یعنی نامشخص — نه ساختگی.",
+    "trust.body":
+      "هر رکورد به نشانی منبع اولیه نیاز دارد. وضعیت فقط با استناد indexed → verified → measured می‌شود. نمرهٔ محورها برآورد تحریریه است؛ null یعنی نامشخص — نه ساختگی.",
     "footer.law": "نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.",
+    "view.grid": "کارت",
+    "view.table": "جدول",
+    "export.csv": "خروجی CSV",
+    "table.name": "نام",
+    "table.kind": "نوع",
+    "table.class": "کلاس",
+    "table.size": "اندازه (B)",
+    "table.status": "وضعیت",
+    "table.links": "پیوند",
+    "cite.heading": "استناد به این مرجع",
+    "lane.all": "همه",
+    "lane.finetune": "فاین‌تیون",
+    "lane.benchmark": "بنچمارک",
+    "lane.leaderboard": "جدول",
+    "lane.frontier": "مرز API",
     "class.native-foundation": "بنیان فارسی",
     "class.adapted-instruct": "دستوری سازگارشده",
     "class.multilingual-frontier": "مرز چندزبانه",
     "class.encoder-only": "فقط رمزگذار",
-    "class.dataset": "Dataset",
+    "class.dataset": "پیکره",
     "class.leaderboard": "جدول",
     "class.community-index": "فهرست جامعه",
     "class.program": "برنامه",
+    "kind.model": "مدل",
+    "kind.dataset": "پیکره",
+    "kind.leaderboard": "جدول",
+    "kind.community-index": "فهرست",
   },
 };
 
+const LANES = [
+  { id: "all", labelKey: "lane.all", match: () => true },
+  {
+    id: "finetune",
+    labelKey: "lane.finetune",
+    match: (e) => e.kind === "model" && e.class === "adapted-instruct",
+  },
+  {
+    id: "benchmark",
+    labelKey: "lane.benchmark",
+    match: (e) => e.kind === "dataset" && e.class === "dataset",
+  },
+  {
+    id: "leaderboard",
+    labelKey: "lane.leaderboard",
+    match: (e) => e.class === "leaderboard",
+  },
+  {
+    id: "frontier",
+    labelKey: "lane.frontier",
+    match: (e) => e.class === "multilingual-frontier",
+  },
+];
+
 const AXES = ["scriptFidelity", "corpusLaw", "curriculumFit", "literaryDepth", "nativePreference"];
+const MIN_ENTRIES = 40;
 
 let lang = localStorage.getItem("plr-lang") || "fa";
 let manifest = null;
 let siteConfig = null;
+let activeLane = "all";
+let viewMode = localStorage.getItem("plr-view") || "grid";
+let sortKey = "name";
+let sortDir = 1;
 
 function t(key) {
   return I18N[lang][key] || I18N.en[key] || key;
@@ -91,6 +162,21 @@ function setApiLine() {
   const raw = siteConfig?.manifestRaw || path;
   document.getElementById("api-line").innerHTML =
     `API: <code>${path}</code> · raw: <code>${raw}</code>`;
+}
+
+function renderCite() {
+  const raw = siteConfig?.manifestRaw || "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json";
+  const ver = manifest.version || "0.3.0";
+  const date = manifest.generatedAt?.slice(0, 10) || "";
+  document.getElementById("cite-block").innerHTML = `
+    <p><strong>${t("cite.heading")}</strong></p>
+    <pre class="cite-pre">@misc{persian_llm_reference,
+  title={Persian LLM Reference},
+  year={2026},
+  url={${siteConfig?.canonicalSite || "https://sinakazemnezhad.github.io/persian-llm-reference"}},
+  note={manifest v${ver} generatedAt ${date}}
+}
+Manifest: ${raw}</pre>`;
 }
 
 function renderStats() {
@@ -138,7 +224,7 @@ function axisDots(axes) {
     .join("")}</span>`;
 }
 
-function linkHtml(links) {
+function linkHtml(links, compact = false) {
   if (!links) return "";
   const parts = [];
   if (links.hf) parts.push(`<a href="${links.hf}" target="_blank" rel="noopener">HF</a>`);
@@ -147,7 +233,13 @@ function linkHtml(links) {
   if (links.web) parts.push(`<a href="${links.web}" target="_blank" rel="noopener">web</a>`);
   if (links.ollama) parts.push(`<a href="${links.ollama}" target="_blank" rel="noopener">ollama</a>`);
   if (links.leaderboard) parts.push(`<a href="${links.leaderboard}" target="_blank" rel="noopener">board</a>`);
-  return parts.length ? `<div class="card-links">${parts.join("")}</div>` : "";
+  return parts.length ? `<div class="card-links${compact ? " card-links--compact" : ""}">${parts.join("")}</div>` : "";
+}
+
+function entryUrl(id) {
+  const u = new URL(location.href);
+  u.searchParams.set("entry", id);
+  return u.toString();
 }
 
 function renderCard(entry) {
@@ -156,13 +248,13 @@ function renderCard(entry) {
   const classLabel = t(`class.${entry.class}`) || entry.class;
   const size = entry.sizeB ? `${entry.sizeB}B` : "—";
   return `
-    <article class="entry-card" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}">
+    <article class="entry-card" data-class="${entry.class}" data-status="${entry.status}" data-id="${entry.id}" id="entry-${entry.id}">
       <div class="entry-meta">
         <span class="badge">${classLabel}</span>
         <span class="badge badge--status-${entry.status}">${entry.status}</span>
         <span class="badge">${size}</span>
       </div>
-      <h3>${name}</h3>
+      <h3><a href="${entryUrl(entry.id)}">${name}</a></h3>
       <p>${summary}</p>
       ${axisDots(entryAxes(entry))}
       ${linkHtml(entry.links)}
@@ -172,39 +264,162 @@ function renderCard(entry) {
 function getFilters() {
   return {
     q: document.getElementById("search").value.trim().toLowerCase(),
+    kind: document.getElementById("kind-filter").value,
     cls: document.getElementById("class-filter").value,
     status: document.getElementById("status-filter").value,
   };
 }
 
-function renderAtlas() {
-  if (!manifest) return;
-  const { q, cls, status } = getFilters();
-  const entries = manifest.entries.filter((e) => {
+function filteredEntries() {
+  const { q, kind, cls, status } = getFilters();
+  const lane = LANES.find((l) => l.id === activeLane) || LANES[0];
+  return manifest.entries.filter((e) => {
+    if (!lane.match(e)) return false;
+    if (kind && e.kind !== kind) return false;
     if (cls && e.class !== cls) return false;
     if (status && e.status !== status) return false;
     if (!q) return true;
     return JSON.stringify(e).toLowerCase().includes(q);
   });
-  document.getElementById("entry-grid").innerHTML = entries.map(renderCard).join("");
-  document.getElementById("empty-state").classList.toggle("hidden", entries.length > 0);
 }
 
-function fillClassFilter() {
-  const sel = document.getElementById("class-filter");
-  const classes = [...new Set(manifest.entries.map((e) => e.class))].sort();
-  sel.innerHTML = `<option value="">${t("filter.all")}</option>`;
-  classes.forEach((c) => {
+function sortedEntries(entries) {
+  const list = [...entries];
+  list.sort((a, b) => {
+    let av;
+    let bv;
+    if (sortKey === "name") {
+      av = (a.name[lang] || a.name.en || "").toLowerCase();
+      bv = (b.name[lang] || b.name.en || "").toLowerCase();
+      return av.localeCompare(bv) * sortDir;
+    }
+    if (sortKey === "sizeB") {
+      av = a.sizeB ?? -1;
+      bv = b.sizeB ?? -1;
+      return (av - bv) * sortDir;
+    }
+    av = String(a[sortKey] || "");
+    bv = String(b[sortKey] || "");
+    return av.localeCompare(bv) * sortDir;
+  });
+  return list;
+}
+
+function renderTable(entries) {
+  const tbody = document.getElementById("compare-body");
+  tbody.innerHTML = entries
+    .map((e) => {
+      const name = e.name[lang] || e.name.en;
+      const size = e.sizeB ?? "—";
+      return `<tr data-id="${e.id}">
+        <td><a href="${entryUrl(e.id)}">${name}</a></td>
+        <td>${t(`kind.${e.kind}`) || e.kind}</td>
+        <td>${t(`class.${e.class}`) || e.class}</td>
+        <td>${size}</td>
+        <td><span class="badge badge--status-${e.status}">${e.status}</span></td>
+        <td>${linkHtml(e.links, true)}</td>
+      </tr>`;
+    })
+    .join("");
+}
+
+function renderAtlas() {
+  if (!manifest) return;
+  const entries = sortedEntries(filteredEntries());
+  document.getElementById("entry-grid").innerHTML = entries.map(renderCard).join("");
+  renderTable(entries);
+  document.getElementById("empty-state").classList.toggle("hidden", entries.length > 0);
+  document.getElementById("entry-grid").classList.toggle("hidden", viewMode !== "grid");
+  document.getElementById("table-wrap").classList.toggle("hidden", viewMode !== "table");
+  document.getElementById("view-grid").classList.toggle("active", viewMode === "grid");
+  document.getElementById("view-table").classList.toggle("active", viewMode === "table");
+  applyDeepLink();
+}
+
+function fillSelect(id, values, labelFn, allKey) {
+  const sel = document.getElementById(id);
+  const current = sel.value;
+  sel.innerHTML = `<option value="">${t(allKey)}</option>`;
+  values.forEach((v) => {
     const opt = document.createElement("option");
-    opt.value = c;
-    opt.textContent = t(`class.${c}`) || c;
+    opt.value = v;
+    opt.textContent = labelFn(v);
     sel.appendChild(opt);
+  });
+  if ([...sel.options].some((o) => o.value === current)) sel.value = current;
+}
+
+function fillFilters() {
+  fillSelect(
+    "kind-filter",
+    [...new Set(manifest.entries.map((e) => e.kind))].sort(),
+    (k) => t(`kind.${k}`) || k,
+    "filter.kindAll"
+  );
+  fillSelect(
+    "class-filter",
+    [...new Set(manifest.entries.map((e) => e.class))].sort(),
+    (c) => t(`class.${c}`) || c,
+    "filter.all"
+  );
+}
+
+function renderLanes() {
+  const bar = document.getElementById("lanes");
+  bar.innerHTML = LANES.map(
+    (lane) =>
+      `<button type="button" class="lane-btn${activeLane === lane.id ? " active" : ""}" data-lane="${lane.id}">${t(lane.labelKey)}</button>`
+  ).join("");
+  bar.querySelectorAll(".lane-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeLane = btn.dataset.lane;
+      renderLanes();
+      renderAtlas();
+    });
   });
 }
 
 function renderGap() {
   const items = manifest.gapMap[lang] || manifest.gapMap.en;
   document.getElementById("gap-list").innerHTML = items.map((li) => `<li>${li}</li>`).join("");
+}
+
+function exportCsv() {
+  const entries = sortedEntries(filteredEntries());
+  const header = ["id", "name_en", "kind", "class", "sizeB", "status", "license", "primary_url"];
+  const rows = entries.map((e) => {
+    const links = e.links || {};
+    const primary = links.hf || links.paper || links.repo || links.web || "";
+    return [
+      e.id,
+      e.name.en,
+      e.kind,
+      e.class,
+      e.sizeB ?? "",
+      e.status,
+      e.license ?? "",
+      primary,
+    ]
+      .map((c) => `"${String(c).replace(/"/g, '""')}"`)
+      .join(",");
+  });
+  const blob = new Blob([[header.join(","), ...rows].join("\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `persian-llm-reference-${manifest.version}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function applyDeepLink() {
+  const id = new URLSearchParams(location.search).get("entry");
+  document.querySelectorAll(".entry-card.highlight").forEach((el) => el.classList.remove("highlight"));
+  if (!id) return;
+  const card = document.getElementById(`entry-${id}`);
+  if (card) {
+    card.classList.add("highlight");
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 }
 
 function resolveManifestUrl() {
@@ -245,9 +460,11 @@ async function boot() {
 
   manifest = await loadManifest();
   setApiLine();
+  renderCite();
   renderStats();
   injectSchema();
-  fillClassFilter();
+  fillFilters();
+  renderLanes();
   renderGap();
   renderAtlas();
 
@@ -255,16 +472,47 @@ async function boot() {
     lang = lang === "fa" ? "en" : "fa";
     localStorage.setItem("plr-lang", lang);
     applyI18n();
-    fillClassFilter();
+    fillFilters();
+    renderLanes();
     renderGap();
     renderStats();
+    renderCite();
     renderAtlas();
   });
 
-  ["search", "class-filter", "status-filter"].forEach((id) => {
+  ["search", "class-filter", "status-filter", "kind-filter"].forEach((id) => {
     document.getElementById(id).addEventListener("input", renderAtlas);
     document.getElementById(id).addEventListener("change", renderAtlas);
   });
+
+  document.getElementById("view-grid").addEventListener("click", () => {
+    viewMode = "grid";
+    localStorage.setItem("plr-view", viewMode);
+    renderAtlas();
+  });
+  document.getElementById("view-table").addEventListener("click", () => {
+    viewMode = "table";
+    localStorage.setItem("plr-view", viewMode);
+    renderAtlas();
+  });
+  document.getElementById("export-csv").addEventListener("click", exportCsv);
+
+  document.querySelectorAll(".compare-table th[data-sort]").forEach((th) => {
+    th.style.cursor = "pointer";
+    th.addEventListener("click", () => {
+      const key = th.dataset.sort;
+      if (sortKey === key) sortDir *= -1;
+      else {
+        sortKey = key;
+        sortDir = 1;
+      }
+      renderAtlas();
+    });
+  });
+
+  window.addEventListener("popstate", applyDeepLink);
 }
 
 boot();
+
+export { MIN_ENTRIES };
