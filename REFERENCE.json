@@ -14,9 +14,9 @@
     "en": "The open, receipt-gated global atlas for Persian (Farsi) language models — more complete than link lists, more honest than hype.",
     "fa": "اطلس باز و رسیدمحور جهانی برای مدل‌های زبانی فارسی — کامل‌تر از فهرست پیوند، صادق‌تر از شعار."
   },
-  "canonicalSite": "https://sinakazemnezhadca-eng.github.io/persian-llm-reference",
-  "canonicalRepo": "https://github.com/sinakazemnezhadca-eng/persian-llm-reference",
-  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhadca-eng/persian-llm-reference/main/data/reference-manifest.json",
+  "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
+  "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
   "githubPagesBase": "/persian-llm-reference",
   "license": "CC-BY-4.0",
   "scope": "global-community",

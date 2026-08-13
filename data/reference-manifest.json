@@ -1,12 +1,12 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:42:31.578Z",
+  "generatedAt": "2026-08-13T01:46:06.503Z",
   "schema": "persian-llm-reference/v1",
   "meta": {
     "scope": "global",
     "maintainer": "Persian LLM Reference maintainers",
-    "canonicalRepo": "https://github.com/sinakazemnezhadca-eng/persian-llm-reference",
-    "canonicalSite": "https://sinakazemnezhadca-eng.github.io/persian-llm-reference",
+    "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
+    "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
     "supersedes": "link-only lists without verification gates",
     "coverage": [
       "models",
@@ -58,8 +58,8 @@
         "fa": "برنامهٔ هوش بنیادین فارسی — برنامهٔ درسی الفبا تا ادبیات، قفسهٔ مجوزدار، رسید دروازه."
       },
       "links": {
-        "web": "https://sinakazemnezhadca-eng.github.io/persian-llm-reference",
-        "repo": "https://github.com/sinakazemnezhadca-eng/persian-llm-reference"
+        "web": "https://sinakazemnezhad.github.io/persian-llm-reference",
+        "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
       },
       "origin": {
         "base": null,
