@@ -1,12 +1,12 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-08-13T01:38:32.378Z",
+  "generatedAt": "2026-08-13T01:42:31.578Z",
   "schema": "persian-llm-reference/v1",
   "meta": {
     "scope": "global",
     "maintainer": "Persian LLM Reference maintainers",
-    "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
-    "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
+    "canonicalRepo": "https://github.com/sinakazemnezhadca-eng/persian-llm-reference",
+    "canonicalSite": "https://sinakazemnezhadca-eng.github.io/persian-llm-reference",
     "supersedes": "link-only lists without verification gates",
     "coverage": [
       "models",
@@ -58,8 +58,8 @@
         "fa": "برنامهٔ هوش بنیادین فارسی — برنامهٔ درسی الفبا تا ادبیات، قفسهٔ مجوزدار، رسید دروازه."
       },
       "links": {
-        "web": "https://sinakazemnezhad.github.io/persian-llm-reference",
-        "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
+        "web": "https://sinakazemnezhadca-eng.github.io/persian-llm-reference",
+        "repo": "https://github.com/sinakazemnezhadca-eng/persian-llm-reference"
       },
       "origin": {
         "base": null,
@@ -1129,7 +1129,7 @@
     "name": "DIS BRAND Governed Agent",
     "agent": "DIS-PLUSONE-GOV-AGENT",
     "action": "edit",
-    "at": "2026-08-13T01:37:00.645Z",
+    "at": "2026-08-13T01:42:30.986Z",
     "file": "persian-llm-reference/data/reference-manifest.json"
   }
 }
