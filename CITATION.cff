@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: Persian LLM Reference — Global Atlas
+message: "If you use this atlas, please cite it as below."
+authors:
+  - name: Persian LLM Reference maintainers
+repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
+url: https://sinakazemnezhad.github.io/persian-llm-reference
+license: CC-BY-4.0
+version: 0.2.0

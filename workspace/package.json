@@ -1,0 +1,33 @@
+{
+  "name": "persian-llm-reference",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Global open atlas of Persian (Farsi) language models",
+  "scripts": {
+    "validate": "node scripts/validate-manifest.mjs",
+    "build": "node scripts/build-static.mjs",
+    "prebuild": "node scripts/validate-manifest.mjs",
+    "prestart": "node scripts/build-static.mjs",
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "sync:reference": "node scripts/build-static.mjs",
+    "e2e": "node scripts/e2e-local.mjs",
+    "verify:local": "npm run build && node scripts/e2e-local.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "agentAttribution": {
+    "repo": "PLUS ONE",
+    "product": "DIS BRAND",
+    "namespace": "dis-brand-agent",
+    "tag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-PACKAGE-JSON",
+    "fileTag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-PACKAGE-JSON",
+    "name": "DIS BRAND Governed Agent",
+    "agent": "DIS-PLUSONE-GOV-AGENT",
+    "action": "edit",
+    "at": "2026-08-12T22:09:54.829Z",
+    "file": "persian-llm-reference/workspace/package.json"
+  }
+}

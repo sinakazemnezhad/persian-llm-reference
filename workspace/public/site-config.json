@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
+  "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
+  "manifestPath": "/persian-llm-reference/data/reference-manifest.json",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "basePath": "/persian-llm-reference",
+  "name": {
+    "en": "Persian LLM Reference",
+    "fa": "مرجع جهانی مدل‌های زبانی فارسی"
+  }
+}

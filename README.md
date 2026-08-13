@@ -1,0 +1,76 @@
+<!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-README-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-13T01:36:45.936Z file=persian-llm-reference/README.md -->
+# Persian LLM Reference
+
+**مرجع جهانی مدل‌های زبانی فارسی**
+
+The **open global atlas** for Persian (Farsi) language models — built to be more complete than link lists and more honest than hype.
+
+> Not a personal notebook. Not a local mirror. **Online-first · community-maintained · machine-readable.**
+
+## Why this repo exists
+
+| Existing references | What they lack | What PLR adds |
+|---------------------|----------------|---------------|
+| [Awesome Persian LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) | Links rot; no schema | Structured records + verification gates |
+| Leaderboards (MIZAN, PartAI) | Scores only; no corpus law | Model + dataset + benchmark in one manifest |
+| Hugging Face search | No Persian-native taxonomy | Script · corpus · curriculum · literary axes |
+| Papers | Scattered | Indexed with `asOf` dates and primary URLs |
+
+## Live surfaces (after deploy)
+
+| Surface | URL |
+|---------|-----|
+| **Atlas UI** | `https://sinakazemnezhad.github.io/persian-llm-reference` |
+| **Manifest JSON** | `/data/reference-manifest.json` |
+| **Agent discovery** | `/.well-known/persian-llm-reference.json` |
+| **Raw (cite in papers)** | `raw.githubusercontent.com/.../data/reference-manifest.json` |
+
+## Repository layout
+
+| Path | Role |
+|------|------|
+| `data/reference-manifest.json` | **SSOT** — all models, datasets, benchmarks |
+| `workspace/public/` | Static site (GitHub Pages root after build) |
+| `governance/MANIFEST_LAW.md` | Taxonomy + verification gates |
+| `governance/POSITIONING.md` | How we beat other references |
+| `REFERENCE.json` | Product identity (neutral, global) |
+
+## GitHub setup (required)
+
+1. Repo: [github.com/sinakazemnezhad/persian-llm-reference](https://github.com/sinakazemnezhad/persian-llm-reference)
+2. Enable **GitHub Pages** → source: **GitHub Actions**
+3. Push `main` branch
+4. Site: `https://sinakazemnezhad.github.io/persian-llm-reference`
+
+## Build & verify
+
+```bash
+cd workspace
+npm run build    # validate + copy manifest to public/
+npm run e2e      # local server smoke
+```
+
+## Verification gates
+
+`indexed` → `verified` → `measured` → `corpus-documented` → `literary`
+
+**No invented scores.** `null` until a primary source exists.
+
+## Cite
+
+```bibtex
+@misc{persian_llm_reference,
+  title={Persian LLM Reference — Global Atlas},
+  year={2026},
+  url={https://persian-llm-reference.github.io},
+  note={Manifest version in generatedAt field}
+}
+```
+
+## Contributing
+
+One PR = one entry + primary source URL. See `governance/CONTRIBUTING.md`.
+
+## License
+
+Manifest metadata and docs: **CC-BY-4.0**. Each model entry retains its own license.

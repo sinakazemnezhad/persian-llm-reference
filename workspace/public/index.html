@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مرجع جهانی مدل‌های زبانی فارسی · Persian LLM Reference</title>
+  <meta name="description" content="The open global atlas for Persian (Farsi) language models — receipt-gated, bilingual, machine JSON API." />
+  <meta property="og:title" content="Persian LLM Reference — Global Atlas" />
+  <meta property="og:description" content="The most complete open reference for Persian LLMs — models, datasets, benchmarks, leaderboards." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css?v=0.2.0" />
+  <script type="application/ld+json" id="schema-dataset"></script>
+</head>
+<body>
+  <a class="hidden" href="#atlas">Skip to atlas</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/">Persian LLM <span>Reference</span></a>
+    <div class="header-actions">
+      <button type="button" class="btn btn-ghost" id="lang-toggle" aria-label="Switch language">EN</button>
+      <a class="btn btn-primary" id="github-link" href="#" target="_blank" rel="noopener" data-i18n="nav.contribute">Contribute</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="kicker" data-i18n="hero.kicker">Global atlas · receipt before claim</p>
+      <h1 id="atlas-title" data-i18n="hero.title">مرجع جهانی مدل‌های زبانی فارسی</h1>
+      <p class="lede" data-i18n="hero.lede">کامل‌ترین مرجع باز برای مدل‌های فارسی — مدل، پیکره، بنچمارک، جدول. JSON برای پژوهشگران و عامل‌ها. نه فهرست شخصی — اطلس جامعه.</p>
+      <div class="stats-bar" id="stats-bar" aria-live="polite"></div>
+    </section>
+
+    <section class="wrap compare-strip" aria-labelledby="compare-heading">
+      <h2 id="compare-heading" class="compare-title" data-i18n="compare.heading">چرا این مرجع؟</h2>
+      <ul class="compare-list">
+        <li data-i18n="compare.c1">ساختار JSON — نه فقط پیوند</li>
+        <li data-i18n="compare.c2">درگاه تأیید indexed → measured</li>
+        <li data-i18n="compare.c3">محور فارسی‌محور — خط، پیکره، ادبیات</li>
+        <li data-i18n="compare.c4">دوزبانه FA/EN · API پایدار</li>
+      </ul>
+    </section>
+
+    <section class="wrap toolbar" aria-label="Filters">
+      <input type="search" id="search" data-i18n-placeholder="filter.search" placeholder="جستجو…" />
+      <select id="class-filter" aria-label="Class filter">
+        <option value="" data-i18n="filter.all">همه کلاس‌ها</option>
+      </select>
+      <select id="status-filter" aria-label="Status filter">
+        <option value="" data-i18n="filter.statusAll">همه وضعیت‌ها</option>
+        <option value="indexed">indexed</option>
+        <option value="verified">verified</option>
+        <option value="measured">measured</option>
+      </select>
+    </section>
+
+    <section class="section wrap" id="atlas" aria-labelledby="atlas-heading">
+      <h2 id="atlas-heading" data-i18n="atlas.heading">رجیستری</h2>
+      <div class="entry-grid" id="entry-grid"></div>
+      <p id="empty-state" class="lede hidden" data-i18n="atlas.empty">نتیجه‌ای نیست.</p>
+    </section>
+
+    <section class="section wrap" id="gap" aria-labelledby="gap-heading">
+      <h2 id="gap-heading" data-i18n="gap.heading">نقشهٔ شکاف</h2>
+      <ul class="gap-list" id="gap-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p class="api-line" id="api-line"></p>
+    <p data-i18n="footer.law">نمرهٔ ساختگی ممنوع. مرجع جهانی — نه پروژهٔ شخصی.</p>
+  </footer>
+
+  <script src="app.js?v=0.2.0" type="module"></script>
+</body>
+</html>

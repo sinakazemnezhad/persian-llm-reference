@@ -1,0 +1,26 @@
+:root {
+  --ink: #0a0e14;
+  --deep: #111827;
+  --panel: #151d2e;
+  --border: rgba(212, 175, 95, 0.18);
+  --gold: #d4af5f;
+  --sand: #f0e6d2;
+  --fog: #9aa8bc;
+  --teal: #3d8b8b;
+  --status-ok: #6fcf97;
+  --status-warn: #e8b86d;
+  --font-sans: "Vazirmatn", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Literata", "Times New Roman", serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.75rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --radius: 10px;
+}

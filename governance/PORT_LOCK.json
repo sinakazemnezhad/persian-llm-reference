@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "locked": true,
+  "product": "PERSIAN_LLM_REFERENCE",
+  "host": "127.0.0.1",
+  "port": 5294,
+  "law": "Persian LLM Reference owns 5294 only — Alefbâ charter stays on 5293",
+  "agentAttribution": {
+    "repo": "PLUS ONE",
+    "product": "DIS BRAND",
+    "namespace": "dis-brand-agent",
+    "tag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-PORT-LOCK-JSON",
+    "fileTag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-PORT-LOCK-JSON",
+    "name": "DIS BRAND Governed Agent",
+    "agent": "DIS-PLUSONE-GOV-AGENT",
+    "action": "edit",
+    "at": "2026-08-12T22:01:29.790Z",
+    "file": "persian-llm-reference/governance/PORT_LOCK.json"
+  }
+}

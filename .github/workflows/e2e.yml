@@ -1,0 +1,21 @@
+name: e2e
+on:
+  push:
+    paths:
+      - "persian-llm-reference/**"
+  pull_request:
+    paths:
+      - "persian-llm-reference/**"
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: persian-llm-reference/workspace
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node src/server.mjs &
+      - run: sleep 2 && npm run e2e

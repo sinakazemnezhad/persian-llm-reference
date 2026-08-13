@@ -1,0 +1,36 @@
+{
+  "id": "persian-llm-reference",
+  "name": {
+    "en": "Persian LLM Reference",
+    "fa": "مرجع جهانی مدل‌های زبانی فارسی"
+  },
+  "brand": "PLR",
+  "brandFull": {
+    "en": "Persian LLM Reference — Global Atlas",
+    "fa": "مرجع جهانی مدل‌های زبانی فارسی"
+  },
+  "version": "0.2.0",
+  "mission": {
+    "en": "The open, receipt-gated global atlas for Persian (Farsi) language models — more complete than link lists, more honest than hype.",
+    "fa": "اطلس باز و رسیدمحور جهانی برای مدل‌های زبانی فارسی — کامل‌تر از فهرست پیوند، صادق‌تر از شعار."
+  },
+  "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
+  "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
+  "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "githubPagesBase": "/persian-llm-reference",
+  "license": "CC-BY-4.0",
+  "scope": "global-community",
+  "maintainer": "Persian LLM Reference maintainers",
+  "agentAttribution": {
+    "repo": "PLUS ONE",
+    "product": "DIS BRAND",
+    "namespace": "dis-brand-agent",
+    "tag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-REFERENCE-JSON",
+    "fileTag": "DIS-PLUSONE-PERSIAN-LLM-REFERENCE-REFERENCE-JSON",
+    "name": "DIS BRAND Governed Agent",
+    "agent": "DIS-PLUSONE-GOV-AGENT",
+    "action": "edit",
+    "at": "2026-08-13T01:36:40.508Z",
+    "file": "persian-llm-reference/REFERENCE.json"
+  }
+}
