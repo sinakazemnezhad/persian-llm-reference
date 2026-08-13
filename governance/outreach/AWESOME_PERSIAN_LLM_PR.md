@@ -2,7 +2,7 @@
 
 **Target repo:** [MohammadHeydari/Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM)  
 **Drafted:** 2026-08-13 · **Author:** Persian LLM Reference maintainers  
-**Status:** Branch pushed to `sinakazemnezhad/Awesome-Persian-LLM` — open PR at [Awesome-Persian-LLM/compare](https://github.com/MohammadHeydari/Awesome-Persian-LLM/compare/main...sinakazemnezhad:add-persian-llm-reference-companion)
+**Status:** PR open — [MohammadHeydari/Awesome-Persian-LLM#2](https://github.com/MohammadHeydari/Awesome-Persian-LLM/pull/2) (`sinakazemnezhad:add-persian-llm-reference-companion`)
 
 ---
 
