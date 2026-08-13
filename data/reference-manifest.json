@@ -1,6 +1,6 @@
 {
   "version": "0.4.0",
-  "generatedAt": "2026-08-13T03:20:08.708Z",
+  "generatedAt": "2026-08-13T03:22:43.318Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -81,6 +81,13 @@
           "asOf": "2024-01",
           "receipt": "paper",
           "url": "https://arxiv.org/abs/2401.06466"
+        },
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "24.22",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -397,11 +404,11 @@
       },
       "benchmarks": [
         {
-          "name": "ELAB (Persian alignment)",
-          "score": null,
-          "asOf": "2025-04",
+          "name": "PersianMedQA (Persian)",
+          "score": "39.99",
+          "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2504.12553"
+          "url": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -762,7 +769,7 @@
       "org": "Community",
       "sizeB": 4,
       "license": "Apache-2.0",
-      "status": "verified",
+      "status": "measured",
       "summary": {
         "en": "Community Persian fine-tunes on Gemma 3 — lightweight chat.",
         "fa": "تنظیم‌دقیق فارسی جامعه روی جمّا ۳ — گفتگوی سبک."
@@ -784,7 +791,15 @@
         "class": "instruction",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "35.87",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": null,
         "corpusLaw": 1,
@@ -805,7 +820,7 @@
       "org": "PartAI",
       "sizeB": 8,
       "license": "Llama-3.1-community",
-      "status": "verified",
+      "status": "measured",
       "summary": {
         "en": "Successor in Dorna line on Llama 3.1 — cited in Persian alignment benchmarks.",
         "fa": "نسل بعدی درنا روی لاما ۳٫۱ — در بنچمارک‌های هم‌ترازی فارسی ذکر شده."
@@ -827,7 +842,15 @@
         "class": "mixed-open+instruction",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "34.87",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 1,
@@ -871,11 +894,11 @@
       },
       "benchmarks": [
         {
-          "name": "ELAB",
-          "score": null,
-          "asOf": "2025-04",
+          "name": "PersianMedQA (Persian)",
+          "score": "40.60",
+          "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2504.12553"
+          "url": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -1024,12 +1047,14 @@
       "org": "Anthropic",
       "sizeB": null,
       "license": "proprietary",
-      "status": "indexed",
+      "status": "measured",
       "summary": {
         "en": "Frontier multilingual assistant; Persian capable, English-born stack.",
         "fa": "دستیار مرزی چندزبانه؛ فارسی بلد، پشتهٔ انگلیسی‌زاده."
       },
-      "links": {},
+      "links": {
+        "web": "https://docs.anthropic.com/"
+      },
       "origin": {
         "base": "proprietary",
         "persianTraining": "multilingual-mix"
@@ -1043,7 +1068,15 @@
         "class": "proprietary",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "75.19",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 0,
@@ -1051,7 +1084,7 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "matina-llm-leaderboard",
@@ -2134,7 +2167,7 @@
       "org": "DeepSeek",
       "sizeB": null,
       "license": "proprietary",
-      "status": "indexed",
+      "status": "measured",
       "summary": {
         "en": "Frontier multilingual model class cited on Persian leaderboards; no open weights.",
         "fa": "ردهٔ مدل چندزبانهٔ مرزی در جدول‌های فارسی؛ بدون وزن باز."
@@ -2155,7 +2188,15 @@
         "class": "mixed-web",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "68.05",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 0,
@@ -2163,7 +2204,7 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     },
     {
       "id": "oscar-2201-corpus",
@@ -2394,7 +2435,7 @@
       "org": "Google",
       "sizeB": null,
       "license": "proprietary",
-      "status": "indexed",
+      "status": "measured",
       "summary": {
         "en": "Google frontier class evaluated on EPT Persian trustworthiness benchmark.",
         "fa": "ردهٔ مرزی گوگل — ارزیابی‌شده در بنچمارک اعتمادپذیری فارسی EPT."
@@ -2415,7 +2456,15 @@
         "class": "mixed-web",
         "licensedBooks": false
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "score": "82.37",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "url": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
       "alefbaAxes": {
         "scriptFidelity": 2,
         "corpusLaw": 0,
@@ -2423,7 +2472,7 @@
         "literaryDepth": 2,
         "nativePreference": 1
       },
-      "verifiedAt": null
+      "verifiedAt": "2026-08-13"
     }
   ],
   "gapMap": {
@@ -2458,9 +2507,9 @@
       "community-index": 2
     },
     "byStatus": {
-      "measured": 5,
-      "verified": 37,
-      "indexed": 13
+      "measured": 10,
+      "verified": 35,
+      "indexed": 10
     }
   }
 }

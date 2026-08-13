@@ -1,0 +1,21 @@
+name: validate-links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workspace
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate manifest primary URLs
+        run: npm run validate:links

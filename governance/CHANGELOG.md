@@ -1,6 +1,10 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+- **Measured lift:** Qwen/Aya null ELAB scores replaced with PersianMedQA receipts; Dorna2, Claude, DeepSeek-V3, Gemini 2.5, Gemma3 Persian upgraded to `measured` (10 total).
+- **Link CI:** `validate-links.yml` on every `main` push.
+- **README / SEO:** v0.4 stats, full raw manifest URL, citation block.
+
 ## 0.4.0 — 2026-08-13
 
 - **55 entries** (+14): PARSE, EPT, PersianMedQA, PQuAD, PersianMHQA, Hooshvare BERT-FA, IslamicPCQA (indexed), OSCAR-2201, Wikipedia FA dump, frontier class rows (DeepSeek-V3, Qwen3, Llama 3.3, Gemini 2.5), GPT-4.1 class (measured on PersianMedQA).

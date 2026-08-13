@@ -161,14 +161,15 @@ People need **decisions**, not another link dump.
 
 | Version | Bar | Target date (indicative) |
 |---------|-----|--------------------------|
-| **v0.2.1** *(now)* | 23 entries · live site · methodology · no fake scores | 2026-08 |
+| **v0.4.0** *(now)* | 55 entries · 37+ verified · 8+ measured · link CI on main | 2026-08 |
+| **v0.2.1** | 23 entries · live site · methodology · no fake scores | 2026-08 |
 | **v0.3** | 40+ entries · link CI · Awesome cross-link PR | weeks 1–4 |
-| **v0.4** | 10+ `verified` · 8+ `measured` · ParsBench URL · Dorna HF non-GGUF | weeks 3–6 |
+| **v0.4** | 10+ `verified` · 8+ `measured` · ParsBench URL · Dorna HF non-GGUF | weeks 3–6 *(met)* |
 | **v0.5** | Compare UI · timeline lane · use-case lanes · deep links | months 2–3 |
 | **v1.0** | 60+ entries · majority linked · 15+ measured · zero broken primary URLs · ≥1 external citation | months 4–6 |
 | **v2.0** | Schema stable · community PRs · optional `persian-llm-reference` org · custom domain | year 1+ |
 
-**Current stats (v0.2.1):** 4 measured · 2 verified · 17 indexed.
+**Current stats (v0.4.0):** 55 entries · **35 verified** · **10 measured** · 10 indexed.
 
 ---
 
