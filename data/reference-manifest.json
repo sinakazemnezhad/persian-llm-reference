@@ -1,6 +1,6 @@
 {
-  "version": "0.11.2",
-  "generatedAt": "2026-08-13T04:55:12.967Z",
+  "version": "0.12.0",
+  "generatedAt": "2026-08-16T06:50:04.109Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -161,7 +161,14 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-12",
-      "firstSeen": "2024-01"
+      "firstSeen": "2024-01",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "dorna-llama3-8b",
@@ -169,7 +176,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "Dorna-Llama3-8B-Instruct",
-        "fa": "درنا — لاما۳ ۸بی"
+        "fa": "درنا، لاما۳ ۸بی"
       },
       "org": "PartAI",
       "sizeB": 8,
@@ -216,7 +223,10 @@
       "verifiedAt": "2026-08-12",
       "firstSeen": "2024-06",
       "gapTags": [
-        "instruct-stack"
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
       ],
       "notes": "PersianMedQA paper evaluates Dorna2-LLaMA-3.1-8B separately (see dorna2-llama31-8b). Leaderboard link is live-receipt only."
     },
@@ -261,7 +271,13 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2023-06"
+      "firstSeen": "2023-06",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "persian-phi",
@@ -304,7 +320,13 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "yasin-persian-base",
@@ -312,7 +334,7 @@
       "class": "native-foundation",
       "name": {
         "en": "YASIN-Persian-Base",
-        "fa": "یاسین — پایهٔ فارسی"
+        "fa": "یاسین، پایهٔ فارسی"
       },
       "org": "ysn-rfd",
       "sizeB": 0.15,
@@ -358,7 +380,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "AVA-Llama-3-V2",
-        "fa": "آوا — لاما۳ نسخه ۲"
+        "fa": "آوا، لاما۳ نسخه ۲"
       },
       "org": "Community",
       "sizeB": 8,
@@ -392,7 +414,13 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "persian-llama-7b",
@@ -434,7 +462,13 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "qwen25-7b-instruct",
@@ -442,7 +476,7 @@
       "class": "multilingual-frontier",
       "name": {
         "en": "Qwen2.5-7B-Instruct",
-        "fa": "کوئن ۲٫۵ — ۷بی دستوری"
+        "fa": "کوئن ۲٫۵، ۷بی دستوری"
       },
       "org": "Alibaba",
       "sizeB": 7,
@@ -485,7 +519,14 @@
         "nativePreference": 0
       },
       "verifiedAt": "2026-08-12",
-      "firstSeen": "2024-09"
+      "firstSeen": "2024-09",
+      "gapTags": [
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "gpt-4-class",
@@ -528,7 +569,10 @@
         "nativePreference": 0
       },
       "verifiedAt": "2026-08-13",
-      "notes": "Legacy GPT-4 class row; see gpt-41-class for PersianMedQA measured receipt."
+      "notes": "Legacy GPT-4 class row; see gpt-41-class for PersianMedQA measured receipt.",
+      "gapTags": [
+        "cataloged"
+      ]
     },
     {
       "id": "parsbert",
@@ -571,7 +615,11 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-12",
-      "firstSeen": "2020-05"
+      "firstSeen": "2020-05",
+      "gapTags": [
+        "encoder-stack",
+        "open-weights"
+      ]
     },
     {
       "id": "matina-corpus",
@@ -615,7 +663,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "mizan-leaderboard",
@@ -657,7 +708,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "public-benchmark"
+      ]
     },
     {
       "id": "open-persian-llm-leaderboard",
@@ -699,7 +753,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "public-benchmark"
+      ]
     },
     {
       "id": "awesome-persian-llm",
@@ -742,7 +799,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "gapTags": [
+        "ecosystem-index"
+      ]
     },
     {
       "id": "elab-benchmark",
@@ -750,7 +810,7 @@
       "class": "dataset",
       "name": {
         "en": "ELAB — Persian LLM alignment benchmark",
-        "fa": "الاب — بنچمارک هم‌ترازی فارسی"
+        "fa": "الاب، بنچمارک هم‌ترازی فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -785,7 +845,11 @@
         "literaryDepth": 2,
         "nativePreference": 2
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval",
+        "public-benchmark"
+      ]
     },
     {
       "id": "taraz-benchmark",
@@ -793,7 +857,7 @@
       "class": "dataset",
       "name": {
         "en": "TARAZ — Persian cultural SAQ",
-        "fa": "تراز — پرسش کوتاه فرهنگی فارسی"
+        "fa": "تراز، پرسش کوتاه فرهنگی فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -829,7 +893,8 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "literary-eval"
+        "literary-eval",
+        "public-benchmark"
       ]
     },
     {
@@ -881,7 +946,15 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "dorna2-llama31-8b",
@@ -889,7 +962,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "Dorna2-Llama3.1-8B-Instruct",
-        "fa": "درنا۲ — لاما۳٫۱ ۸بی"
+        "fa": "درنا۲، لاما۳٫۱ ۸بی"
       },
       "org": "PartAI",
       "sizeB": 8,
@@ -935,7 +1008,12 @@
       "verifiedAt": "2026-08-13",
       "firstSeen": "2025-01",
       "gapTags": [
-        "instruct-stack"
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
       ]
     },
     {
@@ -986,7 +1064,13 @@
         "literaryDepth": 2,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-12"
+      "verifiedAt": "2026-08-12",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "parsbench",
@@ -1029,7 +1113,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "public-benchmark"
+      ]
     },
     {
       "id": "parsi-nlu",
@@ -1072,7 +1159,11 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval",
+        "public-benchmark"
+      ]
     },
     {
       "id": "gemini-class",
@@ -1115,7 +1206,10 @@
         "nativePreference": 0
       },
       "verifiedAt": "2026-08-13",
-      "notes": "Generic Gemini class; see gemini-25-class and gemini-20-flash-class for PersianMedQA scores."
+      "notes": "Generic Gemini class; see gemini-25-class and gemini-20-flash-class for PersianMedQA scores.",
+      "gapTags": [
+        "cataloged"
+      ]
     },
     {
       "id": "claude-class",
@@ -1165,7 +1259,11 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "matina-llm-leaderboard",
@@ -1207,7 +1305,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "public-benchmark"
+      ]
     },
     {
       "id": "hakim-embedding",
@@ -1215,7 +1316,7 @@
       "class": "encoder-only",
       "name": {
         "en": "Hakim — Farsi text embedding",
-        "fa": "حکیم — تعبیهٔ متن فارسی"
+        "fa": "حکیم، تعبیهٔ متن فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -1249,7 +1350,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "encoder-stack"
+      ]
     },
     {
       "id": "tooka-sbert",
@@ -1291,7 +1395,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "encoder-stack"
+      ]
     },
     {
       "id": "famteb-benchmark",
@@ -1299,7 +1406,7 @@
       "class": "dataset",
       "name": {
         "en": "FaMTEB — Persian embedding benchmark",
-        "fa": "فام‌تی‌ای‌بی — بنچمارک تعبیهٔ فارسی"
+        "fa": "فام‌تی‌ای‌بی، بنچمارک تعبیهٔ فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -1333,7 +1440,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "public-benchmark"
+      ]
     },
     {
       "id": "farsinstruct",
@@ -1375,7 +1485,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "khayyam-persianmmlu",
@@ -1383,7 +1496,7 @@
       "class": "dataset",
       "name": {
         "en": "Khayyam Challenge — PersianMMLU",
-        "fa": "چالش خیام — پرشین‌ام‌ام‌ال‌یو"
+        "fa": "چالش خیام، پرشین‌ام‌ام‌ال‌یو"
       },
       "org": "Research",
       "sizeB": null,
@@ -1417,7 +1530,11 @@
         "literaryDepth": 2,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval",
+        "public-benchmark"
+      ]
     },
     {
       "id": "farsi-synthetic-data",
@@ -1459,7 +1576,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "persian-synthetic-instruct",
@@ -1501,7 +1621,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "tlpc-corpus",
@@ -1543,7 +1666,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "alpaca-persian",
@@ -1585,7 +1711,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "percul-benchmark",
@@ -1593,7 +1722,7 @@
       "class": "dataset",
       "name": {
         "en": "PERCUL — cultural eval (Persian)",
-        "fa": "پرکول — ارزیابی فرهنگی"
+        "fa": "پرکول، ارزیابی فرهنگی"
       },
       "org": "Research",
       "sizeB": null,
@@ -1629,7 +1758,9 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "literary-eval"
+        "literary-eval",
+        "native-preference",
+        "public-benchmark"
       ]
     },
     {
@@ -1638,7 +1769,7 @@
       "class": "dataset",
       "name": {
         "en": "MELAC — massive Persian LLM eval",
-        "fa": "ملاک — ارزیابی گسترده"
+        "fa": "ملاک، ارزیابی گسترده"
       },
       "org": "Research",
       "sizeB": null,
@@ -1674,7 +1805,8 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "literary-eval"
+        "literary-eval",
+        "public-benchmark"
       ]
     },
     {
@@ -1683,7 +1815,7 @@
       "class": "dataset",
       "name": {
         "en": "Taarof — Persian pragmatics eval",
-        "fa": "تعارف — ارزیابی pragmaتیک فارسی"
+        "fa": "تعارف، ارزیابی pragmaتیک فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -1719,7 +1851,9 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "literary-eval"
+        "literary-eval",
+        "native-preference",
+        "public-benchmark"
       ]
     },
     {
@@ -1762,7 +1896,10 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "cataloged"
+      ]
     },
     {
       "id": "persian-ollama-index",
@@ -1804,7 +1941,10 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "ecosystem-index"
+      ]
     },
     {
       "id": "dorna-4bit-quantized",
@@ -1846,7 +1986,13 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "dorna-llama3-8b-instruct",
@@ -1854,7 +2000,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "Dorna-Llama3-8B-Instruct (full weights)",
-        "fa": "درنا — وزن کامل"
+        "fa": "درنا، وزن کامل"
       },
       "org": "PartAI",
       "sizeB": 8,
@@ -1897,7 +2043,13 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "biopars",
@@ -1905,7 +2057,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "BioPars — Persian biomedical LLM",
-        "fa": "بیوپارس — مدل زیست‌پزشکی فارسی"
+        "fa": "بیوپارس، مدل زیست‌پزشکی فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -1940,7 +2092,13 @@
         "literaryDepth": 0,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "parse-benchmark",
@@ -1948,7 +2106,7 @@
       "class": "dataset",
       "name": {
         "en": "PARSE — Persian reasoning QA",
-        "fa": "پارس — پرسش‌وپاسخ استدلالی فارسی"
+        "fa": "پارس، پرسش‌وپاسخ استدلالی فارسی"
       },
       "org": "University of Innsbruck · IUST",
       "sizeB": null,
@@ -1986,7 +2144,8 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "literary-eval"
+        "literary-eval",
+        "public-benchmark"
       ]
     },
     {
@@ -1995,7 +2154,7 @@
       "class": "dataset",
       "name": {
         "en": "EPT — Persian trustworthiness eval",
-        "fa": "ای‌پی‌تی — ارزیابی اعتمادپذیری فارسی"
+        "fa": "ای‌پی‌تی، ارزیابی اعتمادپذیری فارسی"
       },
       "org": "Research",
       "sizeB": null,
@@ -2033,7 +2192,9 @@
       },
       "verifiedAt": "2026-08-13",
       "gapTags": [
-        "native-preference"
+        "literary-eval",
+        "native-preference",
+        "public-benchmark"
       ]
     },
     {
@@ -2078,7 +2239,10 @@
         "literaryDepth": 1,
         "nativePreference": 3
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "medical-eval"
+      ]
     },
     {
       "id": "pquad-dataset",
@@ -2086,7 +2250,7 @@
       "class": "dataset",
       "name": {
         "en": "PQuAD — Persian reading comprehension",
-        "fa": "پیکیوای‌ای‌دی — درک مطلب فارسی"
+        "fa": "پیکیوای‌ای‌دی، درک مطلب فارسی"
       },
       "org": "AUT · Mabna Intelligent Computing",
       "sizeB": null,
@@ -2121,7 +2285,11 @@
         "literaryDepth": 2,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "literary-eval",
+        "public-benchmark"
+      ]
     },
     {
       "id": "persianmhqa-dataset",
@@ -2129,7 +2297,7 @@
       "class": "dataset",
       "name": {
         "en": "PersianMHQA — multi-hop QA",
-        "fa": "پرشین‌ام‌اچ‌کیوای — پرسش چندگامی"
+        "fa": "پرشین‌ام‌اچ‌کیوای، پرسش چندگامی"
       },
       "org": "IUST",
       "sizeB": null,
@@ -2165,7 +2333,10 @@
         "nativePreference": null
       },
       "verifiedAt": "2026-08-13",
-      "notes": "Full 7k release pending per authors; HF hosts sample subset."
+      "notes": "Full 7k release pending per authors; HF hosts sample subset.",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "hooshvare-bert-fa",
@@ -2207,7 +2378,12 @@
         "literaryDepth": 1,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "encoder-stack",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "islamicpcqa-benchmark",
@@ -2250,7 +2426,11 @@
         "nativePreference": 2
       },
       "verifiedAt": "2026-08-13",
-      "notes": "Paper published; public dataset release pending per authors."
+      "notes": "Paper published; public dataset release pending per authors.",
+      "gapTags": [
+        "instruction-data",
+        "public-benchmark"
+      ]
     },
     {
       "id": "deepseek-v3-class",
@@ -2300,7 +2480,11 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "oscar-2201-corpus",
@@ -2342,7 +2526,10 @@
         "literaryDepth": 0,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "qwen3-class",
@@ -2384,7 +2571,10 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "open-weights"
+      ]
     },
     {
       "id": "llama33-class",
@@ -2434,7 +2624,12 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "wikimedia-fa-wikipedia",
@@ -2476,7 +2671,10 @@
         "literaryDepth": 2,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruction-data"
+      ]
     },
     {
       "id": "gpt-41-class",
@@ -2526,7 +2724,11 @@
         "literaryDepth": 3,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "gemini-25-class",
@@ -2576,7 +2778,11 @@
         "literaryDepth": 2,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "meditron3-8b",
@@ -2629,7 +2835,15 @@
         "nativePreference": 1
       },
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2024-11"
+      "firstSeen": "2024-11",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "biomistral-7b",
@@ -2680,7 +2894,15 @@
         "literaryDepth": 1,
         "nativePreference": 1
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "gaokerena-v",
@@ -2688,7 +2910,7 @@
       "class": "adapted-instruct",
       "name": {
         "en": "Gaokerena-V — Persian medical assistant",
-        "fa": "گاوکرنا‑وی — دستیار پزشکی فارسی"
+        "fa": "گاوکرنا‑وی، دستیار پزشکی فارسی"
       },
       "org": "Gaokerena",
       "sizeB": 8,
@@ -2725,7 +2947,14 @@
         "nativePreference": 2
       },
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2025-05"
+      "firstSeen": "2025-05",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     },
     {
       "id": "gaokerena-mf3qa",
@@ -2733,7 +2962,7 @@
       "class": "dataset",
       "name": {
         "en": "MF3QA — Persian medical free-form QA",
-        "fa": "ام‌اف۳کیوای — پرسش‌وپاسخ آزاد پزشکی فارسی"
+        "fa": "ام‌اف۳کیوای، پرسش‌وپاسخ آزاد پزشکی فارسی"
       },
       "org": "Gaokerena",
       "sizeB": null,
@@ -2769,7 +2998,10 @@
         "literaryDepth": 1,
         "nativePreference": 2
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "medical-eval"
+      ]
     },
     {
       "id": "gemini-20-flash-class",
@@ -2819,7 +3051,11 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "llama-31-405b-class",
@@ -2870,7 +3106,12 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "gemma-3-27b-it-class",
@@ -2886,7 +3127,7 @@
       "status": "measured",
       "summary": {
         "en": "Google Gemma 3 instruct tier — 59.06% Persian accuracy on PersianMedQA (paper Table 3).",
-        "fa": "خانوادهٔ دستوری جمّا ۳ گوگل — ۵۹٫۰۶٪ دقت فارسی در PersianMedQA (جدول ۳ مقاله)."
+        "fa": "خانوادهٔ دستوری جمّا ۳ گوگل، ۵۹٫۰۶٪ دقت فارسی در PersianMedQA (جدول ۳ مقاله)."
       },
       "links": {
         "hf": "https://huggingface.co/google/gemma-3-27b-it",
@@ -2922,7 +3163,12 @@
         "literaryDepth": 2,
         "nativePreference": 0
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "open-ensemble-persianmedqa",
@@ -2938,7 +3184,7 @@
       "status": "measured",
       "summary": {
         "en": "Majority-vote ensemble of diverse open-weight families — 73.7% Persian on PersianMedQA (paper §4.4).",
-        "fa": "ترکیب رأی‌گیری چند خانوادهٔ مدل باز — ۷۳٫۷٪ دقت فارسی در PersianMedQA (بخش ۴٫۴ مقاله)."
+        "fa": "ترکیب رأی‌گیری چند خانوادهٔ مدل باز، ۷۳٫۷٪ دقت فارسی در PersianMedQA (بخش ۴٫۴ مقاله)."
       },
       "links": {
         "paper": "https://arxiv.org/abs/2506.00250",
@@ -2975,7 +3221,11 @@
         "literaryDepth": null,
         "nativePreference": null
       },
-      "verifiedAt": "2026-08-13"
+      "verifiedAt": "2026-08-13",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "qwen25-72b-instruct",
@@ -2991,7 +3241,7 @@
       "status": "measured",
       "summary": {
         "en": "Large open Qwen 2.5 instruct tier — 65.17% Persian accuracy on PersianMedQA (paper Table A).",
-        "fa": "ردهٔ دستوری باز کوئن ۲٫۵ ۷۲بی — ۶۵٫۱۷٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+        "fa": "خانوادهٔ دستوری باز کوئن ۲٫۵ ۷۲بی، ۶۵٫۱۷٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
       },
       "links": {
         "hf": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
@@ -3020,7 +3270,13 @@
         }
       ],
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2024-09"
+      "firstSeen": "2024-09",
+      "gapTags": [
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "mixtral-8x22b-instruct",
@@ -3036,7 +3292,7 @@
       "status": "measured",
       "summary": {
         "en": "Mistral sparse MoE instruct model — 36.78% Persian accuracy on PersianMedQA (paper Table A).",
-        "fa": "مدل دستوری MoE میسترال — ۳۶٫۷۸٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+        "fa": "مدل دستوری MoE میسترال، ۳۶٫۷۸٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
       },
       "links": {
         "hf": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
@@ -3065,7 +3321,13 @@
         }
       ],
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2024-04"
+      "firstSeen": "2024-04",
+      "gapTags": [
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
+      ]
     },
     {
       "id": "mistral-saba-class",
@@ -3081,7 +3343,7 @@
       "status": "measured",
       "summary": {
         "en": "Mistral Saba proprietary tier — 61.85% Persian accuracy on PersianMedQA (paper Table A).",
-        "fa": "ردهٔ اختصاصی میسترال سابا — ۶۱٫۸۵٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+        "fa": "خانوادهٔ اختصاصی میسترال سابا، ۶۱٫۸۵٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
       },
       "links": {
         "web": "https://mistral.ai/",
@@ -3110,7 +3372,11 @@
         }
       ],
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2025-06"
+      "firstSeen": "2025-06",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
     },
     {
       "id": "meditron3-qwen25-7b",
@@ -3126,7 +3392,7 @@
       "status": "measured",
       "summary": {
         "en": "Medical Meditron3 variant on Qwen 2.5 7B — 37.62% Persian accuracy on PersianMedQA (paper Table A).",
-        "fa": "نسخهٔ پزشکی مدیترون۳ روی کوئن ۲٫۵ ۷بی — ۳۷٫۶۲٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
+        "fa": "نسخهٔ پزشکی مدیترون۳ روی کوئن ۲٫۵ ۷بی، ۳۷٫۶۲٪ دقت فارسی در PersianMedQA (جدول پیوست مقاله)."
       },
       "links": {
         "paper": "https://arxiv.org/abs/2506.00250",
@@ -3155,7 +3421,15 @@
         }
       ],
       "verifiedAt": "2026-08-13",
-      "firstSeen": "2025-06"
+      "firstSeen": "2025-06",
+      "gapTags": [
+        "instruct-stack",
+        "instruction-data",
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
     }
   ],
   "gapMap": {
@@ -3163,19 +3437,31 @@
       "No frontier-scale model whose first world is licensed Persian literature",
       "Few native-rater preference loops at production scale",
       "Literary register and book-memory evals remain sparse",
-      "Most open models are English-base adaptations under 15B"
+      "Most open models are English-base adaptations under 15B",
+      "Medical QA evidence is thin outside PersianMedQA-style receipts",
+      "Few open models under 8B with citable public eval scores",
+      "Many rows still lack a published benchmark we can cite with asOf",
+      "Instruction data and SFT recipes are scattered across repos"
     ],
     "fa": [
       "هنوز مدل بزرگی نداریم که اولویت اولش ادبیات مجازدار فارسی باشد",
       "نظرسنجی ارزیاب بومی در مقیاس محصول واقعی کم است",
       "معیار سنجش سبک ادبی و حافظهٔ کتاب در فارسی هنوز پراکنده است",
-      "بیشتر مدل‌های باز، نسخهٔ فارسی‌شدهٔ مدل انگلیسی زیر ۱۵ میلیارد پارامترند"
+      "بیشتر مدل‌های باز، نسخهٔ فارسی‌شدهٔ مدل انگلیسی زیر ۱۵ میلیارد پارامترند",
+      "شواهد پرسش‌وپاسخ پزشکی فارسی خارج از رسیدهای PersianMedQA کم است",
+      "مدل باز زیر ۸ میلیارد با نمرهٔ عمومی قابل استناد کم داریم",
+      "هنوز ردیف‌های زیادی بدون معیار منتشرشده با تاریخ و منبع هستند",
+      "داده و دستور آموزش پراکنده بین مخازن مختلف پخش شده است"
     ],
     "tags": [
       "native-foundation",
       "native-preference",
       "literary-eval",
-      "instruct-stack"
+      "instruct-stack",
+      "medical-eval",
+      "small-model",
+      "public-benchmark",
+      "instruction-data"
     ]
   },
   "stats": {

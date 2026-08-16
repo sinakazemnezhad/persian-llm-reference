@@ -19,6 +19,8 @@ function ok(name, pass) {
 
 ok("plr-locale.js exists", fs.existsSync(localeJs));
 ok("app.js imports plr-locale.js", appJs.includes('from "./plr-locale.js"'));
+ok("DECISIONS in app.js", appJs.includes("const DECISIONS"));
+ok("gap counts in app.js", appJs.includes("gap-btn__count"));
 ok("renderStats uses formatNum", /renderStats[\s\S]*formatNum\(total\)/.test(appJs));
 ok("no Literata in index.html", !/Literata/i.test(indexHtml));
 ok("no Instrument Serif in index.html", !/Instrument Serif/i.test(indexHtml));

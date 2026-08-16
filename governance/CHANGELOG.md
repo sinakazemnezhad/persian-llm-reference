@@ -1,6 +1,10 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.12.0 — 2026-08-16
+
+- **PROGRESS** Decision + Gap release: «چه کاری می‌خواهید انجام دهید؟» presets, full `gapTags` on all 67 rows, gap→atlas filter with counts, FA name/summary cleanup, docs sync.
+
 ## 0.11.2 — 2026-08-13
 
 - **FIX** Persian locale module (`plr-locale.js`), `displayText()` on manifest copy, CI validator + agent rule for FA digits and typography.

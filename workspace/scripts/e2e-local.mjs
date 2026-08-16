@@ -42,7 +42,9 @@ async function main() {
     record("theme-init script", home.text.includes("theme-init.js"));
     record("tokens.css linked", home.text.includes("tokens.css"));
     record("inline theme bootstrap", home.text.includes('setAttribute("data-theme"'));
-    record("plr-locale module", home.text.includes("plr-locale.js") || (await fetchText("/app.js")).text.includes("plr-locale.js"));
+    record("decision layer present", home.text.includes('id="decision-grid"') && home.text.includes("decision-section"));
+    const appJs = await fetchText("/app.js");
+    record("gap list with counts", appJs.text.includes("gap-btn__count"));
     const entryPage = await fetchText("/entry/dorna-llama3-8b/");
     record("entry page /entry/{id}/", entryPage.status === 200 && entryPage.text.includes("dorna-llama3-8b"));
     const staticManifest = await fetch(`${BASE}/data/reference-manifest.json`).then((r) => r.json()).catch(() => null);

@@ -26,9 +26,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../tokens.css?v=0.11.2" />
-  <link rel="stylesheet" href="../../app.css?v=0.11.2" />
-  <script src="../../theme-init.js?v=0.11.2" defer></script>
+  <link rel="stylesheet" href="../../tokens.css?v=0.12.0" />
+  <link rel="stylesheet" href="../../app.css?v=0.12.0" />
+  <script src="../../theme-init.js?v=0.12.0" defer></script>
   <script type="application/ld+json" id="schema-dataset"></script>
 
   <link rel="canonical" href="https://sinakazemnezhad.github.io/persian-llm-reference/entry/hooshvare-bert-fa/" />
@@ -74,7 +74,7 @@
         <div class="wrap hero-inner">
           <div class="hero-copy">
             <h1 id="atlas-title" data-i18n="hero.title">مرجع مدل‌های زبانی فارسی</h1>
-            <p class="hero-lede" data-i18n="hero.lede">فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. هر مورد منبع دارد و وضعیتش مشخص است.</p>
+            <p class="hero-lede" data-i18n="hero.lede">فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. اول بگویید چه کاری می‌خواهید انجام دهید، بعد فهرست را ببینید.</p>
             <div class="hero-stats" id="stats-bar" aria-live="polite"></div>
             <p class="hero-meta" id="trust-pipeline"></p>
             <div class="hero-actions">
@@ -84,6 +84,17 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="wrap decision-section" id="decide" aria-labelledby="decision-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="decision-heading" class="section-title" data-i18n="decision.heading">چه کاری می‌خواهید انجام دهید؟</h2>
+            <p class="section-sub" data-i18n="decision.sub">هر دکمه یک نمای از پیش‌تنظیم‌شده از همین فهرست است. بدون حدس و بدون رتبه‌بندی ساختگی.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm hidden" id="decision-clear" data-i18n="decision.clear">پاک کردن نما</button>
+        </div>
+        <div class="decision-grid" id="decision-grid" role="list"></div>
       </section>
 
       <section class="wrap site-intro" id="about">
@@ -252,6 +263,6 @@
 
   <div class="boot-loader" id="boot-loader" aria-hidden="true"><div class="boot-spinner"></div></div>
 
-  <script src="../../app.js?v=0.11.2" type="module"></script>
+  <script src="../../app.js?v=0.12.0" type="module"></script>
 </body>
 </html>

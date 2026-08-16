@@ -4,20 +4,21 @@
 
 **مرجع مدل‌های زبانی فارسی**
 
-The **open atlas** for Persian (Farsi) language models — **67 sourced entries** (v0.10.0) with verification gates and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
+The **open atlas** for Persian (Farsi) language models — **67 sourced entries** (v0.12.0) with verification gates, decision presets, gap mapping, and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
 
 > Community-maintained · sourced · machine-readable · online-first.
 
 Related evaluation kit (same author): **[agent-security-bench](https://github.com/sinakazemnezhad/agent-security-bench)** — Agent Security Evaluation Kit. Walkthrough: [docs/SCORE_AGENT_WITH_ASB.md](docs/SCORE_AGENT_WITH_ASB.md).
 
-## Stats (v0.10.0)
+## Stats (v0.12.0)
 
 | | Count |
 |---|------|
 | **Total entries** | 67 |
 | **Verified** | 47 |
 | **Measured** | 20 |
-| **PyPI** | `persian-llm-reference` 0.10.0 |
+| **Gap-tagged rows** | 67 |
+| **PyPI** | `persian-llm-reference` 0.12.0 |
 
 ## How PLR fits the ecosystem
 

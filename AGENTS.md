@@ -19,3 +19,5 @@
 **Law:** Receipt before claim. No invented benchmark scores. Honor upstream curators and builders.
 
 **Persian UI law:** `workspace/public/plr-locale.js` + `.cursor/rules/persian-ui-locale-law.mdc` — FA mode uses Persian digits (`۶۷` not `67`), Vazirmatn-only typography, no em-dash SaaS copy. `npm run build` runs `validate-persian-ui.mjs`.
+
+**Decision layer (v0.12+):** Homepage presets in `DECISIONS` (`app.js`) must use deterministic `match()` on manifest fields only — no invented rankings. Extend `gapTags` via `apply-v012.mjs` rules, not ad hoc UI filters.

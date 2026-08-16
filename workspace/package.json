@@ -1,6 +1,6 @@
 {
   "name": "persian-llm-reference",
-  "version": "0.11.2",
+  "version": "0.12.0",
   "private": true,
   "type": "module",
   "description": "Global open atlas of Persian (Farsi) language models",

@@ -1,6 +1,6 @@
 # Field analysis — PLR lane
 
-**Updated:** 2026-08-13 · **Baseline:** v0.5.0 · 61 manifest entries  
+**Updated:** 2026-08-16 · **Baseline:** v0.12.0 · 67 manifest entries  
 **SSOT machine:** `data/source-radar.json` · **Gap mirror:** `gapMap` in `reference-manifest.json`
 
 ## PLR job on sources (not Alefbâ's job)
@@ -21,14 +21,16 @@ PLR does not host training shards, license MOUs, or build-program corpus rows.
 
 ---
 
-## Current field picture (v0.5.0)
+## Current field picture (v0.12.0)
 
 | Dimension | Count / note |
 |-----------|----------------|
-| Manifest entries | 61 |
-| Verified | 48 |
-| Measured | 13 |
+| Manifest entries | 67 |
+| Verified | 47 |
+| Measured | 20 |
 | Indexed | 0 |
+| Gap-tagged rows | 67 (8 ecosystem gap dimensions) |
+| Decision presets | 6 deterministic views |
 | Native-foundation class | 1 (`yasin-persian-base` — small, restricted; not gap-closer) |
 | Reasoning eval gap (2026) | Partially closed — PARSE, PersianMHQA, PQuAD cataloged |
 | Medical eval | PersianMedQA — now primary measured receipt source |

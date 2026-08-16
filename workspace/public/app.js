@@ -47,7 +47,24 @@ const I18N = {
     "axis.literaryDepth": "Literary",
     "axis.nativePreference": "Native",
     "hero.title": "Persian LLM Reference",
-    "hero.lede": "A registry of Persian models, datasets, and benchmarks. Every entry has a source and a clear status.",
+    "hero.lede": "A registry of Persian models, datasets, and benchmarks. Start with what you need to do, then browse the filtered list.",
+    "decision.heading": "What are you trying to do?",
+    "decision.sub": "Each preset is a deterministic view of this manifest. No guessing, no synthetic rankings.",
+    "decision.active": "Active view",
+    "decision.clear": "Clear view",
+    "decision.finetuneOpen": "Open model for fine-tune",
+    "decision.finetuneOpenDesc": "Instruct models with open license and weight links",
+    "decision.medical": "Medical / biomedical",
+    "decision.medicalDesc": "Medical rows or PersianMedQA measured scores",
+    "decision.measured": "Measured on a benchmark",
+    "decision.measuredDesc": "Rows with cited benchmark scores only",
+    "decision.datasets": "Datasets & benchmarks",
+    "decision.datasetsDesc": "Corpus and evaluation dataset entries",
+    "decision.localSmall": "Small model for local run",
+    "decision.localSmallDesc": "Under 8B parameters, open license",
+    "decision.evidence": "Evidence-backed rows",
+    "decision.evidenceDesc": "Verified or measured with receipts",
+    "gap.related": "related",
     "intro.body":
       "This page is for anyone who needs to know what exists for Persian. You should not have to chase scattered links. Every row points to a primary source. If you see a score, you can verify it yourself.",
     "compare.heading": "Why use this reference?",
@@ -177,7 +194,24 @@ const I18N = {
     "axis.literaryDepth": "ادبیات",
     "axis.nativePreference": "ترجیح بومی",
     "hero.title": "مرجع مدل‌های زبانی فارسی",
-    "hero.lede": "فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. هر مورد منبع دارد و وضعیتش مشخص است.",
+    "hero.lede": "فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. اول بگویید چه کاری می‌خواهید انجام دهید، بعد فهرست را ببینید.",
+    "decision.heading": "چه کاری می‌خواهید انجام دهید؟",
+    "decision.sub": "هر دکمه یک نمای از پیش‌تنظیم‌شده از همین فهرست است. بدون حدس و بدون رتبه‌بندی ساختگی.",
+    "decision.active": "نمای فعال",
+    "decision.clear": "پاک کردن نما",
+    "decision.finetuneOpen": "مدل باز برای فاین‌تیون",
+    "decision.finetuneOpenDesc": "مدل دستوری با مجوز باز و لینک وزن",
+    "decision.medical": "مدل مناسب پزشکی",
+    "decision.medicalDesc": "ردیف‌های پزشکی یا با نمره PersianMedQA",
+    "decision.measured": "مدل با ارزیابی واقعی",
+    "decision.measuredDesc": "فقط ردیف‌های با نمره و منبع",
+    "decision.datasets": "داده و دیتاست",
+    "decision.datasetsDesc": "مجموعه‌داده و معیارهای سنجش",
+    "decision.localSmall": "مدل کوچک برای اجرای محلی",
+    "decision.localSmallDesc": "زیر ۸ میلیارد پارامتر با مجوز باز",
+    "decision.evidence": "مدل‌های دارای شواهد",
+    "decision.evidenceDesc": "تأیید شده یا با نمره مستند",
+    "gap.related": "مورد مرتبط",
     "intro.body":
       "این صفحه برای کسی است که می‌خواهد بداند در فارسی چه مدل و داده و معیاری وجود دارد. لازم نیست بین لینک‌های پراکنده بگردید. هر ردیف به منبع اصلی وصل است. اگر عددی می‌بینید می‌توانید خودتان بروید بررسی کنید.",
     "compare.heading": "چرا اینجا؟",
@@ -295,6 +329,64 @@ const LANES = [
   },
 ];
 
+function isOpenLicense(license = "") {
+  const l = String(license).toLowerCase();
+  if (!l || l.includes("proprietary")) return false;
+  if (l === "research" || l === "see-paper" || l.includes("restricted")) return false;
+  return true;
+}
+
+function hasPersianMedQAEntry(e) {
+  return (e.benchmarks || []).some((b) => String(b.name || "").includes("PersianMedQA"));
+}
+
+const DECISIONS = [
+  {
+    id: "finetune-open",
+    labelKey: "decision.finetuneOpen",
+    descKey: "decision.finetuneOpenDesc",
+    match: (e) =>
+      e.kind === "model" &&
+      (e.class === "adapted-instruct" || e.class === "native-foundation") &&
+      isOpenLicense(e.license) &&
+      (e.links?.hf || e.links?.repo),
+  },
+  {
+    id: "medical",
+    labelKey: "decision.medical",
+    descKey: "decision.medicalDesc",
+    match: (e) =>
+      /med|bio|gaokerena|persianmedqa/i.test(e.id) ||
+      hasPersianMedQAEntry(e) ||
+      /medical|biomed/i.test(e.summary?.en || "") ||
+      /پزشک|زیست‌پزشک|پزشکی/i.test(e.summary?.fa || ""),
+  },
+  {
+    id: "measured",
+    labelKey: "decision.measured",
+    descKey: "decision.measuredDesc",
+    match: (e) => e.status === "measured",
+  },
+  {
+    id: "datasets",
+    labelKey: "decision.datasets",
+    descKey: "decision.datasetsDesc",
+    match: (e) => e.kind === "dataset",
+  },
+  {
+    id: "local-small",
+    labelKey: "decision.localSmall",
+    descKey: "decision.localSmallDesc",
+    match: (e) => e.kind === "model" && e.sizeB != null && e.sizeB <= 8 && isOpenLicense(e.license),
+  },
+  {
+    id: "evidence",
+    labelKey: "decision.evidence",
+    descKey: "decision.evidenceDesc",
+    match: (e) => e.status === "verified" || e.status === "measured",
+  },
+];
+
 const AXES = ["scriptFidelity", "corpusLaw", "curriculumFit", "literaryDepth", "nativePreference"];
 const MIN_ENTRIES = 67;
 
@@ -331,6 +423,7 @@ let sortKey = "name";
 let sortDir = 1;
 let compareIds = JSON.parse(localStorage.getItem("plr-compare") || "[]").slice(0, 3);
 let activeGapTag = "";
+let activeDecision = "";
 let activeLineageBase = "";
 let activeTreeKind = "";
 let activeTreeClass = "";
@@ -557,12 +650,32 @@ function renderResultsMeta(count) {
   const el = document.getElementById("results-meta");
   if (!el) return;
   const total = manifest.entries.length;
-  if (count === total && !getFilters().q && !getFilters().kind && !getFilters().cls && !getFilters().status && activeLane === "all" && !activeGapTag && !hasTreeFilter()) {
+  if (
+    count === total &&
+    !getFilters().q &&
+    !getFilters().kind &&
+    !getFilters().cls &&
+    !getFilters().status &&
+    activeLane === "all" &&
+    !activeGapTag &&
+    !activeDecision &&
+    !hasTreeFilter()
+  ) {
     el.textContent = "";
     return;
   }
   const sep = lang === "fa" ? "، " : " · ";
   const extra = hasTreeFilter() ? `${sep}${t("tree.filterActive")}` : "";
+  if (activeDecision) {
+    const d = DECISIONS.find((x) => x.id === activeDecision);
+    const label = d ? t(d.labelKey) : activeDecision;
+    el.innerHTML = `${t("decision.active")}: <strong>${label}</strong>${sep}<strong>${formatNum(count)}</strong> ${t("results.of")} <strong>${formatNum(total)}</strong> ${t("results.entries")}${extra}`;
+    return;
+  }
+  if (activeGapTag) {
+    el.innerHTML = `${t("gap.filter")}: <strong>${activeGapTag}</strong>${sep}<strong>${formatNum(count)}</strong> ${t("gap.related")}${extra}`;
+    return;
+  }
   el.innerHTML = `${t("results.showing")} <strong>${formatNum(count)}</strong> ${t("results.of")} <strong>${formatNum(total)}</strong> ${t("results.entries")}${extra}`;
 }
 
@@ -706,6 +819,8 @@ function filteredEntries() {
   const kindVal = activeTreeKind || kind;
   const classVal = activeTreeClass || cls;
   return manifest.entries.filter((e) => {
+    const decision = activeDecision ? DECISIONS.find((d) => d.id === activeDecision) : null;
+    if (decision && !decision.match(e)) return false;
     if (!lane.match(e)) return false;
     if (activeGapTag && !(e.gapTags || []).includes(activeGapTag)) return false;
     if (activeLineageBase && e.origin?.base !== activeLineageBase) return false;
@@ -729,6 +844,50 @@ function clearTreeFilters() {
   document.getElementById("class-filter").value = "";
   renderTree();
   renderAtlas();
+}
+
+function decisionMatchCount(decision) {
+  if (!manifest) return 0;
+  return manifest.entries.filter((e) => decision.match(e)).length;
+}
+
+function renderDecisions() {
+  const grid = document.getElementById("decision-grid");
+  if (!grid) return;
+  grid.innerHTML = DECISIONS.map((d) => {
+    const count = decisionMatchCount(d);
+    const active = activeDecision === d.id;
+    return `<button type="button" class="decision-card${active ? " is-active" : ""}" data-decision="${d.id}">
+      <span class="decision-card__title">${t(d.labelKey)}</span>
+      <span class="decision-card__desc">${t(d.descKey)}</span>
+      <span class="decision-card__count">${formatNum(count)} ${t("results.entries")}</span>
+    </button>`;
+  }).join("");
+  grid.querySelectorAll("[data-decision]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.decision;
+      activeDecision = activeDecision === id ? "" : id;
+      activeGapTag = "";
+      activeLane = "all";
+      renderDecisions();
+      renderGap();
+      renderLanes();
+      renderAtlas();
+      scrollToAtlas();
+    });
+  });
+  const clearBtn = document.getElementById("decision-clear");
+  if (clearBtn) clearBtn.classList.toggle("hidden", !activeDecision);
+}
+
+function gapEntryCount(tag) {
+  if (!manifest || !tag) return 0;
+  return manifest.entries.filter((e) => (e.gapTags || []).includes(tag)).length;
+}
+
+function applyDecisionFromQuery() {
+  const id = new URLSearchParams(location.search).get("decision");
+  if (id && DECISIONS.some((d) => d.id === id)) activeDecision = id;
 }
 
 function scrollToAtlas() {
@@ -1120,17 +1279,24 @@ function renderGap() {
   const items = manifest.gapMap[lang] || manifest.gapMap.en;
   const tags = manifest.gapMap.tags || [];
   document.getElementById("gap-list").innerHTML = items
-    .map(
-      (li, i) =>
-        `<li><button type="button" class="gap-btn${activeGapTag === tags[i] ? " active" : ""}" data-gap="${tags[i] || ""}">${li}</button></li>`
-    )
+    .map((li, i) => {
+      const tag = tags[i] || "";
+      const count = gapEntryCount(tag);
+      return `<li><button type="button" class="gap-btn${activeGapTag === tag ? " active" : ""}" data-gap="${tag}">
+        <span class="gap-btn__text">${li}</span>
+        <span class="gap-btn__count">${formatNum(count)} ${t("gap.related")}</span>
+      </button></li>`;
+    })
     .join("");
   document.getElementById("gap-list").querySelectorAll(".gap-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const tag = btn.dataset.gap;
       activeGapTag = activeGapTag === tag ? "" : tag;
+      if (activeGapTag) activeDecision = "";
+      renderDecisions();
       renderGap();
       renderAtlas();
+      scrollToAtlas();
     });
   });
   const clearBtn = document.getElementById("gap-clear");
@@ -1534,11 +1700,13 @@ async function boot() {
 
   manifest = await loadManifest();
   sourceRadar = await loadSourceRadar();
+  applyDecisionFromQuery();
   setApiLine();
   renderCite();
   renderReferences();
   renderStats();
   renderTrustPipeline();
+  renderDecisions();
   injectSchema();
   fillFilters();
   renderLanes();
@@ -1551,6 +1719,11 @@ async function boot() {
   initCommandPalette();
   initThemeToggle();
   document.getElementById("tree-clear")?.addEventListener("click", clearTreeFilters);
+  document.getElementById("decision-clear")?.addEventListener("click", () => {
+    activeDecision = "";
+    renderDecisions();
+    renderAtlas();
+  });
   hideBootLoader();
 
   document.getElementById("inspector-close")?.addEventListener("click", () => closeInspector());
@@ -1564,6 +1737,7 @@ async function boot() {
     renderTimeline();
     renderRadar();
     renderGap();
+    renderDecisions();
     renderTree();
     renderComparePanel();
     renderCompareDock();
