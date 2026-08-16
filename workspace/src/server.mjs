@@ -52,7 +52,7 @@ const server = http.createServer(async (req, res) => {
     return sendJson(res, 200, { ok: true, product: "persian-llm-reference", version: VERSION });
   }
 
-  if (url.pathname === "/api/reference.json" || url.pathname === "/api/reference") {
+  if (url.pathname === "/api/reference.json" || url.pathname === "/api/reference" || url.pathname === "/api/v1/reference.json") {
     try {
       const manifest = readManifest();
       return sendJson(res, 200, manifest);

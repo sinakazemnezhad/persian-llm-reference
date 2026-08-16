@@ -1,6 +1,6 @@
 # Roadmap — Persian LLM Reference
 
-**Saved:** 2026-08-16 · **Baseline:** v0.12.0 · 67 entries
+**Saved:** 2026-08-16 · **Baseline:** v0.13.0 · 72 entries
 
 ## North star
 
@@ -172,7 +172,7 @@ People need **decisions**, not another link dump.
 | **v1.0** | 60+ entries · majority linked · 15+ measured · zero broken primary URLs · ≥1 external citation | months 4–6 |
 | **v2.0** | Schema stable · community PRs · optional `persian-llm-reference` org · custom domain | year 1+ |
 
-**Current stats (v0.12.0):** 67 entries · **47 verified** · **20 measured** · **67 gap-tagged** · 6 decision presets · 0 indexed.
+**Current stats (v0.13.0):** 72 entries · **47 verified** · **25 measured** · **72 gap-tagged** · stable `/api/v1/reference.json` · 6 decision presets · 0 indexed.
 
 ---
 

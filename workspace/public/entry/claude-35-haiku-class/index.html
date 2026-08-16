@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claude 3.5 Haiku class (proprietary) · Persian LLM Reference</title>
+  <meta name="description" content="Anthropic Claude 3.5 Haiku on PersianMedQA Persian split (57.16%, paper Table 4)." />
+  <meta property="og:title" content="مرجع مدل‌های زبانی فارسی" />
+  <meta property="og:description" content="مدل، داده و معیار فارسی را اینجا یکجا می‌بینید. برای هر مورد می‌دانید از کجا آمده." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" id="theme-color-active" content="#faf7f2" />
+  <script>
+    (function () {
+      var STORAGE = "plr-theme";
+      var saved = localStorage.getItem(STORAGE);
+      var theme =
+        saved === "light" || saved === "dark"
+          ? saved
+          : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      var meta = document.getElementById("theme-color-active");
+      if (meta) meta.content = theme === "light" ? "#faf7f2" : "#050608";
+    })();
+  </script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../tokens.css?v=0.13.0" />
+  <link rel="stylesheet" href="../../app.css?v=0.13.0" />
+  <script src="../../theme-init.js?v=0.13.0" defer></script>
+  <script type="application/ld+json" id="schema-dataset"></script>
+
+  <link rel="canonical" href="https://sinakazemnezhad.github.io/persian-llm-reference/entry/claude-35-haiku-class/" />
+  <meta property="og:title" content="Claude 3.5 Haiku class (proprietary)" />
+  <meta property="og:description" content="Anthropic Claude 3.5 Haiku on PersianMedQA Persian split (57.16%, paper Table 4)." />
+  <meta property="og:url" content="https://sinakazemnezhad.github.io/persian-llm-reference/entry/claude-35-haiku-class/" />
+  <meta property="og:type" content="article" />
+  <script>window.__PLR_ENTRY_ID__="claude-35-haiku-class";</script>
+</head>
+<body>
+  <a class="skip-link" href="#atlas" data-i18n="nav.skip">رفتن به فهرست</a>
+
+  <div class="app-shell" id="app-shell">
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="../../">
+          <svg class="brand-logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+            <rect x="1" y="1" width="26" height="26" rx="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+            <path d="M8 18 L14 8 L20 18" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="lg" x1="8" y1="8" x2="20" y2="18"><stop stop-color="#0d5c44"/><stop offset="1" stop-color="#3d8f6e"/></linearGradient></defs>
+          </svg>
+          <span class="brand-text" data-i18n="brand.name">مرجع مدل‌های فارسی</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+        <a href="#atlas" data-i18n="nav.atlas">فهرست</a>
+        <a href="#tree" data-i18n="nav.tree">دسته‌بندی</a>
+        <a href="#references" data-i18n="nav.references">منابع</a>
+        <a href="#timeline" data-i18n="nav.timeline">گاه‌شمار</a>
+          <a href="#source-radar" data-i18n="nav.radar">وضعیت میدان</a>
+          <a href="#gap" data-i18n="nav.gap">جاهای خالی</a>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="btn btn-ghost btn-sm theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+          <button type="button" class="btn btn-ghost btn-sm" id="lang-toggle" aria-label="Switch language">EN</button>
+          <button type="button" class="btn btn-ghost btn-sm header-kbd" id="cmd-hint" aria-hidden="true">⌘K</button>
+          <a class="btn btn-primary btn-sm header-github" id="github-link" href="#" target="_blank" rel="noopener" data-i18n="nav.contribute">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-inner">
+          <div class="hero-copy">
+            <h1 id="atlas-title" data-i18n="hero.title">مرجع مدل‌های زبانی فارسی</h1>
+            <p class="hero-lede" data-i18n="hero.lede">فهرستی از مدل‌ها، داده‌ها و معیارهای فارسی. اول بگویید چه کاری می‌خواهید انجام دهید، بعد فهرست را ببینید.</p>
+            <div class="hero-stats" id="stats-bar" aria-live="polite"></div>
+            <p class="hero-meta" id="trust-pipeline"></p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#atlas" data-i18n="hero.ctaAtlas">دیدن فهرست</a>
+              <a class="btn btn-ghost" href="#references" data-i18n="hero.ctaRefs">منابع اصلی</a>
+              <a class="btn btn-ghost" id="hero-manifest-link" href="#" target="_blank" rel="noopener" data-i18n="hero.ctaJson">دریافت JSON</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap decision-section" id="decide" aria-labelledby="decision-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="decision-heading" class="section-title" data-i18n="decision.heading">چه کاری می‌خواهید انجام دهید؟</h2>
+            <p class="section-sub" data-i18n="decision.sub">هر دکمه یک نمای از پیش‌تنظیم‌شده از همین فهرست است. بدون حدس و بدون رتبه‌بندی ساختگی.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm hidden" id="decision-clear" data-i18n="decision.clear">پاک کردن نما</button>
+        </div>
+        <div class="decision-grid" id="decision-grid" role="list"></div>
+      </section>
+
+      <section class="wrap site-intro" id="about">
+        <p class="intro-prose" data-i18n="intro.body">این صفحه برای کسی است که می‌خواهد بداند در فارسی چه مدل و داده و معیاری وجود دارد. لازم نیست بین لینک‌های پراکنده بگردید. هر ردیف به منبع اصلی وصل است. اگر عددی می‌بینید می‌توانید خودتان بروید بررسی کنید.</p>
+        <nav class="intro-links" aria-label="روش کار">
+          <a href="#references" data-i18n="trust.references">منابع</a>
+          <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener" data-i18n="trust.methodology">روش کار</a>
+          <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/ROADMAP.md" target="_blank" rel="noopener" data-i18n="trust.roadmap">نقشهٔ راه</a>
+          <a href="https://github.com/MohammadHeydari/Awesome-Persian-LLM" target="_blank" rel="noopener" data-i18n="trust.awesome">Awesome-Persian-LLM</a>
+        </nav>
+      </section>
+
+      <section class="workspace-section wrap" id="atlas" aria-labelledby="atlas-heading">
+        <div class="workspace-head">
+          <h2 id="atlas-heading" data-i18n="atlas.heading">فهرست مدل‌ها و داده‌ها</h2>
+          <p class="results-meta" id="results-meta" aria-live="polite"></p>
+        </div>
+
+        <div class="workspace" id="workspace">
+          <aside class="workspace-sidebar" aria-label="Browse controls">
+            <div class="cmd-search">
+              <svg class="cmd-search-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5 L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <input type="search" id="search" data-i18n-placeholder="filter.search" placeholder="جستجو…" autocomplete="off" />
+              <kbd class="cmd-kbd" aria-hidden="true">⌘K</kbd>
+            </div>
+
+            <div class="lane-bar" id="lanes" aria-label="Use-case lanes"></div>
+
+            <div class="filter-stack">
+              <label class="filter-label" data-i18n="filter.kindAll">نوع</label>
+              <select id="kind-filter" aria-label="Kind filter"><option value="" data-i18n="filter.kindAll">All kinds</option></select>
+              <label class="filter-label" data-i18n="filter.all">دسته</label>
+              <select id="class-filter" aria-label="Class filter"><option value="" data-i18n="filter.all">همه کلاس‌ها</option></select>
+              <label class="filter-label" data-i18n="filter.statusAll">وضعیت</label>
+              <select id="status-filter" aria-label="Status filter">
+                <option value="" data-i18n="filter.statusAll">همه وضعیت‌ها</option>
+                <option value="indexed" data-i18n="status.indexed">تازه ثبت شده</option>
+                <option value="verified" data-i18n="status.verified">تأیید شده</option>
+                <option value="measured" data-i18n="status.measured">با نمره</option>
+              </select>
+            </div>
+
+            <div class="sidebar-actions">
+              <div class="view-toggle" role="group" aria-label="View mode">
+                <button type="button" class="view-btn" id="view-grid" data-i18n="view.grid">Cards</button>
+                <button type="button" class="view-btn" id="view-table" data-i18n="view.table">Table</button>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm btn-block" id="export-csv" data-i18n="export.csv">Export CSV</button>
+            </div>
+          </aside>
+
+          <div class="workspace-main">
+            <div class="entry-grid" id="entry-grid"></div>
+            <div class="table-wrap hidden" id="table-wrap">
+              <table class="compare-table" id="compare-table">
+                <thead>
+                  <tr>
+                    <th data-sort="name" data-i18n="table.name">Name</th>
+                    <th data-sort="kind" data-i18n="table.kind">Kind</th>
+                    <th data-sort="class" data-i18n="table.class">Class</th>
+                    <th data-sort="sizeB" data-i18n="table.size">Size</th>
+                    <th data-sort="status" data-i18n="table.status">Status</th>
+                    <th data-i18n="table.links">Links</th>
+                  </tr>
+                </thead>
+                <tbody id="compare-body"></tbody>
+              </table>
+            </div>
+            <p id="empty-state" class="empty-state hidden" data-i18n="atlas.empty">نتیجه‌ای نیست.</p>
+          </div>
+
+          <aside class="workspace-inspector hidden" id="entry-inspector" aria-label="Entry detail">
+            <button type="button" class="inspector-close" id="inspector-close" aria-label="Close">×</button>
+            <div id="inspector-content"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section wrap" id="tree" aria-labelledby="tree-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="tree-heading" class="section-title" data-i18n="tree.heading">دسته‌بندی و تبار</h2>
+            <p class="section-sub tree-sub" data-i18n="tree.sub">مدل‌ها را بر اساس نوع و مدل پایه می‌چینیم. فقط از دادهٔ همین فهرست.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm hidden" id="tree-clear" data-i18n="tree.clear">پاک کردن فیلتر درخت</button>
+        </div>
+        <div class="tree-panels">
+          <div class="tree-panel">
+            <h3 class="tree-panel__title" data-i18n="tree.taxonomy">طبقه‌بندی</h3>
+            <ul class="tree taxonomy-tree" id="taxonomy-tree" role="tree" aria-label="Taxonomy"></ul>
+          </div>
+          <div class="tree-panel">
+            <h3 class="tree-panel__title" data-i18n="tree.lineage">تبار پایه</h3>
+            <ul class="tree lineage-tree" id="lineage-tree" role="tree" aria-label="Lineage"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="timeline" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading" class="section-title" data-i18n="timeline.heading">گاه‌شمار اکوسیستم</h2>
+        <p class="section-sub" data-i18n="timeline.sub">نسخه‌های مهم و تازه‌ترین موارد تأییدشده.</p>
+        <div class="timeline-list" id="timeline-list"></div>
+      </section>
+
+      <section class="section wrap" id="source-radar" aria-labelledby="radar-heading">
+        <h2 id="radar-heading" class="section-title" data-i18n="radar.heading">وضعیت میدان</h2>
+        <p class="section-sub" data-i18n="radar.sub">چه چیز هست، چه چیز اینجا ثبت شده، چه چیز هنوز نیامده.</p>
+        <div id="radar-panel"></div>
+      </section>
+
+      <section class="section wrap" id="gap" aria-labelledby="gap-heading">
+        <div class="section-head">
+          <h2 id="gap-heading" class="section-title" data-i18n="gap.heading">چه چیزهایی هنوز نیامده؟</h2>
+          <button type="button" class="btn btn-ghost btn-sm hidden" id="gap-clear" data-i18n="gap.clear">نمایش همه</button>
+        </div>
+        <ul class="gap-list" id="gap-list"></ul>
+      </section>
+
+      <section class="section wrap references-section" id="references" aria-labelledby="references-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="references-heading" class="section-title" data-i18n="refs.heading">ارجاع به منابع</h2>
+            <p class="section-sub" data-i18n="refs.sub">کنار فهرست‌های دیگر می‌ایستیم. جای آن‌ها را نمی‌گیریم. برای هر منبع لینک خودش را داریم.</p>
+          </div>
+        </div>
+        <div class="refs-grid" id="refs-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section wrap compare-section" id="compare" aria-labelledby="compare-panel-heading">
+        <h2 id="compare-panel-heading" class="section-title" data-i18n="compare.panel">مقایسه (حداکثر ۳ مورد)</h2>
+        <div id="compare-panel"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-col footer-col--brand">
+          <p class="footer-brand" data-i18n="brand.name">مرجع مدل‌های فارسی</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">راهنمای باز مدل‌های زبانی فارسی</p>
+          <p class="footer-note" data-i18n="footer.law">عدد نمی‌سازیم. اسم سازنده و منبع را می‌نویسیم.</p>
+        </div>
+        <div class="footer-col footer-col--cite">
+          <div class="cite-block" id="cite-block"></div>
+        </div>
+        <div class="footer-col footer-col--api">
+          <p class="api-line" id="api-line"></p>
+          <div class="footer-links">
+            <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/CITATION.cff" target="_blank" rel="noopener">CITATION.cff</a>
+            <a href="https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/governance/METHODOLOGY.md" target="_blank" rel="noopener" data-i18n="trust.methodology">Methodology</a>
+            <a href="#references" data-i18n="nav.references">References</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="compare-dock hidden" id="compare-dock" role="region" aria-label="Compare tray"></div>
+  </div>
+
+  <div class="cmd-palette hidden" id="cmd-palette" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="cmd-backdrop" id="cmd-backdrop"></div>
+    <div class="cmd-dialog">
+      <input type="search" id="cmd-input" placeholder="Search entries…" autocomplete="off" />
+      <div class="cmd-results" id="cmd-results"></div>
+    </div>
+  </div>
+
+  <div class="boot-loader" id="boot-loader" aria-hidden="true"><div class="boot-spinner"></div></div>
+
+  <script src="../../app.js?v=0.13.0" type="module"></script>
+</body>
+</html>

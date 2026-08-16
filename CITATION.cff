@@ -4,9 +4,13 @@ message: "If you use this atlas, please cite it as below."
 authors:
   - name: Persian LLM Reference maintainers
 repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
-url: https://sinakazemnezhad.github.io/persian-llm-reference
+url: https://sinakazemnezhad.github.io/persian-llm-reference/
 license: CC-BY-4.0
-version: 0.5.0
+version: 0.13.0
+date-released: 2026-08-16
+abstract: >-
+  A structured, receipt-gated open registry for Persian (Farsi) language models.
+  Neutral evidence layer — what exists, what is measured, what is verified, and what is missing.
 keywords:
   - Persian LLM
   - Farsi language model
@@ -15,5 +19,6 @@ preferred-citation:
   type: software
   title: Persian LLM Reference — Open Atlas
   year: 2026
+  version: 0.13.0
   url: https://sinakazemnezhad.github.io/persian-llm-reference/
   notes: "Manifest JSON at raw.githubusercontent.com — check version and generatedAt"

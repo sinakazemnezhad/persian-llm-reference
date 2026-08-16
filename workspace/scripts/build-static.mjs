@@ -52,6 +52,14 @@ fs.writeFileSync(
   "utf8"
 );
 
+// Stable machine API v1 — projection of canonical manifest (no second source)
+fs.mkdirSync(path.join(PUBLIC, "api/v1"), { recursive: true });
+fs.writeFileSync(
+  path.join(PUBLIC, "api/v1/reference.json"),
+  JSON.stringify(publicManifest, null, 2),
+  "utf8"
+);
+
 if (fs.existsSync(RADAR_SRC)) {
   const radar = JSON.parse(fs.readFileSync(RADAR_SRC, "utf8"));
   radar.version = REF.version;
@@ -67,6 +75,7 @@ const siteConfig = {
   canonicalRepo: REF.canonicalRepo,
   manifestPath: "/persian-llm-reference/data/reference-manifest.json",
   manifestRaw: REF.manifestRaw,
+  apiV1Path: "/persian-llm-reference/api/v1/reference.json",
   basePath: REF.githubPagesBase || "",
   name: REF.name,
 };
@@ -82,6 +91,7 @@ const wellKnown = {
   stats: manifest.stats,
   manifest: `${REF.canonicalSite}/data/reference-manifest.json`,
   manifestRaw: REF.manifestRaw,
+  apiV1: `${REF.canonicalSite}/api/v1/reference.json`,
   sourceRadar: `${REF.canonicalSite}/data/source-radar.json`,
   repo: REF.canonicalRepo,
 };

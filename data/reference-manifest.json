@@ -1,6 +1,6 @@
 {
-  "version": "0.12.0",
-  "generatedAt": "2026-08-16T06:50:04.109Z",
+  "version": "0.13.0",
+  "generatedAt": "2026-08-16T07:06:25.230Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -143,14 +143,30 @@
           "score": "73.9",
           "asOf": "2024-01",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2401.06466"
+          "url": "https://arxiv.org/abs/2401.06466",
+          "benchmark": "Belebele",
+          "metric": "accuracy",
+          "value": "73.9",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot, Persian (Fas), Belebele benchmark, arxiv:2401.06466",
+          "source": "https://arxiv.org/abs/2401.06466",
+          "publication": "https://arxiv.org/abs/2401.06466"
         },
         {
           "name": "PersianMedQA (Persian)",
           "score": "24.22",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "24.22",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -508,7 +524,15 @@
           "score": "39.99",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "39.99",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -936,7 +960,15 @@
           "score": "35.87",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "35.87",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -995,7 +1027,15 @@
           "score": "34.87",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "34.87",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -1054,7 +1094,15 @@
           "score": "40.60",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "40.60",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -1249,7 +1297,15 @@
           "score": "75.19",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "75.19",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2470,7 +2526,15 @@
           "score": "68.05",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "68.05",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2614,7 +2678,15 @@
           "score": "66.63",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "66.63",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2714,7 +2786,15 @@
           "score": "83.09",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "83.09",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2768,7 +2848,15 @@
           "score": "82.37",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "82.37",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2824,7 +2912,15 @@
           "score": "38.67",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "38.67",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -2884,7 +2980,15 @@
           "score": "25.76",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "25.76",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -3041,7 +3145,15 @@
           "score": "76.86",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "76.86",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -3096,7 +3208,15 @@
           "score": "67.02",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "67.02",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "alefbaAxes": {
@@ -3152,7 +3272,15 @@
           "score": "59.06",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "59.06",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "firstSeen": "2025-06",
@@ -3209,7 +3337,15 @@
           "score": "73.70",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "73.70",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "firstSeen": "2025-06",
@@ -3266,7 +3402,15 @@
           "score": "65.17",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "65.17",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "verifiedAt": "2026-08-13",
@@ -3317,7 +3461,15 @@
           "score": "36.78",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "36.78",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "verifiedAt": "2026-08-13",
@@ -3368,7 +3520,15 @@
           "score": "61.85",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "61.85",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "verifiedAt": "2026-08-13",
@@ -3417,7 +3577,15 @@
           "score": "37.62",
           "asOf": "2025-06",
           "receipt": "paper",
-          "url": "https://arxiv.org/abs/2506.00250"
+          "url": "https://arxiv.org/abs/2506.00250",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "37.62",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
         }
       ],
       "verifiedAt": "2026-08-13",
@@ -3429,6 +3597,245 @@
         "medical-eval",
         "open-weights",
         "small-model"
+      ]
+    },
+    {
+      "id": "gpt-41-mini-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "GPT-4.1 Mini class (proprietary)",
+        "fa": "ردهٔ جی‌پی‌تی ۴.۱ مینی"
+      },
+      "org": "OpenAI",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "OpenAI GPT-4.1 Mini tier on PersianMedQA Persian split (74.76%, paper Table 4).",
+        "fa": "ردهٔ GPT-4.1 Mini در PersianMedQA فارسی (۷۴٫۷۶٪، جدول ۴ مقاله)."
+      },
+      "links": {
+        "web": "https://platform.openai.com/docs",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "GPT-4.1",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "74.76",
+          "score": "74.76",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "url": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-16",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
+    },
+    {
+      "id": "claude-35-haiku-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Claude 3.5 Haiku class (proprietary)",
+        "fa": "ردهٔ کلود ۳.۵ هایکو"
+      },
+      "org": "Anthropic",
+      "sizeB": null,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "Anthropic Claude 3.5 Haiku on PersianMedQA Persian split (57.16%, paper Table 4).",
+        "fa": "کلود ۳.۵ هایکو در PersianMedQA فارسی (۵۷٫۱۶٪، جدول ۴ مقاله)."
+      },
+      "links": {
+        "web": "https://www.anthropic.com/",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Claude-3.5",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "57.16",
+          "score": "57.16",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "url": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-16",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval"
+      ]
+    },
+    {
+      "id": "gemma-3-12b-it-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Gemma 3 12B IT class",
+        "fa": "جمّا ۳ ۱۲بی دستوری"
+      },
+      "org": "Google",
+      "sizeB": 12,
+      "license": "open-weights",
+      "status": "measured",
+      "summary": {
+        "en": "Gemma 3 12B instruct on PersianMedQA Persian split (52.22%, paper Table 4).",
+        "fa": "جمّا ۳ ۱۲بی دستوری در PersianMedQA فارسی (۵۲٫۲۲٪، جدول ۴ مقاله)."
+      },
+      "links": {
+        "hf": "https://huggingface.co/google/gemma-3-12b-it",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Gemma-3",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "52.22",
+          "score": "52.22",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "url": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-16",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights",
+        "small-model"
+      ]
+    },
+    {
+      "id": "cohere-command-r7b-class",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Cohere Command R7B class",
+        "fa": "کوهیر کامند R7B"
+      },
+      "org": "Cohere",
+      "sizeB": 7,
+      "license": "proprietary",
+      "status": "measured",
+      "summary": {
+        "en": "Cohere Command R7B on PersianMedQA Persian split (38.77%, paper Table 4).",
+        "fa": "کوهیر کامند R7B در PersianMedQA فارسی (۳۸٫۷۷٪، جدول ۴ مقاله)."
+      },
+      "links": {
+        "web": "https://cohere.com/",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Command-R",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "38.77",
+          "score": "38.77",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "url": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-16",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "small-model"
+      ]
+    },
+    {
+      "id": "mistral-nemo-instruct",
+      "kind": "model",
+      "class": "multilingual-frontier",
+      "name": {
+        "en": "Mistral Nemo Instruct",
+        "fa": "میسترال نمو دستوری"
+      },
+      "org": "Mistral AI",
+      "sizeB": 12,
+      "license": "Apache-2.0",
+      "status": "measured",
+      "summary": {
+        "en": "Mistral Nemo instruct on PersianMedQA Persian split (36.23%, paper Table 4).",
+        "fa": "میسترال نمو دستوری در PersianMedQA فارسی (۳۶٫۲۳٪، جدول ۴ مقاله)."
+      },
+      "links": {
+        "hf": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+        "paper": "https://arxiv.org/abs/2506.00250"
+      },
+      "origin": {
+        "base": "Mistral-Nemo",
+        "persianTraining": "multilingual-pretrain"
+      },
+      "benchmarks": [
+        {
+          "name": "PersianMedQA (Persian)",
+          "benchmark": "PersianMedQA",
+          "metric": "accuracy",
+          "value": "36.23",
+          "score": "36.23",
+          "unit": "percent",
+          "language": "fa",
+          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "asOf": "2025-06",
+          "receipt": "paper",
+          "source": "https://arxiv.org/abs/2506.00250",
+          "url": "https://arxiv.org/abs/2506.00250",
+          "publication": "https://arxiv.org/abs/2506.00250"
+        }
+      ],
+      "verifiedAt": "2026-08-16",
+      "gapTags": [
+        "measured-evidence",
+        "medical-eval",
+        "open-weights"
       ]
     }
   ],
@@ -3465,9 +3872,9 @@
     ]
   },
   "stats": {
-    "total": 67,
+    "total": 72,
     "byKind": {
-      "model": 37,
+      "model": 42,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
@@ -3475,14 +3882,14 @@
     "byClass": {
       "adapted-instruct": 15,
       "native-foundation": 1,
-      "multilingual-frontier": 17,
+      "multilingual-frontier": 22,
       "encoder-only": 4,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 20,
+      "measured": 25,
       "verified": 47
     }
   }

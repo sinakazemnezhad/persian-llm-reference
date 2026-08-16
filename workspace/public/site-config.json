@@ -1,9 +1,10 @@
 {
-  "version": "0.12.0",
+  "version": "0.13.0",
   "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
   "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
   "manifestPath": "/persian-llm-reference/data/reference-manifest.json",
   "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "apiV1Path": "/persian-llm-reference/api/v1/reference.json",
   "basePath": "/persian-llm-reference",
   "name": {
     "en": "Persian LLM Reference",

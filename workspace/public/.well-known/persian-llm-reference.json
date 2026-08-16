@@ -1,16 +1,16 @@
 {
   "schema": "PERSIAN-LLM-REFERENCE/v1",
-  "version": "0.12.0",
-  "generatedAt": "2026-08-16T06:50:04.109Z",
+  "version": "0.13.0",
+  "generatedAt": "2026-08-16T07:06:25.230Z",
   "mission": {
     "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — alongside discovery lists and leaderboards, with sourced records and honest nulls.",
     "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی. در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
   },
-  "entryCount": 67,
+  "entryCount": 72,
   "stats": {
-    "total": 67,
+    "total": 72,
     "byKind": {
-      "model": 37,
+      "model": 42,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
@@ -18,19 +18,20 @@
     "byClass": {
       "adapted-instruct": 15,
       "native-foundation": 1,
-      "multilingual-frontier": 17,
+      "multilingual-frontier": 22,
       "encoder-only": 4,
       "dataset": 24,
       "leaderboard": 4,
       "community-index": 2
     },
     "byStatus": {
-      "measured": 20,
+      "measured": 25,
       "verified": 47
     }
   },
   "manifest": "https://sinakazemnezhad.github.io/persian-llm-reference/data/reference-manifest.json",
   "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
+  "apiV1": "https://sinakazemnezhad.github.io/persian-llm-reference/api/v1/reference.json",
   "sourceRadar": "https://sinakazemnezhad.github.io/persian-llm-reference/data/source-radar.json",
   "repo": "https://github.com/sinakazemnezhad/persian-llm-reference"
 }

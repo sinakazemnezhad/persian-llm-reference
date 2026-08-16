@@ -4,21 +4,22 @@
 
 **مرجع مدل‌های زبانی فارسی**
 
-The **open atlas** for Persian (Farsi) language models — **67 sourced entries** (v0.12.0) with verification gates, decision presets, gap mapping, and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
+The **open atlas** for Persian (Farsi) language models — **72 sourced entries** (v0.13.0) with verification gates, decision presets, gap mapping, normalized measured receipts, and bilingual JSON. Works **alongside** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM), MIZAN, PartAI, and the teams who build these models.
 
 > Community-maintained · sourced · machine-readable · online-first.
 
 Related evaluation kit (same author): **[agent-security-bench](https://github.com/sinakazemnezhad/agent-security-bench)** — Agent Security Evaluation Kit. Walkthrough: [docs/SCORE_AGENT_WITH_ASB.md](docs/SCORE_AGENT_WITH_ASB.md).
 
-## Stats (v0.12.0)
+## Stats (v0.13.0)
 
 | | Count |
 |---|------|
-| **Total entries** | 67 |
+| **Total entries** | 72 |
 | **Verified** | 47 |
-| **Measured** | 20 |
-| **Gap-tagged rows** | 67 |
-| **PyPI** | `persian-llm-reference` 0.12.0 |
+| **Measured** | 25 |
+| **Gap-tagged rows** | 72 |
+| **Stable API** | `/api/v1/reference.json` |
+| **PyPI** | `persian-llm-reference` 0.13.0 |
 
 ## How PLR fits the ecosystem
 
@@ -38,6 +39,7 @@ Related evaluation kit (same author): **[agent-security-bench](https://github.co
 | **Atlas UI** | `https://sinakazemnezhad.github.io/persian-llm-reference` |
 | **PyPI (Python client)** | `https://pypi.org/project/persian-llm-reference/` |
 | **Manifest JSON** | `/data/reference-manifest.json` |
+| **Stable API v1** | `/api/v1/reference.json` (alias of canonical manifest) |
 | **Raw manifest (cite in papers)** | `https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json` |
 | **Source radar (field gaps + forecast)** | `/data/source-radar.json` |
 | **Agent discovery** | `/.well-known/persian-llm-reference.json` |
@@ -99,21 +101,28 @@ npm run e2e      # local server smoke
 
 **No invented scores.** `null` until a primary source exists.
 
-## Cite
+## How to cite
+
+PLR is a neutral evidence registry — cite the snapshot you used, not a ranking.
+
+1. **Machine-readable:** [CITATION.cff](CITATION.cff) (version, date-released, abstract, repository URL).
+2. **BibTeX** (copy for papers):
 
 ```bibtex
 @misc{persian_llm_reference,
   title={Persian LLM Reference — Open Atlas},
   author={{Persian LLM Reference maintainers}},
   year={2026},
-  version={0.9.0},
-  url={https://sinakazemnezhad.github.io/persian-llm-reference},
+  version={0.13.0},
+  url={https://sinakazemnezhad.github.io/persian-llm-reference/},
   howpublished={\\url{https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json}},
-  note={Check manifest generatedAt for snapshot date}
+  note={Check manifest generatedAt for snapshot date; measured rows include benchmark, metric, source, and conditions}
 }
 ```
 
-Also see [CITATION.cff](CITATION.cff) for machine-readable metadata.
+3. **API consumers:** pin `GET /api/v1/reference.json` or the raw manifest URL — same schema, same evidence semantics.
+
+Also see [CITATION.cff](CITATION.cff) for Citation File Format metadata.
 
 ## Contributing
 

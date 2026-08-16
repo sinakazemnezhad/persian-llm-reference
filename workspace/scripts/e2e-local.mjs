@@ -2,7 +2,8 @@
 /** dis-brand-agent repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-WORKSPACE-SCRIPTS-E2E-LOCAL-MJ name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:10:02.804Z */
 
 const BASE = process.env.PLR_E2E_BASE || "http://127.0.0.1:5294";
-const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 67);
+const MIN_ENTRIES = Number(process.env.PLR_MIN_ENTRIES || 72);
+const MIN_MEASURED = Number(process.env.PLR_MIN_MEASURED || 25);
 let pass = 0;
 let fail = 0;
 
@@ -29,6 +30,12 @@ async function main() {
     manifest = await fetch(`${BASE}/api/reference.json`).then((r) => r.json());
     record("api/reference.json entries", manifest.entries?.length >= MIN_ENTRIES);
     record("gapMap present", Array.isArray(manifest.gapMap?.en));
+
+    const apiV1 = await fetch(`${BASE}/api/v1/reference.json`).then((r) => r.json());
+    record("api/v1/reference.json entries", apiV1.entries?.length >= MIN_ENTRIES);
+    record("api/v1 matches canonical schema", apiV1.schema === manifest.schema);
+    const measured = manifest.entries?.filter((e) => e.status === "measured").length || 0;
+    record(`measured entries >= ${MIN_MEASURED}`, measured >= MIN_MEASURED);
 
     const home = await fetchText("/");
     record("/ 200", home.status === 200);
@@ -70,6 +77,8 @@ async function main() {
   }
 
     record("data/reference-manifest.json", staticManifest?.entries?.length >= MIN_ENTRIES);
+    const staticApiV1 = await fetch(`${BASE}/api/v1/reference.json`).then((r) => r.json()).catch(() => null);
+    record("api/v1/reference.json static", staticApiV1?.entries?.length >= MIN_ENTRIES);
   } catch (e) {
     console.error("RED  E2E crash:", e.message);
     process.exit(1);

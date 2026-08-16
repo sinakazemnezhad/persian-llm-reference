@@ -38,8 +38,8 @@ for (const e of manifest.entries) {
 }
 
 const measured = manifest.entries.filter((e) => e.status === "measured").length;
-if (measured < 15) {
-  console.error(`FAIL  only ${measured} measured — minimum 15 for v0.6`);
+if (measured < 25) {
+  console.error(`FAIL  only ${measured} measured — minimum 25 for v0.13`);
   errors++;
 }
 
