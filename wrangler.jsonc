@@ -1,7 +1,6 @@
 {
   "$schema": "./workspace/node_modules/wrangler/config-schema.json",
   "name": "persian-llm-reference",
-  "account_id": "0d0b967b77e2e5535455d39ff3dae72c",
   "compatibility_date": "2026-02-01",
   "pages_build_output_dir": "workspace/public"
 }

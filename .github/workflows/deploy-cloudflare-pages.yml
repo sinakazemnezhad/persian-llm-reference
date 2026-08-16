@@ -32,7 +32,7 @@ jobs:
         working-directory: workspace
         env:
           PLR_DEPLOY_TARGET: cloudflare
-          PLR_CANONICAL_SITE: https://persian-llm-reference.pages.dev
+          PLR_CANONICAL_SITE: https://plr.noetfield.com
           PLR_BASE_PATH: ""
         run: npm run build
 

@@ -15,7 +15,7 @@
     "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی. در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
   },
   "canonicalSite": "https://sinakazemnezhad.github.io/persian-llm-reference",
-  "cloudflarePagesSite": "https://persian-llm-reference.pages.dev",
+  "cloudflarePagesSite": "https://plr.noetfield.com",
   "canonicalRepo": "https://github.com/sinakazemnezhad/persian-llm-reference",
   "manifestRaw": "https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json",
   "pypi": "https://pypi.org/project/persian-llm-reference/",
