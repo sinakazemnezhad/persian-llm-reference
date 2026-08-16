@@ -11,6 +11,7 @@
 | [governance/ROADMAP.md](./governance/ROADMAP.md) | Full phased plan (v0.3 → v2.0) |
 | [governance/ECOSYSTEM.md](./governance/ECOSYSTEM.md) | Awesome · leaderboards · Alefbâ map |
 | [governance/outreach/AWESOME_PERSIAN_LLM_PR.md](./governance/outreach/AWESOME_PERSIAN_LLM_PR.md) | Reciprocal PR draft |
+| [docs/SCORE_AGENT_WITH_ASB.md](./docs/SCORE_AGENT_WITH_ASB.md) | How to score agents with agent-security-bench |
 | [workspace/public/index.html](./workspace/public/index.html) | Atlas UI |
 | [AGENTS.md](./AGENTS.md) | Agent ops |
 | [pyproject.toml](./pyproject.toml) | PyPI package (MIT client) |

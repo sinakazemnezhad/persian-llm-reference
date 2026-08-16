@@ -23,6 +23,12 @@ Awesome finds · Leaderboards score · PLR types and verifies · Alefbâ builds 
 
 ---
 
+## Agent security eval (sibling)
+
+| Resource | Role | Doc |
+|----------|------|-----|
+| [agent-security-bench](https://github.com/sinakazemnezhad/agent-security-bench) | Agent Security Evaluation Kit — score agent code / tool policy with receipts | [docs/SCORE_AGENT_WITH_ASB.md](../docs/SCORE_AGENT_WITH_ASB.md) |
+
 ## Awesome-Persian-LLM — relationship
 
 **Maintainer:** [Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM) (public repo) · MIT · community curated.

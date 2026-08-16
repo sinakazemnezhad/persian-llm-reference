@@ -8,6 +8,8 @@ The **open atlas** for Persian (Farsi) language models — **67 sourced entries*
 
 > Community-maintained · sourced · machine-readable · online-first.
 
+Related evaluation kit (same author): **[agent-security-bench](https://github.com/sinakazemnezhad/agent-security-bench)** — Agent Security Evaluation Kit. Walkthrough: [docs/SCORE_AGENT_WITH_ASB.md](docs/SCORE_AGENT_WITH_ASB.md).
+
 ## Stats (v0.10.0)
 
 | | Count |
