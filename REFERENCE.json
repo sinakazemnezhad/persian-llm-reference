@@ -23,5 +23,7 @@
   "scope": "global-community",
   "maintainer": "Persian LLM Reference maintainers",
   "contactIssues": "https://github.com/sinakazemnezhad/persian-llm-reference/issues",
-  "aboutPath": "/persian-llm-reference/about/"
+  "aboutPath": "/persian-llm-reference/about/",
+  "hfDataset": "Noetfield/persian-llm-reference",
+  "hfDatasetUrl": "https://huggingface.co/datasets/Noetfield/persian-llm-reference"
 }

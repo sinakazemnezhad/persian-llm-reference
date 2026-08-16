@@ -71,7 +71,7 @@ async function main() {
     console.log("SKIP  Zenodo DOI (set PLR_ZENODO_DOI to verify)");
   }
 
-  const hf = process.env.PLR_HF_DATASET || "sinakazemnezhad/persian-llm-reference";
+  const hf = process.env.PLR_HF_DATASET || "Noetfield/persian-llm-reference";
   try {
     const r = await fetch(`https://huggingface.co/api/datasets/${hf}`);
     if (r.status !== 200) {

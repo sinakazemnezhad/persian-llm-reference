@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 REF = json.loads((ROOT / "REFERENCE.json").read_text())
 DATASET_DIR = ROOT / "huggingface" / "dataset"
-REPO = os.environ.get("PLR_HF_DATASET", "sinakazemnezhad/persian-llm-reference")
+REPO = os.environ.get("PLR_HF_DATASET") or REF.get("hfDataset") or "Noetfield/persian-llm-reference"
 VERSION = os.environ.get("PLR_RELEASE", REF["version"])
 TOKEN = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
 
@@ -36,11 +36,8 @@ print(f"HF user: {username}")
 
 namespace = REPO.split("/")[0]
 if namespace != username:
-    print(
-        f"WARN  repo namespace {namespace} ≠ token user {username} — "
-        f"set PLR_HF_DATASET={username}/persian-llm-reference if needed",
-        file=sys.stderr,
-    )
+    REPO = f"{username}/persian-llm-reference"
+    print(f"Using dataset repo: {REPO}", file=sys.stderr)
 
 print(f"Publishing dataset {REPO} @ v{VERSION}…")
 api.create_repo(REPO, repo_type="dataset", exist_ok=True)

@@ -71,6 +71,7 @@ jobs:
     env:
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
       HUGGING_FACE_HUB_TOKEN: ${{ secrets.HF_TOKEN }}
+      PLR_HF_DATASET: Noetfield/persian-llm-reference
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

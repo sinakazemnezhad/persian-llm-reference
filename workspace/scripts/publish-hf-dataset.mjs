@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const REF = JSON.parse(fs.readFileSync(path.join(ROOT, "REFERENCE.json"), "utf8"));
 const DATASET_DIR = path.join(ROOT, "huggingface/dataset");
-const REPO = process.env.PLR_HF_DATASET || "sinakazemnezhad/persian-llm-reference";
+const REPO = process.env.PLR_HF_DATASET || REF.hfDataset || "Noetfield/persian-llm-reference";
 const VERSION = process.env.PLR_RELEASE || REF.version;
 
 if (!process.env.HF_TOKEN) {

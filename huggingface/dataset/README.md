@@ -31,7 +31,7 @@ Bilingual, receipt-gated registry of Persian (Farsi) language models, datasets, 
 | **Human interface** | [PLR Atlas](https://sinakazemnezhad.github.io/persian-llm-reference/) |
 | **GitHub SSOT** | [manifest on `main`](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/data/reference-manifest.json) |
 | **Versioned release** | [GitHub Releases](https://github.com/sinakazemnezhad/persian-llm-reference/releases) |
-| **Zenodo DOI** | *(pending — see [CITATION.cff](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/CITATION.cff))* |
+| **HF Dataset (mirror)** | [Noetfield/persian-llm-reference](https://huggingface.co/datasets/Noetfield/persian-llm-reference) |
 
 ## Files in this dataset
 
