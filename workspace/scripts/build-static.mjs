@@ -11,6 +11,28 @@ const RADAR_SRC = path.join(ROOT, "data/source-radar.json");
 const PUBLIC = path.resolve(__dirname, "../public");
 const REF = JSON.parse(fs.readFileSync(path.join(ROOT, "REFERENCE.json"), "utf8"));
 
+const DEPLOY_TARGET = process.env.PLR_DEPLOY_TARGET || "github-pages";
+const canonicalSite = (
+  DEPLOY_TARGET === "cloudflare"
+    ? process.env.PLR_CANONICAL_SITE || REF.cloudflarePagesSite
+    : REF.canonicalSite
+).replace(/\/$/, "");
+const basePath = (
+  DEPLOY_TARGET === "cloudflare"
+    ? process.env.PLR_BASE_PATH ?? ""
+    : REF.githubPagesBase || ""
+).replace(/\/$/, "");
+
+function siteUrl(suffix = "/") {
+  const tail = suffix.startsWith("/") ? suffix : `/${suffix}`;
+  return `${canonicalSite}${tail === "//" ? "/" : tail}`;
+}
+
+function publicPath(suffix) {
+  const tail = suffix.startsWith("/") ? suffix : `/${suffix}`;
+  return basePath ? `${basePath}${tail}` : tail;
+}
+
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_SRC, "utf8"));
 manifest.generatedAt = new Date().toISOString();
 manifest.version = REF.version;
@@ -33,6 +55,7 @@ manifest.stats = {
 
 const publicManifest = structuredClone(manifest);
 delete publicManifest.agentAttribution;
+if (publicManifest.meta) publicManifest.meta.canonicalSite = canonicalSite;
 
 fs.mkdirSync(path.join(PUBLIC, "data"), { recursive: true });
 fs.mkdirSync(path.join(PUBLIC, ".well-known"), { recursive: true });
@@ -71,12 +94,13 @@ if (fs.existsSync(RADAR_SRC)) {
 
 const siteConfig = {
   version: REF.version,
-  canonicalSite: REF.canonicalSite,
+  canonicalSite,
   canonicalRepo: REF.canonicalRepo,
-  manifestPath: "/persian-llm-reference/data/reference-manifest.json",
+  manifestPath: publicPath("/data/reference-manifest.json"),
   manifestRaw: REF.manifestRaw,
-  apiV1Path: "/persian-llm-reference/api/v1/reference.json",
-  basePath: REF.githubPagesBase || "",
+  apiV1Path: publicPath("/api/v1/reference.json"),
+  basePath,
+  deployTarget: DEPLOY_TARGET,
   name: REF.name,
 };
 
@@ -89,13 +113,13 @@ const wellKnown = {
   mission: manifest.mission,
   entryCount: manifest.entries.length,
   stats: manifest.stats,
-  manifest: `${REF.canonicalSite}/data/reference-manifest.json`,
+  manifest: siteUrl("/data/reference-manifest.json"),
   manifestRaw: REF.manifestRaw,
-  apiV1: `${REF.canonicalSite}/api/v1/reference.json`,
+  apiV1: siteUrl("/api/v1/reference.json"),
   hfDataset: REF.hfDatasetUrl,
-  sitemap: `${REF.canonicalSite}/sitemap.xml`,
-  sourceRadar: `${REF.canonicalSite}/data/source-radar.json`,
-  about: `${REF.canonicalSite}/about/`,
+  sitemap: siteUrl("/sitemap.xml"),
+  sourceRadar: siteUrl("/data/source-radar.json"),
+  about: siteUrl("/about/"),
   contact: REF.contactIssues || `${REF.canonicalRepo}/issues`,
   repo: REF.canonicalRepo,
 };
@@ -136,7 +160,7 @@ function isoDate(value) {
 function homeSchemaJson() {
   const measured = manifest.entries.filter((e) => e.status === "measured").length;
   const maintainer = REF.maintainer || "Persian LLM Reference maintainers";
-  const aboutUrl = `${REF.canonicalSite}/about/`;
+  const aboutUrl = siteUrl("/about/");
   const licenseUrl = "https://creativecommons.org/licenses/by/4.0/";
   return {
     "@context": "https://schema.org",
@@ -144,7 +168,7 @@ function homeSchemaJson() {
     name: "Persian LLM Reference",
     alternateName: REF.name?.fa || "مرجع مدل‌های زبانی فارسی",
     description: REF.mission?.en,
-    url: `${REF.canonicalSite}/`,
+    url: siteUrl("/"),
     version: REF.version,
     dateModified: manifest.generatedAt,
     keywords: ["Persian LLM", "Farsi", "language model", "benchmark", "registry"],
@@ -161,7 +185,7 @@ function homeSchemaJson() {
       {
         "@type": "DataDownload",
         encodingFormat: "application/json",
-        contentUrl: `${REF.canonicalSite}/api/v1/reference.json`,
+        contentUrl: siteUrl("/api/v1/reference.json"),
       },
       { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: REF.manifestRaw },
     ],
@@ -173,10 +197,10 @@ function writeSitemapAndRobots() {
   const lastmod = isoDate(manifest.generatedAt);
   const lastmodIso = new Date(manifest.generatedAt || Date.now()).toISOString();
   const urls = [
-    { loc: `${REF.canonicalSite}/`, priority: "1.0", changefreq: "weekly" },
-    { loc: `${REF.canonicalSite}/about/`, priority: "0.6", changefreq: "monthly" },
+    { loc: siteUrl("/"), priority: "1.0", changefreq: "weekly" },
+    { loc: siteUrl("/about/"), priority: "0.6", changefreq: "monthly" },
     ...manifest.entries.map((e) => ({
-      loc: `${REF.canonicalSite}/entry/${e.id}/`,
+      loc: siteUrl(`/entry/${e.id}/`),
       priority: e.status === "measured" ? "0.8" : "0.7",
       changefreq: "monthly",
     })),
@@ -203,14 +227,32 @@ function writeSitemapAndRobots() {
   fs.writeFileSync(path.join(PUBLIC, ".nojekyll"), "\n", "utf8");
   fs.writeFileSync(
     path.join(PUBLIC, "robots.txt"),
-    `User-agent: Googlebot\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${REF.canonicalSite}/sitemap.xml\nSitemap: ${REF.canonicalSite}/sitemap.txt\nSitemap: ${REF.canonicalSite}/sitemap/atlas.xml\n`,
+    `User-agent: Googlebot\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${siteUrl("/sitemap.xml")}\nSitemap: ${siteUrl("/sitemap.txt")}\nSitemap: ${siteUrl("/sitemap/atlas.xml")}\n`,
     "utf8"
   );
 }
 
+function rewriteSiteUrls(html) {
+  const site = canonicalSite;
+  const candidates = new Set(
+    [REF.canonicalSite, REF.cloudflarePagesSite, site]
+      .filter(Boolean)
+      .map((value) => value.replace(/\/$/, ""))
+  );
+  let out = html;
+  for (const candidate of candidates) {
+    if (candidate !== site) out = out.split(candidate).join(site);
+  }
+  return out;
+}
+
 function patchHomeSeo(html) {
   const schema = JSON.stringify(homeSchemaJson()).replace(/</g, "\\u003c");
-  return html
+  const home = siteUrl("/");
+  return rewriteSiteUrls(html)
+    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${home}" />`)
+    .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${home}" />`)
+    .replace(/<link rel="sitemap"[^>]+>/, `<link rel="sitemap" type="application/xml" title="Sitemap" href="${publicPath("/sitemap.xml")}" />`)
     .replace(/<script type="application\/ld\+json" id="schema-dataset">[\s\S]*?<\/script>/, `<script type="application/ld+json" id="schema-dataset">${schema}</script>`)
     .replace(/tokens\.css\?v=[^"]+/, `tokens.css?v=${REF.version}`)
     .replace(/app\.css\?v=[^"]+/, `app.css?v=${REF.version}`)
@@ -222,7 +264,7 @@ function entryIndexHtml(entry, indexTemplate) {
   const depth = "../../";
   const title = `${entry.name.en} · Persian LLM Reference`;
   const description = entry.summary?.en || entry.name.en;
-  const canonical = `${REF.canonicalSite}/entry/${entry.id}/`;
+  const canonical = siteUrl(`/entry/${entry.id}/`);
   const keywords = [entry.kind, entry.class, entry.status, "Persian LLM", "Farsi", entry.org].filter(Boolean).join(", ");
   const entrySchema = {
     "@context": "https://schema.org",
@@ -232,10 +274,10 @@ function entryIndexHtml(entry, indexTemplate) {
     description,
     url: canonical,
     inLanguage: ["en", "fa"],
-    isPartOf: { "@type": "Dataset", name: "Persian LLM Reference", url: `${REF.canonicalSite}/` },
+    isPartOf: { "@type": "Dataset", name: "Persian LLM Reference", url: siteUrl("/") },
     author: { "@type": "Organization", name: entry.org || "Persian LLM Reference" },
   };
-  let html = indexTemplate
+  let html = rewriteSiteUrls(indexTemplate)
     .replace(/href="favicon\.svg"/, `href="${depth}favicon.svg"`)
     .replace(/href="\.\/"/, `href="${depth}"`)
     .replace(/href="tokens\.css[^"]*"/, `href="${depth}tokens.css?v=${REF.version}"`)
@@ -293,4 +335,4 @@ const pyDataDir = path.join(ROOT, "src/persian_llm_reference/data");
 fs.mkdirSync(pyDataDir, { recursive: true });
 fs.copyFileSync(MANIFEST_SRC, path.join(pyDataDir, "reference-manifest.json"));
 
-console.log(`build — v${REF.version} · ${manifest.entries.length} entries · ${manifest.entries.length} entry pages · static public/ ready`);
+console.log(`build — v${REF.version} · ${manifest.entries.length} entries · target=${DEPLOY_TARGET} · site=${canonicalSite}`);

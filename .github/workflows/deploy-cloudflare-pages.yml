@@ -1,0 +1,50 @@
+name: deploy-cloudflare-pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "workspace/**"
+      - "REFERENCE.json"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy-cloudflare-pages.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build static site (Cloudflare root)
+        working-directory: workspace
+        env:
+          PLR_DEPLOY_TARGET: cloudflare
+          PLR_CANONICAL_SITE: https://persian-llm-reference.pages.dev
+          PLR_BASE_PATH: ""
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=persian-llm-reference --commit-dirty=true
+          workingDirectory: workspace
+
+      - name: Smoke sitemap on Cloudflare Pages
+        run: |
+          curl -fsS "https://persian-llm-reference.pages.dev/sitemap.xml" | head -5
+          curl -fsS "https://persian-llm-reference.pages.dev/robots.txt"

@@ -7,6 +7,7 @@
   "scripts": {
     "validate": "node scripts/validate-manifest.mjs",
     "build": "node scripts/build-static.mjs",
+    "build:cloudflare": "PLR_DEPLOY_TARGET=cloudflare PLR_CANONICAL_SITE=https://persian-llm-reference.pages.dev PLR_BASE_PATH= npm run build",
     "prebuild": "node scripts/validate-manifest.mjs && node scripts/validate-schema.mjs && node scripts/validate-persian-ui.mjs && node scripts/validate-measured-receipts.mjs && node scripts/validate-gap-coverage.mjs",
     "prestart": "node scripts/build-static.mjs",
     "start": "node src/server.mjs",
