@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sinakazemnezhad.github.io/persian-llm-reference/sitemap.xml

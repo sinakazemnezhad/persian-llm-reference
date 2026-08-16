@@ -81,6 +81,13 @@ async function main() {
     record("api/v1/reference.json static", staticApiV1?.entries?.length >= MIN_ENTRIES);
     const about = await fetchText("/about/");
     record("/about/ page", about.status === 200 && about.text.includes("public evidence"));
+    const robots = await fetchText("/robots.txt");
+    record("robots.txt", robots.status === 200 && robots.text.includes("Sitemap:"));
+    const sitemap = await fetchText("/sitemap.xml");
+    record("sitemap.xml", sitemap.status === 200 && sitemap.text.includes("<urlset") && (sitemap.text.match(/<url>/g) || []).length >= MIN_ENTRIES);
+    const homeCanon = await fetchText("/");
+    record("home canonical link", homeCanon.text.includes('rel="canonical"'));
+    record("home JSON-LD Dataset", homeCanon.text.includes('"@type":"Dataset"') || homeCanon.text.includes('"@type": "Dataset"'));
   } catch (e) {
     console.error("RED  E2E crash:", e.message);
     process.exit(1);
