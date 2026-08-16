@@ -21,22 +21,25 @@ size_categories:
 
 Bilingual, receipt-gated registry of Persian (Farsi) language models, datasets, benchmarks, and leaderboards.
 
-**This dataset mirrors the canonical manifest.** It is not a second data source.
+**This Hub dataset mirrors a release snapshot. It is not a competing source of truth.**
 
-| Surface | URL |
-|---------|-----|
-| Browse (FA/EN) | https://sinakazemnezhad.github.io/persian-llm-reference/ |
-| API v1 | https://sinakazemnezhad.github.io/persian-llm-reference/api/v1/reference.json |
-| Raw manifest | https://raw.githubusercontent.com/sinakazemnezhad/persian-llm-reference/main/data/reference-manifest.json |
-| GitHub | https://github.com/sinakazemnezhad/persian-llm-reference |
+## Canonical surfaces (use these)
 
-## Files
+| Role | Surface |
+|------|---------|
+| **Canonical reference (machine)** | [API v1 `/api/v1/reference.json`](https://sinakazemnezhad.github.io/persian-llm-reference/api/v1/reference.json) |
+| **Human interface** | [PLR Atlas](https://sinakazemnezhad.github.io/persian-llm-reference/) |
+| **GitHub SSOT** | [manifest on `main`](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/data/reference-manifest.json) |
+| **Versioned release** | [GitHub Releases](https://github.com/sinakazemnezhad/persian-llm-reference/releases) |
+| **Zenodo DOI** | *(pending — see [CITATION.cff](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/CITATION.cff))* |
 
-- `reference-manifest.json` — full manifest at release time (see `version` and `generatedAt` inside).
+## Files in this dataset
+
+- `reference-manifest.json` — manifest at upload time. Check `version` and `generatedAt` inside.
 
 ## Cite
 
-Use [CITATION.cff](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/CITATION.cff) and pin the manifest `version` + `generatedAt`.
+[CITATION.cff](https://github.com/sinakazemnezhad/persian-llm-reference/blob/main/CITATION.cff) · pin `version` + `generatedAt`.
 
 ```text
 Claims map to public evidence. Unsupported claims remain explicitly unverified.

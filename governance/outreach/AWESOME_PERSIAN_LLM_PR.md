@@ -2,7 +2,7 @@
 
 **Target repo:** [MohammadHeydari/Awesome-Persian-LLM](https://github.com/MohammadHeydari/Awesome-Persian-LLM)  
 **Drafted:** 2026-08-13 · **Author:** Persian LLM Reference maintainers  
-**Status:** PR open — [MohammadHeydari/Awesome-Persian-LLM#2](https://github.com/MohammadHeydari/Awesome-Persian-LLM/pull/2) — **no maintainer confirmation yet.** Do not use personal names on PyPI/README until merge or explicit ack.
+**Status:** PR open — [MohammadHeydari/Awesome-Persian-LLM#2](https://github.com/MohammadHeydari/Awesome-Persian-LLM/pull/2) — **no maintainer confirmation yet.** One follow-up comment posted 2026-08-16 (v0.13.1 live). Do not spam. See [DISTRIBUTION_STATUS.md](./DISTRIBUTION_STATUS.md).
 
 ---
 
