@@ -28,8 +28,8 @@ if (manifest.version !== VERSION) {
 }
 
 console.log(`Publishing HF dataset ${REPO} @ v${VERSION}…`);
-execSync(
-  `hf upload ${REPO} ${DATASET_DIR}/ --repo-type dataset --commit-message "PLR manifest v${VERSION}"`,
-  { stdio: "inherit", env: { ...process.env, HF_TOKEN: process.env.HF_TOKEN } }
-);
-console.log(`PASS  https://huggingface.co/datasets/${REPO}`);
+execSync(`python3 scripts/publish-hf-dataset.py`, {
+  cwd: path.join(ROOT, "workspace"),
+  stdio: "inherit",
+  env: { ...process.env, HF_TOKEN: process.env.HF_TOKEN, PLR_RELEASE: VERSION, PLR_HF_DATASET: REPO },
+});
