@@ -135,6 +135,9 @@ function isoDate(value) {
 
 function homeSchemaJson() {
   const measured = manifest.entries.filter((e) => e.status === "measured").length;
+  const maintainer = REF.maintainer || "Persian LLM Reference maintainers";
+  const aboutUrl = `${REF.canonicalSite}/about/`;
+  const licenseUrl = "https://creativecommons.org/licenses/by/4.0/";
   return {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -146,8 +149,13 @@ function homeSchemaJson() {
     dateModified: manifest.generatedAt,
     keywords: ["Persian LLM", "Farsi", "language model", "benchmark", "registry"],
     inLanguage: ["fa", "en"],
-    license: "https://creativecommons.org/licenses/by/4.0/",
-    creator: { "@type": "Organization", name: REF.maintainer || "Persian LLM Reference maintainers" },
+    license: {
+      "@type": "CreativeWork",
+      name: "Creative Commons Attribution 4.0 International",
+      url: licenseUrl,
+    },
+    creator: { "@type": "Organization", name: maintainer, url: aboutUrl },
+    publisher: { "@type": "Organization", name: maintainer, url: aboutUrl },
     variableMeasured: `${manifest.entries.length} tracked · ${measured} measured`,
     distribution: [
       {
