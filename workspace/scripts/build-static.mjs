@@ -93,6 +93,8 @@ const wellKnown = {
   manifestRaw: REF.manifestRaw,
   apiV1: `${REF.canonicalSite}/api/v1/reference.json`,
   sourceRadar: `${REF.canonicalSite}/data/source-radar.json`,
+  about: `${REF.canonicalSite}/about/`,
+  contact: REF.contactIssues || `${REF.canonicalRepo}/issues`,
   repo: REF.canonicalRepo,
 };
 
@@ -160,6 +162,11 @@ for (const entry of manifest.entries) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), entryIndexHtml(entry, indexTemplate), "utf8");
 }
+
+// Hugging Face dataset mirror (canonical manifest copy)
+const hfDatasetDir = path.join(ROOT, "huggingface/dataset");
+fs.mkdirSync(hfDatasetDir, { recursive: true });
+fs.copyFileSync(MANIFEST_SRC, path.join(hfDatasetDir, "reference-manifest.json"));
 
 // Python PyPI bundle
 const pyDataDir = path.join(ROOT, "src/persian_llm_reference/data");

@@ -79,6 +79,8 @@ async function main() {
     record("data/reference-manifest.json", staticManifest?.entries?.length >= MIN_ENTRIES);
     const staticApiV1 = await fetch(`${BASE}/api/v1/reference.json`).then((r) => r.json()).catch(() => null);
     record("api/v1/reference.json static", staticApiV1?.entries?.length >= MIN_ENTRIES);
+    const about = await fetchText("/about/");
+    record("/about/ page", about.status === 200 && about.text.includes("public evidence"));
   } catch (e) {
     console.error("RED  E2E crash:", e.message);
     process.exit(1);

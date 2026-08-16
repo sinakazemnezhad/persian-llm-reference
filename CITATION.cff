@@ -6,7 +6,7 @@ authors:
 repository-code: https://github.com/sinakazemnezhad/persian-llm-reference
 url: https://sinakazemnezhad.github.io/persian-llm-reference/
 license: CC-BY-4.0
-version: 0.13.0
+version: 0.13.1
 date-released: 2026-08-16
 abstract: >-
   A structured, receipt-gated open registry for Persian (Farsi) language models.
@@ -19,6 +19,6 @@ preferred-citation:
   type: software
   title: Persian LLM Reference — Open Atlas
   year: 2026
-  version: 0.13.0
+  version: 0.13.1
   url: https://sinakazemnezhad.github.io/persian-llm-reference/
   notes: "Manifest JSON at raw.githubusercontent.com — check version and generatedAt"

@@ -9,7 +9,7 @@
     "en": "Persian LLM Reference — Open Atlas",
     "fa": "مرجع مدل‌های زبانی فارسی"
   },
-  "version": "0.13.0",
+  "version": "0.13.1",
   "mission": {
     "en": "A structured, receipt-gated open registry for Persian (Farsi) language models — alongside discovery lists and leaderboards, with sourced records and honest nulls.",
     "fa": "مرجع باز و قابل‌استناد برای مدل‌های زبانی فارسی. در کنار فهرست‌های کشف و جدول‌های امتیاز، با رکوردهای منبع‌دار و جای خالی صادقانه."
@@ -21,5 +21,7 @@
   "githubPagesBase": "/persian-llm-reference",
   "license": "CC-BY-4.0",
   "scope": "global-community",
-  "maintainer": "Persian LLM Reference maintainers"
+  "maintainer": "Persian LLM Reference maintainers",
+  "contactIssues": "https://github.com/sinakazemnezhad/persian-llm-reference/issues",
+  "aboutPath": "/persian-llm-reference/about/"
 }

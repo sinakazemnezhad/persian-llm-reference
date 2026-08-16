@@ -1,6 +1,11 @@
 <!-- dis-brand-agent: repo=PLUS ONE product=DIS BRAND tag=DIS-PLUSONE-PERSIAN-LLM-REFERENCE-GOVERNANCE-CHANGELOG-MD name="DIS BRAND Governed Agent" action=edit at=2026-08-12T22:03:10.463Z file=persian-llm-reference/governance/CHANGELOG.md -->
 # Changelog
 
+## 0.13.1 — 2026-08-16
+
+- **FIX** Table 3 receipt conditions for `gemini-20-flash-class` and `gemma-3-27b-it-class` (summary ↔ conditions aligned).
+- **PROGRESS** Distribution: `/about/` contact surface, `.zenodo.json` for release DOI, Hugging Face dataset mirror, GitHub Release + PyPI alignment.
+
 ## 0.13.0 — 2026-08-16
 
 - **PROGRESS** Evidence + citation release: normalized measured receipts (benchmark, metric, value, source, conditions, asOf) on all 25 measured rows; +5 PersianMedQA Table 4 entries with paper receipts; `CITATION.cff` + README cite block; stable `/api/v1/reference.json` (manifest alias); CI guards for measured receipts and gap coverage; Playwright in e2e workflow.

@@ -1,0 +1,33 @@
+{
+  "title": "Persian LLM Reference — Open Atlas (reference manifest snapshot)",
+  "upload_type": "dataset",
+  "description": "Versioned snapshot of the Persian LLM Reference manifest: bilingual registry of Persian (Farsi) language models, datasets, benchmarks, and leaderboards with receipt-gated measured rows. Neutral evidence layer — claims map to public sources; unsupported claims remain unverified.",
+  "creators": [
+    {
+      "name": "Persian LLM Reference maintainers",
+      "affiliation": "Persian LLM Reference"
+    }
+  ],
+  "keywords": [
+    "Persian",
+    "Farsi",
+    "language model",
+    "NLP",
+    "benchmark",
+    "registry"
+  ],
+  "license": "CC-BY-4.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sinakazemnezhad/persian-llm-reference",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://sinakazemnezhad.github.io/persian-llm-reference/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ],
+  "version": "0.13.1"
+}

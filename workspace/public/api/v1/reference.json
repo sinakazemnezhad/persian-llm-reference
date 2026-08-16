@@ -1,6 +1,6 @@
 {
-  "version": "0.13.0",
-  "generatedAt": "2026-08-16T07:06:25.230Z",
+  "version": "0.13.1",
+  "generatedAt": "2026-08-16T07:40:40.611Z",
   "schema": "PERSIAN-LLM-REFERENCE/v1",
   "meta": {
     "scope": "global",
@@ -3124,7 +3124,8 @@
         "fa": "ردهٔ فلش مرزی گوگل — ۷۶٫۸۶٪ دقت فارسی در PersianMedQA."
       },
       "links": {
-        "web": "https://deepmind.google/technologies/gemini/"
+        "web": "https://deepmind.google/technologies/gemini/",
+        "paper": "https://arxiv.org/abs/2506.00250"
       },
       "origin": {
         "base": "proprietary",
@@ -3151,7 +3152,7 @@
           "value": "76.86",
           "unit": "percent",
           "language": "fa",
-          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "conditions": "selective-answering baseline, Persian split (Fa), Table 3, arxiv:2506.00250",
           "source": "https://arxiv.org/abs/2506.00250",
           "publication": "https://arxiv.org/abs/2506.00250"
         }
@@ -3278,7 +3279,7 @@
           "value": "59.06",
           "unit": "percent",
           "language": "fa",
-          "conditions": "zero-shot MCQ, Persian split (Fa), Table 4, arxiv:2506.00250",
+          "conditions": "selective-answering, Persian split (Fa), Table 3, arxiv:2506.00250",
           "source": "https://arxiv.org/abs/2506.00250",
           "publication": "https://arxiv.org/abs/2506.00250"
         }
