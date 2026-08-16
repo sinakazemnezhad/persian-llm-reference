@@ -85,6 +85,10 @@ async function main() {
     record("robots.txt", robots.status === 200 && robots.text.includes("Sitemap:"));
     const sitemap = await fetchText("/sitemap.xml");
     record("sitemap.xml", sitemap.status === 200 && sitemap.text.includes("<urlset") && (sitemap.text.match(/<url>/g) || []).length >= MIN_ENTRIES);
+    const sitemapTxt = await fetchText("/sitemap.txt");
+    record("sitemap.txt", sitemapTxt.status === 200 && sitemapTxt.text.split("\n").filter((l) => l.startsWith("http")).length >= MIN_ENTRIES);
+    const sitemapAlt = await fetchText("/sitemap/atlas.xml");
+    record("sitemap/atlas.xml", sitemapAlt.status === 200 && sitemapAlt.text.includes("<urlset"));
     const homeCanon = await fetchText("/");
     record("home canonical link", homeCanon.text.includes('rel="canonical"'));
     record("home JSON-LD Dataset", homeCanon.text.includes('"@type":"Dataset"') || homeCanon.text.includes('"@type": "Dataset"'));

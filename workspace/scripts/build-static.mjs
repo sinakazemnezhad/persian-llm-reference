@@ -171,6 +171,7 @@ function homeSchemaJson() {
 
 function writeSitemapAndRobots() {
   const lastmod = isoDate(manifest.generatedAt);
+  const lastmodIso = new Date(manifest.generatedAt || Date.now()).toISOString();
   const urls = [
     { loc: `${REF.canonicalSite}/`, priority: "1.0", changefreq: "weekly" },
     { loc: `${REF.canonicalSite}/about/`, priority: "0.6", changefreq: "monthly" },
@@ -186,14 +187,23 @@ function writeSitemapAndRobots() {
     urls
       .map(
         (u) =>
-          `  <url><loc>${u.loc}</loc><lastmod>${lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`
+          `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${lastmodIso}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
       )
       .join("\n") +
     `\n</urlset>\n`;
+  const sitemapTxt = `${urls.map((u) => u.loc).join("\n")}\n`;
+
   fs.writeFileSync(path.join(PUBLIC, "sitemap.xml"), sitemap, "utf8");
+  fs.writeFileSync(path.join(PUBLIC, "sitemap.txt"), sitemapTxt, "utf8");
+
+  const sitemapDir = path.join(PUBLIC, "sitemap");
+  fs.mkdirSync(sitemapDir, { recursive: true });
+  fs.writeFileSync(path.join(sitemapDir, "atlas.xml"), sitemap, "utf8");
+
+  fs.writeFileSync(path.join(PUBLIC, ".nojekyll"), "\n", "utf8");
   fs.writeFileSync(
     path.join(PUBLIC, "robots.txt"),
-    `User-agent: *\nAllow: /\n\nSitemap: ${REF.canonicalSite}/sitemap.xml\n`,
+    `User-agent: Googlebot\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${REF.canonicalSite}/sitemap.xml\nSitemap: ${REF.canonicalSite}/sitemap.txt\nSitemap: ${REF.canonicalSite}/sitemap/atlas.xml\n`,
     "utf8"
   );
 }

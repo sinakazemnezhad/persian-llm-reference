@@ -1,4 +1,9 @@
+User-agent: Googlebot
+Allow: /
+
 User-agent: *
 Allow: /
 
 Sitemap: https://sinakazemnezhad.github.io/persian-llm-reference/sitemap.xml
+Sitemap: https://sinakazemnezhad.github.io/persian-llm-reference/sitemap.txt
+Sitemap: https://sinakazemnezhad.github.io/persian-llm-reference/sitemap/atlas.xml
